@@ -1,0 +1,56 @@
+@font-face {
+font-family: 'Aller';
+src: url("../fonts/Aller_Rg.ttf")
+}
+@font-face {
+font-family: 'Aller Bold';
+src: url("../fonts/Aller_Bd.ttf")
+}
+
+header, footer {
+font-family: 'Aller';
+color: #464646;
+margin: 0 auto;
+width: 700px;
+}
+
+header {
+  margin-top: 130px;
+}
+header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Aller Bold';
+  text-align: center;
+}
+header h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #CCC;
+}
+header h2 a, header h2 a:active, header h2 a:visited {
+  color: #CCC;
+  text-decoration: none;
+}
+header h2 a:hover {
+  color: #464646;
+}
+footer {
+  color: #999;
+  position: fixed;
+  bottom: 0;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+footer a, footer a:active, footer a:visited {
+  color: #999;
+  font-family: 'Aller Bold';s
+  font-weight: bold;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #464646;
+}
