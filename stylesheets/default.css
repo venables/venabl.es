@@ -23,18 +23,23 @@ header h1 {
   font-family: 'Aller Bold';
   text-align: center;
 }
-header h2 {
-  font-size: 22px;
+header h2, h3 {
   font-weight: normal;
   margin-bottom: 10px;
   text-align: center;
   color: #CCC;
 }
-header h2 a, header h2 a:active, header h2 a:visited {
+header h2 {
+  font-size: 22px;
+}
+header h3 {
+  font-size: 18px;
+}
+header h2 a, header h3 a, header h2 a:active, header h3 a:active, header h2 a:visited, header h3 a:visited {
   color: #CCC;
   text-decoration: none;
 }
-header h2 a:hover {
+header h2 a:hover, header h3 a:hover {
   color: #464646;
 }
 footer {
