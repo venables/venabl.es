@@ -10,10 +10,9 @@
 ::selection{background:#9100c1;}
 
 header, footer {
-font-family: 'Aller';
-color: #464646;
-margin: 0 auto;
-width: 700px;
+  font-family: 'Aller';
+  color: #464646;
+  margin: 0 auto;
 }
 
 header {
