@@ -33,7 +33,7 @@ _gaq.push(['_trackPageview']);
 <section id="main"></section>
 <footer>
   <div class="bitcoin">
-    Send me Bitcoin at<br/><code>18QAy3CNQtCF7GKMsHcEMjtNCNX46jw6oS</code>
+    Send me Bitcoin at<br/><input type="text" id="bitcoin-address" class="code" value="18QAy3CNQtCF7GKMsHcEMjtNCNX46jw6oS" readonly="readonly"></input>
   </div>
   <div class="social">
     Find me on <a href="http://www.linkedin.com/in/mattvenables">LinkedIn</a>,
@@ -53,6 +53,11 @@ _gaq.push(['_trackPageview']);
   <![endif]-->
 
 <script type="text/javascript">
+  var btcAddress = document.getElementById('bitcoin-address');
+  btcAddress.focus();
+  btcAddress.select();
+</script>
+<script type="text/javascript">
 var clicky_site_ids = clicky_site_ids || [];
 clicky_site_ids.push(66455535);
 (function() {
@@ -64,7 +69,6 @@ clicky_site_ids.push(66455535);
 })();
 </script>
 <noscript><p><img width="1" height="1" src="//in.getclicky.com/66455535ns.gif" /></p></noscript>
-
 </body>
 </html>
 </body>

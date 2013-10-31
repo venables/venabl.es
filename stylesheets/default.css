@@ -7,7 +7,7 @@
   src: url("../fonts/Aller_Bd.ttf")
 }
 
-::selection{background:#9100c1;}
+::selection, textfield:focus::selection{background:#9100c1;}
 
 header, footer {
   font-family: 'Aller';
@@ -69,3 +69,10 @@ footer .bitcoin {
   font-size: 0.9em;
   padding-bottom: 10px;
 }
+input.code {
+  border: none;
+  width: 300px;
+  text-align: center;
+  font-family: monospace,sans-serif;
+}
+
