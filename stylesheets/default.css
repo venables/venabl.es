@@ -1,11 +1,13 @@
 @font-face {
-font-family: 'Aller';
-src: url("../fonts/Aller_Rg.ttf")
+  font-family: 'Aller';
+  src: url("../fonts/Aller_Rg.ttf")
 }
 @font-face {
-font-family: 'Aller Bold';
-src: url("../fonts/Aller_Bd.ttf")
+  font-family: 'Aller Bold';
+  src: url("../fonts/Aller_Bd.ttf")
 }
+
+::selection{background:#9100c1;}
 
 header, footer {
 font-family: 'Aller';
