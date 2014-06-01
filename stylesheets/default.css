@@ -69,10 +69,12 @@ footer .bitcoin {
   font-size: 0.9em;
   padding-bottom: 10px;
 }
-input.code {
-  border: none;
-  width: 300px;
-  text-align: center;
-  font-family: monospace,sans-serif;
+footer .bitcoin img {
+  width: 200px;
+  height: 200px;
 }
-
+@media (max-height: 480px) {
+  footer .bitcoin img {
+    display: none;
+  }
+}
