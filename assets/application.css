@@ -1,0 +1,102 @@
+body {
+  border-top: solid 10px #CF4647;
+}
+
+body, p, li, h1, h2, h3, h4, h5 {
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, p, li {
+  font-family: "Open Sans", "Helvetica", sans-serif;
+  font-size: 16px;
+  color: #474747;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Roboto Slab", "Georgia", serif;
+  color: #474747;
+}
+
+a, a:hover, a:visited, a:active {
+  color: #2582D2;
+}
+
+.lead {
+  margin: 40px 0;
+}
+
+.container {
+  max-width: 970px;
+}
+
+.border {
+  border-top: 2px solid #A92B32;
+  display: block;
+  height: 2px;
+}
+
+.profile-container {
+  padding-top: 55px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.profile-container p {
+  padding-top: 15px;
+}
+
+.profile-container h1,
+.profile-container h2 {
+  font-weight: lighter;
+  font-family: "Open Sans", sans-serif;
+}
+
+.profile-container h2 {
+  font-size: 22px;
+}
+
+.profile-container img.profile {
+  width: 200px;
+  border-radius: 50% 50%;
+  border: solid 5px #A7C5BD;
+}
+
+.profile-container-home:hover {
+  text-decoration: none;
+}
+
+
+.profile-container .one-liner {
+  font-size: 18px;
+}
+
+.profile-container h2 a,
+.profile-container .one-liner a {
+  color: #474747;
+}
+
+.profile-container h2 a:hover,
+.profile-container .one-liner a:hover {
+  color: #474747;
+}
+
+@media (max-width: 767px) {
+  .profile-container .social span {
+    display: block;
+  }
+}
+
+.profile-container .bitcoin {
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}
+
+.profile-container .bitcoin a img {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-container .bitcoin span {
+  font-size: 0.8em;
+}
