@@ -86,17 +86,3 @@ a, a:hover, a:visited, a:active {
     display: block;
   }
 }
-
-.profile-container .bitcoin {
-  border-top: 1px solid #eee;
-  margin-top: 20px;
-}
-
-.profile-container .bitcoin a img {
-  width: 200px;
-  height: 200px;
-}
-
-.profile-container .bitcoin span {
-  font-size: 0.8em;
-}
