@@ -62,11 +62,6 @@ a, a:hover, a:visited, a:active {
   border: solid 5px #A7C5BD;
 }
 
-.profile-container-home:hover {
-  text-decoration: none;
-}
-
-
 .profile-container .one-liner {
   font-size: 18px;
 }
