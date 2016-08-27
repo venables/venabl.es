@@ -53,14 +53,10 @@ let html = funnel('src', {
   exclude: ['stylesheets/**/*', 'javascript/**/*', 'images/**/*']
 });
 
-let config = funnel('.', {
-  files: ['CNAME', 'README.md']
-});
-
 /*
  * Asset Digest
  */
-let assets = mergeTrees([js, css, images, html, config], { overwrite: true });
+let assets = mergeTrees([js, css, images, html], { overwrite: true });
 
 assets = assetRev(assets, {
   extensions: ['js', 'css', 'png', 'jpg', 'gif', 'svg'],
