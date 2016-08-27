@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "build": "gulp assets:build",
+    "deploy": "git subtree push --prefix dist origin master --onto origin/master",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/venables/venables.github.io.git"
@@ -10,7 +15,19 @@
   "author": "Matt Venables",
   "license": "MIT",
   "devDependencies": {
-    "koa": "^2.0.0-alpha.5",
+    "broccoli": "^0.16.7",
+    "broccoli-asset-rev": "^2.1.2",
+    "broccoli-autoprefixer": "^4.1.0",
+    "broccoli-fast-browserify": "^0.2.10",
+    "broccoli-funnel": "^1.0.1",
+    "broccoli-merge-trees": "^1.0.0",
+    "broccoli-sane-watcher": "^1.1.4",
+    "broccoli-sass": "^0.7.0",
+    "broccoli-uglify-js": "^0.2.0",
+    "copy-dereference": "^1.0.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "koa": "^2.0.0",
     "koa-convert": "^1.2.0",
     "koa-morgan": "^1.0.0",
     "koa-static": "^2.0.0"

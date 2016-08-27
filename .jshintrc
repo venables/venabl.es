@@ -1,0 +1,22 @@
+{
+  "bitwise": true,
+  "eqeqeq": true,
+  "esversion": 6,
+  "globals": {
+    "after"      : false,
+    "afterEach"  : false,
+    "angular"    : true,
+    "before"     : false,
+    "beforeEach" : false,
+    "describe"   : false,
+    "it"         : false
+  },
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "node": true,
+  "noyield": true,
+  "strict": true,
+  "undef": true,
+  "unused": true
+}

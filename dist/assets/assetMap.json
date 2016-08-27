@@ -1,0 +1,24 @@
+{
+  "assets": {
+    "images/icons/android-icon-192x192.png": "images/icons/android-icon-192x192-9ab794cea7da67ed07f8e2932a5eff67.png",
+    "images/icons/apple-icon-114x114.png": "images/icons/apple-icon-114x114-803a7e9725f026db502b9b5671835b3c.png",
+    "images/icons/apple-icon-120x120.png": "images/icons/apple-icon-120x120-46b35a01345ecabd0c4ab7ea91fc444b.png",
+    "images/icons/apple-icon-144x144.png": "images/icons/apple-icon-144x144-800201dcc16f5c4826898133f9cc4ab1.png",
+    "images/icons/apple-icon-152x152.png": "images/icons/apple-icon-152x152-e35558d35672b334a233f6de7dd1dbee.png",
+    "images/icons/apple-icon-180x180.png": "images/icons/apple-icon-180x180-04c0aa4a1a5b08ee380faad694855e1a.png",
+    "images/icons/apple-icon-57x57.png": "images/icons/apple-icon-57x57-a919c5b4fad21903a7613f597c3d844d.png",
+    "images/icons/apple-icon-60x60.png": "images/icons/apple-icon-60x60-77c3ec03909e64a864038dc983747b9a.png",
+    "images/icons/apple-icon-72x72.png": "images/icons/apple-icon-72x72-9a83c749bd21a745c231b3db534dad5e.png",
+    "images/icons/apple-icon-76x76.png": "images/icons/apple-icon-76x76-d0c4ca48bd1584b00a34030aff5b8658.png",
+    "images/icons/apple-icon-precomposed.png": "images/icons/apple-icon-precomposed-4a026d5802a818267d1c5a93c128506a.png",
+    "images/icons/apple-icon.png": "images/icons/apple-icon-4a026d5802a818267d1c5a93c128506a.png",
+    "images/icons/favicon-16x16.png": "images/icons/favicon-16x16-3b971a8ee864d98e6fa1820bd5e3dff4.png",
+    "images/icons/favicon-32x32.png": "images/icons/favicon-32x32-4f0abc590e834c41800b0c8a8b29908c.png",
+    "images/icons/favicon-96x96.png": "images/icons/favicon-96x96-599595387c27ecb6e21d0150883aefe1.png",
+    "images/matt-venables.jpg": "images/matt-venables-f0d936f335b9f04195f4b5df39d72580.jpg",
+    "images/matt-venables@2x.jpg": "images/matt-venables@2x-1fdedf4f12bb8f559c9e245a2394f91f.jpg",
+    "images/matt-venables@3x.jpg": "images/matt-venables@3x-ef0f7146703449d54eadbbf93b87ddf8.jpg",
+    "stylesheets/application.css": "stylesheets/application-f7bcb51004b06f225f2e383d80a5f0b5.css"
+  },
+  "prepend": ""
+}
