@@ -1,3 +1,5 @@
+@import '_normalize';
+
 body {
   border-top: solid 10px #CF4647;
 }
@@ -8,13 +10,12 @@ body, p, li, h1, h2, h3, h4, h5 {
 }
 
 body, p, li {
-  font-family: "Open Sans", "Helvetica", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   color: #474747;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Roboto Slab", "Georgia", serif;
   color: #474747;
 }
 
@@ -48,8 +49,8 @@ a, a:hover, a:visited, a:active {
 
 .profile-container h1,
 .profile-container h2 {
-  font-weight: lighter;
-  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 86px;
 }
 
 .profile-container h2 {
