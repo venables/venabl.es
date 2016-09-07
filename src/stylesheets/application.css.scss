@@ -20,15 +20,20 @@ h1, h2, h3, h4, h5 {
 }
 
 a, a:hover, a:visited, a:active {
-  color: #2582D2;
+  color: #A92B32;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.lead {
-  margin: 40px 0;
+a:hover {
+  color: #CF4647;
 }
 
-.container {
-  max-width: 970px;
+h1 {
+  font-weight: 800;
+  font-size: 86px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .border {
@@ -38,48 +43,50 @@ a, a:hover, a:visited, a:active {
 }
 
 .profile-container {
-  padding-top: 55px;
+  padding-top: 0;
   padding-bottom: 30px;
   text-align: center;
-}
 
-.profile-container p {
-  padding-top: 15px;
-}
+  p {
+    padding-top: 15px;
+  }
 
-.profile-container h1,
-.profile-container h2 {
-  font-weight: 800;
-  font-size: 86px;
-}
+  h2 {
+    font-size: 22px;
+  }
 
-.profile-container h2 {
-  font-size: 22px;
-}
+  img.profile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50% 50%;
+    border: solid 5px #A7C5BD;
+  }
 
-.profile-container img.profile {
-  width: 200px;
-  border-radius: 50% 50%;
-  border: solid 5px #A7C5BD;
-}
-
-.profile-container .one-liner {
-  font-size: 18px;
-}
-
-.profile-container h2 a,
-.profile-container .one-liner a {
-  color: #474747;
-}
-
-.profile-container h2 a:hover,
-.profile-container .one-liner a:hover {
-  color: #474747;
+  .one-liner {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 767px) {
+  h1 {
+    font-size: 58px;
+    line-height: 56px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
   .profile-container {
     padding-top: 20px;
+    padding-bottom: 0;
+
+    p {
+      padding-top: 5px;
+    }
+
+    img.profile {
+      width: 160px;
+      height: 160px;
+    }
   }
 
   .profile-container .social span {
