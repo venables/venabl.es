@@ -6,7 +6,6 @@ body {
 
 body, p, li, h1, h2, h3, h4, h5 {
   text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 body, p, li {
@@ -31,9 +30,10 @@ a:hover {
 
 h1 {
   font-weight: 800;
-  font-size: 56px;
+  font-size: 66px;
   margin-top: 20px;
   margin-bottom: 20px;
+  letter-spacing: -1px;
 }
 
 .border {
