@@ -1,5 +1,6 @@
 {
   "assets": {
+    "assets/assetMap.json": "assets/assetMap.json",
     "images/icons/android-chrome-192x192.png": "images/icons/android-chrome-192x192-e556c2b2441d2779556fee882a21f9b3.png",
     "images/icons/android-chrome-512x512.png": "images/icons/android-chrome-512x512-87cf7ce4befbfb0be139af44a31eb5ee.png",
     "images/icons/apple-touch-icon.png": "images/icons/apple-touch-icon-173cf62f72f949302030c38db6fa52d3.png",
