@@ -6,7 +6,7 @@
   "scripts": {
     "build": "parcel build src/index.html --public-url .",
     "clean": "rimraf .cache dist tmp",
-    "deploy": "git subtree push --prefix dist origin master",
+    "deploy": "git push origin `git subtree split --prefix dist`:master --force",
     "dev": "parcel src/index.html --public-url .",
     "release": "./bin/release",
     "start": "yarn dev"

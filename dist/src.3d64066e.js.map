@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;AACA,aADA,IAAA,EAAA,EAAA,QAAA,gCACA,EAAA,EAAA,QAAA,kCAAA,SAAA,EAAA,GAAA,OAAA,GAAA,EAAA,WAAA,EAAA,CAAA,QAAA","file":"src.3d64066e.js","sourceRoot":"../src","sourcesContent":["import normailze from './stylesheets/normalize.css'\nimport classes from './stylesheets/application.css'\n"]}
