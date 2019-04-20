@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+currentDate=`date`
+
+yarn clean
+yarn build
+git add dist
+git commit -m "Production Release $currentDate"
+yarn deploy

@@ -1,7 +1,6 @@
-@import '_normalize';
-
 body {
   border-top: solid 10px #CF4647;
+  background-color: #f8fafc;
 }
 
 body, p, li, h1, h2, h3, h4, h5 {
@@ -9,7 +8,7 @@ body, p, li, h1, h2, h3, h4, h5 {
 }
 
 body, p, li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: system-ui,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   font-size: 16px;
   color: #474747;
 }
@@ -46,25 +45,29 @@ h1 {
   padding-top: 0;
   padding-bottom: 30px;
   text-align: center;
+}
 
-  p {
-    padding-top: 15px;
-  }
+.profile-container p {
+  padding-top: 15px;
+}
 
-  h2 {
-    font-size: 22px;
-  }
+.profile-container h2 {
+  font-size: 22px;
+}
 
-  img.profile {
-    width: 200px;
-    height: 200px;
-    border-radius: 50% 50%;
-    border: solid 5px #A7C5BD;
-  }
+.profile-container img.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50% 50%;
+  border: solid 5px #EEE;
+}
 
-  .one-liner {
-    font-size: 18px;
-  }
+.profile-container .one-liner {
+  font-size: 18px;
+}
+
+.formerly {
+  color: #777;
 }
 
 @media (max-width: 767px) {
@@ -78,15 +81,15 @@ h1 {
   .profile-container {
     padding-top: 20px;
     padding-bottom: 0;
+  }
 
-    p {
-      padding-top: 5px;
-    }
+  .profile-container p {
+    padding-top: 5px;
+  }
 
-    img.profile {
-      width: 160px;
-      height: 160px;
-    }
+  .profile-container  img.profile {
+    width: 160px;
+    height: 160px;
   }
 
   .profile-container .social span {
