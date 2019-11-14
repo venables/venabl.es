@@ -1,0 +1,101 @@
+body {
+  border-top: solid 10px #CF4647;
+  background-color: #f8fafc;
+}
+
+body, p, li, h1, h2, h3, h4, h5 {
+  text-rendering: optimizelegibility;
+}
+
+body, p, li {
+  font-family: system-ui,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-size: 16px;
+  color: #474747;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #474747;
+}
+
+a, a:hover, a:visited, a:active {
+  color: #A92B32;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #CF4647;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 66px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.border {
+  border-top: 2px solid #A92B32;
+  display: block;
+  height: 2px;
+}
+
+.profile-container {
+  padding-top: 0;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.profile-container p {
+  padding-top: 15px;
+}
+
+.profile-container h2 {
+  font-size: 22px;
+}
+
+.profile-container img.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50% 50%;
+  border: solid 5px #EEE;
+}
+
+.profile-container .one-liner {
+  font-size: 18px;
+}
+
+.formerly {
+  color: #777;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 58px;
+    line-height: 56px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .profile-container {
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+
+  .profile-container p {
+    padding-top: 5px;
+  }
+
+  .profile-container  img.profile {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-container .social span {
+    display: block;
+  }
+}
+
+
+/*# sourceMappingURL=application.60101137.css.map */
