@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "parcel build src/index.html --public-url .",
+    "build": "parcel build src/index.html -d docs",
     "clean": "rimraf .cache dist tmp",
     "deploy": "git push origin `git subtree split --prefix dist`:master --force",
     "dev": "parcel src/index.html",
