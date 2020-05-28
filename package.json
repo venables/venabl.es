@@ -7,9 +7,9 @@
     "build": "parcel build src/index.html --public-url .",
     "clean": "rimraf .cache dist tmp",
     "deploy": "git push origin `git subtree split --prefix dist`:master --force",
-    "dev": "parcel src/index.html --public-url .",
+    "dev": "parcel src/index.html",
     "release": "./bin/release",
-    "start": "yarn dev"
+    "start": "yarn clean && yarn dev"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,12 @@
   "author": "Matt Venables",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^9.8.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-inliner": "^1.0.10",
-    "rimraf": "^2.6.3"
+    "postcss": "^7.0.31",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^1.4.6",
+    "tailwindcss-font-inter": "^1.0.8"
   }
 }

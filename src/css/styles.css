@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+html, body {
+  @apply h-full;
+}
+
+body {
+  /* background: linear-gradient( 160deg, #b2f5ea, #b2f5ea 40%, #FFF 40%, #FFF 50% ); */
+}
