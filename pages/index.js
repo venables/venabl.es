@@ -47,8 +47,8 @@ export default function Home() {
 
       <main className="container max-w-screen-xl px-4 pt-8 pb-12 mx-auto text-center sm:pt-12">
         <h1 className="pb-8 text-6xl font-extrabold leading-none tracking-tight text-gray-900">
-          <span className="block md:inline">👋</span>
-          Hi, I'm Matt Venables.
+          <span className="block pr-1 md:inline">👋</span> Hi, I'm Matt
+          Venables.
         </h1>
 
         <img
