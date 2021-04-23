@@ -13,6 +13,7 @@ export default function Home() {
           👋 Hi, I'm Matt Venables. I build delightful internet and phone
           things.
         </title>
+        <link rel="canonical" href="https://venabl.es" />
 
         <link
           rel="apple-touch-icon"
