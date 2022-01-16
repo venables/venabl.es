@@ -1,4 +1,4 @@
-import "typeface-inter";
+import "@fontsource/inter";
 import "tailwindcss/tailwind.css";
 
 function MyApp({ Component, pageProps }) {
