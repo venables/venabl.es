@@ -1,5 +1,7 @@
-import Head from "next/head";
-import { NextSeo } from "next-seo";
+import Head from "next/head"
+import { NextSeo } from "next-seo"
+import Image from "next/image"
+import { rgbDataURL } from "../lib/rgb-data-url"
 
 const CONNECT_ITEMS = [
   {
@@ -11,7 +13,7 @@ const CONNECT_ITEMS = [
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
       </>
-    ),
+    )
   },
   {
     title: "venables on Github",
@@ -26,7 +28,7 @@ const CONNECT_ITEMS = [
           />
         </svg>
       </>
-    ),
+    )
   },
   {
     title: "LinkedIn",
@@ -37,7 +39,7 @@ const CONNECT_ITEMS = [
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
         </svg>
       </>
-    ),
+    )
   },
 
   {
@@ -58,7 +60,7 @@ const CONNECT_ITEMS = [
           <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
         </svg>
       </>
-    ),
+    )
   },
   {
     title: "venables.eth on Ethereum",
@@ -81,7 +83,7 @@ const CONNECT_ITEMS = [
           />
         </svg>
       </>
-    ),
+    )
   },
   {
     title: "mdv.sol on Solana",
@@ -108,9 +110,9 @@ const CONNECT_ITEMS = [
           />
         </svg>
       </>
-    ),
-  },
-];
+    )
+  }
+]
 
 export default function Home() {
   return (
@@ -146,21 +148,28 @@ export default function Home() {
         twitter={{
           handle: "@mattyven",
           site: "@mattyven",
-          cardType: "summary_large_image",
+          cardType: "summary_large_image"
         }}
       />
 
       <main className="container max-w-screen-xl px-4 pt-8 pb-12 mx-auto text-center sm:pt-12">
         <h1 className="pb-8 text-6xl font-extrabold leading-none tracking-tight text-gray-900">
-          <span className="block pr-1 md:inline">👋</span> Hi, I'm Matt
+          <span className="block pr-1 md:inline">👋</span> Hi, I&apos;m Matt
           Venables.
         </h1>
 
-        <img
-          className="w-56 mx-auto transition-shadow duration-300 ease-in-out border-4 border-gray-200 rounded-full md:w-64 hover:shadow-2xl"
-          src="./images/matt-venables-avatar.png"
-          alt="Matt Venables"
-        />
+        <div className="relative w-56 h-56 mx-auto overflow-hidden transition-shadow duration-300 ease-in-out border-4 border-gray-200 rounded-full md:w-64 md:h-64 hover:shadow-2xl">
+          <Image
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            src="/images/matt-venables-avatar.png"
+            alt="Matt Venables"
+            title="Matt Venables"
+            placeholder="blur"
+            blurDataURL={rgbDataURL(190, 240, 198)}
+          ></Image>
+        </div>
 
         <p className="pt-8 text-3xl font-bold leading-none tracking-tight">
           I build delightful Web3 + crypto products.
@@ -183,7 +192,7 @@ export default function Home() {
         </div>
 
         <p className="text-base font-semibold leading-6 tracking-wide text-indigo-600 uppercase">
-          Let's connect
+          Let&apos;s connect
         </p>
         <div className="flex items-center justify-center mt-4 space-x-6 text-gray-400">
           {CONNECT_ITEMS.map(({ title, href, content, target }) => (
@@ -210,6 +219,7 @@ export default function Home() {
                 href="https://jog.fm"
                 target="_blank"
                 className="flex-shrink-0"
+                rel="noreferrer"
               >
                 <img
                   className="object-cover w-full h-48"
@@ -225,11 +235,17 @@ export default function Home() {
                       href="https://jog.fm"
                       target="_blank"
                       className="hover:underline"
+                      rel="noreferrer"
                     >
                       Web + iOS
                     </a>
                   </p>
-                  <a href="https://jog.fm" target="_blank" className="block">
+                  <a
+                    href="https://jog.fm"
+                    target="_blank"
+                    className="block"
+                    rel="noreferrer"
+                  >
                     <h3 className="mt-2 text-xl font-semibold leading-7 text-gray-900">
                       jog.fm - The best workout music
                     </h3>
@@ -248,15 +264,15 @@ export default function Home() {
                       <br />
                       jog.fm has been featured in several books, magazines, and
                       newspapers including: Wired, Scientific American,
-                      Washington Post, Men's Health, People, SHAPE, Runner's
-                      World, Health, Real Simple, news.com.au, PCWorld,
-                      LifeHacker, and many others.
+                      Washington Post, Men&apos;s Health, People, SHAPE,
+                      Runner&apos;s World, Health, Real Simple, news.com.au,
+                      PCWorld, LifeHacker, and many others.
                     </p>
                   </a>
                 </div>
                 <div className="flex items-center mt-6">
                   <div className="flex-shrink-0">
-                    <a href="https://jog.fm" target="_blank">
+                    <a href="https://jog.fm" target="_blank" rel="noreferrer">
                       <img
                         className="w-8 h-8 rounded-full"
                         src="./images/jogfm.png"
@@ -270,6 +286,7 @@ export default function Home() {
                         href="https://twitter.com/jogfm"
                         target="_blank"
                         className="hover:underline"
+                        rel="noreferrer"
                       >
                         @jogfm
                       </a>
@@ -283,6 +300,7 @@ export default function Home() {
                 href="https://songbpm.com"
                 target="_blank"
                 className="flex-shrink-0"
+                rel="noreferrer"
               >
                 <img
                   className="object-cover w-full h-48"
@@ -298,6 +316,7 @@ export default function Home() {
                       href="https://songbpm.com"
                       target="_blank"
                       className="hover:underline"
+                      rel="noreferrer"
                     >
                       Web
                     </a>
@@ -306,6 +325,7 @@ export default function Home() {
                     href="https://songbpm.com"
                     target="_blank"
                     className="block"
+                    rel="noreferrer"
                   >
                     <h3 className="mt-2 text-xl font-semibold leading-7 text-gray-900">
                       SONGBPM - Find the tempo of any song.
@@ -326,8 +346,8 @@ export default function Home() {
                       <br />
                       SONGBPM has been featured in several books, magazines and
                       newspapers including: TIME, The Today Show, Rolling Stone,
-                      Scientific American, Washington Post, Women's Health,
-                      Men's Journal, Men's Health, SHAPE, Real Simple,
+                      Scientific American, Washington Post, Women&apos;s Health,
+                      Men&apos;s Journal, Men&apos;s Health, SHAPE, Real Simple,
                       LifeHacker, Marie Claire, Huffington Post, ADIDAS and many
                       others.
                     </p>
@@ -349,6 +369,7 @@ export default function Home() {
                         href="https://twitter.com/songbpm"
                         target="_blank"
                         className="hover:underline"
+                        rel="noreferrer"
                       >
                         @songbpm
                       </a>
@@ -361,5 +382,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  );
+  )
 }
