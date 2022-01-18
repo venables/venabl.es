@@ -158,7 +158,7 @@ export default function Home() {
           Venables.
         </h1>
 
-        <div className="relative w-56 h-56 mx-auto overflow-hidden transition-shadow duration-300 ease-in-out border-4 border-gray-200 rounded-full md:w-64 md:h-64 hover:shadow-2xl">
+        <div className="relative w-56 h-56 mx-auto overflow-hidden transition-shadow duration-300 ease-in-out border-4 border-gray-200 rounded-full md:w-64 md:h-64 hover:shadow-2xl bg-[#bef0c6]">
           <Image
             layout="fill"
             objectFit="cover"
