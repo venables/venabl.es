@@ -1,4 +1,4 @@
-<img src="public/images/matt-venables-150.png" align="right" />
+<img src="public/apple-touch-icon.png" align="right" />
 
 # venabl.es
 
