@@ -64,7 +64,8 @@ export default function Home() {
             </Link>{" "}
             decentralized identity protocol, and countless others.
           </span>
-          <span>
+
+          {/* <span>
             Prior to founding Catena, I founded{" "}
             <Link
               href="https://m2.xyz"
@@ -102,7 +103,7 @@ export default function Home() {
               songbpm
             </Link>{" "}
             which receive nearly a million unique visitors per month.
-          </span>
+          </span> */}
         </div>
         <div className="text-center text-sm font-bold uppercase text-gray-400 ">
           <h2>Get in touch</h2>
