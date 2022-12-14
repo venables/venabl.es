@@ -23,7 +23,7 @@ export default function RootLayout({ children }: Props) {
       className={clsx(
         inter.variable,
         ebGaramond.variable,
-        "bg-gray-100 bg-gradient-to-b from-gray-100 to-gray-50 font-sans text-neutral-800 antialiased transition-colors dark:bg-neutral-900 dark:from-neutral-900 dark:to-neutral-800 dark:text-white"
+        "bg-white font-sans text-neutral-800 antialiased transition-colors dark:bg-neutral-900  dark:text-white"
       )}
     >
       {/*
