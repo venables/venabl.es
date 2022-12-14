@@ -33,7 +33,7 @@ export default function Home() {
             I&rsquo;m currently building{" "}
             <Link
               href="https://catenalabs.xyz"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
             >
               Catena Labs
             </Link>
@@ -48,7 +48,7 @@ export default function Home() {
             <Link
               href="https://www.circle.com/usdc"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               USDC stablecoin
@@ -57,7 +57,7 @@ export default function Home() {
             <Link
               href="https://centre.io/verite"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               Verite
@@ -69,7 +69,7 @@ export default function Home() {
             <Link
               href="https://m2.xyz"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               M2 Labs
@@ -78,7 +78,7 @@ export default function Home() {
             <Link
               href="https://vested.co"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               Vested
@@ -87,7 +87,7 @@ export default function Home() {
             <Link
               href="https://jog.fm"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               jog.fm
@@ -96,7 +96,7 @@ export default function Home() {
             <Link
               href="https://songbpm.com"
               target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
               rel="noreferrer"
             >
               songbpm
@@ -104,7 +104,7 @@ export default function Home() {
             which receive nearly a million unique visitors per month.
           </span>
         </div>
-        <div className="text-center text-sm font-bold uppercase text-gray-400">
+        <div className="text-center text-sm font-bold uppercase text-gray-400 ">
           <h2>Get in touch</h2>
           <Connect />
         </div>
