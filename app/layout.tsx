@@ -4,6 +4,8 @@ import clsx from "clsx"
 import { NextSeo } from "next-seo"
 import { ReactNode } from "react"
 
+import Analytics from "components/Analytics"
+
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -63,6 +65,7 @@ export default function RootLayout({ children }: Props) {
         />
       </head>
       <body className="mx-auto flex min-h-screen max-w-4xl flex-col font-sans">
+        <Analytics />
         <main
           role="main"
           className="flex grow flex-col items-center justify-start p-2"

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+echo ""
+echo "🦄 Setting up the venabl.es project..."
+
+echo ""
+echo "⚪️ Installing dependencies..."
+npm install
+
+echo ""
+echo "⚪️ Building .env file..."
+cp -f .env.example .env
+
+echo ""
+echo "✅ Done. Enjoy!"
