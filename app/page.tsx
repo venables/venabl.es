@@ -8,6 +8,9 @@ export default function Home() {
   return (
     <>
       <div className="mx-auto mt-12 flex max-w-2xl flex-col items-center justify-center space-y-8">
+        <span className="block text-xl font-bold md:text-3xl">
+          👋 Hi, I&rsquo;m Matt Venables.
+        </span>
         <div className="relative mx-auto h-36 w-36 overflow-hidden rounded-full border-4 border-gray-200 bg-[#bef0c6] transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-2xl">
           <Image
             fill
@@ -19,10 +22,6 @@ export default function Home() {
             blurDataURL={rgbDataURL(190, 240, 198)}
           />
         </div>
-
-        <span className="block text-xl font-bold md:text-3xl">
-          👋 Hi, I&rsquo;m Matt Venables.
-        </span>
 
         <h1 className="text-center font-serif text-5xl md:text-7xl">
           I build <span className="italic">delightful</span> web3 products.
