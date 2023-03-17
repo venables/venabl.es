@@ -6,7 +6,7 @@ const FEATURES = [
   { title: "Typescript" },
   { title: "ESLint + Prettier" },
   { title: "TailwindCSS" },
-  { title: "Next SEO" },
+  { title: "Metadata API" },
   { title: "Inter Font" },
   { title: "Jest" },
   { title: "Dark Mode" },
