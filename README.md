@@ -20,29 +20,29 @@
 
 1. Clone this repo to your desired path:
 
-    ```sh
-    git clone git@github.com:startkit-dev/startkit-next.git my-new-project
-    ```
+   ```sh
+   git clone git@github.com:startkit-dev/startkit-next.git my-new-project
+   ```
 
 2. Rename the project:
 
-    ```sh
-    ./bin/rename
-    ```
+   ```sh
+   ./bin/rename
+   ```
 
 3. Update your git remote to point to StartKit as `upstream`
 
-    ```sh
-    git remote rename origin upstream
-    ```
+   ```sh
+   git remote rename origin upstream
+   ```
 
-    In the future, you'll be able to pull in the latest StartKit changes without
-    missing a beat by running:
+   In the future, you'll be able to pull in the latest StartKit changes without
+   missing a beat by running:
 
-    ```sh
-    git fetch upstream
-    git pull upstream/main
-    ```
+   ```sh
+   git fetch upstream
+   git pull upstream/main
+   ```
 
 ## Getting Started
 
