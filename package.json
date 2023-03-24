@@ -12,6 +12,7 @@
     "setup": "./bin/setup",
     "start": "next start",
     "test": "jest --passWithNoTests",
+    "turbo": "next dev --turbo",
     "type-check": "tsc --noEmit --pretty"
   },
   "dependencies": {

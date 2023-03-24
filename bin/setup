@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 
-echo "Installing dependencies ..."
-npm install
+echo "✨ Installing dependencies ..."
+pnpm install
 
-echo "Creating .env"
-cp -f .env.example .env
+echo "\n✨ Creating .env file..."
+if [ -f .env ]; then
+    echo "File already exists, skipping."
+else
+  cp .env.example .env
+fi
+
+echo "\n✨ Done. Happy coding."

@@ -7,13 +7,13 @@
 ## Getting Started
 
 ```sh
-npm run setup
+pnpm run setup
 ```
 
 ## Running the server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 The app will be running at [http://localhost:3000](http://localhost:3000).
