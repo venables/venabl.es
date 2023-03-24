@@ -8,7 +8,7 @@ module.exports = {
   ],
   overrides: [
     /**
-     * Config files (e.g. jest.config.js, tailwind.config.js)
+     * Config files (ex: jest.config.js, prettier.config.js, tailwind.config.js)
      */
     {
       files: ["*.config.js"],
