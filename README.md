@@ -58,18 +58,40 @@ pnpm run dev
 
 The app will be running at [http://localhost:3000](http://localhost:3000).
 
-## Naming the project
+## Linting / Checking the codebase
 
-The StartKit name is used throughout the project, you should find and replace
-the following strings with your project name:
-
-- `StartKit`
-- `startkit`
-- `start_kit`
-- `START_KIT`
-
-A helper script has been included to make this easier:
+To run a full check of the codebase (type-check, lint, prettier check, test), run:
 
 ```sh
-./bin/rename
+pnpm check
+```
+
+### Linting
+
+```sh
+pnpm lint
+```
+
+### Type Checking
+
+```sh
+pnpm type-check
+```
+
+### Formatting with Prettier
+
+```sh
+pnpm format
+```
+
+to check for format errors, run:
+
+```sh
+pnpm format:check
+```
+
+### Testing via Jest
+
+```sh
+pnpm test
 ```
