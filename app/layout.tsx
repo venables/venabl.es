@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
 
+import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
 import Analytics from "@/components/layout/Analytics"
 import { extendMetadata } from "@/lib/seo/metadata"
 import { clsw } from "@/lib/utils"
@@ -19,12 +20,16 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={clsw(inter.variable, "h-full font-sans antialiased")}
+      className={clsw(
+        inter.variable,
+        "font-sans antialiased bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white"
+      )}
     >
       <head />
-      <body className="h-full bg-neutral-50 p-4 text-neutral-800 transition-colors dark:bg-neutral-900 dark:text-neutral-50">
-        <Analytics />
+      <body className="min-h-screen">
         {children}
+        <Analytics />
+        <TailwindIndicator />
       </body>
     </html>
   )

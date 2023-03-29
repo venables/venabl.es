@@ -1,24 +1,25 @@
 import merge from "ts-deepmerge"
 
+import { siteConfig } from "@/config"
 import { fullURL } from "@/lib/url-fns"
 
 import type { Metadata } from "next"
 
 const DEFAULT_METADATA: Metadata = {
   title: {
-    default: "StartKit",
-    template: "%s | A sane way to start your next next project. | StartKit"
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`
   },
-  description: "StartKit is a sane way to start your next next project.",
+  description: siteConfig.description,
   openGraph: {
     url: fullURL(),
-    siteName: "StartKit",
+    siteName: siteConfig.name,
     images: [
       {
         url: fullURL("/social.png"),
         width: 1200,
         height: 628,
-        alt: "StartKit",
+        alt: siteConfig.name,
         type: "image/png"
       }
     ],
@@ -26,8 +27,8 @@ const DEFAULT_METADATA: Metadata = {
     type: "website"
   },
   twitter: {
-    creator: "@startkit_dev",
-    site: `@startkit_dev`,
+    creator: siteConfig.handles.twitter,
+    site: siteConfig.handles.twitter,
     card: "summary_large_image"
   },
   icons: {

@@ -1,6 +1,7 @@
 {
   "name": "startkit",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -16,8 +17,8 @@
     "type-check": "tsc --noEmit --pretty"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.15",
     "clsx": "^1.2.1",
+    "lucide-react": "^0.128.0",
     "next": "^13.2.4",
     "nextjs-google-analytics": "^2.2.2",
     "react": "^18.2.0",

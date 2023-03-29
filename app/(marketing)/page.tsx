@@ -1,6 +1,4 @@
-import { CheckIcon } from "@heroicons/react/24/solid"
-
-import { GithubIcon, TwitterIcon } from "@/components/icons/social"
+import { Check, Github, Ship, Twitter } from "@/components/icons"
 
 const FEATURES = [
   { title: "Typescript" },
@@ -16,9 +14,9 @@ const FEATURES = [
 export default function Home() {
   return (
     <>
-      <main className="flex h-full grow flex-col items-center justify-center space-y-12">
+      <div className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12">
         <div className="flex flex-col items-center justify-center space-y-2">
-          <span className="text-7xl font-bold">🍭</span>
+          <Ship className="h-16 w-16" />
           <h1 className="text-7xl font-bold tracking-tighter">StartKit</h1>
           <span className="text-center text-2xl tracking-tight text-neutral-600 dark:text-neutral-300">
             A sane way to start your next{" "}
@@ -37,7 +35,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           {FEATURES.map((f, i) => (
             <div key={i} className="flex flex-row items-center space-x-2">
-              <CheckIcon className="h-4 w-4" />
+              <Check className="h-4 w-4" />
               <span>{f.title}</span>
             </div>
           ))}
@@ -50,7 +48,7 @@ export default function Home() {
             rel="noreferrer"
             className="inline-flex items-center space-x-2 rounded bg-neutral-200 py-1 px-2 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
           >
-            <GithubIcon className="h-4 w-4" />
+            <Github className="h-4 w-4" />
             <span>View Source on Github</span>
           </a>
 
@@ -60,14 +58,14 @@ export default function Home() {
             rel="noreferrer"
             className="inline-flex items-center space-x-2 rounded bg-neutral-200 py-1 px-2 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
           >
-            <TwitterIcon className="h-4 w-4" />
+            <Twitter className="h-4 w-4" />
             <span>
               Follow <span className="font-semibold">@startkit_dev</span> on
               Twitter
             </span>
           </a>
         </div>
-      </main>
+      </div>
     </>
   )
 }
