@@ -134,3 +134,9 @@ pnpm format:check
 ```sh
 pnpm test
 ```
+
+## ❤️ Open Source
+
+This project is free to use and modify for your own projects, free of charge.
+
+It was created by [Blendist](https://blendist.com) and [Matt Venables](https://venabl.es). Pieces were also inspired by, or adapted from [Taxonomy](https://github.com/shadcn/taxonomy) by [shadcn](https://github.com/shadcn).  See the `licenses` directory for all relevant licenses.
