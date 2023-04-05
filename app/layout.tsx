@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 
 import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
 import Analytics from "@/components/layout/Analytics"
-import { extendMetadata } from "@/lib/seo/metadata"
+import { extendMetadata } from "@/lib/seo/extend"
 import { cls } from "@/lib/utils"
 
 import type { ReactNode } from "react"

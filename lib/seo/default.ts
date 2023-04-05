@@ -1,11 +1,9 @@
-import merge from "ts-deepmerge"
-
 import { siteConfig } from "@/config"
 import { fullURL } from "@/lib/url-fns"
 
 import type { Metadata } from "next"
 
-const DEFAULT_METADATA: Metadata = {
+export const DEFAULT_METADATA: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`
@@ -27,7 +25,7 @@ const DEFAULT_METADATA: Metadata = {
     type: "website"
   },
   twitter: {
-    creator: siteConfig.handles.twitter,
+    creator: siteConfig.company?.twitter ?? siteConfig.handles.twitter,
     site: siteConfig.handles.twitter,
     card: "summary_large_image"
   },
@@ -55,32 +53,4 @@ const DEFAULT_METADATA: Metadata = {
     { media: "(prefers-color-scheme: light)", color: "#c026d3" },
     { media: "(prefers-color-scheme: dark)", color: "black" }
   ]
-}
-
-/**
- * Helper method to deep merge the SEO params from a given page
- * with the default SEO params.
- *
- * This method also will use title and description in the OpenGraph and
- * Twitter metadata, if not set
- */
-export function extendMetadata<T extends Metadata>(metadata?: T) {
-  metadata = metadata ?? ({} as T)
-
-  const title = metadata.title ?? DEFAULT_METADATA.title
-  const description = metadata.description ?? DEFAULT_METADATA.description
-
-  metadata.openGraph = {
-    title: title ?? undefined,
-    description: description ?? undefined,
-    ...metadata.openGraph
-  }
-
-  metadata.twitter = {
-    title: title ?? undefined,
-    description: description ?? undefined,
-    ...metadata.twitter
-  }
-
-  return merge(DEFAULT_METADATA, metadata)
 }

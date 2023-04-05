@@ -1,7 +1,7 @@
 export {
   Check,
   Ship,
-  Twitter,
   Github,
+  Twitter,
   type LucideProps as IconProps
 } from "lucide-react"

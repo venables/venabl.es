@@ -1,4 +1,6 @@
-import { Check, Github, Ship, Twitter } from "@/components/icons"
+import { Link } from "@/components/elements"
+import { Check, Github, Ship } from "@/components/icons"
+import { siteConfig } from "@/config"
 
 const FEATURES = [
   { title: "Next 13 App Directory" },
@@ -46,28 +48,17 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center justify-center space-y-2">
-          <a
-            href="https://github.com/startkit-dev/startkit-next"
+          <Link
+            href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center space-x-2 rounded bg-neutral-200 px-2 py-1 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
+            variant="subtle"
           >
-            <Github className="h-4 w-4" />
-            <span>View Source on Github</span>
-          </a>
-
-          <a
-            href="https://twitter.com/startkit_dev"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center space-x-2 rounded bg-neutral-200 px-2 py-1 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
-          >
-            <Twitter className="h-4 w-4" />
+            <Github className="mr-2 h-4 w-4" />
             <span>
-              Follow <span className="font-semibold">@startkit_dev</span> on
-              Twitter
+              View Source on <strong>GitHub</strong>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </>
