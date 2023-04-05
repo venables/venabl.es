@@ -3,7 +3,6 @@
 import { signOut } from "next-auth/react"
 
 import { Button } from "@/components/elements"
-import { cls } from "@/lib/utils"
 
 export function SignOutButton() {
   return (

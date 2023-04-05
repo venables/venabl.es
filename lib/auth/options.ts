@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
      *
      * https://next-auth.js.org/configuration/callbacks#session-callback
      */
-    async session({ session, token /*, user */ }) {
+    async session({ session /* token , user */ }) {
       return session
     },
     /**

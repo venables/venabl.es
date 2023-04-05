@@ -1,13 +1,14 @@
 import { Link } from "@/components/elements"
 import { Ship } from "@/components/icons"
 import { siteConfig } from "@/config"
-import { getCurrentUser } from "@/lib/auth/session"
 
 import { SignOutButton } from "./SignOutButton"
 
-export async function Header() {
-  const user = await getCurrentUser()
+type Props = {
+  user?: { id?: string | null }
+}
 
+export function Header({ user }: Props) {
   return (
     <header className="container sticky top-0 bg-white dark:bg-neutral-900">
       <div className="flex h-16 items-center justify-between border-b border-b-neutral-200 py-4 dark:border-b-neutral-700">
