@@ -4,6 +4,6 @@ import { twMerge } from "tailwind-merge"
 /**
  * A small extension to `clsx` to make it TailwindCSS class-aware.
  */
-export function clsw(...classNames: ClassValue[]) {
+export function cls(...classNames: ClassValue[]) {
   return twMerge(clsx(classNames))
 }

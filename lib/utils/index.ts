@@ -1,1 +1,1 @@
-export * from "./clsw"
+export * from "./cls"

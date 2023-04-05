@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
 import Analytics from "@/components/layout/Analytics"
 import { extendMetadata } from "@/lib/seo/metadata"
-import { clsw } from "@/lib/utils"
+import { cls } from "@/lib/utils"
 
 import type { ReactNode } from "react"
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={clsw(
+      className={cls(
         inter.variable,
         "font-sans antialiased bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white"
       )}
