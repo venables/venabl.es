@@ -1,5 +1,6 @@
 import { Link } from "@/components/elements"
 import { Github, Twitter } from "@/components/icons"
+import { ThemePicker } from "@/components/theme-picker"
 import { siteConfig } from "@/config"
 
 const navigation = [
@@ -17,7 +18,7 @@ const navigation = [
 
 export function Footer() {
   return (
-    <footer className="bg-white">
+    <footer>
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
@@ -26,12 +27,16 @@ export function Footer() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 transition-colors hover:text-neutral-500"
+              className="text-gray-400 transition-all hover:scale-110 hover:text-gray-500 focus:outline-none active:scale-95 dark:hover:text-gray-300"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
+          <ThemePicker
+            className="text-gray-400 transition-all hover:scale-110 hover:text-gray-500 focus:outline-none active:scale-95 dark:hover:text-gray-300"
+            iconClassName="h-6 w-6"
+          />
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-neutral-500">

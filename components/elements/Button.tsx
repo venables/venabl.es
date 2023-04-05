@@ -15,7 +15,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
       <button
-        className={cls(buttonVariants({ variant, size, className }))}
+        className={cls(
+          variant || size
+            ? buttonVariants({ variant, size, className })
+            : className
+        )}
         ref={ref}
         {...props}
       />

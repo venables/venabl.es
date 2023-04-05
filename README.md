@@ -14,7 +14,7 @@
 - The beautiful [Inter](https://rsms.me/inter/) typeface.
 - [Next Metadata API](https://beta.nextjs.org/docs/api-reference/metadata) for SEO handling.
 - [Jest](https://jestjs.io/) testing, optimized for Next.js
-- Automatic Dark Mode support (based on system setting).
+- Dark Mode support (without bypassing Server Components).
 - Sane VSCode settings and recommended extensions
 
 ## Starting a new project with StartKit

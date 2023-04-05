@@ -20,13 +20,11 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cls(
-        inter.variable,
-        "font-sans antialiased bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white"
-      )}
+      className={cls(inter.variable, "font-sans antialiased")}
+      suppressHydrationWarning
     >
       <head />
-      <body className="min-h-screen">
+      <body className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
         {children}
         <Analytics />
         <TailwindIndicator />
