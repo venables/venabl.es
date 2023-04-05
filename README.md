@@ -8,6 +8,7 @@
 
 - [Next.js 13.2](https://nextjs.org) with the `/app` directory
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
+- [Prisma](https://prisma.io) database ORM, ready for use with [PlanetScale](https://planetscale).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
 - The beautiful [Inter](https://rsms.me/inter/) typeface.
@@ -46,14 +47,52 @@
 
 ## Getting Started
 
+To get started simply run the following command.
+
 ```sh
 pnpm run setup
+```
+
+For Authentication, you should also generate a secret:
+
+```sh
+openssl rand -base64 32
+```
+
+Place the output value in .env as the `NEXTAUTH_SECRET` value, for example:
+
+```sh
+# .env
+# ...
+NEXTAUTH_SECRET="OgGQPvTtjXu7DvOYKekP8mw9OBJi5FD/ObcYipZFdw0=
+```
+
+(NOTE: Do NOT use the value above in your app!)
+
+## Migrating the database
+
+The Prisma adapter is set up to use PlanetScale by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
+
+If using PlanetScale, we recommend connecting to a `dev` branch of your database.
+
+After making changes to `prisma/schema.prisma`, you can migrate by running:
+
+```sh
+pnpm prisma db push
+```
+
+### Browsing the database
+
+Prisma offers a simple UI for inspecting the database. To launch it, run:
+
+```sh
+pnpm prisma studio
 ```
 
 ## Running the server
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
 The app will be running at [http://localhost:3000](http://localhost:3000).

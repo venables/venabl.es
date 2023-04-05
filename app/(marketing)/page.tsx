@@ -1,9 +1,13 @@
 import { Check, Github, Ship, Twitter } from "@/components/icons"
 
 const FEATURES = [
+  { title: "Next 13 App Directory" },
   { title: "Typescript" },
   { title: "ESLint + Prettier" },
   { title: "TailwindCSS" },
+  { title: "Authentication" },
+  { title: "Prisma ORM" },
+  { title: "PlanetScale Ready" },
   { title: "Metadata API" },
   { title: "Inter Font" },
   { title: "Jest" },
@@ -46,7 +50,7 @@ export default function Home() {
             href="https://github.com/startkit-dev/startkit-next"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center space-x-2 rounded bg-neutral-200 py-1 px-2 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
+            className="inline-flex items-center space-x-2 rounded bg-neutral-200 px-2 py-1 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
           >
             <Github className="h-4 w-4" />
             <span>View Source on Github</span>
@@ -56,7 +60,7 @@ export default function Home() {
             href="https://twitter.com/startkit_dev"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center space-x-2 rounded bg-neutral-200 py-1 px-2 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
+            className="inline-flex items-center space-x-2 rounded bg-neutral-200 px-2 py-1 text-sm transition-colors hover:bg-neutral-300 dark:bg-neutral-600 hover:dark:bg-neutral-500"
           >
             <Twitter className="h-4 w-4" />
             <span>
