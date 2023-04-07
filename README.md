@@ -31,18 +31,18 @@
    ./bin/rename
    ```
 
-3. Update your git remote to point to StartKit as `upstream`
+3. Update your git remote to point to StartKit as `startkit`
 
    ```sh
-   git remote rename origin upstream
+   git remote rename origin startkit
    ```
 
    In the future, you'll be able to pull in the latest StartKit changes without
    missing a beat by running:
 
    ```sh
-   git fetch upstream
-   git pull upstream/main
+   git fetch startkit
+   git pull startkit/main
    ```
 
 ## Getting Started
@@ -137,6 +137,6 @@ pnpm test
 
 ## ❤️ Open Source
 
-This project is free to use and modify for your own projects, free of charge.
+This project is free to use and modify for your own projects.
 
 It was created by [Blendist](https://blendist.com) and [Matt Venables](https://venabl.es). Pieces were also inspired by, or adapted from [Taxonomy](https://github.com/shadcn/taxonomy) by [shadcn](https://github.com/shadcn). See the `licenses` directory for all relevant licenses.
