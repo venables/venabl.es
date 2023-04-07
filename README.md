@@ -6,7 +6,7 @@
 
 ## Features
 
-- [Next.js 13.2](https://nextjs.org) with the `/app` directory
+- [Next.js 13.3](https://nextjs.org) with the `/app` directory
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Prisma](https://prisma.io) database ORM, ready for use with [PlanetScale](https://planetscale).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.

@@ -25,6 +25,6 @@ export function appHost(includeProtocol = true): string {
  *
  * @returns the URL for the given path
  */
-export function fullURL(path = ""): string {
-  return `${appHost()}${path}`
+export function fullURL(path = ""): URL {
+  return new URL(path, appHost())
 }
