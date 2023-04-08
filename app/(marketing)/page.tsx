@@ -3,7 +3,8 @@ import { Check, Github, Ship } from "@/components/icons"
 import { siteConfig } from "@/config"
 
 const FEATURES = [
-  { title: "Next 13 App Directory" },
+  { title: "Next 13.3" },
+  { title: "App Directory" },
   { title: "Typescript" },
   { title: "ESLint + Prettier" },
   { title: "TailwindCSS" },
@@ -20,7 +21,7 @@ const FEATURES = [
 export default function Home() {
   return (
     <>
-      <div className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12">
+      <div className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12 px-4 sm:px-0">
         <div className="flex flex-col items-center justify-center space-y-2">
           <Ship className="h-16 w-16" />
           <h1 className="text-7xl font-bold tracking-tighter">StartKit</h1>
