@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import GoogleProvider from "next-auth/providers/google"
 
@@ -6,7 +7,13 @@ import { prisma } from "@/lib/database"
 import type { NextAuthOptions } from "next-auth"
 
 export const authOptions: NextAuthOptions = {
+  /**
+   * https://authjs.dev/reference/adapter/prisma
+   */
   adapter: PrismaAdapter(prisma),
+  /**
+   * https://next-auth.js.org/providers/
+   */
   providers: [
     /**
      * https://next-auth.js.org/providers/google
@@ -16,10 +23,19 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!
     })
   ],
+  /**
+   * https://next-auth.js.org/configuration/options#secret
+   */
   secret: process.env.NEXTAUTH_SECRET,
+  /**
+   * https://next-auth.js.org/configuration/options#session
+   */
   session: {
     strategy: "jwt"
   },
+  /**
+   * https://next-auth.js.org/configuration/options#callbacks
+   */
   callbacks: {
     /**
      * Use the signIn() callback to control if a user is allowed to sign in.
