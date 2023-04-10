@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server"
+
 import { handler } from "@/lib/api-fns"
 
 type Data = {
@@ -10,6 +12,12 @@ const gitSha = process.env.VERCEL_GIT_COMMIT_SHA || "local"
  * Healthcheck API endpoint which returns with success if the server is healthy,
  * and responds with the latest git sha.
  */
-export default handler<Data>((_req, res) => {
-  res.status(200).json({ status: "ok", data: { pong: gitSha.substring(0, 7) } })
+export const GET = handler<Data>(() => {
+  return NextResponse.json(
+    {
+      status: "ok",
+      data: { pong: gitSha.substring(0, 7) }
+    },
+    { status: 200 }
+  )
 })

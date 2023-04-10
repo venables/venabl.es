@@ -1,4 +1,4 @@
-import type { ApiResponse } from "./handler"
+import type { ApiResponse } from "./types"
 
 /**
  *

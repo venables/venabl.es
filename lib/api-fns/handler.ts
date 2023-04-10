@@ -1,81 +1,75 @@
+import { NextResponse } from "next/server"
+
 import { logger } from "@/lib/logger"
 
 import { HttpError } from "./errors"
 
-import type { NextApiHandler } from "next"
-
-/**
- * Base API success response, without any data
- */
-export type ApiResponseSuccessEmpty = {
-  status: "ok"
-}
-
-/**
- * API success response with a data property
- */
-export type ApiResponseSuccessWithData<T> = ApiResponseSuccessEmpty & {
-  data: T
-}
-
-/**
- * The API Success response, which will enforce having a `data` attribute if
- * defined, otherwise, it will enforce excluding the data property.
- */
-export type ApiResponseSuccess<T> = T extends void
-  ? ApiResponseSuccessEmpty
-  : ApiResponseSuccessWithData<T>
-
-/**
- * The API Error response
- */
-export type ApiResponseError = {
-  status: "error"
-  error: string
-}
-
-export type ApiResponse<T = void> = ApiResponseSuccess<T> | ApiResponseError
+import type { ApiResponse, NextRouteHandler } from "./types"
 
 /**
  * Wrap an API handler with additional logging, error handling, etc.
+ *
+ * @example
+ *
+ *   type Data = { name: string }
+ *
+ *   export const GET = handler<Data>(request => {
+ *      if (!request.query.name) {
+ *        throw new ValidationError("name is required")
+ *      }
+ *
+ *      return NextResponse.json({ status: "ok", data: { name: request.query.name } })
+ *   })
  *
  * @param handler the api handler
  * @returns a wrapped api handler
  */
 export const handler = <T = void>(
-  handler: NextApiHandler<ApiResponse<T>>
-): NextApiHandler<ApiResponse<T>> => {
+  routeHandler: NextRouteHandler<ApiResponse<T>>
+): NextRouteHandler<ApiResponse<T>> => {
   const startTime = new Date()
 
-  return async (req, res) => {
-    // Log the HTTP request
-    logger.info(`➡️  ${req.method} ${req.url} ...`)
+  return async (request) => {
+    const method = request.method
+    const url = request.nextUrl.pathname
+
+    /**
+     * Log the HTTP request
+     */
+    logger.info(`➡️  ${method} ${url} ...`)
+
+    let response: NextResponse<ApiResponse<T>>
 
     try {
-      await handler(req, res)
+      response = await routeHandler(request)
     } catch (e) {
-      logger.error(`API Error: ${req.method} ${req.url}`, e)
-
       if (e instanceof HttpError) {
-        res.status(e.status).json({
-          status: "error",
-          error: e.message
-        })
+        response = NextResponse.json(
+          { status: "error", error: e.message },
+          {
+            status: e.status
+          }
+        )
       } else {
-        res.status(500).json({
-          status: "error",
-          error: "Internal server error"
-        })
+        logger.error(`Unhandled API Error: ${method} ${url}`, e)
+        response = NextResponse.json(
+          { status: "error", error: "Internal server error" },
+          {
+            status: 500
+          }
+        )
       }
     }
 
     /**
-     * Log the HTTP response if we're in development mode
+     * Log the HTTP response status
      */
     logger.info(
-      `⬅️  ${req.method} ${req.url} took ${
+      `⬅️  ${method} ${url} (${response.status}) took ${
         new Date().getTime() - startTime.getTime()
       }ms`
     )
+
+    return response
   }
 }

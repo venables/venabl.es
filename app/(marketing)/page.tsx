@@ -4,7 +4,8 @@ import { siteConfig } from "@/config"
 
 const FEATURES = [
   { title: "Next 13.3" },
-  { title: "App Directory" },
+  { title: "/app Directory" },
+  { title: "Route Handlers" },
   { title: "Typescript" },
   { title: "ESLint + Prettier" },
   { title: "TailwindCSS" },

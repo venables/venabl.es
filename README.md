@@ -6,13 +6,13 @@
 
 ## Features
 
-- [Next.js 13.3](https://nextjs.org) with the `/app` directory
+- [Next.js 13.3](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Prisma](https://prisma.io) database ORM, ready for use with [PlanetScale](https://planetscale).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
 - The beautiful [Inter](https://rsms.me/inter/) typeface.
-- [Next Metadata API](https://beta.nextjs.org/docs/api-reference/metadata) for SEO handling.
+- [Next Metadata API](https://beta.nextjs.org/docs/api-reference/metadata) for SEO handling, with file-system handlers.
 - [Jest](https://jestjs.io/) testing, optimized for Next.js
 - Dark Mode support (without bypassing Server Components).
 - Sane VSCode settings and recommended extensions
