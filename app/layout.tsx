@@ -1,10 +1,11 @@
 import "./globals.css"
 import { Inter, EB_Garamond } from "@next/font/google"
 import clsx from "clsx"
-import { NextSeo } from "next-seo"
-import { ReactNode } from "react"
+import type { Metadata } from "next"
+import type { ReactNode } from "react"
 
 import Analytics from "components/Analytics"
+import { fullURL } from "lib/url-fns"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 const ebGaramond = EB_Garamond({
@@ -14,6 +15,27 @@ const ebGaramond = EB_Garamond({
 
 type Props = {
   children: ReactNode
+}
+
+export const metadata: Metadata = {
+  metadataBase: fullURL(),
+  applicationName: "Matt Venables",
+  title: "I build delightful products | Matt Venables",
+  description: "Hi, I'm Matt Venables. I build delightful products.",
+  alternates: {
+    canonical: "https://venabl.es"
+  },
+  twitter: {
+    creator: "@mattyven",
+    site: "@mattyven",
+    card: "summary_large_image"
+  },
+  openGraph: {
+    url: fullURL(),
+    siteName: "Matt Venables",
+    locale: "en-US",
+    type: "website"
+  }
 }
 
 export default function RootLayout({ children }: Props) {
@@ -26,44 +48,7 @@ export default function RootLayout({ children }: Props) {
         "bg-white font-sans text-neutral-800 antialiased transition-colors dark:bg-neutral-900  dark:text-white"
       )}
     >
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-
-        <NextSeo
-          useAppDir={true}
-          title="Matt Venables"
-          description="Hi, I'm Matt Venables. I build delightful Web3 + crypto products."
-          canonical="https://venabl.es"
-          twitter={{
-            handle: "@mattyven",
-            site: "@mattyven",
-            cardType: "summary_large_image"
-          }}
-        />
-      </head>
+      <head />
       <body className="mx-auto flex min-h-screen max-w-4xl flex-col font-sans">
         <Analytics />
         <main

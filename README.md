@@ -7,5 +7,5 @@
 ## Installation
 
 ```sh
-npm run setup
+pnpm run setup
 ```

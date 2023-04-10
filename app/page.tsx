@@ -24,48 +24,28 @@ export default function Home() {
         </div>
 
         <h1 className="text-center font-serif text-5xl md:text-7xl">
-          I build <span className="italic">delightful</span> web3 products.
+          I build <span className="italic">delightful</span> products.
         </h1>
 
         <div className="flex flex-col space-y-4 text-center text-xl md:pt-4 md:text-2xl">
           <span>
-            I&rsquo;m currently building{" "}
+            I am passionate about building things to help people live happier,
+            healthier lives.
+          </span>
+
+          <span>
+            Currently, I am a co-founder of{" "}
             <Link
-              href="https://catenalabs.xyz"
+              href="https://catena.xyz"
               className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
             >
               Catena Labs
             </Link>
             .
           </span>
-          <span>
-            Since 2013, I&rsquo;ve been building some of the{" "}
-            <span className="font-bold">
-              most widely used crypto products in the world
-            </span>
-            , including the{" "}
-            <Link
-              href="https://www.circle.com/usdc"
-              target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
-              rel="noreferrer"
-            >
-              USDC stablecoin
-            </Link>
-            , the{" "}
-            <Link
-              href="https://centre.io/verite"
-              target="_blank"
-              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
-              rel="noreferrer"
-            >
-              Verite
-            </Link>{" "}
-            decentralized identity protocol, and countless others.
-          </span>
 
-          {/* <span>
-            Prior to founding Catena, I founded{" "}
+          <span>
+            Prior to Catena, I founded{" "}
             <Link
               href="https://m2.xyz"
               target="_blank"
@@ -83,7 +63,33 @@ export default function Home() {
             >
               Vested
             </Link>
-            , a secondary marketplace for employee equity. I also created{" "}
+            , a secondary marketplace for employee equity.
+          </span>
+
+          <span>
+            Before that, I was an early executive of{" "}
+            <Link
+              href="https://circle.com"
+              target="_blank"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
+              rel="noreferrer"
+            >
+              Circle
+            </Link>{" "}
+            where I helped create the{" "}
+            <Link
+              href="https://www.circle.com/usdc"
+              target="_blank"
+              className="bg-green-100 font-bold hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700"
+              rel="noreferrer"
+            >
+              USDC stablecoin
+            </Link>
+            .
+          </span>
+
+          <span>
+            And before that, I created{" "}
             <Link
               href="https://jog.fm"
               target="_blank"
@@ -100,9 +106,10 @@ export default function Home() {
               rel="noreferrer"
             >
               songbpm
-            </Link>{" "}
-            which receive nearly a million unique visitors per month.
-          </span> */}
+            </Link>
+            , which help a million unique people per month improve their health
+            and fitness.
+          </span>
         </div>
         <div className="text-center text-sm font-bold uppercase text-gray-400 ">
           <h2>Get in touch</h2>

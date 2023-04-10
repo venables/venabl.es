@@ -5,7 +5,7 @@ echo "🦄 Setting up the venabl.es project..."
 
 echo ""
 echo "⚪️ Installing dependencies..."
-npm install
+pnpm install --frozen-lockfile
 
 echo ""
 echo "⚪️ Building .env file..."
