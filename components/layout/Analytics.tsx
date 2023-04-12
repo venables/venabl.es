@@ -2,10 +2,6 @@
 
 import { GoogleAnalytics } from "nextjs-google-analytics"
 
-export default function Analytics() {
-  return (
-    <>
-      <GoogleAnalytics trackPageViews />
-    </>
-  )
+export function Analytics() {
+  return <GoogleAnalytics trackPageViews />
 }

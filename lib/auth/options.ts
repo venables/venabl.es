@@ -24,6 +24,12 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   /**
+   * https://next-auth.js.org/configuration/options#pages
+   */
+  pages: {
+    signIn: "/signin"
+  },
+  /**
    * https://next-auth.js.org/configuration/options#secret
    */
   secret: process.env.NEXTAUTH_SECRET,

@@ -1,5 +1,6 @@
+import { ShipIcon } from "lucide-react"
+
 import { Link } from "@/components/elements"
-import { Ship } from "@/components/icons"
 import { siteConfig } from "@/config"
 
 import { SignOutButton } from "./SignOutButton"
@@ -17,7 +18,7 @@ export function Header({ user }: Props) {
             href="/"
             className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-neutral-800 dark:hover:text-neutral-200"
           >
-            <Ship className="transition-transform group-hover:scale-110" />
+            <ShipIcon className="transition-transform group-hover:scale-110" />
             <span className="hidden font-bold sm:inline-block">
               {siteConfig.name}
             </span>

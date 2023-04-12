@@ -11,7 +11,7 @@ import type { Metadata } from "next"
  * This method also will use title and description in the OpenGraph and
  * Twitter metadata, if not set
  */
-export function extendMetadata<T extends Metadata>(metadata?: T) {
+export function seo<T extends Metadata>(metadata?: T) {
   metadata = metadata ?? ({} as T)
 
   const title = metadata.title ?? DEFAULT_METADATA.title

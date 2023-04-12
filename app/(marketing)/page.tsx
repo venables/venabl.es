@@ -1,5 +1,6 @@
+import { CheckIcon, GithubIcon, ShipIcon } from "lucide-react"
+
 import { Link } from "@/components/elements"
-import { Check, Github, Ship } from "@/components/icons"
 import { siteConfig } from "@/config"
 
 const FEATURES = [
@@ -24,7 +25,7 @@ export default function Home() {
     <>
       <div className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12 px-4 sm:px-0">
         <div className="flex flex-col items-center justify-center space-y-2">
-          <Ship className="h-16 w-16" />
+          <ShipIcon className="h-16 w-16" />
           <h1 className="text-7xl font-bold tracking-tighter">StartKit</h1>
           <span className="text-center text-2xl tracking-tight text-neutral-600 dark:text-neutral-300">
             A sane way to start your next{" "}
@@ -43,7 +44,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           {FEATURES.map((f, i) => (
             <div key={i} className="flex flex-row items-center space-x-2">
-              <Check className="h-4 w-4" />
+              <CheckIcon className="h-4 w-4" />
               <span>{f.title}</span>
             </div>
           ))}
@@ -56,7 +57,7 @@ export default function Home() {
             rel="noreferrer"
             variant="subtle"
           >
-            <Github className="mr-2 h-4 w-4" />
+            <GithubIcon className="mr-2 h-4 w-4" />
             <span>
               View Source on <strong>GitHub</strong>
             </span>

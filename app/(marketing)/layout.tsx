@@ -7,7 +7,7 @@ type Props = {
   children?: ReactNode
 }
 
-export default async function Layout({ children }: Props) {
+export default async function MarketingLayout({ children }: Props) {
   const user = await getCurrentUser()
 
   return (
