@@ -1,4 +1,4 @@
-<img src="./public/apple-touch-icon.png" align="right" />
+<img src="./app/apple-icon.png" align="right" />
 
 # StartKit
 
