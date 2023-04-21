@@ -12,7 +12,7 @@ export const DEFAULT_METADATA: Metadata = {
   },
   description: siteConfig.description,
   openGraph: {
-    url: fullURL(),
+    url: "/",
     siteName: siteConfig.name,
     locale: "en-US",
     type: "website"
