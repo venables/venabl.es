@@ -1,7 +1,9 @@
+import Content from "./content.mdx"
+
 export default function PrivacyPage() {
   return (
-    <>
-      <h1>Privacy Policy</h1>
-    </>
+    <article className="prose pb-8 dark:prose-invert lg:prose-xl">
+      <Content />
+    </article>
   )
 }

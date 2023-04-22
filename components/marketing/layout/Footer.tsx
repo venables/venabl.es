@@ -40,16 +40,34 @@ export function Footer() {
           />
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-neutral-500">
-            &copy; {new Date().getFullYear()}{" "}
-            <Link
-              href={siteConfig.company.link}
-              className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
-            >
-              {siteConfig.company.name}
-            </Link>
-            . All rights reserved.
-          </p>
+          <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-xs leading-5 text-neutral-500 sm:flex-row sm:space-y-0">
+            <div className="flex items-center justify-center space-x-2">
+              <span>&copy; {new Date().getFullYear()} </span>
+              <span>
+                <Link
+                  href={siteConfig.company.link}
+                  className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                >
+                  {siteConfig.company.name}
+                </Link>
+                . All rights reserved.
+              </span>
+            </div>
+            <div className="flex items-center justify-center space-x-2">
+              <Link
+                href="/privacy"
+                className="underline-offset-4 hover:underline"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/terms"
+                className="underline-offset-4 hover:underline"
+              >
+                Terms
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

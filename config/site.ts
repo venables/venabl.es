@@ -4,6 +4,7 @@ export const siteConfig = {
   company: {
     name: "Blendist",
     link: "https://blendist.com",
+    email: "contact@blendist.com",
     twitter: "@blendist"
   },
   handles: {
