@@ -31,6 +31,8 @@
     "next-auth": "^4.22.1",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.3.3",
+    "nodemailer": "^6.9.1",
+    "postmark": "^3.0.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
