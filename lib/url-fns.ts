@@ -5,14 +5,14 @@
  * @returns the hostname for the given environment
  */
 export function appHost(includeProtocol = true): string {
-  const host = process.env.HOST
-    ? process.env.HOST
-    : process.env.NEXT_PUBLIC_HOST
+  const host = process.env.NEXT_PUBLIC_HOST
     ? process.env.NEXT_PUBLIC_HOST
     : process.env.NEXT_PUBLIC_VERCEL_URL
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
+    : process.env.HOST
+    ? process.env.HOST
     : ""
 
   return includeProtocol
