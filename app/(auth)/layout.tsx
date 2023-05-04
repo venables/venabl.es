@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
-
 import { Footer } from "@/components/marketing/layout"
+
+import type { ReactNode } from "react"
 
 type Props = {
   children?: ReactNode

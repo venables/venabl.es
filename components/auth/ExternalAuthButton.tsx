@@ -34,7 +34,7 @@ export function ExternalAuthButton({
         onClick={() => {
           setIsExternalAuthLoading(true)
           setIsLoading?.(true)
-          signIn(provider)
+          void signIn(provider)
         }}
         disabled={isLoading || isExternalAuthLoading}
       >

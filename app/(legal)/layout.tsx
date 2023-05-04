@@ -1,8 +1,9 @@
 import { ChevronLeftIcon } from "lucide-react"
-import { ReactNode } from "react"
 
 import { Link } from "@/components/elements"
 import { Footer } from "@/components/marketing/layout"
+
+import type { ReactNode } from "react"
 
 type Props = {
   children?: ReactNode

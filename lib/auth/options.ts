@@ -62,7 +62,7 @@ export const authOptions: NextAuthOptions = {
               // Set this to prevent Gmail from threading emails.
               // See https://stackoverflow.com/questions/23434110/force-emails-not-to-be-grouped-into-conversations/25435722.
               Name: "X-Entity-Ref-ID",
-              Value: new Date().getTime() + ""
+              Value: `${Date.now()}`
             }
           ]
         })
@@ -106,7 +106,7 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#sign-in-callback
      */
     async signIn(/* { user, account, profile, email, credentials } */) {
-      return true
+      return Promise.resolve(true)
     },
     /**
      * The redirect callback is called anytime the user is redirected to a
@@ -115,7 +115,7 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#redirect-callback
      */
     async redirect({ baseUrl /*, url */ }) {
-      return baseUrl
+      return Promise.resolve(baseUrl)
     },
     /**
      * The session callback is called whenever a session is checked. By
@@ -127,7 +127,7 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#session-callback
      */
     async session({ session /* token , user */ }) {
-      return session
+      return Promise.resolve(session)
     },
     /**
      * This callback is called whenever a JSON Web Token is created (i.e. at
@@ -142,7 +142,7 @@ export const authOptions: NextAuthOptions = {
         token.email = user.email
       }
 
-      return token
+      return Promise.resolve(token)
     }
   }
 }

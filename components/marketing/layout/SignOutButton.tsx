@@ -9,7 +9,7 @@ export function SignOutButton() {
     <Button
       onClick={(event) => {
         event.preventDefault()
-        signOut({
+        void signOut({
           callbackUrl: `${window.location.origin}/api/auth/signin`
         })
       }}

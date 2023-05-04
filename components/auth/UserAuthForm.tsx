@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
 
 import { Button, Input, Label, Spinner } from "@/components/elements"
 import { toast } from "@/hooks/use-toast"
@@ -15,6 +14,7 @@ import { userAuthSchema } from "@/lib/validations"
 import { ExternalAuthButton } from "./ExternalAuthButton"
 
 import type { HTMLAttributes } from "react"
+import type { z } from "zod"
 
 type FormData = z.infer<typeof userAuthSchema>
 
@@ -61,7 +61,7 @@ export function UserAuthForm({
 
   return (
     <div className={cls("grid gap-6", className)} {...props}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={() => void handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">

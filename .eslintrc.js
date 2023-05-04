@@ -2,11 +2,23 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "next/core-web-vitals",
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
   overrides: [
+    /**
+     * Typescript Configuration
+     */
+    {
+      files: ["*.ts", "*.tsx", "*.d.ts"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: "./tsconfig.json"
+      }
+    },
     /**
      * Config files (ex: jest.config.js, prettier.config.js, tailwind.config.js)
      */
@@ -35,6 +47,10 @@ module.exports = {
     }
   ],
   rules: {
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { prefer: "type-imports", fixStyle: "separate-type-imports" }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {

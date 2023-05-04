@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
-
 import { Footer, Header } from "@/components/marketing/layout"
 import { getCurrentUser } from "@/lib/auth/session"
+
+import type { ReactNode } from "react"
 
 type Props = {
   children?: ReactNode
