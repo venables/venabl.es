@@ -61,7 +61,7 @@ export function UserAuthForm({
 
   return (
     <div className={cls("grid gap-6", className)} {...props}>
-      <form onSubmit={() => void handleSubmit(onSubmit)}>
+      <form onSubmit={(...args) => void handleSubmit(onSubmit)(...args)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
