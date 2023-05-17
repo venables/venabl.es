@@ -1,15 +1,9 @@
-import { ShipIcon } from "lucide-react"
+import { GithubIcon, ShipIcon } from "lucide-react"
 
 import { Link } from "@/components/elements"
 import { siteConfig } from "@/config"
 
-import { SignOutButton } from "./SignOutButton"
-
-type Props = {
-  user?: { id?: string | null }
-}
-
-export function Header({ user }: Props) {
+export function Header() {
   return (
     <header className="container sticky top-0 bg-white dark:bg-neutral-900">
       <div className="flex h-16 items-center justify-between border-b border-b-neutral-200 py-4 dark:border-b-neutral-700">
@@ -26,13 +20,14 @@ export function Header({ user }: Props) {
         </div>
 
         <div>
-          {user ? (
-            <SignOutButton />
-          ) : (
-            <Link href="/api/auth/signin" size="sm" className="px-4">
-              Login
-            </Link>
-          )}
+          <Link
+            href={siteConfig.links.github}
+            size="sm"
+            className="px-4"
+            variant="link"
+          >
+            <GithubIcon />
+          </Link>
         </div>
       </div>
     </header>

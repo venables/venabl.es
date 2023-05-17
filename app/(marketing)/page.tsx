@@ -10,7 +10,6 @@ const FEATURES = [
   { title: "Typescript" },
   { title: "ESLint + Prettier" },
   { title: "TailwindCSS" },
-  { title: "Authentication" },
   { title: "Prisma ORM" },
   { title: "PlanetScale Ready" },
   { title: "Metadata API" },

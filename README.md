@@ -53,22 +53,6 @@ To get started simply run the following command.
 pnpm run setup
 ```
 
-For Authentication, you should also generate a secret:
-
-```sh
-openssl rand -base64 32
-```
-
-Place the output value in .env as the `NEXTAUTH_SECRET` value, for example:
-
-```sh
-# .env
-# ...
-NEXTAUTH_SECRET="OgGQPvTtjXu7DvOYKekP8mw9OBJi5FD/ObcYipZFdw0=
-```
-
-(NOTE: Do NOT use the value above in your app!)
-
 ## Migrating the database
 
 The Prisma adapter is set up to use PlanetScale by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
