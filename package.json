@@ -6,15 +6,14 @@
   "scripts": {
     "build": "next build",
     "check": "run-s type-check lint format:check test",
-    "dev": "next dev",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "dev": "next dev --turbo",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
     "lint": "next lint",
     "postinstall": "prisma generate",
     "setup": "./bin/setup",
     "start": "next start",
     "test": "jest --passWithNoTests",
-    "turbo": "next dev --turbo",
     "type-check": "tsc --noEmit --pretty"
   },
   "dependencies": {
