@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config"
-import { fullURL } from "@/lib/url-fns"
+import { fullURL } from "@/lib/utils"
 
 import type { Metadata } from "next"
 
