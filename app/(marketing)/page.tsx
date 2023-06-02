@@ -1,53 +1,63 @@
-import { CheckIcon, GithubIcon, ShipIcon } from "lucide-react"
+import { GithubIcon } from "lucide-react"
+import Image from "next/image"
 
 import { Link } from "@/components/elements"
 import { siteConfig } from "@/config"
 
-const FEATURES = [
-  { title: "Next 13.3" },
-  { title: "/app Directory" },
-  { title: "Route Handlers" },
-  { title: "Typescript" },
-  { title: "ESLint + Prettier" },
-  { title: "TailwindCSS" },
-  { title: "Prisma ORM" },
-  { title: "PlanetScale Ready" },
-  { title: "Metadata API" },
-  { title: "Inter Font" },
-  { title: "Jest" },
-  { title: "Dark Mode" },
-  { title: "and so much more..." }
-]
+import { Features } from "./Features"
 
 export default function Home() {
   return (
     <>
-      <div className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12 px-4 sm:px-0">
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <ShipIcon className="h-16 w-16" />
-          <h1 className="text-7xl font-bold tracking-tighter">StartKit</h1>
-          <span className="text-center text-2xl tracking-tight text-neutral-600 dark:text-neutral-300">
+      <section className="container mt-12 flex h-full w-full grow flex-col sm:flex-row sm:items-center">
+        <div className="flex flex-1 flex-col items-center text-center">
+          <h2 className="rounded-2xl bg-neutral-100 px-4 py-1.5 text-sm font-bold text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100">
+            StartKit
+          </h2>
+          <h1 className="mb-5 text-center text-4xl font-extrabold leading-none tracking-tight text-neutral-900 dark:text-neutral-100 md:text-6xl">
             A sane way to start your next{" "}
-            <a
+            <Link
               href="https://nextjs.org/"
               target="_blank"
               rel="noreferrer"
-              className="rounded bg-pink-100 px-1 transition-colors hover:bg-pink-200 dark:bg-pink-800 hover:dark:bg-pink-700"
+              className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               next
-            </a>{" "}
+            </Link>{" "}
             project.
-          </span>
+          </h1>
+
+          <Link
+            href={siteConfig.links.github}
+            target="_blank"
+            rel="noreferrer"
+            variant="subtle"
+            size="large"
+            className="text-lg font-semibold tracking-tighter"
+          >
+            Get started
+          </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 sm:gap-4">
-          {FEATURES.map((f, i) => (
-            <div key={i} className="flex flex-row items-center space-x-2">
-              <CheckIcon className="h-4 w-4" />
-              <span>{f.title}</span>
-            </div>
-          ))}
+        <div className="relative h-96 sm:flex sm:flex-1 sm:items-start">
+          <Image
+            src="/images/home/hero-light.svg"
+            alt="A sane way to start your next next project"
+            fill
+            className="dark:hidden"
+          />
+          <Image
+            src="/images/home/hero-dark.svg"
+            alt="A sane way to start your next next project"
+            fill
+            className="hidden dark:block"
+          />
         </div>
+      </section>
+
+      <section className="mt-12 flex h-full grow flex-col items-center justify-center space-y-12 px-4 sm:px-0">
+        <h2 className="text-3xl font-bold">What&apos;s included</h2>
+        <Features />
 
         <div className="flex flex-col items-center justify-center space-y-2">
           <Link
@@ -62,7 +72,7 @@ export default function Home() {
             </span>
           </Link>
         </div>
-      </div>
+      </section>
     </>
   )
 }

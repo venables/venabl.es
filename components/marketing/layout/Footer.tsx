@@ -40,32 +40,48 @@ export function Footer() {
           />
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-xs leading-5 text-neutral-500 sm:flex-row sm:space-y-0">
-            <div className="flex items-center justify-center space-x-2">
-              <span>&copy; {new Date().getFullYear()} </span>
+          <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-sm leading-5 text-neutral-500 dark:text-neutral-400 sm:flex-row sm:space-y-0">
+            <div className="flex items-center justify-center space-x-1">
+              <span>&copy; {new Date().getFullYear()}.</span>
               <span>
+                Built by{" "}
                 <Link
                   href={siteConfig.company.link}
                   className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
                 >
                   {siteConfig.company.name}
                 </Link>
-                . All rights reserved.
+                .
               </span>
             </div>
             <div className="flex items-center justify-center space-x-2">
+              <span>
+                Illustrations by{" "}
+                <Link
+                  href="https://popsy.co/"
+                  className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                >
+                  Popsy
+                </Link>
+                .
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center space-x-2">
               <Link
                 href="/privacy"
-                className="underline-offset-4 hover:underline"
+                className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
               >
                 Privacy
               </Link>
+              .
               <Link
                 href="/terms"
-                className="underline-offset-4 hover:underline"
+                className="text-neutral-700 underline underline-offset-4 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
               >
                 Terms
               </Link>
+              .
             </div>
           </div>
         </div>

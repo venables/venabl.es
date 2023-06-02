@@ -6,7 +6,7 @@
 
 ## Features
 
-- [Next.js 13.3](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
+- [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Prisma](https://prisma.io) database ORM, ready for use with [PlanetScale](https://planetscale).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
@@ -121,6 +121,6 @@ pnpm test
 
 ## ❤️ Open Source
 
-This project is free to use and modify for your own projects.
+This project is MIT-licensed and is free to use and modify for your own projects.
 
-It was created by [Blendist](https://blendist.com) and [Matt Venables](https://venabl.es). Pieces were also inspired by, or adapted from [Taxonomy](https://github.com/shadcn/taxonomy) by [shadcn](https://github.com/shadcn). See the `licenses` directory for all relevant licenses.
+It was created by [Blendist](https://blendist.com) and [Matt Venables](https://venabl.es).

@@ -1,4 +1,4 @@
-import { GithubIcon, ShipIcon } from "lucide-react"
+import { GithubIcon, HazeIcon } from "lucide-react"
 
 import { Link } from "@/components/elements"
 import { siteConfig } from "@/config"
@@ -12,7 +12,7 @@ export function Header() {
             href="/"
             className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-neutral-800 dark:hover:text-neutral-200"
           >
-            <ShipIcon className="transition-transform group-hover:scale-110" />
+            <HazeIcon className="transition-transform group-hover:scale-110" />
             <span className="hidden font-bold sm:inline-block">
               {siteConfig.name}
             </span>
@@ -22,7 +22,7 @@ export function Header() {
         <div>
           <Link
             href={siteConfig.links.github}
-            size="sm"
+            size="small"
             className="px-4"
             variant="link"
           >
