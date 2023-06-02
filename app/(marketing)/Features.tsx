@@ -27,7 +27,7 @@ const FEATURES = [
         description: "Yep! You can use them anywhere in your app."
       })
   },
-  { title: "and so much more..." }
+  { title: "and much more..." }
 ]
 
 export function Features() {
@@ -37,7 +37,7 @@ export function Features() {
         <Button
           key={i}
           className={cls(
-            "flex flex-row items-center space-x-2",
+            "flex flex-row items-center space-x-2 text-left",
             f.onClick ? "cursor-pointer" : "cursor-default"
           )}
           onClick={() => {
