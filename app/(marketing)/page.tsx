@@ -9,7 +9,7 @@ import { Features } from "./Features"
 export default function Home() {
   return (
     <>
-      <section className="container mt-12 flex h-full w-full grow flex-col sm:flex-row sm:items-center">
+      <section className="mx-auto mt-12 flex h-full w-full max-w-4xl grow flex-col sm:flex-row sm:items-center">
         <div className="flex flex-1 flex-col items-center text-center">
           <h2 className="rounded-2xl bg-neutral-100 px-4 py-1.5 text-sm font-bold text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100">
             StartKit
