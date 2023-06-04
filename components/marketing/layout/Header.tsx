@@ -25,7 +25,7 @@ export function Header({ user }: Props) {
           </Link>
         </div>
 
-        <div>
+        <div className="flex flex-row items-center space-x-2">
           <Link href={siteConfig.links.github} className="px-2">
             <GithubIcon className="mx-auto" />
           </Link>
