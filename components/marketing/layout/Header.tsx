@@ -5,7 +5,7 @@ import { siteConfig } from "@/config"
 
 export function Header() {
   return (
-    <header className="container sticky top-0 mx-auto bg-white px-2 dark:bg-neutral-900">
+    <header className="container sticky top-0 z-10 mx-auto bg-white px-4 dark:bg-neutral-900">
       <div className="flex h-16 items-center justify-between border-b border-b-neutral-200 py-4 dark:border-b-neutral-700">
         <div className="flex gap-6 md:gap-10">
           <Link
@@ -20,13 +20,8 @@ export function Header() {
         </div>
 
         <div>
-          <Link
-            href={siteConfig.links.github}
-            size="small"
-            className="px-4"
-            variant="link"
-          >
-            <GithubIcon />
+          <Link href={siteConfig.links.github} className="px-2">
+            <GithubIcon className="mx-auto" />
           </Link>
         </div>
       </div>
