@@ -32,7 +32,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             variant="subtle"
-            size="large"
+            size="lg"
             className="text-lg font-semibold tracking-tighter"
           >
             Get started
