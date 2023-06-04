@@ -27,6 +27,11 @@ export default function Home() {
             project.
           </h1>
 
+          <h2 className="pb-6 pt-2">
+            Clean, understandable code. The latest best practices. Best-in-class
+            open source libraries.
+          </h2>
+
           <Link
             href={siteConfig.links.github}
             target="_blank"
