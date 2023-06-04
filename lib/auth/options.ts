@@ -2,15 +2,14 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import EmailProvider from "next-auth/providers/email"
 import GoogleProvider from "next-auth/providers/google"
-import { Client } from "postmark"
 
 import { siteConfig } from "@/config"
 import { prisma } from "@/lib/database"
 import { fullURL } from "@/lib/utils"
 
-import type { NextAuthOptions } from "next-auth"
+import { postmarkClient } from "../mail"
 
-const postmarkClient = new Client(process.env.POSTMARK_API_TOKEN!)
+import type { NextAuthOptions } from "next-auth"
 
 export const authOptions: NextAuthOptions = {
   /**
@@ -44,7 +43,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Missing template id")
         }
 
-        const result = await postmarkClient.sendEmailWithTemplate({
+        const result = await postmarkClient().sendEmailWithTemplate({
           To: identifier,
           From: provider.from as string,
           TemplateAlias: templateAlias,
