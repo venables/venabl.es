@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, ShipIcon } from "lucide-react"
+import { ChevronLeftIcon, HazeIcon } from "lucide-react"
 
 import { UserAuthForm } from "@/components/auth/UserAuthForm"
 import { Link } from "@/components/elements"
@@ -24,7 +24,7 @@ export default function SigninPage() {
       <div className="mx-auto flex w-full grow flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <Link href="/">
-            <ShipIcon className="mx-auto h-12 w-12" />
+            <HazeIcon className="mx-auto h-12 w-12" />
           </Link>
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome back

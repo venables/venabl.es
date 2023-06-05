@@ -1,9 +1,10 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import { AlertTriangleIcon } from "lucide-react"
 import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 
 import { Button, Input, Label, Spinner } from "@/components/elements"
@@ -34,6 +35,15 @@ export function UserAuthForm({
     useState<boolean>(false)
   const searchParams = useSearchParams()
 
+  const oauthError = useMemo(() => {
+    const error = searchParams.get("error")
+    if (error === "OAuthAccountNotLinked") {
+      return "It looks like you already have an account. Please sign in with the other service you used to sign up."
+    }
+
+    return null
+  }, [searchParams])
+
   async function onSubmit(data: FormData) {
     setIsLoading(true)
 
@@ -61,6 +71,22 @@ export function UserAuthForm({
 
   return (
     <div className={cls("grid gap-6", className)} {...props}>
+      {oauthError && (
+        <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
+          <div className="flex">
+            <div className="shrink-0">
+              <AlertTriangleIcon
+                className="h-5 w-5 text-yellow-400"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="ml-3">
+              <p className="text-sm text-yellow-700">{oauthError}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <form onSubmit={(...args) => void handleSubmit(onSubmit)(...args)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
@@ -102,11 +128,18 @@ export function UserAuthForm({
         </div>
       </div>
 
-      <ExternalAuthButton
-        provider="google"
-        isLoading={isLoading}
-        setIsLoading={setIsExternalAuthLoading}
-      />
+      <div className="flex flex-col space-y-2">
+        <ExternalAuthButton
+          provider="google"
+          isLoading={isLoading}
+          setIsLoading={setIsExternalAuthLoading}
+        />
+        <ExternalAuthButton
+          provider="github"
+          isLoading={isLoading}
+          setIsLoading={setIsExternalAuthLoading}
+        />
+      </div>
     </div>
   )
 }

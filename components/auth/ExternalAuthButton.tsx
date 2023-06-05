@@ -1,3 +1,4 @@
+import { GithubIcon } from "lucide-react"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 
@@ -9,6 +10,10 @@ const providers = {
   google: {
     title: "Google",
     icon: GoogleIcon
+  },
+  github: {
+    title: "Github",
+    icon: GithubIcon
   }
 }
 
