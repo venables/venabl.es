@@ -10,4 +10,4 @@ else
   cp .env.example .env
 fi
 
-echo "\n✨ Done. Happy coding."
+echo "\n🎉 All set. Happy coding!"

@@ -25,17 +25,15 @@
    git clone git@github.com:startkit-dev/startkit-next.git my-new-project
    ```
 
-2. Rename the project:
+2. Initialize the project:
 
    ```sh
-   ./bin/rename
+   ./bin/init
    ```
 
-3. Update your git remote to point to StartKit as `startkit`
-
-   ```sh
-   git remote rename origin startkit
-   ```
+   This will rename `startkit` to your project name throughout the app,
+   update your git remote to be named `startkit`, install the `.env` file, and
+   install all of your dependencies.
 
    In the future, you'll be able to pull in the latest StartKit changes without
    missing a beat by running:
@@ -44,6 +42,9 @@
    git fetch startkit
    git pull startkit/main
    ```
+
+   Once you run `./bin/init`, it will be safe to delete. You can also delete
+   this section of the README.
 
 ## Getting Started
 

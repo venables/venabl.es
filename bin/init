@@ -1,0 +1,34 @@
+#!/usr/bin/env zsh
+
+echo -n "What is your new project name (start_kit)?: "
+read project_name
+
+snake_name=${project_name//-/_}
+upper_name=${(U)project_name}
+dash_name=${snake_name//_/-}
+words=(${(s:_:)snake_name})
+class_name=${(j::)${(C)words}}
+
+mappings=("s/startkit/$snake_name/g" "s/start_kit/$snake_name/g" "s/START_KIT/$upper_name/g" "s/StartKit/$class_name/g" "s/start-kit/$dash_name/g")
+
+# Rename git origin
+git remote rename origin startkit
+
+for mapping in $mappings
+do
+  echo "Renaming $mapping ..."
+  sed -i '' $mapping ".env"
+  sed -i '' $mapping ".env.example"
+  sed -i '' $mapping "package.json"
+  sed -i '' $mapping "README.md"
+  sed -i '' $mapping ".gitignore"
+  sed -i '' $mapping "app/(marketing)/page.test.tsx"
+  sed -i '' $mapping "app/(marketing)/page.tsx"
+  sed -i '' $mapping "config/site.ts"
+done
+
+# Run the initial setup script
+./bin/setup
+
+# Done.
+echo "Now you can delete ./bin/init"
