@@ -4,11 +4,8 @@ import EmailProvider from "next-auth/providers/email"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-import { siteConfig } from "@/config"
 import { prisma } from "@/lib/database"
-import { fullURL } from "@/lib/utils"
-
-import { postmarkClient } from "../mail"
+import { emailClient, renderSignInEmail } from "@/lib/email"
 
 import type { NextAuthOptions } from "next-auth"
 
@@ -25,7 +22,7 @@ export const authOptions: NextAuthOptions = {
      *
      */
     EmailProvider({
-      from: process.env.SMTP_FROM,
+      from: process.env.EMAIL_FROM,
       sendVerificationRequest: async ({ identifier, url, provider }) => {
         const user = await prisma.user.findUnique({
           where: {
@@ -36,39 +33,26 @@ export const authOptions: NextAuthOptions = {
           }
         })
 
-        const templateAlias = user?.emailVerified
-          ? process.env.POSTMARK_SIGN_IN_TEMPLATE_ALIAS
-          : process.env.POSTMARK_ACTIVATION_TEMPLATE_ALIAS
-
-        if (!templateAlias) {
-          throw new Error("Missing template id")
-        }
-
-        const result = await postmarkClient().sendEmailWithTemplate({
-          To: identifier,
-          From: provider.from as string,
-          TemplateAlias: templateAlias,
-          TemplateModel: {
-            product_url: fullURL(),
-            product_name: siteConfig.name,
-            name: identifier,
-            action_url: url,
-            company_name: siteConfig.company.name,
-            company_address: siteConfig.company.link
-          },
-          Headers: [
+        await emailClient().emails.send({
+          from: provider.from as string,
+          to: identifier,
+          subject: user?.emailVerified
+            ? "Sign in to StartKit"
+            : "Welcome to StartKit!",
+          html: renderSignInEmail({
+            emailAddress: identifier,
+            existingUser: Boolean(user?.emailVerified),
+            url
+          }),
+          text: renderSignInEmail(
             {
-              // Set this to prevent Gmail from threading emails.
-              // See https://stackoverflow.com/questions/23434110/force-emails-not-to-be-grouped-into-conversations/25435722.
-              Name: "X-Entity-Ref-ID",
-              Value: `${Date.now()}`
-            }
-          ]
+              emailAddress: identifier,
+              existingUser: Boolean(user?.emailVerified),
+              url
+            },
+            { plainText: true }
+          )
         })
-
-        if (result.ErrorCode) {
-          throw new Error(result.Message)
-        }
       }
     }),
     /**

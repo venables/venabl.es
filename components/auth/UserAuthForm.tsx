@@ -14,6 +14,7 @@ import { userAuthSchema } from "@/lib/validations"
 
 import { ExternalAuthButton } from "./ExternalAuthButton"
 
+import type { SignInResponse } from "next-auth/react"
 import type { HTMLAttributes } from "react"
 import type { z } from "zod"
 
@@ -45,13 +46,19 @@ export function UserAuthForm({
   }, [searchParams])
 
   async function onSubmit(data: FormData) {
+    let signInResult: SignInResponse | undefined
+
     setIsLoading(true)
 
-    const signInResult = await signIn("email", {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: searchParams?.get("from") || "/dashboard"
-    })
+    try {
+      signInResult = await signIn("email", {
+        email: data.email.toLowerCase(),
+        redirect: false,
+        callbackUrl: searchParams?.get("from") || "/dashboard"
+      })
+    } catch (err) {
+      console.error(err)
+    }
 
     setIsLoading(false)
 
