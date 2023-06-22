@@ -53,7 +53,7 @@
 To get started simply run the following command.
 
 ```sh
-npm run setup
+pnpm run setup
 ```
 
 For Authentication, you should also generate a secret:
@@ -81,7 +81,7 @@ If using PlanetScale, we recommend connecting to a `dev` branch of your database
 After making changes to `prisma/schema.prisma`, you can migrate by running:
 
 ```sh
-npm run prisma db push
+pnpm prisma db push
 ```
 
 ### Browsing the database
@@ -89,13 +89,13 @@ npm run prisma db push
 Prisma offers a simple UI for inspecting the database. To launch it, run:
 
 ```sh
-npm run prisma studio
+pnpm prisma studio
 ```
 
 ## Running the server
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 The app will be running at [http://localhost:3000](http://localhost:3000).
@@ -105,37 +105,37 @@ The app will be running at [http://localhost:3000](http://localhost:3000).
 To run a full check of the codebase (type-check, lint, prettier check, test), run:
 
 ```sh
-npm run check
+pnpm check
 ```
 
 ### Linting
 
 ```sh
-npm run lint
+pnpm lint
 ```
 
 ### Type Checking
 
 ```sh
-npm run type-check
+pnpm type-check
 ```
 
 ### Formatting with Prettier
 
 ```sh
-npm run format
+pnpm format
 ```
 
 to check for format errors, run:
 
 ```sh
-npm run format:check
+pnpm format:check
 ```
 
 ### Testing via Jest
 
 ```sh
-npm run test
+pnpm test
 ```
 
 ## ❤️ Open Source

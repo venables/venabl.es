@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 echo "✨ Installing dependencies ..."
-npm install
+pnpm install --frozen-lockfile
 
 echo "\n✨ Creating .env file..."
 if [ -f .env ]; then
