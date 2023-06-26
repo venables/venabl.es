@@ -8,7 +8,7 @@
 
 - [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
-- [Prisma](https://prisma.io) database ORM, ready for use with [PlanetScale](https://planetscale).
+- [Prisma](https://prisma.io) database ORM, ready for use with [PostgreSQL](https://www.postgresql.org/).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
 - Authentication via [Next Auth](https://next-auth.js.org/).
@@ -72,16 +72,33 @@ NEXTAUTH_SECRET="OgGQPvTtjXu7DvOYKekP8mw9OBJi5FD/ObcYipZFdw0=
 
 (NOTE: Do NOT use the value above in your app!)
 
-## Migrating the database
+## Database
 
-The Prisma adapter is set up to use PlanetScale by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
+The Prisma adapter is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
 
-If using PlanetScale, we recommend connecting to a `dev` branch of your database.
+The database `startkit_development` should be created during the `pnpm run setup` step (defined in `./bin/setup`).
 
-After making changes to `prisma/schema.prisma`, you can migrate by running:
+Ensure you have postgres running locally. For example, on MacOS with homebrew:
+
+```sh
+brew install postgresql@14
+brew services start postgresql@14
+```
+
+### Making changes to the database schema
+
+Make changes to your database by modifying `prisma/schema.prisma` ([learn more](https://www.prisma.io/docs/concepts/components/prisma-schema)).
+
+When prototyping changes, you can run :
 
 ```sh
 pnpm prisma db push
+```
+
+When you feel comfortable with the changes, you can make a migration file by running:
+
+```sh
+pnpm prisma migrate dev
 ```
 
 ### Browsing the database
