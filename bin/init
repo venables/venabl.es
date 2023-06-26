@@ -24,6 +24,8 @@ do
   sed -i '' $mapping "app/(marketing)/page.test.tsx"
   sed -i '' $mapping "app/(marketing)/page.tsx"
   sed -i '' $mapping "config/site.ts"
+  sed -i '' $mapping "emails/SignInEmail.tsx"
+  sed -i '' $mapping "lib/auth/options.ts"
 done
 
 # Run the initial setup script
