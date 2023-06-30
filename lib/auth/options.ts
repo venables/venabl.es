@@ -116,7 +116,11 @@ export const authOptions: NextAuthOptions = {
      *
      * https://next-auth.js.org/configuration/callbacks#session-callback
      */
-    async session({ session /* token , user */ }) {
+    async session({ session, token /*, user */ }) {
+      if (session?.user) {
+        session.user.id = token.userId
+      }
+
       return Promise.resolve(session)
     },
     /**
@@ -128,7 +132,7 @@ export const authOptions: NextAuthOptions = {
      */
     async jwt({ token, user /*, account, profile, trigger */ }) {
       if (user) {
-        token.id = user.id
+        token.userId = user.id
         token.email = user.email
       }
 

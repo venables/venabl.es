@@ -31,24 +31,10 @@ export class UnauthorizedError extends HttpError {
   }
 }
 
-/**
- * HTTP 404 Not Found
- */
-export class NotFoundError extends HttpError {
-  status = 404
-
-  constructor(message?: string, ...args: never[]) {
-    super(message ?? "Not Found", ...args)
-  }
+export function validationError(message?: string): never {
+  throw new ValidationError(message)
 }
 
-/**
- * HTTP 405 Method Not Allowed
- */
-export class MethodNotAllowedError extends HttpError {
-  status = 405
-
-  constructor(message?: string, ...args: never[]) {
-    super(message ?? "Method Not Allowed", ...args)
-  }
+export function unauthorized(message?: string): never {
+  throw new UnauthorizedError(message)
 }

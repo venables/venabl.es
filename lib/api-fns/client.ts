@@ -1,12 +1,28 @@
-import type { ApiResponse } from "./types"
+import type { ApiResponse, ApiResponseError } from "./types"
 
 /**
  *
  */
-export const apiFetch = async <T>(
+function isErrorResponse(
+  response: Response,
+  json: unknown
+): json is ApiResponseError {
+  return (
+    !response.ok &&
+    typeof json === "object" &&
+    json !== null &&
+    "error" in json &&
+    typeof json.error === "string"
+  )
+}
+
+/**
+ *
+ */
+export const apiFetch = async <T = void>(
   url: string,
   options?: RequestInit
-): Promise<T | void> => {
+): Promise<T> => {
   const response = await fetch(url, {
     ...options,
     headers: {
@@ -17,11 +33,13 @@ export const apiFetch = async <T>(
 
   const json = (await response.json()) as ApiResponse<T>
 
-  if (json.status !== "ok") {
+  if (isErrorResponse(response, json)) {
     throw new Error(json.error)
   }
 
-  if ("data" in json) {
-    return json.data
+  if (!response.ok) {
+    throw new Error(response.statusText)
   }
+
+  return json
 }
