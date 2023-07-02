@@ -4,7 +4,7 @@ import { logger } from "@/lib/logger"
 
 import { buildErrorResponse } from "./errors/error-response"
 
-import type { ApiResponse, NextRouteHandler } from "./types"
+import type { ApiResponse, NextRouteContext, NextRouteHandler } from "./types"
 import type { NextResponse } from "next/server"
 
 /**
@@ -13,19 +13,24 @@ import type { NextResponse } from "next/server"
  * @example
  *
  *   type ResponseData = { name: string }
+ *   type Context = NextRouteContext<{ id: string }>
  *
- *   export const GET = handler<ResponseData>(request => {
- *      if (!request.query.name) {
- *        throw new ValidationError("name is required")
+ *   export const GET = handler<ResponseData, Context>((req, context) => {
+ *      if (!context.params.userId) {
+ *        unauthorized()
  *      }
  *
- *      return NextResponse.json({ status: "ok", data: { name: request.query.name } })
+ *      if (!req.query.name) {
+ *        validationError("name is required")
+ *      }
+ *
+ *      return NextResponse.json({ name: request.query.name })
  *   })
  *
  * @param handler the api handler
  * @returns a wrapped api handler
  */
-export const handler = <T = void, U = void>(
+export const handler = <T = void, U = NextRouteContext>(
   routeHandler: NextRouteHandler<ApiResponse<T>, U>
 ): NextRouteHandler<ApiResponse<T>, U> => {
   const startTime = new Date()
