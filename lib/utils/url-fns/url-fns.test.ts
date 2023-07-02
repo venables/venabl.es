@@ -1,19 +1,33 @@
+import { env } from "@/env"
+
 import { appHost, fullURL } from "./url-fns"
 
 test("appHost() returns the app host", () => {
-  process.env.NEXT_PUBLIC_HOST = "https://example.com"
+  const oldHost = env.NEXT_PUBLIC_HOST
+
+  env.NEXT_PUBLIC_HOST = "https://example.com"
   expect(appHost()).toBe("https://example.com")
-  delete process.env.HOST
+
+  // cleanup
+  env.NEXT_PUBLIC_HOST = oldHost
 })
 
 test("appHost() can exclude the protocol", () => {
-  process.env.NEXT_PUBLIC_HOST = "https://example.com"
+  const oldHost = env.NEXT_PUBLIC_HOST
+
+  env.NEXT_PUBLIC_HOST = "https://example.com"
   expect(appHost(false)).toBe("example.com")
-  delete process.env.HOST
+
+  // cleanup
+  env.NEXT_PUBLIC_HOST = oldHost
 })
 
 test("fullURL() returns a full URL by appending the path to the host", () => {
-  process.env.NEXT_PUBLIC_HOST = "https://example.com"
+  const oldHost = env.NEXT_PUBLIC_HOST
+
+  env.NEXT_PUBLIC_HOST = "https://example.com"
   expect(fullURL("/path").toString()).toBe("https://example.com/path")
-  delete process.env.HOST
+
+  // cleanup
+  env.NEXT_PUBLIC_HOST = oldHost
 })

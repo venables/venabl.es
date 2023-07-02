@@ -1,4 +1,6 @@
-const { createSecureHeaders } = require("next-secure-headers")
+import "./env/env.mjs"
+import { createSecureHeaders } from "next-secure-headers"
+import nextMDX from "@next/mdx"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,5 +27,6 @@ const nextConfig = {
   }
 }
 
-const withMDX = require("@next/mdx")()
-module.exports = withMDX(nextConfig)
+const withMDX = nextMDX()
+
+export default withMDX(nextConfig)

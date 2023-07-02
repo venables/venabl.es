@@ -4,6 +4,7 @@ import EmailProvider from "next-auth/providers/email"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
+import { env } from "@/env"
 import { prisma } from "@/lib/database"
 import { emailClient, renderSignInEmail } from "@/lib/email"
 
@@ -22,7 +23,7 @@ export const authOptions: NextAuthOptions = {
      *
      */
     EmailProvider({
-      from: process.env.EMAIL_FROM,
+      from: env.EMAIL_FROM,
       sendVerificationRequest: async ({ identifier, url, provider }) => {
         const user = await prisma.user.findUnique({
           where: {
@@ -59,15 +60,15 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/providers/google
      */
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET
     }),
     /**
      * https://next-auth.js.org/providers/github
      */
     GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET
     })
   ],
   /**
@@ -79,7 +80,7 @@ export const authOptions: NextAuthOptions = {
   /**
    * https://next-auth.js.org/configuration/options#secret
    */
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: env.NEXTAUTH_SECRET,
   /**
    * https://next-auth.js.org/configuration/options#session
    */

@@ -1,9 +1,11 @@
+import { env } from "@/env"
+
 /**
  * Adds a small indicator to the bottom left of the screen that shows the current
  * breakpoint. This is useful for debugging responsive styles.
  */
 export function TailwindIndicator() {
-  if (process.env.NODE_ENV === "production") {
+  if (env.NODE_ENV === "production") {
     return null
   }
 
