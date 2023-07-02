@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid/async"
+
 import { logger } from "@/lib/logger"
 
 import { buildErrorResponse } from "./errors/error-response"
@@ -29,13 +31,14 @@ export const handler = <T = void, U = void>(
   const startTime = new Date()
 
   return async (request, context) => {
+    const requestId = await nanoid()
     const method = request.method
     const url = request.nextUrl.pathname
 
     /**
      * Log the HTTP request
      */
-    logger.info(`➡️ ${method} ${url} ...`)
+    logger.info(`➡️  [${requestId}] ${method} ${url} ...`)
 
     let response: NextResponse<ApiResponse<T>>
 
@@ -49,11 +52,12 @@ export const handler = <T = void, U = void>(
      * Log the HTTP response status
      */
     logger.info(
-      `⬅️  ${method} ${url} (${response.status}) took ${
+      `⬅️  [${requestId}] ${method} ${url} (${response.status}) took ${
         new Date().getTime() - startTime.getTime()
       }ms`
     )
 
+    response.headers.set("x-request-id", requestId)
     return response
   }
 }
