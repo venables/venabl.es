@@ -1,9 +1,5 @@
 import type { NextRequest, NextResponse } from "next/server"
 
-export type NextJsError = Error & {
-  digest: `NEXT_${string}`
-}
-
 /**
  * The API Error response
  */
