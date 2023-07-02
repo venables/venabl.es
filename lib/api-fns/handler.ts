@@ -48,16 +48,17 @@ export const handler = <T = void, U = void>(
       response = buildErrorResponse(err)
     }
 
+    const responseTime = new Date().getTime() - startTime.getTime()
+
     /**
      * Log the HTTP response status
      */
     logger.info(
-      `⬅️  [${requestId}] ${method} ${url} (${response.status}) took ${
-        new Date().getTime() - startTime.getTime()
-      }ms`
+      `⬅️  [${requestId}] ${method} ${url} (${response.status}) took ${responseTime}ms`
     )
 
     response.headers.set("x-request-id", requestId)
+    response.headers.set("x-response-time", responseTime.toString())
     return response
   }
 }
