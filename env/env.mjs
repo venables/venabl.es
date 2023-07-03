@@ -8,7 +8,7 @@ export const env = createEnv({
    * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
    */
   client: {
-    NEXT_PUBLIC_HOST: z.string().url(),
+    NEXT_PUBLIC_HOST: z.string().url().optional(),
     NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional()
   },
@@ -25,7 +25,7 @@ export const env = createEnv({
      * Authentication
      */
     NEXTAUTH_SECRET: z.string(),
-    NEXTAUTH_URL: z.string().url(),
+    NEXTAUTH_URL: z.string().url().optional(),
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
     GITHUB_CLIENT_ID: z.string(),
