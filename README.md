@@ -11,6 +11,7 @@
 - [Prisma](https://prisma.io) database ORM, ready for use with [PostgreSQL](https://www.postgresql.org/).
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
+- Gorgeous UI built with [Radix](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/).
 - Authentication via [Next Auth](https://next-auth.js.org/).
 - Email via [Resend](https://resend.com) and [react email](https://react.email/).
 - The beautiful [Inter](https://rsms.me/inter/) typeface.
@@ -72,6 +73,22 @@ NEXTAUTH_SECRET="OgGQPvTtjXu7DvOYKekP8mw9OBJi5FD/ObcYipZFdw0=
 
 (NOTE: Do NOT use the value above in your app!)
 
+### Browsing the database
+
+Prisma offers a simple UI for inspecting the database. To launch it, run:
+
+```sh
+pnpm prisma studio
+```
+
+## Running the server
+
+```bash
+pnpm dev
+```
+
+The app will be running at [http://localhost:3000](http://localhost:3000).
+
 ## Database
 
 The Prisma adapter is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
@@ -101,21 +118,20 @@ When you feel comfortable with the changes, you can make a migration file by run
 pnpm prisma migrate dev
 ```
 
-### Browsing the database
+## UI components
 
-Prisma offers a simple UI for inspecting the database. To launch it, run:
+By default, this project includes the following components from [shadcn/ui](https://ui.shadcn.com/):
+
+- [Button](https://ui.shadcn.com/docs/components/button)
+- [Toast](https://ui.shadcn.com/docs/components/toast)
+
+To add new UI components from [shadcn/ui](https://ui.shadcn.com/), run:
 
 ```sh
-pnpm prisma studio
+pnpx shadcn-ui@latest add button
 ```
 
-## Running the server
-
-```bash
-pnpm dev
-```
-
-The app will be running at [http://localhost:3000](http://localhost:3000).
+where `button` can be any UI element from the project.
 
 ## Linting / Checking the codebase
 

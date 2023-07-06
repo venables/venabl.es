@@ -32,7 +32,7 @@ export default function SignInEmail({
       <Tailwind>
         <Body className="m-auto bg-white font-sans">
           <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
-            <Heading className="mx-0 mb-[10px] mt-[32px] p-0 text-center text-[12px] font-bold uppercase tracking-widest text-neutral-400">
+            <Heading className="mx-0 mb-[10px] mt-[32px] p-0 text-center text-[12px] font-bold uppercase tracking-widest text-zinc-400">
               StartKit
             </Heading>
             <Heading className="mx-0 mb-[30px] mt-0 p-0 text-center text-[24px] font-normal text-black">

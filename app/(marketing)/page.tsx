@@ -11,16 +11,16 @@ export default function Home() {
     <>
       <section className="mx-auto mt-12 flex h-full w-full max-w-4xl grow flex-col sm:flex-row sm:items-center">
         <div className="flex flex-1 flex-col items-center text-center">
-          <h2 className="rounded-2xl bg-neutral-100 px-4 py-1.5 text-sm font-bold text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100">
+          <h2 className="rounded-2xl bg-zinc-100 px-4 py-1.5 text-sm font-bold text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100">
             StartKit
           </h2>
-          <h1 className="mb-5 text-center text-4xl font-extrabold leading-none tracking-tight text-neutral-900 dark:text-neutral-100 md:text-6xl">
+          <h1 className="mb-5 text-center text-4xl font-extrabold leading-none tracking-tight text-zinc-900 dark:text-zinc-100 md:text-6xl">
             A sane way to start your next{" "}
             <Link
               href="https://nextjs.org/"
               target="_blank"
               rel="noreferrer"
-              className="text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
               next
             </Link>{" "}
@@ -36,7 +36,7 @@ export default function Home() {
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
-            variant="subtle"
+            variant="secondary"
             size="lg"
             className="text-lg font-semibold tracking-tighter"
           >
@@ -69,7 +69,7 @@ export default function Home() {
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
-            variant="subtle"
+            variant="secondary"
           >
             <GithubIcon className="mr-2 h-4 w-4" />
             <span>

@@ -1,6 +1,6 @@
 import { HazeIcon } from "lucide-react"
 
-import { UserAuthForm } from "@/components/auth/UserAuthForm"
+import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Link } from "@/components/elements"
 
 export const metadata = {
@@ -25,14 +25,14 @@ export default function RegisterPage() {
           <h1 className="text-2xl font-semibold tracking-tight">
             Create an account
           </h1>
-          <p className="text-sm text-neutral-500 dark:text-neutral-400">
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
             Enter your email below to create your account
           </p>
         </div>
 
         <UserAuthForm />
 
-        <p className="px-8 text-center text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="px-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
           By clicking continue, you agree to our{" "}
           <Link href="/terms" className="underline underline-offset-4">
             Terms of Service

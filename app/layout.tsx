@@ -3,9 +3,9 @@ import { Inter } from "next/font/google"
 
 import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
 import { Analytics } from "@/components/layout/Analytics"
-import { Toaster } from "@/components/toast"
+import { Toaster } from "@/components/ui/toaster"
 import { seo } from "@/lib/seo/extend"
-import { cls } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 import type { ReactNode } from "react"
 
@@ -21,11 +21,11 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cls(inter.variable, "font-sans antialiased")}
+      className={cn(inter.variable, "font-sans antialiased")}
       suppressHydrationWarning
     >
       <head />
-      <body className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
+      <body className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white">
         {children}
         <Analytics />
         <Toaster />

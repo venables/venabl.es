@@ -1,8 +1,8 @@
 import NextLink from "next/link"
 import { type ComponentProps, forwardRef } from "react"
 
-import { cls } from "@/lib/utils"
-import { buttonVariants } from "@/lib/variants/button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 import type { VariantProps } from "class-variance-authority"
 
@@ -16,7 +16,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
       <NextLink
-        className={cls(
+        className={cn(
           variant || size
             ? buttonVariants({ variant, size, className })
             : className

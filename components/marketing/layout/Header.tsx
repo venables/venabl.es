@@ -11,12 +11,12 @@ type Props = {
 
 export function Header({ user }: Props) {
   return (
-    <header className="container sticky top-0 z-10 mx-auto bg-white px-4 dark:bg-neutral-900">
-      <div className="flex h-16 items-center justify-between border-b border-b-neutral-200 py-4 dark:border-b-neutral-700">
+    <header className="container sticky top-0 z-10 mx-auto bg-white px-4 dark:bg-zinc-900">
+      <div className="flex h-16 items-center justify-between border-b border-b-zinc-200 py-4 dark:border-b-zinc-700">
         <div className="flex gap-6 md:gap-10">
           <Link
             href="/"
-            className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-neutral-800 dark:hover:text-neutral-200"
+            className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-zinc-800 dark:hover:text-zinc-200"
           >
             <HazeIcon className="transition-transform group-hover:scale-110" />
             <span className="hidden font-bold sm:inline-block">

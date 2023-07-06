@@ -2,9 +2,9 @@ import { GithubIcon } from "lucide-react"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 
-import { Button, Spinner } from "@/components/elements"
-
-import { GoogleIcon } from "../icons/social"
+import { Spinner } from "@/components/elements"
+import { GoogleIcon } from "@/components/icons/social"
+import { Button } from "@/components/ui/button"
 
 const providers = {
   google: {
@@ -48,7 +48,7 @@ export function ExternalAuthButton({
         ) : (
           <info.icon className="mr-2 h-6 w-6" />
         )}{" "}
-        {info.title}
+        Sign in with {info.title}
       </Button>
     </>
   )

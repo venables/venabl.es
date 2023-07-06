@@ -1,11 +1,11 @@
-import { cls } from "./cls"
+import { cn } from "./cn"
 
 test("merges class names", () => {
-  const result = cls("foo", "bar")
+  const result = cn("foo", "bar")
   expect(result).toBe("foo bar")
 })
 
 test("removes conflicting tailwind classes", () => {
-  const result = cls("p-4", "p-6")
+  const result = cn("p-4", "p-6")
   expect(result).toBe("p-6")
 })

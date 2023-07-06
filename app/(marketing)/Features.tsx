@@ -1,46 +1,53 @@
 "use client"
 
 import { CheckIcon } from "lucide-react"
+import { useMemo } from "react"
 
-import { Button } from "@/components/elements"
-import { toast } from "@/hooks/use-toast"
-import { cls } from "@/lib/utils"
-
-const FEATURES = [
-  { title: "Next 13.4" },
-  { title: "App Directory" },
-  { title: "API Route Handlers" },
-  { title: "Typescript (Strict)" },
-  { title: "ESLint + Prettier" },
-  { title: "TailwindCSS" },
-  { title: "Authentication" },
-  { title: "Prisma ORM" },
-  { title: "PostgreSQL" },
-  { title: "Resend Email" },
-  { title: "Metadata API" },
-  { title: "Inter Font" },
-  { title: "Jest" },
-  { title: "Dark Mode" },
-  {
-    title: "Toasts",
-    onClick: () =>
-      toast({
-        title: "Wait. Toasts?",
-        description: "Yep! You can use them anywhere in your app."
-      })
-  },
-  { title: "and much more..." }
-]
+import { useToast } from "@/components/ui/use-toast"
+import { cn } from "@/lib/utils"
 
 export function Features() {
+  const { toast } = useToast()
+
+  const FEATURES = useMemo(
+    () => [
+      { title: "Next 13.4" },
+      { title: "App Directory" },
+      { title: "API Route Handlers" },
+      { title: "Typescript (Strict)" },
+      { title: "ESLint + Prettier" },
+      { title: "TailwindCSS" },
+      { title: "Radix UI" },
+      { title: "shadcn/ui" },
+      { title: "Authentication" },
+      { title: "Prisma" },
+      { title: "PostgreSQL" },
+      { title: "Resend Email" },
+      { title: "Metadata API" },
+      { title: "Inter Font" },
+      { title: "Jest" },
+      { title: "Dark Mode" },
+      {
+        title: "Toasts",
+        onClick: () =>
+          toast({
+            title: "Wait. Toasts, too?",
+            description: "Yep! You can use them anywhere in your app."
+          })
+      },
+      { title: "and much more..." }
+    ],
+    [toast]
+  )
+
   return (
     <div className="grid grid-cols-2 gap-2 sm:gap-4">
       {FEATURES.map((f, i) => (
-        <Button
+        <a
           key={i}
-          className={cls(
-            "flex flex-row items-center space-x-2 text-left",
-            f.onClick ? "cursor-pointer" : "cursor-default"
+          className={cn(
+            "flex flex-row items-center space-x-2 text-left underline-offset-8",
+            f.onClick ? "cursor-pointer hover:underline" : "cursor-default"
           )}
           onClick={() => {
             if (f.onClick) f.onClick()
@@ -48,7 +55,7 @@ export function Features() {
         >
           <CheckIcon className="h-4 w-4" />
           <span>{f.title}</span>
-        </Button>
+        </a>
       ))}
     </div>
   )

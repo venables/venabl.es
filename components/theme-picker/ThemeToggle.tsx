@@ -1,21 +1,26 @@
+"use client"
+
 import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useCallback, useEffect, useState } from "react"
 
-import { Button, type ButtonProps } from "@/components/elements"
+import { cn } from "@/lib/utils"
 
-export type ThemeToggleProps = ButtonProps & {
+import type { HTMLProps } from "react"
+
+export type ThemeToggleProps = HTMLProps<HTMLAnchorElement> & {
   iconClassName?: string
 }
 
 export function ThemeToggle({
   iconClassName = "w-6 h-6",
+  className,
   ...props
 }: ThemeToggleProps) {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme, systemTheme } = useTheme()
 
-  const toggleDarkMode = useCallback(() => {
+  const toggleTheme = useCallback(() => {
     if (resolvedTheme === systemTheme) {
       /**
        * If we're currently on the same theme as the system preference, we
@@ -35,16 +40,29 @@ export function ThemeToggle({
   useEffect(() => setMounted(true), [])
 
   return (
-    <>
-      <Button {...props} onClick={toggleDarkMode}>
-        {!mounted ? (
-          <div className={iconClassName} />
-        ) : resolvedTheme === "dark" ? (
-          <SunIcon className={iconClassName} />
-        ) : (
-          <MoonIcon className={iconClassName} />
-        )}
-      </Button>
-    </>
+    <a
+      {...props}
+      className={cn(className, "cursor-pointer")}
+      onClick={toggleTheme}
+      title={
+        resolvedTheme === "dark"
+          ? "Switch to Light Mode"
+          : "Switch to Dark Mode"
+      }
+    >
+      {!mounted ? (
+        <span className={iconClassName} />
+      ) : resolvedTheme === "dark" ? (
+        <>
+          <span className="sr-only">Switch to Dark Mode</span>
+          <SunIcon className={iconClassName} aria-hidden="true" />
+        </>
+      ) : (
+        <>
+          <span className="sr-only">Switch to Light Mode</span>
+          <MoonIcon className={iconClassName} aria-hidden="true" />
+        </>
+      )}
+    </a>
   )
 }

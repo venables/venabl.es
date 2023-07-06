@@ -6,7 +6,8 @@ import GoogleProvider from "next-auth/providers/google"
 
 import { env } from "@/env"
 import { prisma } from "@/lib/database"
-import { emailClient, renderSignInEmail } from "@/lib/email"
+
+import { sendVerificationRequest } from "./send-verification-request"
 
 import type { NextAuthOptions } from "next-auth"
 
@@ -24,37 +25,7 @@ export const authOptions: NextAuthOptions = {
      */
     EmailProvider({
       from: env.EMAIL_FROM,
-      sendVerificationRequest: async ({ identifier, url, provider }) => {
-        const user = await prisma.user.findUnique({
-          where: {
-            email: identifier
-          },
-          select: {
-            emailVerified: true
-          }
-        })
-
-        await emailClient().emails.send({
-          from: provider.from as string,
-          to: identifier,
-          subject: user?.emailVerified
-            ? "Sign in to StartKit"
-            : "Welcome to StartKit!",
-          html: renderSignInEmail({
-            emailAddress: identifier,
-            existingUser: Boolean(user?.emailVerified),
-            url
-          }),
-          text: renderSignInEmail(
-            {
-              emailAddress: identifier,
-              existingUser: Boolean(user?.emailVerified),
-              url
-            },
-            { plainText: true }
-          )
-        })
-      }
+      sendVerificationRequest
     }),
     /**
      * https://next-auth.js.org/providers/google
@@ -75,7 +46,31 @@ export const authOptions: NextAuthOptions = {
    * https://next-auth.js.org/configuration/options#pages
    */
   pages: {
+    /**
+     * The sign in page
+     */
     signIn: "/signin"
+
+    /**
+     * A sign out confirmation page (optional)
+     */
+    // signOut: '/auth/signout',
+
+    /**
+     * The error page to display during auth errors.
+     * Error code passed in query string as `?error=`
+     */
+    // error: "/auth/error",
+
+    /**
+     * The "check your email" page displayed for magic links.
+     */
+    // verifyRequest: "/auth/check-email"
+
+    /**
+     * New users will be directed here on first sign in (optional)
+     */
+    // newUser: '/auth/new-user'
   },
   /**
    * https://next-auth.js.org/configuration/options#secret
