@@ -1,7 +1,8 @@
-import { ChevronLeftIcon, HazeIcon } from "lucide-react"
+import { ChevronLeftIcon } from "lucide-react"
 
 import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Link } from "@/components/elements"
+import { Logo } from "@/components/icons/brand/Logo"
 import { seo } from "@/lib/seo"
 
 export const metadata = seo({
@@ -24,7 +25,7 @@ export default function SigninPage() {
       <div className="mx-auto flex w-full grow flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <Link href="/">
-            <HazeIcon className="mx-auto h-12 w-12" />
+            <Logo className="mx-auto h-12 w-12" />
           </Link>
           <h1 className="text-2xl font-semibold tracking-tight">
             Welcome back

@@ -1,6 +1,7 @@
-import { GithubIcon, HazeIcon } from "lucide-react"
+import { GithubIcon } from "lucide-react"
 
 import { Link } from "@/components/elements"
+import { Logo } from "@/components/icons/brand/Logo"
 import { siteConfig } from "@/config"
 
 import { SignOutButton } from "./SignOutButton"
@@ -18,8 +19,8 @@ export function Header({ user }: Props) {
             href="/"
             className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-zinc-800 dark:hover:text-zinc-200"
           >
-            <HazeIcon className="transition-transform group-hover:scale-110" />
-            <span className="hidden font-bold sm:inline-block">
+            <Logo className="transition-transform group-hover:animate-spin" />
+            <span className="hidden text-lg font-bold sm:inline-block">
               {siteConfig.name}
             </span>
           </Link>
