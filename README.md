@@ -43,7 +43,7 @@
 
    ```sh
    git fetch startkit
-   git pull startkit/main
+   git merge startkit/main
    ```
 
    Once you run `./bin/init`, it will be safe to delete. You can also delete
