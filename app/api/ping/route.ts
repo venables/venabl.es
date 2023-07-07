@@ -10,6 +10,11 @@ type ResponseData = {
 const gitSha = env.VERCEL_GIT_COMMIT_SHA ?? "local"
 
 /**
+ * Use the edge runtime
+ */
+export const runtime = "edge"
+
+/**
  * Healthcheck API endpoint which returns with success if the server is healthy,
  * and responds with the latest git sha.
  */
