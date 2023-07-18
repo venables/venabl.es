@@ -25,7 +25,7 @@
 1. Clone this repo to your desired path:
 
    ```sh
-   git clone git@github.com:startkit-dev/startkit-next.git my-new-project
+   git clone git@github.com:venables/startkit-next.git my-new-project
    ```
 
 2. Initialize the project:
@@ -51,35 +51,22 @@
 
 ## Getting Started
 
-To get started simply run the following command.
+When you first check out a this project, you should run the following command to get your environment all set up:
 
 ```sh
 pnpm run setup
 ```
 
-For Authentication, you should also generate a secret:
+## Environment variables
 
-```sh
-openssl rand -base64 32
-```
+Environment variables are stored in `.env` files. By default the `.env` file is included in source control and contains
+settings and defaults to get the app running. Any secrets or local overrides of these values should be placed in a
+`.env.local` file, which is ignored from source control.
 
-Place the output value in .env as the `NEXTAUTH_SECRET` value, for example:
+For environment-specific environment variables, you can place the defaults in `.env.development`, and overwrite locally
+with `.env.development.local`.
 
-```sh
-# .env
-# ...
-NEXTAUTH_SECRET="OgGQPvTtjXu7DvOYKekP8mw9OBJi5FD/ObcYipZFdw0=
-```
-
-(NOTE: Do NOT use the value above in your app!)
-
-### Browsing the database
-
-Prisma offers a simple UI for inspecting the database. To launch it, run:
-
-```sh
-pnpm prisma studio
-```
+You can [read more about environment variables here](https://nextjs.org/docs/basic-features/environment-variables).
 
 ## Running the server
 
@@ -91,7 +78,7 @@ The app will be running at [http://localhost:3000](http://localhost:3000).
 
 ## Database
 
-The Prisma adapter is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` file to work.
+The Prisma adapter is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` (or `.env.local`) file to work.
 
 The database `startkit_development` should be created during the `pnpm run setup` step (defined in `./bin/setup`).
 
@@ -101,6 +88,10 @@ Ensure you have postgres running locally. For example, on MacOS with homebrew:
 brew install postgresql@14
 brew services start postgresql@14
 ```
+
+### `pnpm prisma`
+
+This project exposes a package.json script for accessing prisma via `pnpm prisma <command>`. This script handles all environment variable mapping automatically via `dotenv-cli`, so you don't have to think about it. You should always try to use this script when interacting with prisma locally.
 
 ### Making changes to the database schema
 
@@ -116,6 +107,14 @@ When you feel comfortable with the changes, you can make a migration file by run
 
 ```sh
 pnpm prisma migrate dev
+```
+
+### Browsing the database
+
+Prisma offers a simple UI for inspecting the database. To launch it, run:
+
+```sh
+pnpm prisma studio
 ```
 
 ## UI components

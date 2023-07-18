@@ -17,7 +17,7 @@ git remote rename origin startkit
 for mapping in $mappings
 do
   echo "Renaming $mapping ..."
-  sed -i '' $mapping ".env.example"
+  sed -i '' $mapping ".env"
   sed -i '' $mapping "package.json"
   sed -i '' $mapping "README.md"
   sed -i '' $mapping ".gitignore"

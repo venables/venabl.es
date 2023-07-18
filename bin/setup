@@ -1,15 +1,26 @@
 #!/usr/bin/env sh
 
+#
+# Install dependencies
+#
 echo "✨ Installing dependencies ..."
 pnpm install --frozen-lockfile
 
-echo "\n✨ Creating .env file..."
-if [ -f .env ]; then
-  echo "File already exists, skipping."
-else
-  cp .env.example .env
+#
+# Create a .env.local file and popupate it with auto-generated secrets
+#
+if ! [ -f .env.local ]; then
+  echo "\n✨ Creating a .env.local file for local environment variables..."
+  touch .env.local
+
+  echo "\n✨ Generating a secure value for local NEXTAUTH_SECRET ..."
+  echo "NEXTAUTH_SECRET=\"$(openssl rand -base64 32)\"" >> .env.local
 fi
 
+
+#
+# Create the database and run any outstanding migrations
+#
 echo "\n✨ Ensuring the 'postgres' user exists..."
 createuser -s postgres
 
@@ -17,6 +28,9 @@ echo "\n✨ Creating the local database 'startkit_development'..."
 createdb -U postgres startkit_development
 
 echo "\n✨ Migrating the database..."
-npx prisma migrate dev
+pnpm prisma migrate dev
 
+#
+# Done.
+#
 echo "\n🎉 All set. Happy coding!"
