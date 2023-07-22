@@ -25,7 +25,7 @@ type Props = {
 
 export function ExternalAuthButton({
   provider,
-  isLoading,
+  isLoading = false,
   setIsLoading
 }: Props) {
   const [isExternalAuthLoading, setIsExternalAuthLoading] = useState(false)

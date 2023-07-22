@@ -1,8 +1,9 @@
 module.exports = {
+  root: true,
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "next/core-web-vitals",
     "plugin:tailwindcss/recommended",
     "prettier"
@@ -16,7 +17,7 @@ module.exports = {
       parser: "@typescript-eslint/parser",
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: "./tsconfig.json"
+        project: true
       }
     },
     /**
@@ -47,6 +48,7 @@ module.exports = {
     }
   ],
   rules: {
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { prefer: "type-imports", fixStyle: "separate-type-imports" }

@@ -17,7 +17,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     return (
       <NextLink
         className={cn(
-          variant || size
+          variant ?? size
             ? buttonVariants({ variant, size, className })
             : className
         )}

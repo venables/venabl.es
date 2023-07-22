@@ -112,7 +112,7 @@ export function UserAuthForm({
         signInResult = await signIn("email", {
           email: data.email.toLowerCase(),
           redirect: false,
-          callbackUrl: searchParams?.get("from") || "/"
+          callbackUrl: searchParams?.get("from") ?? "/"
         })
       } catch (err) {
         console.error(err)

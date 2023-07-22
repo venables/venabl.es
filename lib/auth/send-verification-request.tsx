@@ -19,7 +19,7 @@ export async function sendVerificationRequest({
   })
 
   await emailClient().sendEmail({
-    from: provider.from as string,
+    from: provider.from,
     to: identifier,
     subject: user?.emailVerified
       ? "Sign in to StartKit"
