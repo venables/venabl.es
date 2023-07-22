@@ -25,7 +25,7 @@
 1. Clone this repo to your desired path:
 
    ```sh
-   git clone git@github.com:venables/startkit-next.git my-new-project
+   git clone git@github.com:startkit-dev/startkit-next.git my-new-project
    ```
 
 2. Initialize the project:
