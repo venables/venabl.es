@@ -37,7 +37,12 @@ export function ThemeToggle({
     }
   }, [resolvedTheme, setTheme, systemTheme])
 
-  useEffect(() => setMounted(true), [])
+  /**
+   * Mark the app as mounted in the client
+   */
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <a

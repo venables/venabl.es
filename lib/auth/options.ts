@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import EmailProvider from "next-auth/providers/email"
 import GithubProvider from "next-auth/providers/github"
@@ -113,7 +112,7 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#session-callback
      */
     async session({ session, token /*, user */ }) {
-      if (session?.user) {
+      if (session.user) {
         session.user.id = token.userId
       }
 
@@ -127,10 +126,8 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#jwt-callback
      */
     async jwt({ token, user /*, account, profile, trigger */ }) {
-      if (user) {
-        token.userId = user.id
-        token.email = user.email
-      }
+      token.userId = user.id
+      token.email = user.email
 
       return Promise.resolve(token)
     }

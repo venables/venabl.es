@@ -112,13 +112,13 @@ export function UserAuthForm({
         signInResult = await signIn("email", {
           email: data.email.toLowerCase(),
           redirect: false,
-          callbackUrl: searchParams?.get("from") ?? "/"
+          callbackUrl: searchParams.get("from") ?? "/"
         })
       } catch (err) {
         console.error(err)
       }
 
-      if (!signInResult?.ok || signInResult?.error) {
+      if (!signInResult?.ok || signInResult.error) {
         return toast({
           ...parseErrorMessage(signInResult?.error),
           variant: "destructive"

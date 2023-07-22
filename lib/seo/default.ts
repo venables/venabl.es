@@ -18,7 +18,7 @@ export const DEFAULT_METADATA: Metadata = {
     type: "website"
   },
   twitter: {
-    creator: siteConfig.company?.twitter ?? siteConfig.handles.twitter,
+    creator: siteConfig.company.twitter,
     site: siteConfig.handles.twitter,
     card: "summary_large_image"
   },

@@ -7,12 +7,12 @@ import { siteConfig } from "@/config"
 const navigation = [
   {
     name: "Github",
-    href: siteConfig.links.github ?? "#",
+    href: siteConfig.links.github,
     icon: GithubIcon
   },
   {
     name: "Twitter",
-    href: siteConfig.links.twitter ?? "#",
+    href: siteConfig.links.twitter,
     icon: TwitterIcon
   }
 ]
