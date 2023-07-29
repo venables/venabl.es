@@ -4,7 +4,7 @@ import { CheckIcon } from "lucide-react"
 import { useMemo } from "react"
 
 import { useToast } from "@/components/ui/use-toast"
-import { cn } from "@/lib/utils"
+import { cls } from "@/lib/utils"
 
 export function Features() {
   const { toast } = useToast()
@@ -45,7 +45,7 @@ export function Features() {
       {FEATURES.map((f, i) => (
         <a
           key={i}
-          className={cn(
+          className={cls(
             "flex flex-row items-center space-x-2 text-left underline-offset-8",
             f.onClick ? "cursor-pointer hover:underline" : "cursor-default"
           )}

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
-import { cn } from "@/lib/utils"
+import { cls } from "@/lib/utils"
 import { userAuthSchema } from "@/lib/validations"
 
 import { ExternalAuthButton } from "./external-auth-button"
@@ -134,7 +134,7 @@ export function UserAuthForm({
   )
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cls("grid gap-6", className)} {...props}>
       <Form {...form}>
         <form
           onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}

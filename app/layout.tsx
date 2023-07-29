@@ -5,7 +5,7 @@ import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
 import { Analytics } from "@/components/layout/Analytics"
 import { Toaster } from "@/components/ui/toaster"
 import { seo } from "@/lib/seo/extend"
-import { cn } from "@/lib/utils"
+import { cls } from "@/lib/utils"
 
 import type { ReactNode } from "react"
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cn(inter.variable, "font-sans antialiased")}
+      className={cls(inter.variable, "font-sans antialiased")}
       suppressHydrationWarning
     >
       <head />

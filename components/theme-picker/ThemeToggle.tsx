@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useCallback, useEffect, useState } from "react"
 
-import { cn } from "@/lib/utils"
+import { cls } from "@/lib/utils"
 
 import type { HTMLProps } from "react"
 
@@ -47,7 +47,7 @@ export function ThemeToggle({
   return (
     <a
       {...props}
-      className={cn(className, "cursor-pointer")}
+      className={cls(className, "cursor-pointer")}
       onClick={toggleTheme}
       title={
         resolvedTheme === "dark"
