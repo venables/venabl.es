@@ -1,7 +1,7 @@
-import { FanIcon, type LucideProps } from "lucide-react"
+import type { HTMLProps } from "react"
 
-type LogoProps = LucideProps
+type LogoProps = HTMLProps<HTMLSpanElement>
 
 export function Logo(props: LogoProps) {
-  return <FanIcon {...props} />
+  return <span {...props}>👋</span>
 }

@@ -19,7 +19,7 @@ export function Header({ user }: Props) {
             href="/"
             className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-zinc-800 dark:hover:text-zinc-200"
           >
-            <Logo className="transition-transform group-hover:animate-spin" />
+            <Logo className="transition-transform group-hover:animate-wiggle" />
             <span className="hidden text-lg font-bold sm:inline-block">
               {siteConfig.name}
             </span>
