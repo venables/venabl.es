@@ -47,6 +47,11 @@ module.exports = {
       }
     }
   ],
+  settings: {
+    tailwindcss: {
+      callees: ["classNames", "clsx", "cls", "cva", "cn"]
+    }
+  },
   rules: {
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/consistent-type-imports": [

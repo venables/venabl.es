@@ -3,7 +3,7 @@ import * as React from "react"
 import { Controller, FormProvider, useFormContext } from "react-hook-form"
 
 import { Label } from "@/components/ui/label"
-import { cls } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 
 import type * as LabelPrimitive from "@radix-ui/react-label"
 import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form"
@@ -74,7 +74,7 @@ const FormItem = React.forwardRef<
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={cls("space-y-2", className)} {...props} />
+      <div ref={ref} className={cn("space-y-2", className)} {...props} />
     </FormItemContext.Provider>
   )
 })
@@ -89,7 +89,7 @@ const FormLabel = React.forwardRef<
   return (
     <Label
       ref={ref}
-      className={cls(error && "text-red-500 dark:text-red-900", className)}
+      className={cn(error && "text-destructive", className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -129,7 +129,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cls("text-sm text-zinc-500 dark:text-zinc-400", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   )
@@ -151,10 +151,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cls(
-        "text-sm font-medium text-red-500 dark:text-red-900",
-        className
-      )}
+      className={cn("text-sm font-medium text-destructive", className)}
       {...props}
     >
       {body}
