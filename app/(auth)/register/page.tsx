@@ -1,3 +1,5 @@
+import { getProviders } from "next-auth/react"
+
 import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Link } from "@/components/elements"
 import { Logo } from "@/components/icons/brand/Logo"
@@ -7,7 +9,9 @@ export const metadata = {
   description: "Create an account to get started."
 }
 
-export default function RegisterPage() {
+export default async function RegisterPage() {
+  const providers = await getProviders()
+
   return (
     <>
       <div className="container flex flex-row justify-end py-4">
@@ -25,14 +29,14 @@ export default function RegisterPage() {
             Create an account
           </h1>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Enter your email below to create your account
+            Enter your details below to create your account
           </p>
         </div>
 
-        <UserAuthForm />
+        <UserAuthForm providers={providers} />
 
         <p className="px-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
-          By clicking continue, you agree to our{" "}
+          By continuing, you agree to our{" "}
           <Link href="/terms" className="underline underline-offset-4">
             Terms of Service
           </Link>{" "}

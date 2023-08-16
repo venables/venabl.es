@@ -1,6 +1,22 @@
 import { createEnv } from "@t3-oss/env-nextjs"
 import { z } from "zod"
 
+/**
+ * Transform an empty string to undefined
+ */
+const emptyStringToUndefined = z.literal("").transform(() => undefined)
+
+/**
+ * An optional string type that is at least one character long, or transformed
+ * to undefined
+ */
+const optionalString = z
+  .string()
+  .trim()
+  .min(1)
+  .optional()
+  .or(emptyStringToUndefined)
+
 export const env = createEnv({
   /*
    * Environment variables available on the client (and server).
@@ -9,7 +25,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_HOST: z.string().url().optional(),
-    NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
+    NEXT_PUBLIC_VERCEL_URL: z.string().url().optional(),
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional()
   },
   /*
@@ -24,24 +40,24 @@ export const env = createEnv({
     /**
      * Authentication
      */
-    NEXTAUTH_SECRET: z.string(),
+    NEXTAUTH_SECRET: z.string().trim().min(1),
     NEXTAUTH_URL: z.string().url().optional(),
-    GOOGLE_CLIENT_ID: z.string(),
-    GOOGLE_CLIENT_SECRET: z.string(),
-    GITHUB_CLIENT_ID: z.string(),
-    GITHUB_CLIENT_SECRET: z.string(),
+    GOOGLE_CLIENT_ID: optionalString,
+    GOOGLE_CLIENT_SECRET: optionalString,
+    GITHUB_CLIENT_ID: optionalString,
+    GITHUB_CLIENT_SECRET: optionalString,
 
     /**
      * Vercel-specific environment variables
      */
     VERCEL_GIT_COMMIT_SHA: z.string().optional(),
-    VERCEL_URL: z.string().optional(),
+    VERCEL_URL: z.string().url().optional(),
 
     /**
      * Email
      */
     EMAIL_FROM: z.string(),
-    RESEND_API_KEY: z.string()
+    RESEND_API_KEY: optionalString
   },
   /**
    * Shared between server and client

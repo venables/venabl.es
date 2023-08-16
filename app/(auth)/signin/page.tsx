@@ -1,4 +1,5 @@
 import { ChevronLeftIcon } from "lucide-react"
+import { getProviders } from "next-auth/react"
 
 import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Link } from "@/components/elements"
@@ -10,7 +11,9 @@ export const metadata = seo({
   description: "Sign in to your account"
 })
 
-export default function SigninPage() {
+export default async function SigninPage() {
+  const providers = await getProviders()
+
   return (
     <>
       <div className="container flex flex-row justify-start py-4">
@@ -31,11 +34,11 @@ export default function SigninPage() {
             Welcome back
           </h1>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Enter your email to sign in to your account
+            Enter your credentials to sign in to your account
           </p>
         </div>
 
-        <UserAuthForm />
+        <UserAuthForm providers={providers} />
 
         <p className="px-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
           <Link href="/register" className="underline underline-offset-4">

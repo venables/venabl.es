@@ -15,6 +15,7 @@ if ! [ -f .env.local ]; then
 
   echo "\n✨ Generating a secure value for local NEXTAUTH_SECRET ..."
   echo "NEXTAUTH_SECRET=\"$(openssl rand -base64 32)\"" >> .env.local
+  echo "NEXTAUTH_URL=\"http://localhost:3000\"" >> .env.local
 fi
 
 

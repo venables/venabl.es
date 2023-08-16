@@ -9,6 +9,46 @@ import { prisma } from "@/lib/database"
 import { sendVerificationRequest } from "./send-verification-request"
 
 import type { NextAuthOptions } from "next-auth"
+import type { Provider } from "next-auth/providers"
+
+/**
+ * Configure authentication providers. To enable email, google, and github
+ * authentication, you must provide the required environment variables in
+ * your `.env.local` file or on your hosting provider.
+ *
+ * If the environment variables are not configured, the provider will not be
+ * enabled.
+ */
+console.log(env.RESEND_API_KEY)
+const providers = [
+  /**
+   * Email Provider (https://next-auth.js.org/providers/email)
+   */
+  env.EMAIL_FROM &&
+    env.RESEND_API_KEY &&
+    EmailProvider({
+      from: env.EMAIL_FROM,
+      sendVerificationRequest
+    }),
+  /**
+   * Google OAuth Provider (https://next-auth.js.org/providers/google)
+   */
+  env.GOOGLE_CLIENT_ID &&
+    env.GOOGLE_CLIENT_SECRET &&
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET
+    }),
+  /**
+   * https://next-auth.js.org/providers/github
+   */
+  env.GITHUB_CLIENT_ID &&
+    env.GITHUB_CLIENT_SECRET &&
+    GithubProvider({
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET
+    })
+].filter(Boolean) as Provider[]
 
 export const authOptions: NextAuthOptions = {
   /**
@@ -18,29 +58,7 @@ export const authOptions: NextAuthOptions = {
   /**
    * https://next-auth.js.org/providers/
    */
-  providers: [
-    /**
-     *
-     */
-    EmailProvider({
-      from: env.EMAIL_FROM,
-      sendVerificationRequest
-    }),
-    /**
-     * https://next-auth.js.org/providers/google
-     */
-    GoogleProvider({
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET
-    }),
-    /**
-     * https://next-auth.js.org/providers/github
-     */
-    GithubProvider({
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET
-    })
-  ],
+  providers,
   /**
    * https://next-auth.js.org/configuration/options#pages
    */
