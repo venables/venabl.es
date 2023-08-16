@@ -25,7 +25,7 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_HOST: z.string().url().optional(),
-    NEXT_PUBLIC_VERCEL_URL: z.string().url().optional(),
+    NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional()
   },
   /*
@@ -51,7 +51,7 @@ export const env = createEnv({
      * Vercel-specific environment variables
      */
     VERCEL_GIT_COMMIT_SHA: z.string().optional(),
-    VERCEL_URL: z.string().url().optional(),
+    VERCEL_URL: z.string().optional(),
 
     /**
      * Email
