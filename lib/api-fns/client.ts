@@ -3,26 +3,28 @@ import type { ApiResponse, ApiResponseError } from "./types"
 /**
  *
  */
-function isErrorResponse(
+function isApiResponseError(
   response: Response,
   json: unknown
 ): json is ApiResponseError {
-  return (
-    !response.ok &&
-    typeof json === "object" &&
-    json !== null &&
-    "error" in json &&
-    typeof json.error === "string"
-  )
+  /**
+   * If the fetch command returned 'ok', this is a success (status 200-299)
+   */
+  if (response.ok) {
+    return false
+  }
+
+  if (typeof json !== "object" || json === null) {
+    return false
+  }
+
+  return "error" in json && typeof json.error !== "string"
 }
 
 /**
  *
  */
-export const apiFetch = async <T = void>(
-  url: string,
-  options?: RequestInit
-): Promise<T> => {
+export async function apiFetch<T>(url: string, options?: RequestInit) {
   const response = await fetch(url, {
     ...options,
     headers: {
@@ -33,7 +35,7 @@ export const apiFetch = async <T = void>(
 
   const json = (await response.json()) as ApiResponse<T>
 
-  if (isErrorResponse(response, json)) {
+  if (isApiResponseError(response, json)) {
     throw new Error(json.error)
   }
 
@@ -41,5 +43,5 @@ export const apiFetch = async <T = void>(
     throw new Error(response.statusText)
   }
 
-  return json
+  return json.data
 }

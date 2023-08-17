@@ -1,5 +1,3 @@
-import { nanoid } from "nanoid/async"
-
 import { logger } from "@/lib/logger"
 
 import { buildErrorResponse } from "./errors/error-response"
@@ -36,14 +34,13 @@ export const handler = <T = void, U = NextRouteContext>(
   const startTime = new Date()
 
   return async (request, context) => {
-    const requestId = await nanoid()
     const method = request.method
     const url = request.nextUrl.pathname
 
     /**
      * Log the HTTP request
      */
-    logger.info(`➡️  [${requestId}] ${method} ${url} ...`)
+    logger.info(`➡️  ${method} ${url} ...`)
 
     let response: NextResponse<ApiResponse<T>>
 
@@ -59,11 +56,9 @@ export const handler = <T = void, U = NextRouteContext>(
      * Log the HTTP response status
      */
     logger.info(
-      `⬅️  [${requestId}] ${method} ${url} (${response.status}) took ${responseTime}ms`
+      `⬅️  ${method} ${url} (${response.status}) took ${responseTime}ms`
     )
 
-    response.headers.set("x-request-id", requestId)
-    response.headers.set("x-response-time", responseTime.toString())
     return response
   }
 }

@@ -1,16 +1,25 @@
+import { type ZodIssue } from "zod"
+
 import type { NextRequest, NextResponse } from "next/server"
 
 /**
  * The API Error response
  */
 export type ApiResponseError = {
+  ok: false
   error: string
+  issues?: ZodIssue[]
+}
+
+export type ApiResponseSuccess<T> = {
+  ok: true
+  data: T
 }
 
 /**
  *
  */
-export type ApiResponse<T> = T | ApiResponseError
+export type ApiResponse<T> = ApiResponseSuccess<T> | ApiResponseError
 
 /**
  *

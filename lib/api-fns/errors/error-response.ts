@@ -5,8 +5,11 @@ import { logger } from "@/lib/logger"
 
 import { isApiError } from "./api-error"
 import { isNextJsError } from "./nextjs-error"
+import { type ApiResponseError } from "../types"
 
-export function buildErrorResponse(err: unknown) {
+export function buildErrorResponse(
+  err: unknown
+): NextResponse<ApiResponseError> {
   /**
    * Let Next.js handle its own errors
    */
@@ -21,6 +24,7 @@ export function buildErrorResponse(err: unknown) {
   if (err instanceof ZodError) {
     return NextResponse.json(
       {
+        ok: false,
         error: "Validation Error",
         issues: err.issues
       },
@@ -37,6 +41,7 @@ export function buildErrorResponse(err: unknown) {
   if (isApiError(err)) {
     return NextResponse.json(
       {
+        ok: false,
         error: err.message
       },
       {
@@ -51,7 +56,7 @@ export function buildErrorResponse(err: unknown) {
    */
   logger.error("Unhandled API Error", err)
   return NextResponse.json(
-    { error: "Internal server error" },
+    { ok: false, error: "Internal server error" },
     {
       status: 500
     }

@@ -19,5 +19,5 @@ export const runtime = "edge"
  * and responds with the latest git sha.
  */
 export const GET = handler<ResponseData>(() => {
-  return NextResponse.json({ pong: gitSha.substring(0, 7) })
+  return NextResponse.json({ ok: true, data: { pong: gitSha.substring(0, 7) } })
 })
