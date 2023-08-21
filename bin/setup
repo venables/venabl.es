@@ -29,7 +29,7 @@ echo "\n✨ Creating the local database 'startkit_development'..."
 createdb -U postgres startkit_development
 
 echo "\n✨ Migrating the database..."
-pnpm prisma migrate dev
+pnpm db:migrate
 
 #
 # Done.

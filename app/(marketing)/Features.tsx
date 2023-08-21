@@ -20,7 +20,7 @@ export function Features() {
       { title: "Radix UI" },
       { title: "shadcn/ui" },
       { title: "Authentication" },
-      { title: "Prisma" },
+      { title: "Drizzle ORM" },
       { title: "PostgreSQL" },
       { title: "Resend Email" },
       { title: "Metadata API" },

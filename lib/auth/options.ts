@@ -1,10 +1,10 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import EmailProvider from "next-auth/providers/email"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
 import { env } from "@/env"
-import { prisma } from "@/lib/database"
+import { db, pgTable } from "@/lib/db"
 
 import { sendVerificationRequest } from "./send-verification-request"
 
@@ -19,7 +19,6 @@ import type { Provider } from "next-auth/providers"
  * If the environment variables are not configured, the provider will not be
  * enabled.
  */
-console.log(env.RESEND_API_KEY)
 const providers = [
   /**
    * Email Provider (https://next-auth.js.org/providers/email)
@@ -52,9 +51,9 @@ const providers = [
 
 export const authOptions: NextAuthOptions = {
   /**
-   * https://authjs.dev/reference/adapter/prisma
+   * https://authjs.dev/reference/adapter/drizzle
    */
-  adapter: PrismaAdapter(prisma),
+  adapter: DrizzleAdapter(db, pgTable),
   /**
    * https://next-auth.js.org/providers/
    */
@@ -144,8 +143,11 @@ export const authOptions: NextAuthOptions = {
      * https://next-auth.js.org/configuration/callbacks#jwt-callback
      */
     async jwt({ token, user /*, account, profile, trigger */ }) {
-      token.userId = user.id
-      token.email = user.email
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      if (user) {
+        token.userId = user.id
+        token.email = user.email
+      }
 
       return Promise.resolve(token)
     }

@@ -37,6 +37,7 @@ export const env = createEnv({
      * Database
      */
     DATABASE_URL: z.string().url(),
+    DATABASE_DIRECT_URL: z.string().url().optional(),
     /**
      * Authentication
      */
@@ -66,7 +67,9 @@ export const env = createEnv({
     /**
      * Node environment
      */
-    NODE_ENV: z.enum(["development", "production", "test"])
+    NODE_ENV: z
+      .enum(["development", "production", "test"])
+      .default("development")
   },
   /*
    * Due to how Next.js (>= 13.4.4) bundles environment variables on the Client,

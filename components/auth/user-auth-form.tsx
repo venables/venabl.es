@@ -86,8 +86,6 @@ export function UserAuthForm({ className, providers, ...props }: Props) {
     [form.formState.isSubmitting, isExternalAuthLoading]
   )
 
-  console.log({ providers })
-
   const emailProvider = useMemo(() => providers?.email, [providers])
   const oauthProviders = useMemo(
     () =>
