@@ -1,5 +1,7 @@
+import { eq } from "drizzle-orm"
+
 import SignInEmail from "@/emails/SignInEmail"
-import { prisma } from "@/lib/database"
+import { db, users } from "@/lib/db"
 import { emailClient } from "@/lib/email"
 
 import type { SendVerificationRequestParams } from "next-auth/providers"
@@ -9,14 +11,15 @@ export async function sendVerificationRequest({
   url,
   provider
 }: SendVerificationRequestParams) {
-  const user = await prisma.user.findUnique({
-    where: {
-      email: identifier
-    },
-    select: {
-      emailVerified: true
-    }
-  })
+  const existingUsers = await db
+    .select({
+      emailVerified: users.emailVerified
+    })
+    .from(users)
+    .where(eq(users.email, identifier))
+    .limit(1)
+
+  const user = existingUsers[0]
 
   await emailClient().sendEmail({
     from: provider.from,

@@ -8,7 +8,7 @@
 
 - [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
-- [Prisma](https://prisma.io) database ORM, ready for use with [PostgreSQL](https://www.postgresql.org/).
+- [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizze Kit](https://orm.drizzle.team/kit-docs/overview)
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
 - Gorgeous UI built with [Radix](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/).
@@ -78,7 +78,7 @@ The app will be running at [http://localhost:3000](http://localhost:3000).
 
 ## Database
 
-The Prisma adapter is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` (or `.env.local`) file to work.
+Drizzle is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` (or `.env.local`) file to work.
 
 The database `startkit_development` should be created during the `pnpm run setup` step (defined in `./bin/setup`).
 
@@ -89,32 +89,32 @@ brew install postgresql@14
 brew services start postgresql@14
 ```
 
-### `pnpm prisma`
+### `pnpm db`
 
-This project exposes a package.json script for accessing prisma via `pnpm prisma <command>`. This script handles all environment variable mapping automatically via `dotenv-cli`, so you don't have to think about it. You should always try to use this script when interacting with prisma locally.
+This project exposes a package.json script for accessing drizzle-kit via `pnpm db <command>`. This script handles all environment variable mapping automatically via `dotenv-cli`, so you don't have to think about it. You should always try to use this script when interacting with drizzle-kit locally.
 
 ### Making changes to the database schema
 
-Make changes to your database by modifying `prisma/schema.prisma` ([learn more](https://www.prisma.io/docs/concepts/components/prisma-schema)).
+Make changes to your database by modifying `lib/db/schema.ts` ([learn more](https://orm.drizzle.team/docs/sql-schema-declaration)).
 
-When prototyping changes, you can run :
+When prototyping changes, you can use [`db push`](https://orm.drizzle.team/kit-docs/overview):
 
 ```sh
-pnpm prisma db push
+pnpm db push:pg
 ```
 
 When you feel comfortable with the changes, you can make a migration file by running:
 
 ```sh
-pnpm prisma migrate dev
+pnpm db generate:pg
 ```
 
 ### Browsing the database
 
-Prisma offers a simple UI for inspecting the database. To launch it, run:
+Drizzle offers a simple UI for inspecting the database. To launch it, run:
 
 ```sh
-pnpm prisma studio
+pnpm db studio
 ```
 
 ## UI components
