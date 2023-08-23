@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "StartKit",
+  shortName: "StartKit",
   description: "A sane way to start your next Next project.",
   company: {
     name: "Matt Venables",
