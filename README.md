@@ -31,7 +31,7 @@
 2. Initialize the project:
 
    ```sh
-   ./bin/init
+   ./bin/rename
    ```
 
    This will rename `startkit` to your project name throughout the app,
@@ -46,7 +46,7 @@
    git merge startkit/main
    ```
 
-   Once you run `./bin/init`, it will be safe to delete. You can also delete
+   Once you run `./bin/rename`, it will be safe to delete. You can also delete
    this section of the README.
 
 ## Getting Started

@@ -32,4 +32,5 @@ done
 ./bin/setup
 
 # Done.
-echo "Now you can delete ./bin/init"
+echo "\n\n✨ Now you can delete this script:"
+echo "\n rm ./bin/rename\n"
