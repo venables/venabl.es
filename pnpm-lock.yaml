@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -39,8 +39,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   drizzle-orm:
-    specifier: ^0.28.4
-    version: 0.28.4(pg@8.11.3)(postgres@3.3.5)
+    specifier: ^0.28.2
+    version: 0.28.2(pg@8.11.3)(postgres@3.3.5)
   lucide-react:
     specifier: ^0.268.0
     version: 0.268.0(react@18.2.0)
@@ -3667,8 +3667,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.28.4(pg@8.11.3)(postgres@3.3.5):
-    resolution: {integrity: sha512-BEATAB0g0Y8PKbJHkHLLENlX2DXktO5XyeNyrXB6ktcNkg3dlMfePwB3LodBJkPY6d7GixFF+jvtdZsWjakJBQ==}
+  /drizzle-orm@0.28.2(pg@8.11.3)(postgres@3.3.5):
+    resolution: {integrity: sha512-QRyuzvpJr7GE6LpvZ/sg2nAKNg2if1uGGkgFTiXn4auuYId//vVJe6HBsDTktfKfcaDGzIYos+/f+PS5EkBmrg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
