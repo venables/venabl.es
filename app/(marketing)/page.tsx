@@ -55,12 +55,14 @@ export default function Home() {
             src="/images/home/hero-light.svg"
             alt="A sane way to start your next next project"
             fill
+            priority
             className="dark:hidden"
           />
           <Image
             src="/images/home/hero-dark.svg"
             alt="A sane way to start your next next project"
             fill
+            priority
             className="hidden dark:block"
           />
         </div>
