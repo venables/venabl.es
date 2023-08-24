@@ -1,7 +1,9 @@
-import type { HTMLProps } from "react"
+import { PowerIcon } from "lucide-react"
 
-type LogoProps = HTMLProps<HTMLSpanElement>
+import type { LucideProps } from "lucide-react"
+
+type LogoProps = LucideProps
 
 export function Logo(props: LogoProps) {
-  return <span {...props}>👋</span>
+  return <PowerIcon strokeWidth={3} {...props} />
 }

@@ -25,7 +25,7 @@ export default function RootLayout({ children }: Props) {
       suppressHydrationWarning
     >
       <head />
-      <body className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white">
+      <body className="min-h-screen bg-background text-card-foreground">
         {children}
         <Analytics />
         <Toaster />

@@ -12,6 +12,8 @@ import {
   Text
 } from "@react-email/components"
 
+import { siteConfig } from "@/config"
+
 export type SignInEmailProps = {
   existingUser?: boolean
   emailAddress: string
@@ -27,29 +29,33 @@ export default function SignInEmail({
     <Html>
       <Head />
       <Preview>
-        {existingUser ? "Sign in to StartKit" : "Welcome to StartKit!"}
+        {existingUser
+          ? `Sign in to ${siteConfig.name}`
+          : `Welcome to ${siteConfig.name}!`}
       </Preview>
       <Tailwind>
         <Body className="m-auto bg-white font-sans">
           <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
             <Heading className="mx-0 mb-[10px] mt-[32px] p-0 text-center text-[12px] font-bold uppercase tracking-widest text-zinc-400">
-              StartKit
+              {siteConfig.name}
             </Heading>
             <Heading className="mx-0 mb-[30px] mt-0 p-0 text-center text-[24px] font-normal text-black">
-              <strong>{existingUser ? "Sign in" : "Welcome"}</strong> to{" "}
-              <strong>StartKit</strong>
+              <span className="font-bold">
+                {existingUser ? "Sign in" : "Welcome"}
+              </span>{" "}
+              to <span className="font-bold">{siteConfig.name}</span>
             </Heading>
             <Text className="text-[14px] leading-[24px] text-black">
               {existingUser ? (
                 <>
-                  Welcome back to StartKit. Tap this button to sign in to your
-                  account:
+                  Welcome back to {siteConfig.name}. Tap this button to sign in
+                  to your account:
                 </>
               ) : (
                 <>
-                  Thanks for trying StartKit. We&apos;re thrilled to have you on
-                  board. To get started, tap this button to verify your email
-                  address:
+                  Thanks for trying {siteConfig.name}. We&apos;re thrilled to
+                  have you on board. To get started, tap this button to verify
+                  your email address:
                 </>
               )}
             </Text>

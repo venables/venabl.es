@@ -184,12 +184,10 @@ export function UserAuthForm({ className, providers, ...props }: Props) {
           {oauthProviders.length ? (
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+                <span className="w-full border-t" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white px-2 text-zinc-600 dark:bg-zinc-900 dark:text-zinc-300">
-                  Or continue with
-                </span>
+                <span className="bg-background px-2">Or continue with</span>
               </div>
             </div>
           ) : (

@@ -1,7 +1,8 @@
 import { GithubIcon } from "lucide-react"
+import Link from "next/link"
 
-import { Link } from "@/components/elements"
 import { Logo } from "@/components/icons/brand/Logo"
+import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
 import { SignOutButton } from "./SignOutButton"
@@ -12,30 +13,36 @@ type Props = {
 
 export function Header({ user }: Props) {
   return (
-    <header className="container sticky top-0 z-10 mx-auto bg-white px-4 dark:bg-zinc-900">
-      <div className="flex h-16 items-center justify-between border-b border-b-zinc-200 py-4 dark:border-b-zinc-700">
+    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <div className="container flex h-16 items-center justify-between">
         <div className="flex gap-6 md:gap-10">
-          <Link
-            href="/"
-            className="group flex items-center space-x-2 transition-colors hover:animate-pulse hover:text-zinc-800 dark:hover:text-zinc-200"
+          <Button
+            variant="ghost"
+            className="group flex items-center space-x-2 text-primary transition-colors hover:animate-pulse hover:bg-transparent hover:text-primary/80"
+            asChild
           >
-            <Logo className="transition-transform" />
-            <span className="hidden text-lg font-bold sm:inline-block">
-              {siteConfig.name}
-            </span>
-          </Link>
+            <Link href="/">
+              <Logo className="transition-transform" />
+              <span className="hidden text-lg font-bold sm:inline-block">
+                {siteConfig.name}
+              </span>
+            </Link>
+          </Button>
         </div>
 
         <div className="flex flex-row items-center space-x-2">
-          <Link href={siteConfig.links.github} className="px-2">
-            <GithubIcon className="mx-auto" />
-          </Link>
+          <Button variant="ghost" asChild>
+            <Link href={siteConfig.links.github}>
+              <GithubIcon />
+            </Link>
+          </Button>
+
           {user ? (
             <SignOutButton />
           ) : (
-            <Link href="/api/auth/signin" size="sm" className="px-4">
-              Login
-            </Link>
+            <Button size="sm" className="px-4" asChild>
+              <Link href="/api/auth/signin">Login</Link>
+            </Button>
           )}
         </div>
       </div>

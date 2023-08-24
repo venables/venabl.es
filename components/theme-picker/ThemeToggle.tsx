@@ -4,11 +4,10 @@ import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useCallback, useEffect, useState } from "react"
 
+import { Button, type ButtonProps } from "@/components/ui/button"
 import { cls } from "@/lib/utils"
 
-import type { HTMLProps } from "react"
-
-export type ThemeToggleProps = HTMLProps<HTMLAnchorElement> & {
+export type ThemeToggleProps = ButtonProps & {
   iconClassName?: string
 }
 
@@ -45,8 +44,8 @@ export function ThemeToggle({
   }, [])
 
   return (
-    <a
-      {...props}
+    <Button
+      variant="ghost"
       className={cls(className, "cursor-pointer")}
       onClick={toggleTheme}
       title={
@@ -54,6 +53,7 @@ export function ThemeToggle({
           ? "Switch to Light Mode"
           : "Switch to Dark Mode"
       }
+      {...props}
     >
       {!mounted ? (
         <span className={iconClassName} />
@@ -68,6 +68,6 @@ export function ThemeToggle({
           <MoonIcon className={iconClassName} aria-hidden="true" />
         </>
       )}
-    </a>
+    </Button>
   )
 }

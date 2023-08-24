@@ -1,7 +1,8 @@
 import { GithubIcon, TwitterIcon } from "lucide-react"
+import Link from "next/link"
 
-import { Link } from "@/components/elements"
 import { ThemePicker } from "@/components/theme-picker"
+import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
 const navigation = [
@@ -21,67 +22,67 @@ export function Footer() {
   return (
     <footer>
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex items-center justify-center space-x-6 md:order-2 md:items-end">
+        <div className="flex items-center justify-center md:order-2 md:items-end">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-400 transition-all hover:scale-110 hover:text-zinc-500 focus:outline-none active:scale-95 dark:hover:text-zinc-300"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
+            <Button key={item.name} variant="ghost" asChild>
+              <Link href={item.href} target="_blank" rel="noopener noreferrer">
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </Link>
+            </Button>
           ))}
-          <ThemePicker
-            className="text-zinc-400 transition-all hover:scale-110 hover:text-zinc-500 focus:outline-none active:scale-95 dark:hover:text-zinc-300"
-            iconClassName="h-6 w-6"
-          />
+
+          <ThemePicker iconClassName="h-6 w-6" />
         </div>
 
         <div className="mt-8 md:order-1 md:mt-0">
-          <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-sm leading-5 text-zinc-500 dark:text-zinc-400 sm:flex-row sm:space-y-0">
+          <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-sm leading-5 sm:flex-row sm:space-y-0">
             <div className="flex items-center justify-center space-x-1">
               <span>&copy; {new Date().getFullYear()}.</span>
               <span>
                 Built by{" "}
-                <Link
-                  href={siteConfig.company.link}
-                  className="text-zinc-700 underline underline-offset-4 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+                <Button
+                  variant="link"
+                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                  asChild
                 >
-                  {siteConfig.company.name}
-                </Link>
+                  <Link href={siteConfig.company.link}>
+                    {siteConfig.company.name}
+                  </Link>
+                </Button>
                 .
               </span>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <span>
                 Illustrations by{" "}
-                <Link
-                  href="https://popsy.co/"
-                  className="text-zinc-700 underline underline-offset-4 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+                <Button
+                  variant="link"
+                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                  asChild
                 >
-                  Popsy
-                </Link>
+                  <Link href="https://popsy.co/">Popsy</Link>
+                </Button>
                 .
               </span>
             </div>
 
             <div className="flex items-center justify-center space-x-2">
-              <Link
-                href="/privacy"
-                className="text-zinc-700 underline underline-offset-4 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+              <Button
+                variant="link"
+                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                asChild
               >
-                Privacy
-              </Link>
+                <Link href="/privacy">Privacy</Link>
+              </Button>
               .
-              <Link
-                href="/terms"
-                className="text-zinc-700 underline underline-offset-4 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+              <Button
+                variant="link"
+                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                asChild
               >
-                Terms
-              </Link>
+                <Link href="/terms">Terms</Link>
+              </Button>
               .
             </div>
           </div>
