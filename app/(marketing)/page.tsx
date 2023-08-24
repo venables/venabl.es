@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
-import { Features } from "./Features"
+import { Features } from "./features"
 
 export default function Home() {
   return (

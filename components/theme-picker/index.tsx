@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from "next-themes"
 
-import { ThemeToggle, type ThemeToggleProps } from "./ThemeToggle"
+import { ThemeToggle, type ThemeToggleProps } from "./theme-toggle"
 
 type Props = ThemeToggleProps
 

@@ -1,8 +1,8 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
 
-import { TailwindIndicator } from "@/components/debug/TailwindIndicator"
-import { Analytics } from "@/components/layout/Analytics"
+import { TailwindIndicator } from "@/components/debug/tailwind-indicator"
+import { Analytics } from "@/components/layout/analytics"
 import { Toaster } from "@/components/ui/toaster"
 import { seo } from "@/lib/seo/extend"
 import { cls } from "@/lib/utils"

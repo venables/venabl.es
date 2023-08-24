@@ -2,8 +2,8 @@ import { GithubIcon, KeyRoundIcon } from "lucide-react"
 import { signIn } from "next-auth/react"
 import { useCallback, useMemo, useState } from "react"
 
-import { Spinner } from "@/components/elements"
 import { GoogleIcon } from "@/components/icons/social"
+import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
 
 import type { LucideIcon } from "lucide-react"

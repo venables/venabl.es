@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm"
 
-import SignInEmail from "@/emails/SignInEmail"
+import SignInEmail from "@/emails/signin-email"
 import { db, users } from "@/lib/db"
 import { emailClient } from "@/lib/email"
 

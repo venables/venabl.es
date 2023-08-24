@@ -1,4 +1,5 @@
-import { Footer, Header } from "@/components/marketing/layout"
+import { Footer } from "@/components/layout/footer"
+import { Header } from "@/components/layout/header"
 import { getCurrentUser } from "@/lib/auth/session"
 
 import type { ReactNode } from "react"

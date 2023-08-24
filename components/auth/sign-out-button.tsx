@@ -9,9 +9,7 @@ export function SignOutButton() {
     <Button
       onClick={(event) => {
         event.preventDefault()
-        void signOut({
-          callbackUrl: `${window.location.origin}/api/auth/signin`
-        })
+        void signOut()
       }}
       size="sm"
       className="px-4"

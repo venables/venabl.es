@@ -1,11 +1,10 @@
 import { GithubIcon } from "lucide-react"
 import Link from "next/link"
 
-import { Logo } from "@/components/icons/brand/Logo"
+import { SignOutButton } from "@/components/auth/sign-out-button"
+import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
-
-import { SignOutButton } from "./SignOutButton"
 
 type Props = {
   user?: { id?: string | null }

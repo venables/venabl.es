@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 
-import { Spinner } from "@/components/elements"
+import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"

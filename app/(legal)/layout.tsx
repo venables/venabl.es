@@ -1,7 +1,7 @@
 import { ChevronLeftIcon } from "lucide-react"
 import Link from "next/link"
 
-import { Footer } from "@/components/marketing/layout"
+import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 
 import type { ReactNode } from "react"

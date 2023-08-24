@@ -1,8 +1,8 @@
+import Link from "next/link"
 import { getProviders } from "next-auth/react"
 
 import { UserAuthForm } from "@/components/auth/user-auth-form"
-import { Link } from "@/components/elements"
-import { Logo } from "@/components/icons/brand/Logo"
+import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
