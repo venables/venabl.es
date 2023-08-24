@@ -18,7 +18,7 @@ export default async function RegisterPage() {
     <div className="container relative grid min-h-screen flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="absolute top-4 flex w-full flex-row justify-between px-4 md:top-8">
         <Button
-          className="z-20 flex items-center text-lg font-medium transition-colors lg:text-primary-foreground"
+          className="z-20 flex items-center bg-transparent text-lg font-medium text-primary transition-colors hover:bg-accent lg:text-primary-foreground lg:hover:bg-primary-foreground/10 lg:hover:text-primary-foreground"
           asChild
         >
           <Link href="/">
