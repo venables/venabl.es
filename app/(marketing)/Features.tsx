@@ -3,6 +3,7 @@
 import { CheckIcon } from "lucide-react"
 import { useMemo } from "react"
 
+import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { cls } from "@/lib/utils"
 
@@ -43,11 +44,14 @@ export function Features() {
   return (
     <div className="grid grid-cols-2 gap-2 sm:gap-4">
       {FEATURES.map((f, i) => (
-        <a
+        <Button
           key={i}
+          variant="link"
           className={cls(
-            "flex flex-row items-center space-x-2 text-left underline-offset-8",
-            f.onClick ? "cursor-pointer hover:underline" : "cursor-default"
+            "justify-start space-x-2 text-left underline-offset-8",
+            f.onClick
+              ? "cursor-pointer hover:underline"
+              : "cursor-default hover:no-underline"
           )}
           onClick={() => {
             if (f.onClick) f.onClick()
@@ -55,7 +59,7 @@ export function Features() {
         >
           <CheckIcon className="h-4 w-4" />
           <span>{f.title}</span>
-        </a>
+        </Button>
       ))}
     </div>
   )
