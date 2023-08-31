@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { getProviders } from "next-auth/react"
 
 import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Logo } from "@/components/icons/brand/logo"
@@ -12,9 +11,7 @@ export const metadata = seo({
   description: "Sign in to your account"
 })
 
-export default async function SigninPage() {
-  const providers = await getProviders()
-
+export default function SigninPage() {
   return (
     <div className="container relative grid min-h-screen flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="absolute top-4 flex w-full flex-row justify-between px-4 md:top-8">
@@ -58,7 +55,7 @@ export default async function SigninPage() {
             </p>
           </div>
 
-          <UserAuthForm providers={providers} />
+          <UserAuthForm />
 
           <p className="px-8 text-center text-sm text-muted-foreground">
             Already have an account?{" "}

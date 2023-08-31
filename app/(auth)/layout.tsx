@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation"
 
+import { auth } from "@/auth"
 import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
-import { getCurrentUser } from "@/lib/auth/session"
 
 import type { ReactNode } from "react"
 
@@ -10,9 +10,10 @@ type Props = {
 }
 
 export default async function AuthLayout({ children }: Props) {
-  const user = await getCurrentUser()
+  const session = await auth()
 
-  if (user) {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (session) {
     redirect("/")
   }
 

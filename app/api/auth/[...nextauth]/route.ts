@@ -1,8 +1,9 @@
-import NextAuth from "next-auth"
+import { env } from "@/env"
 
-import { authOptions } from "@/lib/auth/options"
+export { GET, POST } from "@/auth"
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const handler = NextAuth(authOptions)
-
-export { handler as GET, handler as POST }
+/**
+ * If we have an edge-compatible database client, we can use next-auth at the
+ * edge. Otherwise, we will use it in the traditional nodejs runtime.
+ */
+export const runtime = env.DATABASE_URL_EDGE ? "edge" : "nodejs"

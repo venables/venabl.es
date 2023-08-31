@@ -37,12 +37,14 @@ export const env = createEnv({
      * Database
      */
     DATABASE_URL: z.string().url(),
-    DATABASE_DIRECT_URL: z.string().url().optional(),
+    DATABASE_URL_POOLED: z.string().url().optional(),
+    DATABASE_URL_EDGE: z.string().url().optional(),
+
     /**
      * Authentication
      */
-    NEXTAUTH_SECRET: z.string().trim().min(1),
-    NEXTAUTH_URL: z.string().url().optional(),
+    AUTH_SECRET: z.string().trim().min(1),
+    AUTH_URL: z.string().url().optional(),
     GOOGLE_CLIENT_ID: optionalString,
     GOOGLE_CLIENT_SECRET: optionalString,
     GITHUB_CLIENT_ID: optionalString,

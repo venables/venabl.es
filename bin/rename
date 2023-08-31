@@ -25,7 +25,6 @@ do
   sed -i '' $mapping "bin/setup"
   sed -i '' $mapping "config/site.ts"
   sed -i '' $mapping "emails/signin-email.tsx"
-  sed -i '' $mapping "lib/auth/options.ts"
 done
 
 # Run the initial setup script

@@ -8,17 +8,18 @@
 
 - [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
-- [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizze Kit](https://orm.drizzle.team/kit-docs/overview)
-- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for readable, safe code.
+- [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview)
+- Edge runtime ready.
+- Strict, recommended [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) rules for readable, safe code.
 - [TailwindCSS](https://tailwindcss.com/) for utility-first CSS.
 - Gorgeous UI built with [Radix](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/).
-- Authentication via [Next Auth](https://next-auth.js.org/).
+- Authentication via [Next Auth](https://next-auth.js.org/) version 5.
 - Email via [Resend](https://resend.com) and [react email](https://react.email/).
 - The beautiful [Inter](https://rsms.me/inter/) typeface.
 - [Next Metadata API](https://beta.nextjs.org/docs/api-reference/metadata) for SEO handling, with file-system handlers.
 - [Jest](https://jestjs.io/) testing, optimized for Next.js
 - Dark Mode support (without bypassing Server Components).
-- Sane VSCode settings and recommended extensions
+- Sane VSCode settings and recommended extensions.
 
 ## Starting a new project with StartKit
 

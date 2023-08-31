@@ -17,7 +17,7 @@ import { userAuthSchema } from "@/lib/validations"
 
 import { ExternalAuthButton } from "./external-auth-button"
 
-import type { ClientSafeProvider, SignInResponse } from "next-auth/react"
+import type { SignInResponse } from "next-auth/react"
 import type { HTMLAttributes } from "react"
 import type { z } from "zod"
 
@@ -64,11 +64,9 @@ function parseErrorMessage(error?: string | null) {
   }
 }
 
-type Props = HTMLAttributes<HTMLDivElement> & {
-  providers?: Record<string, ClientSafeProvider> | null
-}
+type Props = HTMLAttributes<HTMLDivElement>
 
-export function UserAuthForm({ className, providers, ...props }: Props) {
+export function UserAuthForm({ className, ...props }: Props) {
   const searchParams = useSearchParams()
   const { toast } = useToast()
   const form = useForm<z.infer<typeof userAuthSchema>>({
@@ -84,15 +82,6 @@ export function UserAuthForm({ className, providers, ...props }: Props) {
   const isLoading = useMemo(
     () => isExternalAuthLoading || form.formState.isSubmitting,
     [form.formState.isSubmitting, isExternalAuthLoading]
-  )
-
-  const emailProvider = useMemo(() => providers?.email, [providers])
-  const oauthProviders = useMemo(
-    () =>
-      Object.values(providers ?? {}).filter(
-        (provider) => provider.type === "oauth"
-      ),
-    [providers]
   )
 
   /**
@@ -146,72 +135,60 @@ export function UserAuthForm({ className, providers, ...props }: Props) {
   return (
     <div className={cls("grid gap-6", className)} {...props}>
       {/* Email form */}
-      {emailProvider ? (
-        <>
-          <Form {...form}>
-            <form
-              onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
-              className="flex flex-col space-y-2"
-            >
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input placeholder="name@example.com" {...field} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
+      <Form {...form}>
+        <form
+          onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
+          className="flex flex-col space-y-2"
+        >
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input placeholder="name@example.com" {...field} />
+                </FormControl>
+              </FormItem>
+            )}
+          />
 
-              <Button
-                variant="default"
-                type="submit"
-                disabled={isLoading}
-                className="w-full"
-              >
-                {form.formState.isSubmitting ? (
-                  <Spinner className="mr-2 h-4 w-4" />
-                ) : (
-                  <MailIcon className="mr-2 h-4 w-4" />
-                )}
-                Sign In with Email
-              </Button>
-            </form>
-          </Form>
+          <Button
+            variant="default"
+            type="submit"
+            disabled={isLoading}
+            className="w-full"
+          >
+            {form.formState.isSubmitting ? (
+              <Spinner className="mr-2 h-4 w-4" />
+            ) : (
+              <MailIcon className="mr-2 h-4 w-4" />
+            )}
+            Sign In with Email
+          </Button>
+        </form>
+      </Form>
 
-          {oauthProviders.length ? (
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2">Or continue with</span>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
-        </>
-      ) : (
-        <></>
-      )}
-
-      {oauthProviders.length ? (
-        <div className="flex flex-col space-y-2">
-          {oauthProviders.map((provider) => (
-            <ExternalAuthButton
-              key={provider.id}
-              provider={provider}
-              isLoading={isLoading}
-              setIsLoading={setIsExternalAuthLoading}
-            />
-          ))}
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
         </div>
-      ) : (
-        <></>
-      )}
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-background px-2">Or continue with</span>
+        </div>
+      </div>
+
+      <div className="flex flex-col space-y-2">
+        <ExternalAuthButton
+          provider="google"
+          isLoading={isLoading}
+          setIsLoading={setIsExternalAuthLoading}
+        />
+        <ExternalAuthButton
+          provider="github"
+          isLoading={isLoading}
+          setIsLoading={setIsExternalAuthLoading}
+        />
+      </div>
     </div>
   )
 }

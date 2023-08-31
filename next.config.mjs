@@ -9,7 +9,8 @@ const nextConfig = {
    * Toggle experimental features
    */
   experimental: {
-    mdxRs: true
+    mdxRs: true,
+    serverActions: true
   },
   /**
    * Disable the `x-powered-by: nextjs` header

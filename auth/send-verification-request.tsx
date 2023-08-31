@@ -4,7 +4,7 @@ import SignInEmail from "@/emails/signin-email"
 import { db, users } from "@/lib/db"
 import { emailClient } from "@/lib/email"
 
-import type { SendVerificationRequestParams } from "next-auth/providers"
+import type { SendVerificationRequestParams } from "@auth/core/providers"
 
 export async function sendVerificationRequest({
   identifier,

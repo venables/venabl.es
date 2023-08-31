@@ -1,15 +1,10 @@
-import { drizzle } from "drizzle-orm/postgres-js"
 import { migrate } from "drizzle-orm/postgres-js/migrator"
 import { join } from "path"
-import postgres from "postgres"
 
-import { env } from "../env"
+import { genericPostgresClient } from "@/lib/db/client/generic"
+import { env } from "@/env"
 
-const url = env.DATABASE_DIRECT_URL ?? env.DATABASE_URL
-const ssl = env.NODE_ENV === "production" ? "require" : undefined
-
-const sql = postgres(url, { max: 1, ssl })
-const db = drizzle(sql)
+const { db } = genericPostgresClient(env.DATABASE_URL, { max: 1 })
 
 console.log("Migrating the database ...")
 migrate(db, { migrationsFolder: join(__dirname, "..", "drizzle") })
