@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation"
 
+import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
 import { getCurrentUser } from "@/lib/auth/session"
 
 import type { ReactNode } from "react"
@@ -16,8 +17,11 @@ export default async function AuthLayout({ children }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <main className="flex flex-1 flex-col">{children}</main>
-    </div>
+    <>
+      <div className="flex min-h-screen flex-col">
+        <main className="flex flex-1 flex-col">{children}</main>
+      </div>
+      <ThemePickerProvider />
+    </>
   )
 }

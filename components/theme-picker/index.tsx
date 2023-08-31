@@ -1,7 +1,6 @@
 "use client"
 
-import { ThemeProvider } from "next-themes"
-
+import { ThemePickerProvider } from "./theme-picker-provider"
 import { ThemeToggle, type ThemeToggleProps } from "./theme-toggle"
 
 type Props = ThemeToggleProps
@@ -21,8 +20,8 @@ type Props = ThemeToggleProps
  */
 export function ThemePicker(props: Props) {
   return (
-    <ThemeProvider>
+    <ThemePickerProvider>
       <ThemeToggle {...props} />
-    </ThemeProvider>
+    </ThemePickerProvider>
   )
 }
