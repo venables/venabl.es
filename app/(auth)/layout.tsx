@@ -9,7 +9,6 @@ export const runtime = "nodejs"
 async function getData() {
   const session = await getCurrentSession()
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (session) {
     redirect("/")
   }
