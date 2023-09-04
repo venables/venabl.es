@@ -12,7 +12,7 @@ import {
   Text
 } from "@react-email/components"
 
-import { siteConfig } from "@/config"
+import { siteConfig } from "../config"
 
 export type SignInEmailProps = {
   existingUser?: boolean

@@ -10,7 +10,7 @@
     "db": "dotenv -c -- drizzle-kit",
     "db:migrate": "dotenv -c -- tsx ./bin/migrate.ts",
     "dev": "next dev",
-    "dev:email": "email dev",
+    "dev:email": "email dev -p 3001",
     "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
     "format:check": "prettier --check \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
     "lint": "dotenv -c -- next lint",

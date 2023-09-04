@@ -118,6 +118,20 @@ Drizzle offers a simple UI for inspecting the database. To launch it, run:
 pnpm db studio
 ```
 
+## Email
+
+Email is currently configured to send via [Resend](https://resend.com), and uses the wonderful [react-email](https://react.email) library.
+
+Email templates live with your react code and are defined in [`./emails`](./emails).
+
+To view live previews of your email templates, you can run:
+
+```sh
+pnpm dev:email
+```
+
+And you will be able to visit [http://localhost:3001](http://localhost:3001) to edit your emails with live reload.
+
 ## UI components
 
 By default, this project includes the following components from [shadcn/ui](https://ui.shadcn.com/):
