@@ -5,7 +5,7 @@ import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-prov
 
 import type { ReactNode } from "react"
 
-type Props = {
+interface Props {
   children?: ReactNode
 }
 

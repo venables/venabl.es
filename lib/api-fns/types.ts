@@ -5,13 +5,13 @@ import type { NextRequest, NextResponse } from "next/server"
 /**
  * The API Error response
  */
-export type ApiResponseError = {
+export interface ApiResponseError {
   ok: false
   error: string
   issues?: ZodIssue[]
 }
 
-export type ApiResponseSuccess<T> = {
+export interface ApiResponseSuccess<T> {
   ok: true
   data: T
 }
@@ -24,7 +24,7 @@ export type ApiResponse<T> = ApiResponseSuccess<T> | ApiResponseError
 /**
  *
  */
-export type NextRequestContext<T> = {
+export interface NextRequestContext<T> {
   params: T
 }
 
@@ -34,7 +34,7 @@ export type NextRequestContext<T> = {
  *
  * See: https://nextjs.org/docs/app/api-reference/file-conventions/route#context-optional
  */
-export type NextRouteContext<T = undefined> = {
+export interface NextRouteContext<T = undefined> {
   params: T
 }
 

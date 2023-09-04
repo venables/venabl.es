@@ -11,7 +11,7 @@ import type { ReactNode } from "react"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 
-type Props = {
+interface Props {
   children: ReactNode
 }
 

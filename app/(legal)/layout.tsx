@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 import type { ReactNode } from "react"
 
-type Props = {
+interface Props {
   children?: ReactNode
 }
 

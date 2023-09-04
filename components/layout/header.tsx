@@ -6,7 +6,7 @@ import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
-type Props = {
+interface Props {
   user?: { id?: string | null }
 }
 

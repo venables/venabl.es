@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/header"
 
 import type { ReactNode } from "react"
 
-type Props = {
+interface Props {
   children?: ReactNode
 }
 

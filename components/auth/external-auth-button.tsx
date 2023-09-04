@@ -19,7 +19,7 @@ const PROVIDERS = {
   }
 }
 
-type Props = {
+interface Props {
   provider: keyof typeof PROVIDERS
   isLoading?: boolean
   setIsLoading?: (isLoading: boolean) => void
