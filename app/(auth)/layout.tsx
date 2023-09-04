@@ -1,9 +1,14 @@
 import { redirect } from "next/navigation"
 
-import { auth } from "@/auth"
+import { auth } from "@/auth/node"
 import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
 
 import type { ReactNode } from "react"
+
+/**
+ * Use the edge runtime
+ */
+export const runtime = "nodejs"
 
 interface Props {
   children?: ReactNode

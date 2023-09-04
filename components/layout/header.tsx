@@ -40,7 +40,7 @@ export function Header({ user }: Props) {
             <SignOutButton />
           ) : (
             <Button size="sm" className="px-4" asChild>
-              <Link href="/api/auth/signin">Login</Link>
+              <Link href="/signin?callbackUrl=/">Login</Link>
             </Button>
           )}
         </div>

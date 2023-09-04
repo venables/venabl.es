@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button"
 
 import type { ReactNode } from "react"
 
+/**
+ * Use the edge runtime
+ */
+export const runtime = "edge"
+
 interface Props {
   children?: ReactNode
 }

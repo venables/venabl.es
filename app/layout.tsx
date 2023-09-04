@@ -11,11 +11,11 @@ import type { ReactNode } from "react"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 
+export const metadata = seo()
+
 interface Props {
   children: ReactNode
 }
-
-export const metadata = seo()
 
 export default function RootLayout({ children }: Props) {
   return (

@@ -14,7 +14,7 @@ import {
 
 import { siteConfig } from "../config"
 
-export type SignInEmailProps = {
+export interface SignInEmailProps {
   existingUser?: boolean
   emailAddress: string
   url: string

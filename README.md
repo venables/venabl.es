@@ -79,13 +79,13 @@ The app will be running at [http://localhost:3000](http://localhost:3000).
 
 ## Edge compatibility
 
-This app is entirely edge-compatible, meaning it can be run in edge runtimes such as [Vercel](https://vercel.com/docs/edge-network/overview).
+Our guiding principal for this app is that every feature should be [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes)-compatible by default. In some scenarios, we may need to run code in a node environment (local development, etc), in which case we can explicitly "upgrade" to that environment.
 
-However, the edge-compatible database adapter ([@neondatabase/serverless](https://github.com/neondatabase/serverless)) does not work against a local Postgres instance without running a proxy, which is outside of the scope of this project.
+For example, our edge-compatible database adapter ([@neondatabase/serverless](https://github.com/neondatabase/serverless)) does not work against a local Postgres instance without running a proxy, which is outside of the scope of this project. Sicne we want to run a local Postgres instance, we have updated our database adapter to conditionally use edge when `DATABASE_URL_EDGE` is set.
 
-Therefore, this project does not make an edge-style connection to Postgres by default. The app checks a separate environment variable, `DATABASE_URL_EDGE`, to determine if we should connect to an edge database, or a create a traditional postgres database connection. If you would like to develop against an edge database locally, you just need to set this environment variable to the URL of your edge database.
+Similarly, because NextAuth requires a database connection to store user information, our NextAuth configuration is built by default for th edge (using JWT sessions which require no database), but is augmented for signin/register endpoints at `app/api/auth/[...nextauth]/route.ts` to work with a traditional database connections as well as edge connections.
 
-Similarly, because Next Auth requires a database connection to store user information, our Next Auth configuration is edge-ready (using JWT sessions which require no database), but is augmented for signin/register endpoints at `app/api/auth/[...nextauth]/route.ts` to work with a traditional database connections as well as edge connections.
+When you import `@/auth` throughout this app, you are importing the edge-ready NextAuth configuration. To load the NodeJS configuration, you would load `@/auth/node`.
 
 ## Database
 

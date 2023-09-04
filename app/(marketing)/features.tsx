@@ -23,7 +23,7 @@ export function Features() {
       { title: "shadcn/ui" },
       { title: "Drizzle ORM" },
       { title: "PostgreSQL" },
-      { title: "Resend Email" },
+      { title: "Email via Resend" },
       { title: "Metadata API" },
       { title: "Inter Font" },
       { title: "Jest" },
