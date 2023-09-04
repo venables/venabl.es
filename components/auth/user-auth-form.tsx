@@ -108,7 +108,7 @@ export function UserAuthForm({ className, ...props }: Props) {
       }
 
       try {
-        signInResult = await signIn("email", {
+        signInResult = await signIn("http-email", {
           email: data.email.toLowerCase(),
           redirect: false,
           callbackUrl: searchParams.get("from") ?? "/"

@@ -1,14 +1,25 @@
+import GitHub from "@auth/core/providers/github"
+import Google from "@auth/core/providers/google"
+
 import type { NextAuthConfig } from "next-auth"
 
 /**
- * This config is to be used in the middleware so we can use any database
- * adapter, including one's that do not support edge networks.
+ * This is the base-level config for NextAuth, but does not include a database
+ * adapter. This allows us to use next-auth in an edge runtime, regardless of whether
+ * the database adapter supports edge or not.
+ *
+ * Database adapters should be defined in `auth.node.ts`.
  *
  * See more:
  * https://auth-docs-git-feat-nextjs-auth-authjs.vercel.app/guides/upgrade-to-v5#edge-compatibility
  */
 export default {
-  providers: [],
+  /**
+   * Providers
+   *
+   * NOTE: The email provider is
+   */
+  providers: [Google, GitHub],
   session: { strategy: "jwt" },
   callbacks: {
     jwt({ token, user }) {

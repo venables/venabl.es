@@ -1,8 +1,4 @@
-import NextAuth from "next-auth"
-
-import authConfig from "@/auth/config"
-
-export const { auth: middleware } = NextAuth(authConfig)
+export { auth as middleware } from "@/auth/edge"
 
 export const config = {
   /**
@@ -13,6 +9,7 @@ export const config = {
    * - favicon.ico (favicon file)
    *
    * See more: https://nextjs.org/docs/pages/building-your-application/routing/middleware#matcher
+   *
+   * matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"]
    */
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"]
 }

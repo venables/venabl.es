@@ -1,33 +1,35 @@
-import Email from "@auth/core/providers/email"
-import GitHub from "@auth/core/providers/github"
-import Google from "@auth/core/providers/google"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import NextAuth from "next-auth"
 
-import { env } from "@/env"
 import { db, pgTable } from "@/lib/db"
 
-import authConfig from "./config"
-import { sendVerificationRequest } from "./send-verification-request"
+import authConfig from "./auth.config"
+import { HttpEmailProvider } from "./providers/http-email"
 
+/**
+ * A Node-runtime version of the NextAuth implementation. This is used for
+ * making calls to the database, which is not always possible in edge
+ * environments, depending on your database adapter.
+ *
+ * All NextAuth config should be defined in `./auth.config.ts`, except for
+ * the database adapter, and email provider.
+ */
 export const {
   handlers: { GET, POST },
   auth
 } = NextAuth({
-  ...authConfig,
   /**
    * https://authjs.dev/reference/adapter/drizzle
    */
   adapter: DrizzleAdapter(db, pgTable),
+
   /**
-   * Add the email provider to our providers list.
+   * Pull in the shared config
    */
-  providers: [
-    Google,
-    GitHub,
-    Email({
-      from: env.EMAIL_FROM,
-      sendVerificationRequest
-    })
-  ]
+  ...authConfig,
+
+  /**
+   * Add Email provider, which requires an adapter to be defined
+   */
+  providers: [...authConfig.providers, HttpEmailProvider]
 })
