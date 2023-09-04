@@ -1,4 +1,3 @@
-import { auth } from "@/auth"
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 
@@ -13,15 +12,10 @@ interface Props {
   children?: ReactNode
 }
 
-export default async function MarketingLayout({ children }: Props) {
-  const session = await auth()
-
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const user = session?.user
-
+export default function MarketingLayout({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col">
-      <Header user={user} />
+      <Header />
       <main className="flex-1 px-4">{children}</main>
       <Footer />
     </div>

@@ -1,16 +1,15 @@
 import { GithubIcon } from "lucide-react"
 import Link from "next/link"
 
+import { getCurrentSession } from "@/auth"
 import { SignOutButton } from "@/components/auth/sign-out-button"
 import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
-interface Props {
-  user?: { id?: string | null }
-}
+export async function Header() {
+  const session = await getCurrentSession()
 
-export function Header({ user }: Props) {
   return (
     <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
@@ -36,7 +35,7 @@ export function Header({ user }: Props) {
             </Link>
           </Button>
 
-          {user ? (
+          {session?.user ? (
             <SignOutButton />
           ) : (
             <Button size="sm" className="px-4" asChild>

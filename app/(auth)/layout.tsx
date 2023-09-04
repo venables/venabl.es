@@ -1,26 +1,26 @@
 import { redirect } from "next/navigation"
+import { type ReactNode } from "react"
 
-import { auth } from "@/auth/node"
+import { getCurrentSession } from "@/auth/node"
 import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
 
-import type { ReactNode } from "react"
-
-/**
- * Use the edge runtime
- */
 export const runtime = "nodejs"
+
+async function getData() {
+  const session = await getCurrentSession()
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (session) {
+    redirect("/")
+  }
+}
 
 interface Props {
   children?: ReactNode
 }
 
 export default async function AuthLayout({ children }: Props) {
-  const session = await auth()
-
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (session) {
-    redirect("/")
-  }
+  await getData()
 
   return (
     <>

@@ -33,3 +33,19 @@ export const {
    */
   providers: [...authConfig.providers, HttpEmailProvider]
 })
+
+/**
+ * Temporary function to get the current session. We use this instead of calling
+ * auth() directly because the next-auth types state `auth()` always returns a
+ * session, but in reality it can return null.
+ */
+export async function getCurrentSession() {
+  const session = await auth()
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (!session) {
+    return null
+  }
+
+  return session
+}

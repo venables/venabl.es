@@ -1,8 +1,8 @@
 import { migrate } from "drizzle-orm/postgres-js/migrator"
 import { join } from "path"
 
-import { genericPostgresClient } from "@/lib/db/client/generic"
 import { env } from "@/env"
+import { genericPostgresClient } from "@/lib/db/client/generic"
 
 const { db } = genericPostgresClient(env.DATABASE_URL, { max: 1 })
 
