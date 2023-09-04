@@ -28,7 +28,7 @@ export const pgTable = pgTableCreator((name) => {
   }
 })
 
-export const users = pgTable("user", {
+export const usersTable = pgTable("user", {
   id: text("id").notNull().primaryKey(),
   name: text("name"),
   email: citext("email").notNull().unique(),
@@ -36,12 +36,12 @@ export const users = pgTable("user", {
   image: text("image")
 })
 
-export const accounts = pgTable(
+export const accountsTable = pgTable(
   "account",
   {
     userId: text("userId")
       .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
+      .references(() => usersTable.id, { onDelete: "cascade" }),
     type: text("type").$type<AdapterAccount["type"]>().notNull(),
     provider: text("provider").notNull(),
     providerAccountId: text("providerAccountId").notNull(),
@@ -58,15 +58,15 @@ export const accounts = pgTable(
   })
 )
 
-export const sessions = pgTable("session", {
+export const sessionsTable = pgTable("session", {
   sessionToken: text("sessionToken").notNull().primaryKey(),
   userId: text("userId")
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+    .references(() => usersTable.id, { onDelete: "cascade" }),
   expires: timestamp("expires", { mode: "date" }).notNull()
 })
 
-export const verificationTokens = pgTable(
+export const verificationTokensTable = pgTable(
   "verificationToken",
   {
     identifier: text("identifier").notNull(),

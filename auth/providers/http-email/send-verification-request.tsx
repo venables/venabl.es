@@ -2,7 +2,7 @@ import { eq } from "drizzle-orm"
 
 import SignInEmail from "@/emails/signin-email"
 import { env } from "@/env"
-import { db, users } from "@/lib/db"
+import { db, usersTable } from "@/lib/db"
 import { emailClient } from "@/lib/email"
 
 import type { SendVerificationRequestParams } from "@auth/core/providers"
@@ -11,15 +11,15 @@ export async function sendVerificationRequest({
   identifier: email,
   url
 }: SendVerificationRequestParams) {
-  const existingUsers = await db
+  const users = await db
     .select({
-      emailVerified: users.emailVerified
+      emailVerified: usersTable.emailVerified
     })
-    .from(users)
-    .where(eq(users.email, email))
+    .from(usersTable)
+    .where(eq(usersTable.email, email))
     .limit(1)
 
-  const user = existingUsers[0]
+  const user = users[0]
 
   await emailClient().sendEmail({
     from: env.EMAIL_FROM,
