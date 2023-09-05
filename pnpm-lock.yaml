@@ -11,6 +11,9 @@ patchedDependencies:
   '@react-email/render@0.0.7':
     hash: u42bdlrradd6dryc72d5ztz67m
     path: patches/@react-email__render@0.0.7.patch
+  '@react-email/tailwind@0.0.8':
+    hash: jwxakwpxzewfv5snfqxyykl67e
+    path: patches/@react-email__tailwind@0.0.8.patch
 
 dependencies:
   '@auth/core':
@@ -1923,7 +1926,7 @@ packages:
       '@react-email/render': 0.0.7(patch_hash=u42bdlrradd6dryc72d5ztz67m)
       '@react-email/row': 0.0.5
       '@react-email/section': 0.0.9
-      '@react-email/tailwind': 0.0.8
+      '@react-email/tailwind': 0.0.8(patch_hash=jwxakwpxzewfv5snfqxyykl67e)
       '@react-email/text': 0.0.5
       react: 18.2.0
     transitivePeerDependencies:
@@ -2024,7 +2027,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/tailwind@0.0.8:
+  /@react-email/tailwind@0.0.8(patch_hash=jwxakwpxzewfv5snfqxyykl67e):
     resolution: {integrity: sha512-0BLjD5GpiyBK7YDlaDrjHIpj9eTrrZrMJud3f1UPoCZhS+0S/M8LcR8WMbQsR+8/aLGmiy4F4TGZuRQcsJEsFw==}
     engines: {node: '>=16.0.0'}
     dependencies:
@@ -2035,6 +2038,7 @@ packages:
     transitivePeerDependencies:
       - ts-node
     dev: false
+    patched: true
 
   /@react-email/text@0.0.5:
     resolution: {integrity: sha512-LXhHiaC6oRRsNAfOzJDos4wQA22eIdVJvR6G7uu4QzUvYNOAatDMf89jRQcKGrxX7InkS640v8sHd9jl5ztM5w==}

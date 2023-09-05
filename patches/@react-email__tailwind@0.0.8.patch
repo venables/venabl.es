@@ -1,0 +1,25 @@
+diff --git a/dist/index.js b/dist/index.js
+index 98f14262c946c52495c0c45fb166628996d11e6e..5236dced6860f5b800c8ed4f37a5cd1d74fad11f 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -32,7 +32,7 @@ module.exports = __toCommonJS(src_exports);
+ 
+ // src/tailwind.tsx
+ var React = __toESM(require("react"));
+-var import_server = require("react-dom/server");
++var import_server = require("react-dom/server.browser");
+ var import_html_react_parser = __toESM(require("html-react-parser"));
+ var import_tw_to_css = require("tw-to-css");
+ var import_jsx_runtime = require("react/jsx-runtime");
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 00d5b2bc460d97567ddd5688d24e0a23e034b7b4..4b77aedfbd8e0e1e484601832cdd36c7c8c00ba0 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -1,6 +1,6 @@
+ // src/tailwind.tsx
+ import * as React from "react";
+-import { renderToStaticMarkup } from "react-dom/server";
++import { renderToStaticMarkup } from "react-dom/server.browser";
+ import htmlParser, { attributesToProps, domToReact, Element } from "html-react-parser";
+ import { tailwindToCSS } from "tw-to-css";
+ import { Fragment, jsx, jsxs } from "react/jsx-runtime";

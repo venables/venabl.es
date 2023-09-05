@@ -83,7 +83,8 @@
       "@auth/core": "0.13.0"
     },
     "patchedDependencies": {
-      "@react-email/render@0.0.7": "patches/@react-email__render@0.0.7.patch"
+      "@react-email/render@0.0.7": "patches/@react-email__render@0.0.7.patch",
+      "@react-email/tailwind@0.0.8": "patches/@react-email__tailwind@0.0.8.patch"
     }
   }
 }
