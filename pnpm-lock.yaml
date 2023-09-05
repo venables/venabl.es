@@ -7,6 +7,11 @@ settings:
 overrides:
   '@auth/core': 0.13.0
 
+patchedDependencies:
+  '@react-email/render@0.0.7':
+    hash: u42bdlrradd6dryc72d5ztz67m
+    path: patches/@react-email__render@0.0.7.patch
+
 dependencies:
   '@auth/core':
     specifier: 0.13.0
@@ -1915,7 +1920,7 @@ packages:
       '@react-email/img': 0.0.5
       '@react-email/link': 0.0.5
       '@react-email/preview': 0.0.6
-      '@react-email/render': 0.0.7
+      '@react-email/render': 0.0.7(patch_hash=u42bdlrradd6dryc72d5ztz67m)
       '@react-email/row': 0.0.5
       '@react-email/section': 0.0.9
       '@react-email/tailwind': 0.0.8
@@ -1996,7 +2001,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@react-email/render@0.0.7:
+  /@react-email/render@0.0.7(patch_hash=u42bdlrradd6dryc72d5ztz67m):
     resolution: {integrity: sha512-hMMhxk6TpOcDC5qnKzXPVJoVGEwfm+U5bGOPH+MyTTlx0F02RLQygcATBKsbP7aI/mvkmBAZoFbgPIHop7ovug==}
     engines: {node: '>=16.0.0'}
     dependencies:
@@ -2005,6 +2010,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
+    patched: true
 
   /@react-email/row@0.0.5:
     resolution: {integrity: sha512-dir5l1M7Z/1BQqQkUrKUPIIDPt6ueEf6ScMGoBOcUh+VNNqmnqJE2Q2CH5X3w2uo6a5X7tnVhoJHGa2KTKe8Sw==}
@@ -6812,7 +6818,7 @@ packages:
     resolution: {integrity: sha512-8LEE4gncmcm8bsvxvahZFpFk5hxUrKdagqWoX/MRXVU2YZ9coYxqZDeDYXG9pexz1A694bjE1hiQbBAA+bHAow==}
     engines: {node: '>=16'}
     dependencies:
-      '@react-email/render': 0.0.7
+      '@react-email/render': 0.0.7(patch_hash=u42bdlrradd6dryc72d5ztz67m)
       node-fetch: 2.6.12
       type-fest: 3.13.0
     transitivePeerDependencies:

@@ -81,6 +81,9 @@
   "pnpm": {
     "overrides": {
       "@auth/core": "0.13.0"
+    },
+    "patchedDependencies": {
+      "@react-email/render@0.0.7": "patches/@react-email__render@0.0.7.patch"
     }
   }
 }
