@@ -1,9 +1,9 @@
 import GitHub from "@auth/core/providers/github"
 import Google from "@auth/core/providers/google"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
-import { type NextAuthConfig } from "next-auth"
-
+import { HttpEmailProvider } from "@/lib/auth/http-email-provider"
 import { db, pgTable } from "@/lib/db"
+import { type NextAuthConfig } from "next-auth"
 
 /**
  * This is the base-level config for NextAuth, but does not include a database
@@ -25,7 +25,7 @@ export default {
    * NOTE: The email provider requires a database adapter. Because our database
    * adapter many not be edge-ready, we define that in the `./node.ts` file.
    */
-  providers: [Google, GitHub],
+  providers: [Google, GitHub, HttpEmailProvider],
 
   /**
    * Using JWTs for session tokens, so we can access the user's ID and email
