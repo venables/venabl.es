@@ -8,7 +8,6 @@ import {
   Html,
   Preview,
   Section,
-  Tailwind,
   Text
 } from "@react-email/components"
 
@@ -33,53 +32,125 @@ export default function SignInEmail({
           ? `Sign in to ${siteConfig.name}`
           : `Welcome to ${siteConfig.name}!`}
       </Preview>
-      <Tailwind>
-        <Body className="m-auto bg-white font-sans">
-          <Container className="mx-auto my-[40px] w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
-            <Heading className="mx-0 mb-[10px] mt-[32px] p-0 text-center text-[12px] font-bold uppercase tracking-widest text-zinc-400">
-              {siteConfig.name}
-            </Heading>
-            <Heading className="mx-0 mb-[30px] mt-0 p-0 text-center text-[24px] font-normal text-black">
-              <span className="font-bold">
-                {existingUser ? "Sign in" : "Welcome"}
-              </span>{" "}
-              to <span className="font-bold">{siteConfig.name}</span>
-            </Heading>
-            <Text className="text-[14px] leading-[24px] text-black">
-              {existingUser ? (
-                <>
-                  Welcome back to {siteConfig.name}. Tap this button to sign in
-                  to your account:
-                </>
-              ) : (
-                <>
-                  Thanks for trying {siteConfig.name}. We&apos;re thrilled to
-                  have you on board. To get started, tap this button to verify
-                  your email address:
-                </>
-              )}
-            </Text>
-            <Section className="my-[32px] text-center">
-              <Button
-                pX={20}
-                pY={12}
-                className="rounded bg-[#000000] text-center text-[12px] font-semibold text-white no-underline"
-                href={url}
-              >
-                {existingUser ? "Sign in to my account" : "Verify my email"}
-              </Button>
-            </Section>
-            <Hr className="mx-0 my-[26px] w-full border border-solid border-[#eaeaea]" />
-            <Text className="text-[12px] leading-[24px] text-[#666666]">
-              This invitation was intended for{" "}
-              <span className="text-black">{emailAddress}</span>. If you were
-              not expecting this invitation, you can ignore this email. If you
-              are concerned about your account&apos;s safety, please reply to
-              this email to get in touch with us.
-            </Text>
-          </Container>
-        </Body>
-      </Tailwind>
+      <Body style={body}>
+        <Container style={container}>
+          <Heading style={headingTop}>{siteConfig.name}</Heading>
+          <Heading style={headingPrimary}>
+            <span style={bold}>{existingUser ? "Sign in" : "Welcome"}</span> to{" "}
+            <span style={bold}>{siteConfig.name}</span>
+          </Heading>
+          <Text style={paragraph}>
+            {existingUser ? (
+              <>
+                Welcome back to {siteConfig.name}. Tap this button to sign in to
+                your account:
+              </>
+            ) : (
+              <>
+                Thanks for trying {siteConfig.name}. We&apos;re thrilled to have
+                you on board. To get started, tap this button to verify your
+                email address:
+              </>
+            )}
+          </Text>
+          <Section style={buttonSection}>
+            <Button pX={20} pY={12} style={button} href={url}>
+              {existingUser ? "Sign in to my account" : "Verify my email"}
+            </Button>
+          </Section>
+          <Hr style={separator} />
+          <Text style={footer}>
+            This link was intended for <span style={black}>{emailAddress}</span>
+            . If you were not expecting this link, you can ignore this email. If
+            you are concerned about your account&apos;s safety, please reply to
+            this email to get in touch with us.
+          </Text>
+        </Container>
+      </Body>
     </Html>
   )
+}
+
+const body = {
+  backgroundColor: "#ffffff",
+  fontFamily:
+    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  margin: "auto"
+}
+
+const container = {
+  borderRadius: "0.25rem",
+  borderWidth: "1px",
+  borderStyle: "solid",
+  width: "465px",
+  borderColor: "#e4e4e7", // zinc-200
+  padding: "20px"
+}
+
+const headingTop = {
+  color: "#a1a1aa", // zinc-400
+  padding: "0",
+  marginLeft: "0",
+  marginRight: "0",
+  fontWeight: 700,
+  fontSize: "12px",
+  letterSpacing: "0.1em",
+  textAlign: "center" as const,
+  textTransform: "uppercase" as const,
+  marginBottom: "10px",
+  marginTop: "32px"
+}
+
+const headingPrimary = {
+  color: "#000000",
+  padding: "0",
+  marginLeft: "0",
+  marginRight: "0",
+  marginTop: "0",
+  fontWeight: 400,
+  textAlign: "center" as const,
+  fontSize: "24px",
+  marginBottom: "30px"
+}
+
+const bold = {
+  fontWeight: 700
+}
+
+const black = {
+  color: "#000000"
+}
+
+const paragraph = {
+  color: "#000000",
+  fontSize: "14px",
+  lineHeight: "24px"
+}
+
+const buttonSection = {
+  marginVertical: "32px",
+  textAlign: "center" as const
+}
+
+const button = {
+  textAlign: "center" as const,
+  fontSize: "12px",
+  fontWeight: 600,
+  textDecoration: "none",
+  color: "#ffffff",
+  backgroundColor: "#000000",
+  borderRadius: "4px"
+}
+
+const separator = {
+  margin: "26px 0",
+  width: "100%",
+  border: 0,
+  borderTop: "1px solid #e4e4e7" // zinc-200
+}
+
+const footer = {
+  fontSize: "12px",
+  lineHeight: "24px",
+  color: "#71717a" // zinc-500
 }
