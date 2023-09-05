@@ -27,9 +27,6 @@ do
   sed -i '' $mapping "emails/signin-email.tsx"
 done
 
-# Run the initial setup script
-./bin/setup
-
 # Done.
 echo "\n\n✨ Now you can delete this script:"
 echo "\n rm ./bin/rename\n"

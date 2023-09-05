@@ -1,10 +1,16 @@
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { type DefaultSession } from "@auth/core/types"
 import NextAuth from "next-auth"
 
-import { db, pgTable } from "@/lib/db"
-
 import authConfig from "./auth.config"
-import { HttpEmailProvider } from "./providers/http-email"
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      /** The user's id. */
+      id: string
+    } & DefaultSession["user"]
+  }
+}
 
 /**
  * A Node-runtime version of the NextAuth implementation. This is used for
@@ -17,35 +23,20 @@ import { HttpEmailProvider } from "./providers/http-email"
 export const {
   handlers: { GET, POST },
   auth
-} = NextAuth({
-  /**
-   * https://authjs.dev/reference/adapter/drizzle
-   */
-  adapter: DrizzleAdapter(db, pgTable),
-
-  /**
-   * Pull in the shared config
-   */
-  ...authConfig,
-
-  /**
-   * Add Email provider, which requires an adapter to be defined
-   */
-  providers: [...authConfig.providers, HttpEmailProvider]
-})
+} = NextAuth(authConfig)
 
 /**
- * Temporary function to get the current session. We use this instead of calling
+ * Temporary function to get the current user. We use this instead of calling
  * auth() directly because the next-auth types state `auth()` always returns a
  * session, but in reality it can return null.
  */
-export async function getCurrentSession() {
+export async function getCurrentUser() {
   const session = await auth()
 
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (!session) {
+  if (!session?.user) {
     return null
   }
 
-  return session
+  return session.user
 }

@@ -7,6 +7,7 @@
 ## Features
 
 - [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
+- Everything is [Edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) runtime by default. 🚀
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview)
 - Edge runtime ready.
@@ -77,28 +78,19 @@ pnpm dev
 
 The app will be running at [http://localhost:3000](http://localhost:3000).
 
-## Edge compatibility
+## Edge by default 🚀
 
-Our guiding principal for this app is that every feature should be [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes)-compatible by default. In some scenarios, we may need to run code in a node environment (local development, etc), in which case we can explicitly "upgrade" to that environment.
+The guiding priciple of this app is that everything should run on the [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) by default. In some scenarios, we may need to run code in a `nodejs` runtime, but those are exceptions, not the rule.
 
-For example, our edge-compatible database adapter ([@neondatabase/serverless](https://github.com/neondatabase/serverless)) does not work against a local Postgres instance without running a proxy, which is outside of the scope of this project. Sicne we want to run a local Postgres instance, we have updated our database adapter to conditionally use edge when `DATABASE_URL_EDGE` is set.
-
-Similarly, because NextAuth requires a database connection to store user information, our NextAuth configuration is built by default for th edge (using JWT sessions which require no database), but is augmented for signin/register endpoints at `app/api/auth/[...nextauth]/route.ts` to work with a traditional database connections as well as edge connections.
-
-When you import `@/auth` throughout this app, you are importing the edge-ready NextAuth configuration. To load the NodeJS configuration, you would load `@/auth/node`.
+All routes in the app are currently running on the `edge` runtime except for one: the `next-auth` API route handler. The reason we can not run this route handler as an edge endpoint is due to our use of `react-email` for rendering and sending email (See [1](https://github.com/vercel/next.js/issues/43810), [2](https://github.com/resendlabs/react-email/issues/871)). If email is not required, this endpoint can be made `edge` compatible.
 
 ## Database
 
-Drizzle is set up to use PostgreSQL by default, but any database will work. Simply set `DATABASE_URL` in your `.env` (or `.env.local`) file to work.
+Drizzle is set up to use serverless PostgreSQL by default (via [Neon](https://neon.tech)), but any database will work. Simply set `DATABASE_URL` in your `.env` (or `.env.local`) file to work.
 
-The database `startkit_development` should be created during the `pnpm run setup` step (defined in `./bin/setup`).
+You should set `DATABASE_URL` and/or `DATABASE_URL_POOLED` to your [Neon](https://neon.tech) branch URL.
 
-Ensure you have postgres running locally. For example, on MacOS with homebrew:
-
-```sh
-brew install postgresql@14
-brew services start postgresql@14
-```
+NOTE: The code is currently set up to connect to the database using Neon's serverless package. If you would like to run a local database, you can find instructions for connecting as if it were serverless [here](https://github.com/neondatabase/serverless/issues/33#issuecomment-1634853042).
 
 ### `pnpm db`
 

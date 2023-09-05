@@ -11,6 +11,7 @@ import type { ReactNode } from "react"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 
+export const runtime = "edge"
 export const metadata = seo()
 
 interface Props {
