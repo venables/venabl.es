@@ -65,9 +65,6 @@ dependencies:
   nodemailer:
     specifier: ^6.9.4
     version: 6.9.4
-  postgres:
-    specifier: ^3.3.5
-    version: 3.3.5
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -163,6 +160,9 @@ devDependencies:
   postcss:
     specifier: ^8.4.29
     version: 8.4.29
+  postgres:
+    specifier: ^3.3.5
+    version: 3.3.5
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
@@ -6532,7 +6532,6 @@ packages:
 
   /postgres@3.3.5:
     resolution: {integrity: sha512-+JD93VELV9gHkqpV5gdL5/70HdGtEw4/XE1S4BC8f1mcPmdib3K5XsKVbnR1XcAyC41zOnifJ+9YRKxdIsXiUw==}
-    dev: false
 
   /preact-render-to-string@5.2.3(preact@10.11.3):
     resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}

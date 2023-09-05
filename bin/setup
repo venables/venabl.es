@@ -18,16 +18,9 @@ if ! [ -f .env.local ]; then
   echo "AUTH_URL=\"http://localhost:3000\"" >> .env.local
 fi
 
-
 #
-# Create the database and run any outstanding migrations
+# Migrate the database
 #
-echo "\n✨ Ensuring the 'postgres' user exists..."
-createuser -s postgres
-
-echo "\n✨ Creating the local database 'startkit_development'..."
-createdb -U postgres startkit_development
-
 echo "\n✨ Migrating the database..."
 pnpm db:migrate
 

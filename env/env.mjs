@@ -38,7 +38,6 @@ export const env = createEnv({
      */
     DATABASE_URL: z.string().url(),
     DATABASE_URL_POOLED: z.string().url().optional(),
-    DATABASE_URL_EDGE: z.string().url().optional(),
 
     /**
      * Authentication
