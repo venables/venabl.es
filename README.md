@@ -82,7 +82,7 @@ The app will be running at [http://localhost:3000](http://localhost:3000).
 
 The guiding priciple of this app is that everything should run on the [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) by default. In some scenarios, we may need to run code in a `nodejs` runtime, but those are exceptions, not the rule.
 
-All routes in the app are currently running on the `edge` runtime. This includes authentication routes which talk to our database, as well as our email-rendering logic.  This has some limitations, as `react-email` [does not yet support edge]((https://github.com/resendlabs/react-email/issues/871)) and had to be patched (also, we can not use react-email's Tailwind component). The database also can not be run locally, as our edge adapter requires it to communicate via HTTP. We feel that these limitations are acceptable to allow for cleaner code, and to allow apps to run smoothly on the edge.
+All routes in the app are currently running on the `edge` runtime. This includes authentication routes which talk to our database, as well as our email-rendering logic. This has some limitations, as `react-email` [does not yet support edge](<(https://github.com/resendlabs/react-email/issues/871)>) and had to be patched (also, we can not use react-email's Tailwind component). The database also can not be run locally, as our edge adapter requires it to communicate via HTTP. We feel that these limitations are acceptable to allow for cleaner code, and to allow apps to run smoothly on the edge.
 
 ## Database
 
