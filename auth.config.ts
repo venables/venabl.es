@@ -1,9 +1,10 @@
 import GitHub from "@auth/core/providers/github"
 import Google from "@auth/core/providers/google"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { type NextAuthConfig } from "next-auth"
+
 import { HttpEmailProvider } from "@/lib/auth/http-email-provider"
 import { db, pgTable } from "@/lib/db"
-import { type NextAuthConfig } from "next-auth"
 
 /**
  * This is the base-level config for NextAuth, but does not include a database
@@ -41,7 +42,7 @@ export default {
     jwt({ token, user }) {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (user) {
-        token.userId = user.id
+        token.id = user.id
         token.email = user.email
       }
 
