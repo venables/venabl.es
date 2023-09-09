@@ -4,10 +4,15 @@
 
 > A sane starting point for Next.js projects.
 
+or
+
+> The best way to start an Next.js app on the edge
+
 ## Features
 
-- [Next.js 13.4](https://nextjs.org) with the `/app` directory and API routes handled by Route Handlers.
-- Everything is [Edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) runtime by default. 🚀
+- 100% on the [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) 🚀
+- [Next.js 13.4](https://nextjs.org) with the `/app` directory and API Route Handlers.
+- [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) gallore
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview)
 - Edge runtime ready.
