@@ -1,4 +1,3 @@
-import { type DefaultSession } from "@auth/core/types"
 import NextAuth from "next-auth"
 
 import authConfig from "./auth.config"
@@ -8,7 +7,13 @@ declare module "next-auth" {
     user: {
       /** The user's id. */
       id: string
-    } & DefaultSession["user"]
+      /** The user's email */
+      email: string
+      /** The user's name */
+      name: string | null
+      /** The user's picture */
+      picture: string | null
+    }
   }
 }
 

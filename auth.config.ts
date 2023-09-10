@@ -1,7 +1,7 @@
-import GitHub from "@auth/core/providers/github"
-import Google from "@auth/core/providers/google"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import { type NextAuthConfig } from "next-auth"
+import GitHub from "next-auth/providers/github"
+import Google from "next-auth/providers/google"
 
 import { HttpEmailProvider } from "@/lib/auth/http-email-provider"
 import { db, pgTable } from "@/lib/db"

@@ -1,6 +1,6 @@
 import { sendVerificationRequest } from "./send-verification-request"
 
-import type { Provider } from "@auth/core/providers"
+import type { Provider } from "next-auth/providers"
 
 /**
  * This defines an HTTP email provider, which is used for sending verification

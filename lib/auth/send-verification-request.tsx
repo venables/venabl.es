@@ -5,7 +5,7 @@ import { env } from "@/env"
 import { db, usersTable } from "@/lib/db"
 import { emailClient } from "@/lib/email"
 
-import type { SendVerificationRequestParams } from "@auth/core/providers"
+import type { SendVerificationRequestParams } from "next-auth/providers"
 
 export async function sendVerificationRequest({
   identifier: email,

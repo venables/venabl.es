@@ -1,3 +1,4 @@
+import { type AdapterAccount } from "@auth/core/adapters"
 import {
   integer,
   pgTableCreator,
@@ -7,8 +8,6 @@ import {
 } from "drizzle-orm/pg-core"
 
 import { citext } from "./custom-types/citext"
-
-import type { AdapterAccount } from "@auth/core/adapters"
 
 /**
  * Modify the default Auth.js tables to be snake case and plural.

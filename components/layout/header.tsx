@@ -2,10 +2,11 @@ import { GithubIcon } from "lucide-react"
 import Link from "next/link"
 
 import { getCurrentUser } from "@/auth"
-import { SignOutButton } from "@/components/auth/sign-out-button"
 import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
+
+import { UserNav } from "./header/user-nav"
 
 export async function Header() {
   const user = await getCurrentUser()
@@ -36,7 +37,7 @@ export async function Header() {
           </Button>
 
           {user ? (
-            <SignOutButton />
+            <UserNav user={user} />
           ) : (
             <Button size="sm" className="px-4" asChild>
               <Link href="/api/auth/signin">Login</Link>
