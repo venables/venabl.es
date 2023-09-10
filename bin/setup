@@ -4,7 +4,7 @@
 # Install dependencies
 #
 echo "✨ Installing dependencies ..."
-pnpm install --frozen-lockfile
+bun install --frozen-lockfile
 
 #
 # Create a .env.local file and popupate it with auto-generated secrets
@@ -22,7 +22,7 @@ fi
 # Migrate the database
 #
 echo "\n✨ Migrating the database..."
-pnpm db:migrate
+bun run db:migrate
 
 #
 # Done.

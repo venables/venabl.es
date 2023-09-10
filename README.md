@@ -61,7 +61,7 @@ or
 When you first check out a this project, you should run the following command to get your environment all set up:
 
 ```sh
-pnpm run setup
+bun run setup
 ```
 
 ## Environment variables
@@ -78,7 +78,7 @@ You can [read more about environment variables here](https://nextjs.org/docs/bas
 ## Running the server
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 The app will be running at [http://localhost:3000](http://localhost:3000).
@@ -97,9 +97,9 @@ You should set `DATABASE_URL` and/or `DATABASE_URL_POOLED` to your [Neon](https:
 
 NOTE: The code is currently set up to connect to the database using Neon's serverless package. If you would like to run a local database, you can find instructions for connecting as if it were serverless [here](https://github.com/neondatabase/serverless/issues/33#issuecomment-1634853042).
 
-### `pnpm db`
+### `bun run db`
 
-This project exposes a package.json script for accessing drizzle-kit via `pnpm db <command>`. This script handles all environment variable mapping automatically via `dotenv-cli`, so you don't have to think about it. You should always try to use this script when interacting with drizzle-kit locally.
+This project exposes a package.json script for accessing drizzle-kit via `bun run db <command>`. This script handles all environment variable mapping automatically via `dotenv-cli`, so you don't have to think about it. You should always try to use this script when interacting with drizzle-kit locally.
 
 ### Making changes to the database schema
 
@@ -108,13 +108,13 @@ Make changes to your database by modifying `lib/db/schema.ts` ([learn more](http
 When prototyping changes, you can use [`db push`](https://orm.drizzle.team/kit-docs/overview):
 
 ```sh
-pnpm db push:pg
+bun run db push:pg
 ```
 
 When you feel comfortable with the changes, you can make a migration file by running:
 
 ```sh
-pnpm db generate:pg
+bun run db generate:pg
 ```
 
 ### Browsing the database
@@ -122,7 +122,7 @@ pnpm db generate:pg
 Drizzle offers a simple UI for inspecting the database. To launch it, run:
 
 ```sh
-pnpm db studio
+bun run db studio
 ```
 
 ## Email
@@ -134,7 +134,7 @@ Email templates live with your react code and are defined in [`./emails`](./emai
 To view live previews of your email templates, you can run:
 
 ```sh
-pnpm dev:email
+bun run dev:email
 ```
 
 And you will be able to visit [http://localhost:3001](http://localhost:3001) to edit your emails with live reload.
@@ -159,37 +159,37 @@ where `button` can be any UI element from the project.
 To run a full check of the codebase (type-check, lint, prettier check, test), run:
 
 ```sh
-pnpm check
+bun run check
 ```
 
 ### Linting
 
 ```sh
-pnpm lint
+bun run lint
 ```
 
 ### Type Checking
 
 ```sh
-pnpm type-check
+bun run type-check
 ```
 
 ### Formatting with Prettier
 
 ```sh
-pnpm format
+bun run format
 ```
 
 to check for format errors, run:
 
 ```sh
-pnpm format:check
+bun run format:check
 ```
 
 ### Testing via Jest
 
 ```sh
-pnpm test
+bun run test
 ```
 
 ## ❤️ Open Source

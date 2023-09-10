@@ -11,14 +11,14 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      AUTH_SECRET: secret
+      # DATABASE_URL: <url>
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: ^8.6.0
+          bun-version: latest
       - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "pnpm"
-      - run: pnpm run setup
-      - run: pnpm run check
+      - run: bun run setup
+      - run: bun run check
