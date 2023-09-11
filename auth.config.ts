@@ -7,13 +7,6 @@ import { HttpEmailProvider } from "@/lib/auth/http-email-provider"
 import { db, pgTable } from "@/lib/db"
 
 /**
- * This is the base-level config for NextAuth, but does not include a database
- * adapter. This allows us to use next-auth in an edge runtime, regardless of
- * whether the database adapter supports edge or not.
- *
- * Database adapters should be defined in `./node.ts`.
- *
- * See more:
  * https://auth-docs-git-feat-nextjs-auth-authjs.vercel.app/guides/upgrade-to-v5#edge-compatibility
  */
 export default {
@@ -23,8 +16,7 @@ export default {
   adapter: DrizzleAdapter(db, pgTable),
 
   /**
-   * NOTE: The email provider requires a database adapter. Because our database
-   * adapter many not be edge-ready, we define that in the `./node.ts` file.
+   *
    */
   providers: [Google, GitHub, HttpEmailProvider],
 
