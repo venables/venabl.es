@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-echo -n "What is your new project name (start_kit)?: "
+echo -n "What is your new project name (start-kit)?: "
 read project_name
 
 snake_name=${project_name//-/_}
