@@ -1,6 +1,7 @@
 "use client"
 
 import { CheckIcon } from "lucide-react"
+import Link from "next/link"
 import { useMemo } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -12,20 +13,24 @@ export function Features() {
 
   const FEATURES = useMemo(
     () => [
-      { title: "Next 13.4" },
+      { title: "Next 13.4", href: "https://nextjs.org/" },
+      { title: "100% on the Edge 🚀" },
+      { title: "Bun Package Manager", href: "https://bun.sh" },
       { title: "App Directory" },
       { title: "API Route Handlers" },
-      { title: "Edge-runtime ready Auth" },
+      { title: "Authentication (Email + OAuth)" },
       { title: "Typescript (Strict)" },
       { title: "ESLint + Prettier" },
-      { title: "TailwindCSS" },
-      { title: "Radix UI" },
-      { title: "shadcn/ui" },
-      { title: "Drizzle ORM" },
+      { title: "TailwindCSS", href: "https://tailwindcss.com" },
+      { title: "Radix UI", href: "https://www.radix-ui.com/" },
+      { title: "shadcn/ui", href: "https://ui.shadcn.com/" },
+      { title: "Drizzle ORM", href: "https://orm.drizzle.team/" },
       { title: "PostgreSQL" },
-      { title: "Email via Resend" },
+      { title: "Email via Resend", href: "https://resend.com" },
+      { title: "Vercel ready", href: "https://vercel.com" },
       { title: "Metadata API" },
-      { title: "Inter Font" },
+      { title: "Inter Font", href: "https://rsms.me/inter" },
+      { title: "Lucide Icons", href: "https://lucide.dev" },
       { title: "Jest" },
       { title: "Dark Mode" },
       {
@@ -43,22 +48,30 @@ export function Features() {
 
   return (
     <div className="grid grid-cols-2 gap-2 sm:gap-4">
-      {FEATURES.map((f, i) => (
+      {FEATURES.map(({ title, onClick, href }, i) => (
         <Button
           key={i}
           variant="link"
           className={cls(
             "justify-start space-x-2 text-left underline-offset-8",
-            f.onClick
-              ? "cursor-pointer hover:underline"
+            onClick ?? href
+              ? "cursor-pointer underline decoration-border decoration-dotted hover:decoration-foreground hover:decoration-solid"
               : "cursor-default hover:no-underline"
           )}
-          onClick={() => {
-            if (f.onClick) f.onClick()
-          }}
+          onClick={onClick}
+          asChild={Boolean(href)}
         >
-          <CheckIcon className="h-4 w-4" />
-          <span>{f.title}</span>
+          {href ? (
+            <Link href={href} target="_blank" rel="noreferrer">
+              <CheckIcon className="h-4 w-4" />
+              <span>{title}</span>
+            </Link>
+          ) : (
+            <>
+              <CheckIcon className="h-4 w-4" />
+              <span>{title}</span>
+            </>
+          )}
         </Button>
       ))}
     </div>

@@ -1,12 +1,16 @@
 import { GithubIcon } from "lucide-react"
+import { Permanent_Marker } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
+import { cls } from "@/lib/utils"
 
 import { Features } from "./features"
+
+const handwriting = Permanent_Marker({ weight: "400", subsets: ["latin"] })
 
 export default function Home() {
   return (
@@ -16,7 +20,7 @@ export default function Home() {
           <Badge variant="secondary" className="font-bold sm:text-lg">
             {siteConfig.name}
           </Badge>
-          <h1 className="mb-5 text-center text-4xl font-extrabold leading-none tracking-tight md:text-6xl">
+          <h1 className="relative mb-5 text-center text-4xl font-extrabold leading-none tracking-tight md:text-6xl">
             A sane way to start your next{" "}
             <Button
               variant="ghost"
@@ -28,11 +32,20 @@ export default function Home() {
               </Link>
             </Button>{" "}
             project.
+            <span
+              className={cls(
+                handwriting.className,
+                "bottom-0 -mb-6 block -rotate-6 text-2xl text-red-500 md:absolute md:right-0 md:text-4xl"
+              )}
+            >
+              ^ on the edge
+            </span>
           </h1>
 
-          <h2 className="pb-6 pt-2">
+          <h2 className="mt-6 pb-6 pt-2">
             Clean, understandable code. The latest best practices. Best-in-class
-            open source libraries.
+            open source libraries.{" "}
+            <span className="font-bold">And 100% on the edge.</span>
           </h2>
 
           <Button

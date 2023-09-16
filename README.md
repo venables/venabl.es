@@ -2,16 +2,13 @@
 
 # StartKit
 
-> A sane starting point for Next.js projects.
-
-or
-
-> The best way to start an Next.js app on the edge
+> A sane starting point for Next.js projects on the edge.
 
 ## Features
 
 - 100% on the [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) 🚀
 - [Next.js 13.4](https://nextjs.org) with the `/app` directory and API Route Handlers.
+- [Bun](https://bun.sh) as a package manager!
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) gallore
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
 - [Drizzle](https://orm.drizzle.team) database ORM, configured for [PostgreSQL](https://www.postgresql.org/) and [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview)
