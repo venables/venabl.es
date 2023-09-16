@@ -192,6 +192,17 @@ bun run format:check
 bun run test
 ```
 
+## Patching Packages
+
+Occasionally you need to patch a dependency. In general, you can use [patch-package](https://github.com/ds300/patch-package), but it does not yet have bun support ([See the open PR](https://github.com/ds300/patch-package/pull/490)). To patch a package, you should do he following:
+
+1. Run `bun install --yarn` which will create a `yarn.lock` file (this will be temporary for us).
+2. Modify the packages you need to patch within `node_modules`.
+3. Run `bunx patch-package <package-name>`
+4. Remove the `yarn.lock` file (`rm yarn.lock`)
+
+Now your packages will be patched like normal.
+
 ## ❤️ Open Source
 
 This project is MIT-licensed and is free to use and modify for your own projects.

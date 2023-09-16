@@ -14,6 +14,7 @@
     "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
     "format:check": "prettier --check \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
     "lint": "next lint",
+    "postinstall": "patch-package",
     "setup": "./bin/setup",
     "start": "next start",
     "test": "bun test",
@@ -33,6 +34,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.4",
     "@react-email/components": "0.0.7",
+    "@react-email/render": "^0.0.7",
     "@t3-oss/env-nextjs": "^0.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -72,6 +74,7 @@
     "jest-environment-jsdom": "^29.6.4",
     "next-secure-headers": "^2.2.0",
     "npm-run-all": "^4.1.5",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.29",
     "postgres": "^3.3.5",
     "prettier": "^3.0.3",
@@ -80,11 +83,5 @@
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^3.12.8",
     "typescript": "^5.2.2"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@react-email/render@0.0.7": "patches/@react-email__render@0.0.7.patch",
-      "@react-email/tailwind@0.0.8": "patches/@react-email__tailwind@0.0.8.patch"
-    }
   }
 }
