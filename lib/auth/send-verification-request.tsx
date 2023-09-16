@@ -24,6 +24,9 @@ export async function sendVerificationRequest({
   await emailClient().sendEmail({
     from: env.EMAIL_FROM,
     to: email,
+    headers: {
+      "X-Entity-Ref-ID": Date.now().toString()
+    },
     subject: user?.emailVerified
       ? "Sign in to StartKit"
       : "Welcome to StartKit!",
