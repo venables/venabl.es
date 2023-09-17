@@ -1,11 +1,13 @@
-import { drizzle } from "drizzle-orm/postgres-js"
-import { migrate } from "drizzle-orm/postgres-js/migrator"
+import { drizzle } from "drizzle-orm/node-postgres"
+import { migrate } from "drizzle-orm/node-postgres/migrator"
 import { join } from "path"
-import postgres from "postgres"
+import { Client } from "pg"
 
 import { env } from "@/env"
 
-const client = postgres(env.DATABASE_URL, { ssl: "require", max: 1 })
+const client = new Client({
+  connectionString: `${env.DATABASE_URL}?sslmode=require`
+})
 const db = drizzle(client)
 
 console.log("Migrating the database ...")
