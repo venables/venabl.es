@@ -2,7 +2,7 @@ import { type AdapterAccount } from "@auth/core/adapters"
 import { createId } from "@paralleldrive/cuid2"
 import {
   integer,
-  pgTableCreator,
+  pgTable,
   primaryKey,
   text,
   timestamp
@@ -10,44 +10,26 @@ import {
 
 import { citext } from "./custom-types/citext"
 
-/**
- * Modify the default Auth.js tables to be snake case and plural.
- */
-export const pgTable = pgTableCreator((name) => {
-  switch (name) {
-    case "user":
-      return "users"
-    case "account":
-      return "accounts"
-    case "session":
-      return "sessions"
-    case "verificationToken":
-      return "verification_tokens"
-    default:
-      return name
-  }
-})
-
-export const usersTable = pgTable("user", {
+export const usersTable = pgTable("users", {
   id: text("id")
     .notNull()
     .primaryKey()
     .$defaultFn(() => createId()),
   name: text("name"),
   email: citext("email").notNull().unique(),
-  emailVerified: timestamp("emailVerified", { mode: "date" }),
+  emailVerified: timestamp("email_verified", { mode: "date" }),
   image: text("image")
 })
 
 export const accountsTable = pgTable(
-  "account",
+  "accounts",
   {
-    userId: text("userId")
+    userId: text("user_id")
       .notNull()
       .references(() => usersTable.id, { onDelete: "cascade" }),
     type: text("type").$type<AdapterAccount["type"]>().notNull(),
     provider: text("provider").notNull(),
-    providerAccountId: text("providerAccountId").notNull(),
+    providerAccountId: text("provider_account_id").notNull(),
     refresh_token: text("refresh_token"),
     access_token: text("access_token"),
     expires_at: integer("expires_at"),
@@ -61,16 +43,16 @@ export const accountsTable = pgTable(
   })
 )
 
-export const sessionsTable = pgTable("session", {
-  sessionToken: text("sessionToken").notNull().primaryKey(),
-  userId: text("userId")
+export const sessionsTable = pgTable("sessions", {
+  sessionToken: text("session_token").notNull().primaryKey(),
+  userId: text("user_id")
     .notNull()
     .references(() => usersTable.id, { onDelete: "cascade" }),
   expires: timestamp("expires", { mode: "date" }).notNull()
 })
 
 export const verificationTokensTable = pgTable(
-  "verificationToken",
+  "verification_tokens",
   {
     identifier: text("identifier").notNull(),
     token: text("token").notNull(),

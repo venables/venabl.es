@@ -1,0 +1,71 @@
+diff --git a/node_modules/@auth/drizzle-adapter/index.d.ts b/node_modules/@auth/drizzle-adapter/index.d.ts
+index 00166e5..8a3f0cc 100644
+--- a/node_modules/@auth/drizzle-adapter/index.d.ts
++++ b/node_modules/@auth/drizzle-adapter/index.d.ts
+@@ -15,7 +15,7 @@
+  *
+  * @module @auth/drizzle-adapter
+  */
+-import { SqlFlavorOptions, TableFn } from "./lib/utils.js";
++import { SqlFlavorOptions, TableFn, MinimumSchema } from "./lib/utils.js";
+ import type { Adapter } from "@auth/core/adapters";
+ /**
+  * Add the adapter to your `pages/api/[...nextauth].ts` next-auth configuration object.
+@@ -241,5 +241,5 @@ import type { Adapter } from "@auth/core/adapters";
+  * ---
+  *
+  **/
+-export declare function DrizzleAdapter<SqlFlavor extends SqlFlavorOptions>(db: SqlFlavor, table?: TableFn<SqlFlavor>): Adapter;
++export declare function DrizzleAdapter<SqlFlavor extends SqlFlavorOptions>(db: SqlFlavor, table?: TableFn<SqlFlavor>, tables?: MinimumSchema["pg"]): Adapter;
+ //# sourceMappingURL=index.d.ts.map
+diff --git a/node_modules/@auth/drizzle-adapter/index.js b/node_modules/@auth/drizzle-adapter/index.js
+index ebe29a9..f4e7dea 100644
+--- a/node_modules/@auth/drizzle-adapter/index.js
++++ b/node_modules/@auth/drizzle-adapter/index.js
+@@ -246,12 +246,12 @@ import { is } from "drizzle-orm";
+  * ---
+  *
+  **/
+-export function DrizzleAdapter(db, table) {
++export function DrizzleAdapter(db, table, tables) {
+     if (is(db, MySqlDatabase)) {
+         return mySqlDrizzleAdapter(db, table);
+     }
+     else if (is(db, PgDatabase)) {
+-        return pgDrizzleAdapter(db, table);
++        return pgDrizzleAdapter(db, table, tables);
+     }
+     else if (is(db, BaseSQLiteDatabase)) {
+         return SQLiteDrizzleAdapter(db, table);
+diff --git a/node_modules/@auth/drizzle-adapter/lib/pg.d.ts b/node_modules/@auth/drizzle-adapter/lib/pg.d.ts
+index 1d710fa..4ef8957 100644
+--- a/node_modules/@auth/drizzle-adapter/lib/pg.d.ts
++++ b/node_modules/@auth/drizzle-adapter/lib/pg.d.ts
+@@ -221,5 +221,5 @@ export declare function createTables(pgTable: PgTableFn): {
+     }>;
+ };
+ export type DefaultSchema = ReturnType<typeof createTables>;
+-export declare function pgDrizzleAdapter(client: InstanceType<typeof PgDatabase>, tableFn?: PgTableFn<undefined>): Adapter;
++export declare function pgDrizzleAdapter(client: InstanceType<typeof PgDatabase>, tableFn?: PgTableFn<undefined>, tables?: DefaultSchema): Adapter;
+ //# sourceMappingURL=pg.d.ts.map
+diff --git a/node_modules/@auth/drizzle-adapter/lib/pg.js b/node_modules/@auth/drizzle-adapter/lib/pg.js
+index f3d333f..647fd60 100644
+--- a/node_modules/@auth/drizzle-adapter/lib/pg.js
++++ b/node_modules/@auth/drizzle-adapter/lib/pg.js
+@@ -41,13 +41,13 @@ export function createTables(pgTable) {
+     }));
+     return { users, accounts, sessions, verificationTokens };
+ }
+-export function pgDrizzleAdapter(client, tableFn = defaultPgTableFn) {
+-    const { users, accounts, sessions, verificationTokens } = createTables(tableFn);
++export function pgDrizzleAdapter(client, tableFn = defaultPgTableFn, tables = undefined) {
++    const { users, accounts, sessions, verificationTokens } = tables || createTables(tableFn);
+     return {
+         async createUser(data) {
+             return await client
+                 .insert(users)
+-                .values({ ...data, id: crypto.randomUUID() })
++                .values(data)
+                 .returning()
+                 .then((res) => res[0] ?? null);
+         },

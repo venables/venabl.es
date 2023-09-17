@@ -4,7 +4,13 @@ import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 
 import { HttpEmailProvider } from "@/lib/auth/http-email-provider"
-import { db, pgTable } from "@/lib/db"
+import {
+  accountsTable,
+  db,
+  sessionsTable,
+  usersTable,
+  verificationTokensTable
+} from "@/lib/db"
 
 /**
  * https://auth-docs-git-feat-nextjs-auth-authjs.vercel.app/guides/upgrade-to-v5#edge-compatibility
@@ -13,7 +19,12 @@ export default {
   /**
    * https://authjs.dev/reference/adapter/drizzle
    */
-  adapter: DrizzleAdapter(db, pgTable),
+  adapter: DrizzleAdapter(db, undefined, {
+    users: usersTable,
+    accounts: accountsTable,
+    sessions: sessionsTable,
+    verificationTokens: verificationTokensTable
+  }),
 
   /**
    *
