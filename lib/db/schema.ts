@@ -1,4 +1,5 @@
 import { type AdapterAccount } from "@auth/core/adapters"
+import { createId } from "@paralleldrive/cuid2"
 import {
   integer,
   pgTableCreator,
@@ -28,7 +29,10 @@ export const pgTable = pgTableCreator((name) => {
 })
 
 export const usersTable = pgTable("user", {
-  id: text("id").notNull().primaryKey(),
+  id: text("id")
+    .notNull()
+    .primaryKey()
+    .$defaultFn(() => createId()),
   name: text("name"),
   email: citext("email").notNull().unique(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
