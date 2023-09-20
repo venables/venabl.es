@@ -13,7 +13,7 @@ export function Features() {
 
   const FEATURES = useMemo(
     () => [
-      { title: "Next 13.4", href: "https://nextjs.org/" },
+      { title: "Next 13.5", href: "https://nextjs.org/" },
       { title: "100% on the Edge 🚀" },
       { title: "Bun Package Manager", href: "https://bun.sh" },
       { title: "App Directory" },

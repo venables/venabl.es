@@ -18,12 +18,9 @@ declare module "next-auth" {
 }
 
 /**
- * A Node-runtime version of the NextAuth implementation. This is used for
- * making calls to the database, which is not always possible in edge
- * environments, depending on your database adapter.
  *
- * All NextAuth config should be defined in `./auth.config.ts`, except for
- * the database adapter, and email provider.
+ * All NextAuth config should be defined in `./auth.config.ts` to allow for us
+ * to use a non-edge compliant database adapter if necessary.
  */
 export const {
   handlers: { GET, POST },
@@ -33,7 +30,7 @@ export const {
 /**
  * Temporary function to get the current user. We use this instead of calling
  * auth() directly because the next-auth types state `auth()` always returns a
- * session, but in reality it can return null.
+ * Session object, but in reality it can return null.
  */
 export async function getCurrentUser() {
   const session = await auth()

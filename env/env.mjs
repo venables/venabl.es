@@ -18,7 +18,7 @@ const optionalString = z
   .or(emptyStringToUndefined)
 
 export const env = createEnv({
-  /*
+  /**
    * Environment variables available on the client (and server).
    *
    * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
@@ -28,7 +28,7 @@ export const env = createEnv({
     NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
     NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional()
   },
-  /*
+  /**
    * Server-side Environment variables, not available on the client. Will throw
    * if you access these variables on the client.
    */
@@ -72,7 +72,7 @@ export const env = createEnv({
       .enum(["development", "production", "test"])
       .default("development")
   },
-  /*
+  /**
    * Due to how Next.js (>= 13.4.4) bundles environment variables on the Client,
    * we need to manually destructure them to make sure all are included in
    * bundle.
