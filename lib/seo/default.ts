@@ -1,7 +1,7 @@
+import { type Metadata } from "next"
+
 import { siteConfig } from "@/config"
 import { fullURL } from "@/lib/utils"
-
-import type { Metadata } from "next"
 
 export const DEFAULT_METADATA: Metadata = {
   metadataBase: fullURL(),

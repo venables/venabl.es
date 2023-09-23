@@ -1,8 +1,7 @@
+import { type Metadata } from "next"
 import merge from "ts-deepmerge"
 
 import { DEFAULT_METADATA } from "./default"
-
-import type { Metadata } from "next"
 
 /**
  * Extended metadata types

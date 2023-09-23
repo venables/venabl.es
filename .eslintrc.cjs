@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   root: true,
   extends: [
@@ -8,17 +9,19 @@ module.exports = {
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: true
+  },
   overrides: [
     /**
-     * Typescript Configuration
+     * Disable type checking for JavaScript files
      */
     {
-      files: ["*.ts", "*.tsx", "*.d.ts"],
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        tsconfigRootDir: __dirname,
-        project: true
-      }
+      files: ["*.js"],
+      extends: ["plugin:@typescript-eslint/disable-type-checked"]
     },
     /**
      * Config files (ex: jest.config.js, prettier.config.js, tailwind.config.js)
@@ -49,13 +52,13 @@ module.exports = {
   ],
   settings: {
     tailwindcss: {
-      callees: ["classNames", "clsx", "cls", "cva", "cn"]
+      callees: ["className", "clsx", "cls", "cva", "cn"]
     }
   },
   rules: {
     "@typescript-eslint/consistent-type-imports": [
       "error",
-      { prefer: "type-imports", fixStyle: "separate-type-imports" }
+      { prefer: "type-imports", fixStyle: "inline-type-imports" }
     ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -86,6 +89,12 @@ module.exports = {
       "error",
       {
         ignoreDeclarationSort: true
+      }
+    ],
+    "tailwindcss/no-custom-classname": [
+      "error",
+      {
+        cssFiles: ["app/globals.css"]
       }
     ]
   }

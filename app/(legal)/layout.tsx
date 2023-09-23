@@ -1,10 +1,10 @@
 import { ChevronLeftIcon } from "lucide-react"
 import Link from "next/link"
+import { type ReactNode } from "react"
 
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 
-import type { ReactNode } from "react"
 interface Props {
   children?: ReactNode
 }

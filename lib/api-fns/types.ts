@@ -1,6 +1,5 @@
+import { type NextRequest, type NextResponse } from "next/server"
 import { type ZodIssue } from "zod"
-
-import type { NextRequest, NextResponse } from "next/server"
 
 /**
  * The API Error response

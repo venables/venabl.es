@@ -1,9 +1,13 @@
+import { type NextResponse } from "next/server"
+
 import { logger } from "@/lib/logger"
 
 import { buildErrorResponse } from "./errors/error-response"
-
-import type { ApiResponse, NextRouteContext, NextRouteHandler } from "./types"
-import type { NextResponse } from "next/server"
+import {
+  type ApiResponse,
+  type NextRouteContext,
+  type NextRouteHandler
+} from "./types"
 
 /**
  * Wrap an API handler with additional logging, error handling, etc.

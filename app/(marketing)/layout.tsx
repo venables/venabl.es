@@ -1,7 +1,7 @@
+import { type ReactNode } from "react"
+
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
-
-import type { ReactNode } from "react"
 
 interface Props {
   children?: ReactNode

@@ -1,3 +1,4 @@
+import { type Adapter } from "@auth/core/adapters"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import { and, eq } from "drizzle-orm"
 
@@ -8,8 +9,6 @@ import {
   usersTable,
   verificationTokensTable
 } from "./schema"
-
-import type { Adapter } from "@auth/core/adapters"
 
 const drizzleAdapter = DrizzleAdapter(db, undefined, {
   users: usersTable,

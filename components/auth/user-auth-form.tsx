@@ -4,8 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { MailIcon } from "lucide-react"
 import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
+import { type SignInResponse } from "next-auth/react"
 import { useCallback, useEffect, useMemo, useState } from "react"
+import { type HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
+import { type z } from "zod"
 
 import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
@@ -16,10 +19,6 @@ import { cls } from "@/lib/utils"
 import { userAuthSchema } from "@/lib/validations"
 
 import { ExternalAuthButton } from "./external-auth-button"
-
-import type { SignInResponse } from "next-auth/react"
-import type { HTMLAttributes } from "react"
-import type { z } from "zod"
 
 type FormData = z.infer<typeof userAuthSchema>
 
