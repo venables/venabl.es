@@ -7,5 +7,5 @@
 ## Installation
 
 ```sh
-pnpm run setup
+bun setup
 ```

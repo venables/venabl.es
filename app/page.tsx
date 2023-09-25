@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import Connect from "components/Connect"
-import { rgbDataURL } from "lib/rgb-data-url"
+import { Connect } from "@/components/connect"
+import { rgbDataURL } from "@/lib/rgb-data-url"
 
 export default function Home() {
   return (

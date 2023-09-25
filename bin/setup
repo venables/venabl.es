@@ -1,15 +1,20 @@
 #!/usr/bin/env sh
 
-echo ""
-echo "🦄 Setting up the venabl.es project..."
+#
+# Install dependencies
+#
+echo "✨ Installing dependencies ..."
+bun install --frozen-lockfile
 
-echo ""
-echo "⚪️ Installing dependencies..."
-pnpm install --frozen-lockfile
+#
+# Create a .env.local file and popupate it with auto-generated secrets
+#
+if ! [ -f .env.local ]; then
+  echo "\n✨ Creating a .env.local file for local environment variables..."
+  touch .env.local
+fi
 
-echo ""
-echo "⚪️ Building .env file..."
-cp -f .env.example .env
-
-echo ""
-echo "✅ Done. Enjoy!"
+#
+# Done.
+#
+echo "\n🎉 All set. Happy coding!"

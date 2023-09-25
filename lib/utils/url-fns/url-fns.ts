@@ -1,3 +1,5 @@
+import { env } from "@/env"
+
 /**
  * Helper function to determine the hostname for the given environment,
  * with a focus on working with Vercel deployments.
@@ -5,14 +7,12 @@
  * @returns the hostname for the given environment
  */
 export function appHost(includeProtocol = true): string {
-  const host = process.env.HOST
-    ? process.env.HOST
-    : process.env.NEXT_PUBLIC_HOST
-    ? process.env.NEXT_PUBLIC_HOST
-    : process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+  const host = env.NEXT_PUBLIC_HOST
+    ? env.NEXT_PUBLIC_HOST
+    : env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${env.NEXT_PUBLIC_VERCEL_URL}`
+    : env.VERCEL_URL
+    ? `https://${env.VERCEL_URL}`
     : ""
 
   return includeProtocol
@@ -25,6 +25,6 @@ export function appHost(includeProtocol = true): string {
  *
  * @returns the URL for the given path
  */
-export function fullURL(path = ""): URL {
-  return new URL(path, appHost())
+export function fullURL(path = "", host = appHost()): URL {
+  return new URL(path, host)
 }

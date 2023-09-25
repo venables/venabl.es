@@ -1,11 +1,11 @@
 import "./globals.css"
-import { Inter, EB_Garamond } from "@next/font/google"
-import clsx from "clsx"
-import type { Metadata } from "next"
-import type { ReactNode } from "react"
+import { clsx } from "clsx"
+import { type Metadata } from "next"
+import { EB_Garamond, Inter } from "next/font/google"
+import { type ReactNode } from "react"
 
-import Analytics from "components/Analytics"
-import { fullURL } from "lib/url-fns"
+import { Analytics } from "@/components/analytics"
+import { fullURL } from "@/lib/utils/url-fns"
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 const ebGaramond = EB_Garamond({
@@ -13,7 +13,7 @@ const ebGaramond = EB_Garamond({
   subsets: ["latin"]
 })
 
-type Props = {
+interface Props {
   children: ReactNode
 }
 

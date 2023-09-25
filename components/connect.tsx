@@ -59,7 +59,7 @@ const CONNECT_ITEMS = [
   }
 ]
 
-export default function Connect() {
+export function Connect() {
   return (
     <>
       <div className="mt-4 flex items-center justify-center space-x-6 text-gray-400">
