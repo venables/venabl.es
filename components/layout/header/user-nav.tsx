@@ -24,7 +24,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import { getInitials } from "@/lib/utils/string-fns/get-initials"
@@ -77,26 +76,13 @@ export function UserNav({ user }: UserNavProps) {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              Profile
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Billing
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
+            <DropdownMenuItem disabled>Profile</DropdownMenuItem>
+            <DropdownMenuItem disabled>Billing</DropdownMenuItem>
+            <DropdownMenuItem disabled>Settings</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <AlertDialogTrigger asChild>
-            <DropdownMenuItem>
-              Sign out
-              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-            </DropdownMenuItem>
+            <DropdownMenuItem>Sign out</DropdownMenuItem>
           </AlertDialogTrigger>
         </DropdownMenuContent>
       </DropdownMenu>
