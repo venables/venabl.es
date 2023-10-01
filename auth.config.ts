@@ -31,12 +31,13 @@ export default {
    *
    */
   callbacks: {
-    jwt({ token, user }) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (user) {
-        token.id = user.id
-        token.email = user.email
-      }
+    jwt({ token }) {
+      /**
+       * next-auth properly sets the JWT `sub` claim to the user's ID, but we would
+       * like to access `session.user.id` instead of session.user.sub, because
+       * session.user is the JWT.
+       */
+      token.id = token.sub
 
       return token
     }
