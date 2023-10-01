@@ -2,9 +2,10 @@
 
 import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
 
 import { Button, type ButtonProps } from "@/components/ui/button"
+import { useMounted } from "@/hooks/use-mounted"
 import { cls } from "@/lib/utils"
 
 export type ThemeToggleProps = ButtonProps & {
@@ -16,7 +17,7 @@ export function ThemeToggle({
   className,
   ...props
 }: ThemeToggleProps) {
-  const [mounted, setMounted] = useState(false)
+  const mounted = useMounted()
   const { resolvedTheme, setTheme, systemTheme } = useTheme()
 
   const toggleTheme = useCallback(() => {
@@ -35,13 +36,6 @@ export function ThemeToggle({
       setTheme("system")
     }
   }, [resolvedTheme, setTheme, systemTheme])
-
-  /**
-   * Mark the app as mounted in the client
-   */
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   return (
     <Button

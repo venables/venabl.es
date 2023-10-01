@@ -1,2 +1,2 @@
-export * from "./cn"
+export * from "./cls"
 export * from "./url-fns"
