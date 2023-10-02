@@ -43,7 +43,7 @@
     "drizzle-orm": "^0.28.6",
     "lucide-react": "^0.279.0",
     "next": "^13.5.3",
-    "next-auth": "0.0.0-manual.ffd05533",
+    "next-auth": "0.0.0-manual.c885ac1d",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.3.3",
     "react": "^18.2.0",

@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation"
 import { type ReactNode } from "react"
 
-import { getCurrentUser } from "@/auth"
+import { auth } from "@/auth"
 import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
 
 async function getData() {
-  const user = await getCurrentUser()
+  const session = await auth()
 
-  if (user) {
+  if (session?.user) {
     redirect("/")
   }
 }

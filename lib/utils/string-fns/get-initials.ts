@@ -7,8 +7,8 @@
  * @param name - The name to be converted into initials.
  * @returns The initials derived from the input name.
  */
-export function getInitials(name: string) {
-  const names = name.trim().split(" ")
+export function getInitials(name?: string | null) {
+  const names = (name ?? "").trim().split(" ")
 
   return names.reduce((acc, curr, index) => {
     if (index === 0 || index === names.length - 1) {

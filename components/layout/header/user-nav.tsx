@@ -1,6 +1,6 @@
 "use client"
 
-import { type Session } from "next-auth"
+import { type User } from "next-auth"
 import { signOut } from "next-auth/react"
 import { useCallback, useState } from "react"
 
@@ -29,7 +29,7 @@ import {
 import { getInitials } from "@/lib/utils/string-fns/get-initials"
 
 interface UserNavProps {
-  user: Session["user"]
+  user: User
 }
 
 export function UserNav({ user }: UserNavProps) {
@@ -57,7 +57,7 @@ export function UserNav({ user }: UserNavProps) {
             <Avatar className="h-8 w-8">
               <AvatarImage
                 src={user.picture ?? undefined}
-                alt={user.name ?? user.email}
+                alt={user.name ?? user.email ?? undefined}
               />
               <AvatarFallback>
                 {getInitials(user.name ?? user.email)}

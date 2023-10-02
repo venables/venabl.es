@@ -10,7 +10,9 @@ const testNames = [
   { name: "", initials: "" },
   { name: "Çigkofte With Érnie", initials: "ÇÉ" },
   { name: "Hermione ", initials: "H" },
-  { name: "Neville LongBottom ", initials: "NL" }
+  { name: "Neville LongBottom ", initials: "NL" },
+  { name: null, initials: "" },
+  { name: undefined, initials: "" }
 ]
 
 testNames.forEach(({ name, initials }) => {
