@@ -7,7 +7,7 @@ import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-prov
 async function getData() {
   const session = await auth()
 
-  if (session?.user) {
+  if (session) {
     redirect("/")
   }
 }
