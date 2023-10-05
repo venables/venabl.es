@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.16.0",
-    "@auth/drizzle-adapter": "^0.3.2",
+    "@auth/drizzle-adapter": "0.3.2",
     "@hookform/resolvers": "^3.3.1",
     "@neondatabase/serverless": "^0.6.0",
     "@next/mdx": "^13.5.3",
@@ -48,11 +48,11 @@
     "nextjs-google-analytics": "^2.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.46.2",
+    "react-hook-form": "^7.47.0",
     "resend": "^1.1.0",
     "tailwind-merge": "^1.14.0",
     "ts-deepmerge": "^6.2.0",
-    "zod": "^3.22.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
