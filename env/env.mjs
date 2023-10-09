@@ -1,22 +1,6 @@
 import { createEnv } from "@t3-oss/env-nextjs"
 import { z } from "zod"
 
-/**
- * Transform an empty string to undefined
- */
-const emptyStringToUndefined = z.literal("").transform(() => undefined)
-
-/**
- * An optional string type that is at least one character long, or transformed
- * to undefined
- */
-const optionalString = z
-  .string()
-  .trim()
-  .min(1)
-  .optional()
-  .or(emptyStringToUndefined)
-
 export const env = createEnv({
   /**
    * Environment variables available on the client (and server).
@@ -42,12 +26,12 @@ export const env = createEnv({
     /**
      * Authentication
      */
-    AUTH_SECRET: z.string().trim().min(1),
+    AUTH_SECRET: z.string(),
     AUTH_URL: z.string().url().optional(),
-    GOOGLE_CLIENT_ID: optionalString,
-    GOOGLE_CLIENT_SECRET: optionalString,
-    GITHUB_CLIENT_ID: optionalString,
-    GITHUB_CLIENT_SECRET: optionalString,
+    GOOGLE_CLIENT_ID: z.string().optional(),
+    GOOGLE_CLIENT_SECRET: z.string().optional(),
+    GITHUB_CLIENT_ID: z.string().optional(),
+    GITHUB_CLIENT_SECRET: z.string().optional(),
 
     /**
      * Vercel-specific environment variables
@@ -59,7 +43,7 @@ export const env = createEnv({
      * Email
      */
     EMAIL_FROM: z.string(),
-    RESEND_API_KEY: optionalString
+    RESEND_API_KEY: z.string().optional()
   },
   /**
    * Shared between server and client
@@ -85,5 +69,19 @@ export const env = createEnv({
     NEXT_PUBLIC_HOST: process.env.NEXT_PUBLIC_HOST,
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
     NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-  }
+  },
+  /**
+   * By default, this library will feed the environment variables directly to
+   * the Zod validator.
+   *
+   * This means that if you have an empty string for a value that is supposed
+   * to be a number (e.g. `PORT=` in a ".env" file), Zod will incorrectly flag
+   * it as a type mismatch violation. Additionally, if you have an empty string
+   * for a value that is supposed to be a string with a default value (e.g.
+   * `DOMAIN=` in an ".env" file), the default value will never be applied.
+   *
+   * In order to solve these issues, we recommend that all new projects
+   * explicitly specify this option as true.
+   */
+  emptyStringAsUndefined: true
 })
