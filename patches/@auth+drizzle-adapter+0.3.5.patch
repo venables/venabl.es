@@ -1,5 +1,5 @@
 diff --git a/node_modules/@auth/drizzle-adapter/index.d.ts b/node_modules/@auth/drizzle-adapter/index.d.ts
-index 00166e5..870d196 100644
+index 00166e5..6cfdaae 100644
 --- a/node_modules/@auth/drizzle-adapter/index.d.ts
 +++ b/node_modules/@auth/drizzle-adapter/index.d.ts
 @@ -241,5 +241,5 @@ import type { Adapter } from "@auth/core/adapters";
@@ -42,7 +42,7 @@ index 1d434a0..0cf755c 100644
  //# sourceMappingURL=pg.d.ts.map
 \ No newline at end of file
 diff --git a/node_modules/@auth/drizzle-adapter/lib/pg.js b/node_modules/@auth/drizzle-adapter/lib/pg.js
-index f3d333f..7206c7e 100644
+index f3d333f..647fd60 100644
 --- a/node_modules/@auth/drizzle-adapter/lib/pg.js
 +++ b/node_modules/@auth/drizzle-adapter/lib/pg.js
 @@ -41,13 +41,13 @@ export function createTables(pgTable) {

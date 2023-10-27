@@ -31,15 +31,12 @@ export default {
    *
    */
   callbacks: {
-    jwt({ token }) {
-      /**
-       * next-auth properly sets the JWT `sub` claim to the user's ID, but we would
-       * like to access `session.user.id` instead of session.user.sub, because
-       * session.user is the JWT.
-       */
-      token.id = token.sub
+    session({ session, token }) {
+      if (session.user && token.sub) {
+        session.user.id = token.sub
+      }
 
-      return token
+      return session
     }
   },
 

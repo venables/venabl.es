@@ -36,7 +36,7 @@ export async function Header() {
             </Link>
           </Button>
 
-          {session ? (
+          {session?.user ? (
             <UserNav user={session.user} />
           ) : (
             <Button size="sm" className="px-4" asChild>

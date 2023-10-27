@@ -1,18 +1,18 @@
-import NextAuth from "next-auth"
+import NextAuth, { type DefaultSession } from "next-auth"
 
 import authConfig from "./auth.config"
 
-/**
- * Add the `picture` attribute to the User interface. next-auth defines this as `image`, but
- * sets it as `picture`
- */
 declare module "next-auth" {
-  interface User {
-    /** The user's picture */
-    picture?: string | null
+  /**
+   * Add additional attributes to the session object.
+   */
+  interface Session {
+    user?: {
+      /** The user's id. */
+      id: string
+    } & DefaultSession["user"]
   }
 }
-
 /**
  *
  * All NextAuth config should be defined in `./auth.config.ts` to allow for us

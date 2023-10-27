@@ -56,8 +56,9 @@ export function UserNav({ user }: UserNavProps) {
           >
             <Avatar className="h-8 w-8">
               <AvatarImage
-                src={user.picture ?? undefined}
+                src={user.image ?? undefined}
                 alt={user.name ?? user.email ?? undefined}
+                referrerPolicy="no-referrer"
               />
               <AvatarFallback>
                 {getInitials(user.name ?? user.email)}
