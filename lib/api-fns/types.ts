@@ -1,17 +1,39 @@
 import { type NextRequest, type NextResponse } from "next/server"
-import { type ZodIssue } from "zod"
+import { type ZodIssue, z } from "zod"
+
+const ZodIssueSchema = z.object({
+  message: z.string(),
+  path: z.array(z.string())
+})
 
 /**
- * The API Error response
+ * The API Error Response
  */
-export interface ApiResponseError {
-  ok: false
-  error: string
+export const apiResponseErrorSchema = z.object({
+  ok: z.literal(false),
+  error: z.string(),
+  issues: z.array(ZodIssueSchema).optional()
+})
+
+export type ApiResponseError = Omit<
+  z.infer<typeof apiResponseErrorSchema>,
+  "issues"
+> & {
   issues?: ZodIssue[]
 }
 
-export interface ApiResponseSuccess<T> {
-  ok: true
+/**
+ * The API Success Response
+ */
+export const apiResponseSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: z.unknown()
+})
+
+export type ApiResponseSuccess<T> = Omit<
+  z.infer<typeof apiResponseSuccessSchema>,
+  "data"
+> & {
   data: T
 }
 

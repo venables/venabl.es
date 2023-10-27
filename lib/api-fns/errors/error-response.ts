@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server"
 import { ZodError } from "zod"
 
-import { logger } from "@/lib/logger"
-
 import { isApiError } from "./api-error"
 import { isNextJsError } from "./nextjs-error"
 import { type ApiResponseError } from "../types"
@@ -54,7 +52,7 @@ export function buildErrorResponse(
    * If we're unsure what error occurred, respond with a generic Internal
    * Server Error
    */
-  logger.error("Unhandled API Error", err)
+  console.error("Unhandled API Error", err)
   return NextResponse.json(
     { ok: false, error: "Internal server error" },
     {

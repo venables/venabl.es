@@ -1,8 +1,7 @@
 import { type NextResponse } from "next/server"
 
-import { logger } from "@/lib/logger"
-
 import { buildErrorResponse } from "./errors/error-response"
+import { logRequest } from "./logger"
 import {
   type ApiResponse,
   type NextRouteContext,
@@ -35,16 +34,13 @@ import {
 export const handler = <T = void, U = NextRouteContext>(
   routeHandler: NextRouteHandler<ApiResponse<T>, U>
 ): NextRouteHandler<ApiResponse<T>, U> => {
-  const startTime = new Date()
-
   return async (request, context) => {
-    const method = request.method
-    const url = request.nextUrl.pathname
+    const startTime = new Date()
 
     /**
      * Log the HTTP request
      */
-    logger.info(`➡️  ${method} ${url} ...`)
+    logRequest(request)
 
     let response: NextResponse<ApiResponse<T>>
 
@@ -54,14 +50,10 @@ export const handler = <T = void, U = NextRouteContext>(
       response = buildErrorResponse(err)
     }
 
-    const responseTime = new Date().getTime() - startTime.getTime()
-
     /**
-     * Log the HTTP response status
+     * Log the HTTP response status & timing
      */
-    logger.info(
-      `⬅️  ${method} ${url} (${response.status}) took ${responseTime}ms`
-    )
+    logRequest(request, response, new Date().getTime() - startTime.getTime())
 
     return response
   }

@@ -1,4 +1,8 @@
-import { type ApiResponse, type ApiResponseError } from "./types"
+import {
+  type ApiResponse,
+  type ApiResponseError,
+  apiResponseErrorSchema
+} from "./types"
 
 /**
  *
@@ -7,18 +11,7 @@ function isApiResponseError(
   response: Response,
   json: unknown
 ): json is ApiResponseError {
-  /**
-   * If the fetch command returned 'ok', this is a success (status 200-299)
-   */
-  if (response.ok) {
-    return false
-  }
-
-  if (typeof json !== "object" || json === null) {
-    return false
-  }
-
-  return "error" in json && typeof json.error !== "string"
+  return !response.ok && apiResponseErrorSchema.safeParse(json).success
 }
 
 /**
@@ -35,10 +28,16 @@ export async function apiFetch<T>(url: string, options?: RequestInit) {
 
   const json = (await response.json()) as ApiResponse<T>
 
+  /**
+   * If we know the response is an APIResponseError type, throw an error
+   */
   if (isApiResponseError(response, json)) {
     throw new Error(json.error)
   }
 
+  /**
+   * If the response is not ok, throw an error
+   */
   if (!response.ok) {
     throw new Error(response.statusText)
   }
