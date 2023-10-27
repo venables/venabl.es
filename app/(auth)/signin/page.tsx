@@ -1,15 +1,19 @@
+import { type Metadata } from "next"
 import Link from "next/link"
 
 import { UserAuthForm } from "@/components/auth/user-auth-form"
 import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
-import { seo } from "@/lib/seo"
 
-export const metadata = seo({
-  title: "Sign In",
-  description: "Sign in to your account"
-})
+export const metadata: Metadata = {
+  title: `Sign in to ${siteConfig.name}`,
+  description: `Sign in to your ${siteConfig.name} account`,
+  openGraph: {
+    title: `Sign in to ${siteConfig.name}`,
+    description: `Sign in to your ${siteConfig.name} account`
+  }
+}
 
 export default function SigninPage() {
   return (

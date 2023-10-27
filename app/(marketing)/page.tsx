@@ -1,4 +1,5 @@
 import { GithubIcon } from "lucide-react"
+import { type Metadata } from "next"
 import { Permanent_Marker } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
@@ -11,6 +12,15 @@ import { cls } from "@/lib/utils"
 import { Features } from "./features"
 
 const handwriting = Permanent_Marker({ weight: "400", subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: "A sane way to start your next next project (on the edge)",
+  description: `Clean, understandable code. The latest best practices. Best-in-class open source libraries. And 100% on the edge.`,
+  openGraph: {
+    title: "A sane way to start your next next project (on the edge)",
+    description: `Clean, understandable code. The latest best practices. Best-in-class open source libraries. And 100% on the edge.`
+  }
+}
 
 export default function Home() {
   return (

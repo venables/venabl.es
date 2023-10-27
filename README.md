@@ -7,7 +7,7 @@
 ## Features
 
 - **Edge-driven development.** 100% on the [edge](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes) by default.
-- [Next.js 13.5](https://nextjs.org) with the `/app` directory and API Route Handlers.
+- [Next.js 14](https://nextjs.org) with the `/app` directory and API Route Handlers.
 - [Bun](https://bun.sh) as a package manager!
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) gallore
 - [Typescript](https://www.typescriptlang.org/) for a rock-solid codebase
