@@ -18,7 +18,7 @@
 - Gorgeous UI built with [Radix](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/).
 - Authentication via [Next Auth](https://next-auth.js.org/) version 5.
 - Email via [Resend](https://resend.com) and [react email](https://react.email/).
-- The beautiful [Inter](https://rsms.me/inter/) typeface.
+- The beautiful [Geist](https://vercel.com/font) typeface.
 - [Next Metadata API](https://beta.nextjs.org/docs/api-reference/metadata) for SEO handling, with file-system handlers.
 - [Jest](https://jestjs.io/) testing, optimized for Next.js
 - Dark Mode support (without bypassing Server Components).

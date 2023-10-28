@@ -1,6 +1,6 @@
 import "./globals.css"
+import { GeistMono, GeistSans } from "geist/font"
 import { type Metadata, type Viewport } from "next"
-import { Inter } from "next/font/google"
 import { type ReactNode } from "react"
 
 import { TailwindIndicator } from "@/components/debug/tailwind-indicator"
@@ -8,8 +8,6 @@ import { Analytics } from "@/components/layout/analytics"
 import { Toaster } from "@/components/ui/toaster"
 import { siteConfig } from "@/config"
 import { cls, fullURL } from "@/lib/utils"
-
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] })
 
 export const runtime = "edge"
 
@@ -38,7 +36,11 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cls(inter.variable, "font-sans antialiased")}
+      className={cls(
+        GeistSans.variable,
+        GeistMono.variable,
+        "font-sans antialiased"
+      )}
       suppressHydrationWarning
     >
       <head />

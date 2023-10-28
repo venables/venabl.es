@@ -29,7 +29,7 @@ export function Features() {
       { title: "Email via Resend", href: "https://resend.com" },
       { title: "Vercel ready", href: "https://vercel.com" },
       { title: "Metadata API" },
-      { title: "Inter Font", href: "https://rsms.me/inter" },
+      { title: "Geist Font", href: "https://vercel.com/font" },
       { title: "Lucide Icons", href: "https://lucide.dev" },
       { title: "Jest" },
       { title: "Dark Mode" },
