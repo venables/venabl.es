@@ -20,7 +20,7 @@ export async function sendVerificationRequest({
 
   const user = users[0]
 
-  await emailClient().sendEmail({
+  await emailClient.emails.send({
     from: env.EMAIL_FROM,
     to: email,
     headers: {

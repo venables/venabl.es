@@ -54,7 +54,7 @@ export default function SignInEmail({
             )}
           </Text>
           <Section style={buttonSection}>
-            <Button pX={20} pY={12} style={button} href={url}>
+            <Button style={button} href={url}>
               {existingUser ? "Sign in to my account" : "Verify my email"}
             </Button>
           </Section>
@@ -139,7 +139,9 @@ const button = {
   textDecoration: "none",
   color: "#ffffff",
   backgroundColor: "#000000",
-  borderRadius: "4px"
+  borderRadius: "4px",
+  padding: "12px 20px",
+  cursor: "pointer"
 }
 
 const separator = {
