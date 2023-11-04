@@ -62,6 +62,7 @@ export default function Home() {
             variant="secondary"
             size="lg"
             className="text-lg font-semibold tracking-tighter"
+            asChild
           >
             <Link
               href={siteConfig.links.github}
