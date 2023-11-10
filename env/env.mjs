@@ -28,10 +28,6 @@ export const env = createEnv({
      */
     AUTH_SECRET: z.string(),
     AUTH_URL: z.string().url().optional(),
-    GOOGLE_CLIENT_ID: z.string().optional(),
-    GOOGLE_CLIENT_SECRET: z.string().optional(),
-    GITHUB_CLIENT_ID: z.string().optional(),
-    GITHUB_CLIENT_SECRET: z.string().optional(),
 
     /**
      * Vercel-specific environment variables
