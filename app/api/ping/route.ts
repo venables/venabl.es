@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 import { env } from "@/env"
 import { handler } from "@/lib/api-fns"
 
-interface ResponseData {
+type ResponseData = {
   pong: string
 }
 

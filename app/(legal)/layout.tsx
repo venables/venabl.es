@@ -5,7 +5,7 @@ import { type ReactNode } from "react"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 
-interface Props {
+type Props = {
   children?: ReactNode
 }
 

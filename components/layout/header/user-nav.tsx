@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { getInitials } from "@/lib/utils/string-fns/get-initials"
 
-interface UserNavProps {
+type UserNavProps = {
   user: User
 }
 

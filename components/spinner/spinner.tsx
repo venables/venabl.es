@@ -2,7 +2,7 @@ import { cls } from "@/lib/utils"
 
 import styles from "./spinner.module.css"
 
-interface Props {
+type Props = {
   className?: string
 }
 

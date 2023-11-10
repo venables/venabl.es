@@ -27,7 +27,7 @@ export const viewport: Viewport = {
   ]
 }
 
-interface Props {
+type Props = {
   children: ReactNode
 }
 

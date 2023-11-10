@@ -45,7 +45,7 @@ export type ApiResponse<T> = ApiResponseSuccess<T> | ApiResponseError
 /**
  *
  */
-export interface NextRequestContext<T> {
+export type NextRequestContext<T> = {
   params: T
 }
 
@@ -55,7 +55,7 @@ export interface NextRequestContext<T> {
  *
  * See: https://nextjs.org/docs/app/api-reference/file-conventions/route#context-optional
  */
-export interface NextRouteContext<T = undefined> {
+export type NextRouteContext<T = undefined> = {
   params: T
 }
 
