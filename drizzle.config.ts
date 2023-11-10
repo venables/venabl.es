@@ -7,7 +7,7 @@ if (!connectionString) {
 }
 
 export default {
-  schema: "./lib/db/schema.ts",
+  schema: "./drizzle/schema.ts",
   out: "./drizzle",
   driver: "pg",
   dbCredentials: {

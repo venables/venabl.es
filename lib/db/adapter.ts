@@ -8,7 +8,7 @@ import {
   sessionsTable,
   usersTable,
   verificationTokensTable
-} from "./schema"
+} from "../../drizzle/schema"
 
 const drizzleAdapter = DrizzleAdapter(db, undefined, {
   users: usersTable,
