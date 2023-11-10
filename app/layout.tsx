@@ -9,8 +9,6 @@ import { Toaster } from "@/components/ui/toaster"
 import { siteConfig } from "@/config"
 import { cls, fullURL } from "@/lib/utils"
 
-export const runtime = "edge"
-
 export const metadata: Metadata = {
   metadataBase: fullURL(),
   applicationName: siteConfig.name,

@@ -7,6 +7,8 @@ interface Props {
   children?: ReactNode
 }
 
+export const runtime = "edge"
+
 export default function MarketingLayout({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col">

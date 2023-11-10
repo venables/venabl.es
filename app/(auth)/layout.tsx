@@ -4,16 +4,18 @@ import { type ReactNode } from "react"
 import { auth } from "@/auth"
 import { ThemePickerProvider } from "@/components/theme-picker/theme-picker-provider"
 
+interface Props {
+  children?: ReactNode
+}
+
+export const runtime = "edge"
+
 async function getData() {
   const session = await auth()
 
   if (session) {
     redirect("/")
   }
-}
-
-interface Props {
-  children?: ReactNode
 }
 
 export default async function AuthLayout({ children }: Props) {
