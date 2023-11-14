@@ -10,10 +10,10 @@ export function appHost(includeProtocol = true): string {
   const host = env.NEXT_PUBLIC_HOST
     ? env.NEXT_PUBLIC_HOST
     : env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${env.NEXT_PUBLIC_VERCEL_URL}`
-    : env.VERCEL_URL
-    ? `https://${env.VERCEL_URL}`
-    : ""
+      ? `https://${env.NEXT_PUBLIC_VERCEL_URL}`
+      : env.VERCEL_URL
+        ? `https://${env.VERCEL_URL}`
+        : ""
 
   return includeProtocol
     ? host

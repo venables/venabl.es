@@ -13,6 +13,6 @@ export const siteConfig = {
   },
   links: {
     twitter: "https://twitter.com/mattyven",
-    github: "https://github.com/venables/startkit"
+    github: "https://github.com/startkit-dev/startkit"
   }
 }
