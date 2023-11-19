@@ -52,6 +52,7 @@ export function buildErrorResponse(
    * If we're unsure what error occurred, respond with a generic Internal
    * Server Error
    */
+  // eslint-disable-next-line no-console -- we want to log this
   console.error("Unhandled API Error", err)
   return NextResponse.json(
     { ok: false, error: "Internal server error" },

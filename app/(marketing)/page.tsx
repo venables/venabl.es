@@ -1,6 +1,6 @@
 import { GithubIcon } from "lucide-react"
 import { type Metadata } from "next"
-import { Permanent_Marker } from "next/font/google"
+import { Permanent_Marker as PermanentMarker } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -11,7 +11,7 @@ import { cls } from "@/lib/utils"
 
 import { Features } from "./features"
 
-const handwriting = Permanent_Marker({ weight: "400", subsets: ["latin"] })
+const handwriting = PermanentMarker({ weight: "400", subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "A sane way to start your next next project (on the edge)",
@@ -27,17 +27,17 @@ export default function Home() {
     <>
       <section className="mx-auto mt-12 flex h-full w-full max-w-4xl grow flex-col sm:flex-row sm:items-center">
         <div className="flex flex-1 flex-col items-center text-center">
-          <Badge variant="secondary" className="font-bold sm:text-lg">
+          <Badge className="font-bold sm:text-lg" variant="secondary">
             {siteConfig.name}
           </Badge>
           <h1 className="relative mb-5 text-center text-4xl font-extrabold leading-none tracking-tight md:text-6xl">
             A sane way to start your next{" "}
             <Button
-              variant="ghost"
-              className="p-0 text-4xl font-extrabold leading-none tracking-tight text-muted-foreground md:text-6xl"
               asChild
+              className="p-0 text-4xl font-extrabold leading-none tracking-tight text-muted-foreground md:text-6xl"
+              variant="ghost"
             >
-              <Link href="https://nextjs.org/" target="_blank" rel="noreferrer">
+              <Link href="https://nextjs.org/" rel="noreferrer" target="_blank">
                 next
               </Link>
             </Button>{" "}
@@ -59,15 +59,15 @@ export default function Home() {
           </h2>
 
           <Button
-            variant="secondary"
-            size="lg"
-            className="text-lg font-semibold tracking-tighter"
             asChild
+            className="text-lg font-semibold tracking-tighter"
+            size="lg"
+            variant="secondary"
           >
             <Link
               href={siteConfig.links.github}
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
               Get started
             </Link>
@@ -76,18 +76,18 @@ export default function Home() {
 
         <div className="relative h-96 sm:flex sm:flex-1 sm:items-start">
           <Image
-            src="/images/home/hero-light.svg"
             alt="A sane way to start your next next project"
+            className="dark:hidden"
             fill
             priority
-            className="dark:hidden"
+            src="/images/home/hero-light.svg"
           />
           <Image
-            src="/images/home/hero-dark.svg"
             alt="A sane way to start your next next project"
+            className="hidden dark:block"
             fill
             priority
-            className="hidden dark:block"
+            src="/images/home/hero-dark.svg"
           />
         </div>
       </section>
@@ -97,11 +97,11 @@ export default function Home() {
         <Features />
 
         <div className="flex flex-col items-center justify-center space-y-2">
-          <Button variant="secondary" asChild>
+          <Button asChild variant="secondary">
             <Link
               href={siteConfig.links.github}
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
               <GithubIcon className="mr-2 h-4 w-4" />
               <span>

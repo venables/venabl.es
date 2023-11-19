@@ -1,18 +1,17 @@
-/* eslint-env node */
-
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/strict-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
+    require.resolve("@vercel/style-guide/eslint/browser"),
+    require.resolve("@vercel/style-guide/eslint/react"),
+    require.resolve("@vercel/style-guide/eslint/next"),
+    require.resolve("@vercel/style-guide/eslint/node"),
+    require.resolve("@vercel/style-guide/eslint/typescript"),
     "next/core-web-vitals",
-    "plugin:tailwindcss/recommended",
-    "prettier"
+    "plugin:tailwindcss/recommended"
   ],
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
+  // parser: "@typescript-eslint/parser",
+  // plugins: ["@typescript-eslint"],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: true
@@ -21,10 +20,10 @@ module.exports = {
     /**
      * Disable type checking for JavaScript files
      */
-    {
-      files: ["*.js"],
-      extends: ["plugin:@typescript-eslint/disable-type-checked"]
-    },
+    // {
+    //   files: ["*.js"],
+    //   extends: ["plugin:@typescript-eslint/disable-type-checked"]
+    // },
     /**
      * Config files (ex: jest.config.js, prettier.config.js, tailwind.config.js)
      */
@@ -51,7 +50,36 @@ module.exports = {
       ],
       plugins: ["jest"],
       rules: {
-        "@typescript-eslint/no-non-null-assertion": "off"
+        /**
+         * Allow non-null assertions in tests
+         */
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "eslint-comments/require-description": "off"
+      }
+    },
+    /**
+     * Next.js configuration / exports
+     */
+    {
+      files: [
+        "app/**/page.tsx",
+        "app/**/layout.tsx",
+        "app/**/loading.tsx",
+        "app/**/not-found.tsx",
+        "app/**/*error.tsx",
+        "app/sitemap.ts",
+        "app/robots.ts",
+        "app/manifest.ts"
+      ],
+      rules: {
+        "import/no-default-export": "off",
+        "import/prefer-default-export": ["error", { target: "any" }]
+      }
+    },
+    {
+      files: ["**/*.{ts,tsx}"],
+      rules: {
+        "no-nested-ternary": "off"
       }
     }
   ],
@@ -65,6 +93,16 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { prefer: "type-imports", fixStyle: "inline-type-imports" }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          arguments: false,
+          attributes: false
+        }
+      }
     ],
     "@typescript-eslint/no-unused-vars": [
       "warn",

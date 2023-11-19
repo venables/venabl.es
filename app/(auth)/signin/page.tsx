@@ -20,8 +20,8 @@ export default function SigninPage() {
     <div className="container relative grid min-h-screen flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="absolute top-4 flex w-full flex-row justify-between px-4 md:top-8">
         <Button
-          className="z-20 flex items-center bg-transparent text-lg font-medium text-primary transition-colors hover:bg-accent lg:text-primary-foreground lg:hover:bg-primary-foreground/10 lg:hover:text-primary-foreground"
           asChild
+          className="z-20 flex items-center bg-transparent text-lg font-medium text-primary transition-colors hover:bg-accent lg:text-primary-foreground lg:hover:bg-primary-foreground/10 lg:hover:text-primary-foreground"
         >
           <Link href="/">
             <Logo className="mr-2 h-6 w-6" />
@@ -29,7 +29,7 @@ export default function SigninPage() {
           </Link>
         </Button>
 
-        <Button variant="ghost" asChild>
+        <Button asChild variant="ghost">
           <Link href="/register">Sign up</Link>
         </Button>
       </div>
@@ -64,9 +64,9 @@ export default function SigninPage() {
           <p className="px-8 text-center text-sm text-muted-foreground">
             Already have an account?{" "}
             <Button
-              variant="link"
-              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
               asChild
+              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
+              variant="link"
             >
               <Link href="/signin">Sign in here</Link>
             </Button>

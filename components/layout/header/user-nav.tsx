@@ -47,18 +47,18 @@ export function UserNav({ user }: UserNavProps) {
   }, [])
 
   return (
-    <AlertDialog open={open} onOpenChange={setOpen}>
+    <AlertDialog onOpenChange={setOpen} open={open}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant="ghost"
             className="relative h-8 w-8 rounded-full transition-all"
+            variant="ghost"
           >
             <Avatar className="h-8 w-8">
               <AvatarImage
-                src={user.image ?? undefined}
                 alt={user.name ?? user.email ?? undefined}
                 referrerPolicy="no-referrer"
+                src={user.image ?? undefined}
               />
               <AvatarFallback>
                 {getInitials(user.name ?? user.email)}
@@ -66,7 +66,7 @@ export function UserNav({ user }: UserNavProps) {
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56" align="end" forceMount>
+        <DropdownMenuContent align="end" className="w-56" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
               <p className="text-sm font-medium leading-none">{user.name}</p>

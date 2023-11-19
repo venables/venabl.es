@@ -39,7 +39,6 @@ export function ThemeToggle({
 
   return (
     <Button
-      variant="ghost"
       className={cls(className, "cursor-pointer")}
       onClick={toggleTheme}
       title={
@@ -47,6 +46,7 @@ export function ThemeToggle({
           ? "Switch to Light Mode"
           : "Switch to Dark Mode"
       }
+      variant="ghost"
       {...props}
     >
       {!mounted ? (
@@ -54,12 +54,12 @@ export function ThemeToggle({
       ) : resolvedTheme === "dark" ? (
         <>
           <span className="sr-only">Switch to Dark Mode</span>
-          <SunIcon className={iconClassName} aria-hidden="true" />
+          <SunIcon aria-hidden="true" className={iconClassName} />
         </>
       ) : (
         <>
           <span className="sr-only">Switch to Light Mode</span>
-          <MoonIcon className={iconClassName} aria-hidden="true" />
+          <MoonIcon aria-hidden="true" className={iconClassName} />
         </>
       )}
     </Button>

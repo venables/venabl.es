@@ -24,10 +24,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex items-center justify-center md:order-2 md:items-end">
           {navigation.map((item) => (
-            <Button key={item.name} variant="ghost" asChild>
-              <Link href={item.href} target="_blank" rel="noopener noreferrer">
+            <Button asChild key={item.name} variant="ghost">
+              <Link href={item.href} rel="noopener noreferrer" target="_blank">
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon aria-hidden="true" className="h-6 w-6" />
               </Link>
             </Button>
           ))}
@@ -42,9 +42,9 @@ export function Footer() {
               <span>
                 Built by{" "}
                 <Button
-                  variant="link"
-                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
                   asChild
+                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                  variant="link"
                 >
                   <Link href={siteConfig.company.link}>
                     {siteConfig.company.name}
@@ -57,9 +57,9 @@ export function Footer() {
               <span>
                 Illustrations by{" "}
                 <Button
-                  variant="link"
-                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
                   asChild
+                  className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                  variant="link"
                 >
                   <Link href="https://popsy.co/">Popsy</Link>
                 </Button>
@@ -69,17 +69,17 @@ export function Footer() {
 
             <div className="flex items-center justify-center space-x-2">
               <Button
-                variant="link"
-                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
                 asChild
+                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                variant="link"
               >
                 <Link href="/privacy">Privacy</Link>
               </Button>
               .
               <Button
-                variant="link"
-                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
                 asChild
+                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
+                variant="link"
               >
                 <Link href="/terms">Terms</Link>
               </Button>

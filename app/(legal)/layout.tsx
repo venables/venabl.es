@@ -13,7 +13,7 @@ export default function LegalLayout({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="container mx-auto p-6">
-        <Button variant="ghost" asChild>
+        <Button asChild variant="ghost">
           <Link href="/">
             <ChevronLeftIcon className="mr-2 h-4 w-4" />
             <span>Back</span>

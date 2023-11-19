@@ -12,7 +12,7 @@ import {
  * Wrap an API handler with additional logging, error handling, etc.
  *
  * @example
- *
+ * ```ts
  *   type ResponseData = { name: string }
  *   type Context = NextRouteContext<{ id: string }>
  *
@@ -27,8 +27,9 @@ import {
  *
  *      return NextResponse.json({ name: request.query.name })
  *   })
+ * ```
  *
- * @param handler the api handler
+ * @param handler - the api handler
  * @returns a wrapped api handler
  */
 export const handler = <T = void, U = NextRouteContext>(

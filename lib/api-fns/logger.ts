@@ -1,3 +1,4 @@
+/* eslint-disable no-console -- this is a logger */
 import { env } from "@/env"
 
 import type { NextRequest, NextResponse } from "next/server"

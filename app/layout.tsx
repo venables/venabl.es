@@ -34,12 +34,12 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html
-      lang="en"
       className={cls(
         GeistSans.variable,
         GeistMono.variable,
         "font-sans antialiased"
       )}
+      lang="en"
       suppressHydrationWarning
     >
       <head />

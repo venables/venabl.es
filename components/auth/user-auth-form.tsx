@@ -113,6 +113,7 @@ export function UserAuthForm({ className, ...props }: Props) {
           callbackUrl: searchParams.get("from") ?? "/"
         })
       } catch (err) {
+        // eslint-disable-next-line no-console -- we want to log this error
         console.error(err)
       }
 
@@ -136,8 +137,8 @@ export function UserAuthForm({ className, ...props }: Props) {
       {/* Email form */}
       <Form {...form}>
         <form
-          onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
           className="flex flex-col space-y-2"
+          onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
         >
           <FormField
             control={form.control}
@@ -152,10 +153,10 @@ export function UserAuthForm({ className, ...props }: Props) {
           />
 
           <Button
-            variant="default"
-            type="submit"
-            disabled={isLoading}
             className="w-full"
+            disabled={isLoading}
+            type="submit"
+            variant="default"
           >
             {form.formState.isSubmitting ? (
               <Spinner className="mr-2 h-4 w-4" />
@@ -178,13 +179,13 @@ export function UserAuthForm({ className, ...props }: Props) {
 
       <div className="flex flex-col space-y-2">
         <ExternalAuthButton
-          provider="google"
           isLoading={isLoading}
+          provider="google"
           setIsLoading={setIsExternalAuthLoading}
         />
         <ExternalAuthButton
-          provider="github"
           isLoading={isLoading}
+          provider="github"
           setIsLoading={setIsExternalAuthLoading}
         />
       </div>

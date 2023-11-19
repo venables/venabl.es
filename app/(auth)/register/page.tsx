@@ -15,8 +15,8 @@ export default function RegisterPage() {
     <div className="container relative grid min-h-screen flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="absolute top-4 flex w-full flex-row justify-between px-4 md:top-8">
         <Button
-          className="z-20 flex items-center bg-transparent text-lg font-medium text-primary transition-colors hover:bg-accent lg:text-primary-foreground lg:hover:bg-primary-foreground/10 lg:hover:text-primary-foreground"
           asChild
+          className="z-20 flex items-center bg-transparent text-lg font-medium text-primary transition-colors hover:bg-accent lg:text-primary-foreground lg:hover:bg-primary-foreground/10 lg:hover:text-primary-foreground"
         >
           <Link href="/">
             <Logo className="mr-2 h-6 w-6" />
@@ -24,7 +24,7 @@ export default function RegisterPage() {
           </Link>
         </Button>
 
-        <Button variant="ghost" asChild>
+        <Button asChild variant="ghost">
           <Link href="/signin">Login</Link>
         </Button>
       </div>
@@ -59,17 +59,17 @@ export default function RegisterPage() {
           <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}
             <Button
-              variant="link"
-              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
               asChild
+              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
+              variant="link"
             >
               <Link href="/terms">Terms of Service</Link>
             </Button>{" "}
             and{" "}
             <Button
-              variant="link"
-              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
               asChild
+              className="px-0 text-muted-foreground underline underline-offset-4 hover:text-primary"
+              variant="link"
             >
               <Link href="/privacy">Privacy Policy</Link>
             </Button>

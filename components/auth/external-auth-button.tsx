@@ -43,20 +43,18 @@ export function ExternalAuthButton({
   }, [provider, setIsLoading])
 
   return (
-    <>
-      <Button
-        type="button"
-        variant="outline"
-        onClick={() => void onSignIn()}
-        disabled={isLoading || isExternalAuthLoading}
-      >
-        {isExternalAuthLoading ? (
-          <Spinner className="mr-2 h-4 w-4" />
-        ) : (
-          <ProviderIcon className="mr-2 h-6 w-6" />
-        )}{" "}
-        Sign in with {PROVIDERS[provider].name}
-      </Button>
-    </>
+    <Button
+      disabled={isLoading || isExternalAuthLoading}
+      onClick={() => void onSignIn()}
+      type="button"
+      variant="outline"
+    >
+      {isExternalAuthLoading ? (
+        <Spinner className="mr-2 h-4 w-4" />
+      ) : (
+        <ProviderIcon className="mr-2 h-6 w-6" />
+      )}{" "}
+      Sign in with {PROVIDERS[provider].name}
+    </Button>
   )
 }

@@ -16,9 +16,9 @@ export async function Header() {
       <div className="container flex h-16 items-center justify-between px-2 md:px-8">
         <div className="flex gap-6 md:gap-10">
           <Button
-            variant="ghost"
-            className="group flex items-center space-x-2 text-primary transition-colors hover:animate-pulse hover:bg-transparent hover:text-primary/80"
             asChild
+            className="group flex items-center space-x-2 text-primary transition-colors hover:animate-pulse hover:bg-transparent hover:text-primary/80"
+            variant="ghost"
           >
             <Link href="/">
               <Logo className="transition-transform" />
@@ -30,7 +30,7 @@ export async function Header() {
         </div>
 
         <div className="flex flex-row items-center space-x-2">
-          <Button variant="ghost" asChild>
+          <Button asChild variant="ghost">
             <Link href={siteConfig.links.github}>
               <GithubIcon />
             </Link>
@@ -39,7 +39,7 @@ export async function Header() {
           {session?.user ? (
             <UserNav user={session.user} />
           ) : (
-            <Button size="sm" className="px-4" asChild>
+            <Button asChild className="px-4" size="sm">
               <Link href="/api/auth/signin">Login</Link>
             </Button>
           )}

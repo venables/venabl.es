@@ -9,8 +9,8 @@ type Props = {
 export function Spinner({ className, ...props }: Props) {
   return (
     <svg
-      viewBox="0 0 100 100"
       className={cls(styles.svg, className)}
+      viewBox="0 0 100 100"
       {...props}
     >
       <circle cx="50" cy="50" r="45" stroke="currentColor" />
