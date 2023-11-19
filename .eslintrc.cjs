@@ -45,7 +45,10 @@ module.exports = {
       env: {
         jest: true
       },
-      extends: ["plugin:jest/recommended", "plugin:jest/style"],
+      extends: [
+        require.resolve("@vercel/style-guide/eslint/jest"),
+        "plugin:jest/style"
+      ],
       plugins: ["jest"],
       rules: {
         "@typescript-eslint/no-non-null-assertion": "off"

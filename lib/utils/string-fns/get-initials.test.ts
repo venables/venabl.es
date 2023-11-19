@@ -15,8 +15,10 @@ const testNames = [
   { name: undefined, initials: "" }
 ]
 
-testNames.forEach(({ name, initials }) => {
-  test(`properly handles '${name}'`, () => {
-    expect(getInitials(name)).toEqual(initials)
+describe("getInitials()", () => {
+  testNames.forEach(({ name, initials }) => {
+    test(`properly handles '${name}'`, () => {
+      expect(getInitials(name)).toEqual(initials)
+    })
   })
 })
