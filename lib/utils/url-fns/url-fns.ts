@@ -1,5 +1,21 @@
 import { env } from "@/env"
 
+function host(fallback = "") {
+  if (env.NEXT_PUBLIC_HOST) {
+    return env.NEXT_PUBLIC_HOST
+  }
+
+  if (env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${env.NEXT_PUBLIC_VERCEL_URL}`
+  }
+
+  if (env.VERCEL_URL) {
+    return `https://${env.VERCEL_URL}`
+  }
+
+  return fallback
+}
+
 /**
  * Helper function to determine the hostname for the given environment,
  * with a focus on working with Vercel deployments.
@@ -7,17 +23,9 @@ import { env } from "@/env"
  * @returns the hostname for the given environment
  */
 export function appHost(includeProtocol = true): string {
-  const host = env.NEXT_PUBLIC_HOST
-    ? env.NEXT_PUBLIC_HOST
-    : env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${env.NEXT_PUBLIC_VERCEL_URL}`
-      : env.VERCEL_URL
-        ? `https://${env.VERCEL_URL}`
-        : ""
-
   return includeProtocol
-    ? host
-    : host.replace("https://", "").replace("http://", "")
+    ? host("")
+    : host("").replace("https://", "").replace("http://", "")
 }
 
 /**
@@ -25,6 +33,6 @@ export function appHost(includeProtocol = true): string {
  *
  * @returns the URL for the given path
  */
-export function fullURL(path = "", host = appHost()): URL {
-  return new URL(path, host)
+export function fullURL(path = "", hostname = appHost()): URL {
+  return new URL(path, hostname)
 }

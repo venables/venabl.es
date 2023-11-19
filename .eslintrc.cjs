@@ -76,8 +76,11 @@ module.exports = {
         "import/prefer-default-export": ["error", { target: "any" }]
       }
     },
+    /**
+     * JSX/TSX specific config
+     */
     {
-      files: ["**/*.{ts,tsx}"],
+      files: ["**/*.{jsx,tsx}"],
       rules: {
         "no-nested-ternary": "off"
       }
