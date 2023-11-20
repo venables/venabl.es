@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Venabl.Es",
-  shortName: "Venabl.Es",
-  description: "A sane way to start your next Next project.",
+  name: "venabl.es",
+  shortName: "venabl.es",
+  description: "Matt Venables' personal website",
   company: {
     name: "Matt Venables",
     link: "https://venabl.es",
@@ -13,6 +13,6 @@ export const siteConfig = {
   },
   links: {
     twitter: "https://twitter.com/mattyven",
-    github: "https://github.com/venabl.es-dev/venabl.es"
+    github: "https://github.com/venables/venabl.es"
   }
 }

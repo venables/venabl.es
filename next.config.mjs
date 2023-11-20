@@ -2,6 +2,7 @@ import "./env/env.mjs"
 
 import { createSecureHeaders } from "next-secure-headers"
 import nextMDX from "@next/mdx"
+import { withContentlayer } from "next-contentlayer"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -30,4 +31,4 @@ const nextConfig = {
 
 const withMDX = nextMDX()
 
-export default withMDX(nextConfig)
+export default withContentlayer(withMDX(nextConfig))
