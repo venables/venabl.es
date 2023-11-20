@@ -11,9 +11,6 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    env:
-      AUTH_SECRET: secret
-      # DATABASE_URL: <url>
     steps:
       - uses: actions/checkout@v3
       - uses: oven-sh/setup-bun@v1

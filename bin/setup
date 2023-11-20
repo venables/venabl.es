@@ -12,17 +12,7 @@ bun install --frozen-lockfile
 if ! [ -f .env.local ]; then
   echo "\n✨ Creating a .env.local file for local environment variables..."
   touch .env.local
-
-  echo "\n✨ Generating a secure value for local AUTH_SECRET ..."
-  echo "AUTH_SECRET=\"$(openssl rand -base64 32)\"" >> .env.local
-  echo "AUTH_URL=\"http://localhost:3000\"" >> .env.local
 fi
-
-#
-# Migrate the database
-#
-echo "\n✨ Migrating the database..."
-bun run db:migrate
 
 #
 # Done.

@@ -1,16 +1,11 @@
 import { GithubIcon } from "lucide-react"
 import Link from "next/link"
 
-import { auth } from "@/auth"
 import { Logo } from "@/components/icons/brand/logo"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
-import { UserNav } from "./header/user-nav"
-
-export async function Header() {
-  const session = await auth()
-
+export function Header() {
   return (
     <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="container flex h-16 items-center justify-between px-2 md:px-8">
@@ -35,14 +30,6 @@ export async function Header() {
               <GithubIcon />
             </Link>
           </Button>
-
-          {session?.user ? (
-            <UserNav user={session.user} />
-          ) : (
-            <Button asChild className="px-4" size="sm">
-              <Link href="/api/auth/signin">Login</Link>
-            </Button>
-          )}
         </div>
       </div>
     </header>

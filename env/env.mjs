@@ -18,28 +18,10 @@ export const env = createEnv({
    */
   server: {
     /**
-     * Database
-     */
-    DATABASE_URL: z.string().url(),
-    DATABASE_URL_POOLED: z.string().url().optional(),
-
-    /**
-     * Authentication
-     */
-    AUTH_SECRET: z.string(),
-    AUTH_URL: z.string().url().optional(),
-
-    /**
      * Vercel-specific environment variables
      */
     VERCEL_GIT_COMMIT_SHA: z.string().optional(),
     VERCEL_URL: z.string().optional(),
-
-    /**
-     * Email
-     */
-    EMAIL_FROM: z.string(),
-    RESEND_API_KEY: z.string().optional()
   },
   /**
    * Shared between server and client

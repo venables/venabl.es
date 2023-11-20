@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "StartKit",
-  shortName: "StartKit",
+  name: "Venabl.Es",
+  shortName: "Venabl.Es",
   description: "A sane way to start your next Next project.",
   company: {
     name: "Matt Venables",
@@ -13,6 +13,6 @@ export const siteConfig = {
   },
   links: {
     twitter: "https://twitter.com/mattyven",
-    github: "https://github.com/startkit-dev/startkit"
+    github: "https://github.com/venabl.es-dev/venabl.es"
   }
 }
