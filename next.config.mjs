@@ -23,6 +23,22 @@ const nextConfig = {
        */
       { source: "/(.*)", headers: createSecureHeaders() }
     ]
+  },
+
+  webpack: (config) => {
+    /**
+     * Disable noisy webpack logs for contentful.
+     *
+     * Notably: using `mjs` for next.config causes some benign warnings to be
+     * logged to the console.
+     * https://github.com/contentlayerdev/contentlayer/issues/313#issuecomment-1305424923
+     */
+    config.infrastructureLogging = {
+      level: "error"
+    }
+    // Important: return the modified config
+    // https://nextjs.org/docs/messages/undefined-webpack-config
+    return config
   }
 }
 

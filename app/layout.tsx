@@ -1,7 +1,7 @@
 import "./globals.css"
-import { GeistMono } from "geist/font/mono"
 import { GeistSans } from "geist/font/sans"
 import { type Metadata, type Viewport } from "next"
+import { Source_Code_Pro as SourceCodePro } from "next/font/google"
 import { type ReactNode } from "react"
 
 import { TailwindIndicator } from "@/components/debug/tailwind-indicator"
@@ -9,6 +9,11 @@ import { Analytics } from "@/components/layout/analytics"
 import { Toaster } from "@/components/ui/toaster"
 import { siteConfig } from "@/config"
 import { cls, fullURL } from "@/lib/utils"
+
+const sourceCodePro = SourceCodePro({
+  variable: "--font-source-code-pro",
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   metadataBase: fullURL(),
@@ -36,7 +41,7 @@ export default function RootLayout({ children }: Props) {
     <html
       className={cls(
         GeistSans.variable,
-        GeistMono.variable,
+        sourceCodePro.variable,
         "font-sans antialiased"
       )}
       lang="en"

@@ -21,7 +21,7 @@ export const env = createEnv({
      * Vercel-specific environment variables
      */
     VERCEL_GIT_COMMIT_SHA: z.string().optional(),
-    VERCEL_URL: z.string().optional(),
+    VERCEL_URL: z.string().optional()
   },
   /**
    * Shared between server and client

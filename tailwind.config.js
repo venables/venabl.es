@@ -64,12 +64,12 @@ module.exports = {
         },
         swing: {
           "0%": { transform: "rotate(0deg)" },
-          "10%": { transform: "rotate(15deg)" },
-          "30%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(10deg)" },
-          "70%": { transform: "rotate(2.5deg)" },
-          "90%": { transform: "rotate(7.5deg)" },
-          "100%": { transform: "rotate(7.5deg)" }
+          "10%": { transform: "rotate(20deg)" },
+          "30%": { transform: "rotate(7.5deg)" },
+          "50%": { transform: "rotate(15deg)" },
+          "70%": { transform: "rotate(11.5deg)" },
+          "90%": { transform: "rotate(12.5deg)" },
+          "100%": { transform: "rotate(12.5deg)" }
         }
       },
       animation: {
@@ -79,7 +79,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-geist-mono)", ...fontFamily.mono]
+        mono: ["var(--font-source-code-pro)", ...fontFamily.mono]
       }
     }
   },
