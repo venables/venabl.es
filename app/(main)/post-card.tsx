@@ -1,14 +1,17 @@
 import { format, parseISO } from "date-fns"
 import Link from "next/link"
 
+import { Separator } from "@/components/ui/separator"
 import { type Post } from "contentlayer/generated"
 
 export function PostCard(post: Post) {
   return (
     <div className="mb-8">
-      <h2 className="mb-1 text-xl">
+      <Separator className="my-4" />
+      <h2 className="mb-2 text-xl">
+        <span className="pr-2">{post.icon}</span>
         <Link
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
+          className="font-bold underline-offset-8 hover:underline"
           href={post.url}
         >
           {post.title}
@@ -17,10 +20,14 @@ export function PostCard(post: Post) {
       <time className="mb-2 block text-xs text-gray-600" dateTime={post.date}>
         {format(parseISO(post.date), "LLLL d, yyyy")}
       </time>
-      <div
-        className="text-sm [&>*:last-child]:mb-0 [&>*]:mb-3"
+      <article
+        className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.body.html }}
       />
+      {/* <div
+        className="text-sm [&>*:last-child]:mb-0 [&>*]:mb-3"
+        dangerouslySetInnerHTML={{ __html: post.body.html }}
+      /> */}
     </div>
   )
 }

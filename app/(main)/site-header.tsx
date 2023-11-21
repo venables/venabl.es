@@ -1,16 +1,9 @@
-import Image from "next/image"
+import { Avatar } from "./avatar"
 
 export function SiteHeader() {
   return (
     <div className="flex items-center justify-center space-x-4">
-      <div className="relative aspect-square w-24 shrink-0">
-        <Image
-          alt="Matt Venables"
-          className="aspect-square  rounded-xl"
-          fill
-          src="/images/avatar.png"
-        />
-      </div>
+      <Avatar className="w-24" />
       <div className="flex grow flex-col">
         <h2 className="flex-1 text-2xl sm:text-3xl">
           <span className="hidden md:inline">👋 Hi, I&apos;m </span>

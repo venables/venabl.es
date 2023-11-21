@@ -27,12 +27,12 @@ export function Footer() {
             <Button asChild key={item.name} variant="ghost">
               <Link href={item.href} rel="noopener noreferrer" target="_blank">
                 <span className="sr-only">{item.name}</span>
-                <item.icon aria-hidden="true" className="h-6 w-6" />
+                <item.icon aria-hidden="true" className="h-4 w-4" />
               </Link>
             </Button>
           ))}
 
-          <ThemePicker iconClassName="h-6 w-6" />
+          <ThemePicker iconClassName="h-4 w-4" />
         </div>
 
         <div className="mt-0 md:order-1">
@@ -52,24 +52,6 @@ export function Footer() {
                 </Button>
                 .
               </span>
-            </div>
-            <div className="flex items-center justify-center space-x-2">
-              <Button
-                asChild
-                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
-                variant="link"
-              >
-                <Link href="/privacy">Privacy</Link>
-              </Button>
-              .
-              <Button
-                asChild
-                className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"
-                variant="link"
-              >
-                <Link href="/terms">Terms</Link>
-              </Button>
-              .
             </div>
           </div>
         </div>

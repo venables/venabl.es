@@ -1,0 +1,40 @@
+"use client"
+
+import Image from "next/image"
+import { type HTMLAttributes, useState } from "react"
+
+import { cls } from "@/lib/utils"
+
+export type AvatarProps = HTMLAttributes<HTMLDivElement>
+
+export function Avatar({ className, ...props }: AvatarProps) {
+  const [isSwinging, setIsSwinging] = useState(false)
+
+  const handleMouseEnter = () => {
+    setIsSwinging(true)
+  }
+
+  const handleAnimationEnd = () => {
+    // setIsSwinging(false)
+  }
+
+  return (
+    <div
+      className={cls(
+        "relative aspect-square shrink-0 origin-top-left",
+        isSwinging && "animate-swing",
+        className
+      )}
+      onAnimationEnd={handleAnimationEnd}
+      onMouseEnter={handleMouseEnter}
+      {...props}
+    >
+      <Image
+        alt="Matt Venables"
+        className="aspect-square rounded-xl"
+        fill
+        src="/images/avatar.png"
+      />
+    </div>
+  )
+}
