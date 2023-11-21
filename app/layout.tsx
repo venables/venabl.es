@@ -40,7 +40,6 @@ export default function RootLayout({ children }: Props) {
         "font-sans antialiased"
       )}
       lang="en"
-      suppressHydrationWarning
     >
       <head />
       <body className="min-h-screen bg-background text-card-foreground">

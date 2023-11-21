@@ -69,7 +69,8 @@ module.exports = {
         "app/**/*error.tsx",
         "app/sitemap.ts",
         "app/robots.ts",
-        "app/manifest.ts"
+        "app/manifest.ts",
+        "contentlayer.config.ts"
       ],
       rules: {
         "import/no-default-export": "off",

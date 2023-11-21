@@ -13,6 +13,6 @@ export const siteConfig = {
   },
   links: {
     twitter: "https://twitter.com/mattyven",
-    github: "https://github.com/venables/venabl.es"
+    github: "https://github.com/venables"
   }
 }

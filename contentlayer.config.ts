@@ -5,12 +5,14 @@ export const Post = defineDocumentType(() => ({
   filePathPattern: `**/*.md`,
   fields: {
     title: { type: "string", required: true },
-    date: { type: "date", required: true }
+    date: { type: "date", required: true },
+    icon: { type: "string", required: false },
+    page: { type: "boolean", required: false }
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`
+      resolve: (post) => `/${post._raw.flattenedPath}`
     }
   }
 }))
