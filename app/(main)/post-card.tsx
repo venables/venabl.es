@@ -17,17 +17,15 @@ export function PostCard(post: Post) {
           {post.title}
         </Link>
       </h2>
-      <time className="mb-2 block text-xs text-gray-600" dateTime={post.date}>
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
+      <Link href={post.url}>
+        <time className="mb-2 block text-xs text-gray-600" dateTime={post.date}>
+          {format(parseISO(post.date), "LLLL d, yyyy")}
+        </time>
+      </Link>
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.body.html }}
       />
-      {/* <div
-        className="text-sm [&>*:last-child]:mb-0 [&>*]:mb-3"
-        dangerouslySetInnerHTML={{ __html: post.body.html }}
-      /> */}
     </div>
   )
 }
