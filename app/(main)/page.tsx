@@ -4,7 +4,6 @@ import Link from "next/link"
 import { allPosts } from "contentlayer/generated"
 
 import { PostCard } from "./post-card"
-import { SiteHeader } from "./site-header"
 
 export default function Home() {
   const posts = allPosts
@@ -12,9 +11,7 @@ export default function Home() {
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
-    <div className="mx-auto flex max-w-xl flex-col gap-8 py-8">
-      <SiteHeader />
-
+    <>
       <section className="flex flex-col gap-4">
         <h2 className="font-mono text-xl font-semibold underline-offset-4">
           TL;DR Me:
@@ -28,6 +25,7 @@ export default function Home() {
           <Link href="https://catena.xyz">Catena Labs</Link> to build tools to
           help bring AI to every app.
         </p>
+        <p>I write and speak about software, business, crypto, and AI.</p>
 
         <p>
           Keep reading:{" "}
@@ -43,6 +41,6 @@ export default function Home() {
           <PostCard key={post.url} {...post} />
         ))}
       </section>
-    </div>
+    </>
   )
 }

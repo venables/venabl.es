@@ -19,9 +19,9 @@ export function Avatar({ className, ...props }: AvatarProps) {
   }
 
   return (
-    <div
+    <span
       className={cls(
-        "relative aspect-square shrink-0 origin-top-left",
+        "relative block aspect-square shrink-0 origin-top-left",
         isSwinging && "animate-swing",
         className
       )}
@@ -35,6 +35,6 @@ export function Avatar({ className, ...props }: AvatarProps) {
         fill
         src="/images/avatar.png"
       />
-    </div>
+    </span>
   )
 }

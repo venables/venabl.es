@@ -1,4 +1,4 @@
-import { GithubIcon, TwitterIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react"
 import Link from "next/link"
 
 import { ThemePicker } from "@/components/theme-picker"
@@ -15,6 +15,11 @@ const navigation = [
     name: "Twitter",
     href: siteConfig.links.twitter,
     icon: TwitterIcon
+  },
+  {
+    name: "LinkedIn",
+    href: siteConfig.links.linkedin,
+    icon: LinkedinIcon
   }
 ]
 
@@ -40,7 +45,6 @@ export function Footer() {
             <div className="flex items-center justify-center space-x-1">
               <span>&copy; {new Date().getFullYear()}.</span>
               <span>
-                Built by{" "}
                 <Button
                   asChild
                   className="px-0 font-normal text-card-foreground underline underline-offset-4 transition-colors hover:text-card-foreground/60"

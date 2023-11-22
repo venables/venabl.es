@@ -21,7 +21,7 @@ function PostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <article className="mx-auto max-w-xl py-8">
+    <article className="mx-auto max-w-xl pb-8">
       <div className="mb-8">
         <time className="mb-1 text-xs text-gray-600" dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}

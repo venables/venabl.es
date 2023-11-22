@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "check": "concurrently bun:type-check bun:lint bun:format:check bun:test",
-    "clean": "git clean -xdf .next",
+    "clean": "git clean -xdf .next .contentlayer",
     "dev": "next dev",
     "format": "prettier --write . --ignore-path .gitignore",
     "format:check": "prettier --check . --ignore-path .gitignore",

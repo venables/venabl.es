@@ -12,7 +12,8 @@ export const siteConfig = {
     twitter: "@mattyven"
   },
   links: {
-    twitter: "https://twitter.com/mattyven",
-    github: "https://github.com/venables"
+    github: "https://github.com/venables",
+    linkedin: "https://www.linkedin.com/in/mattvenables/",
+    twitter: "https://twitter.com/mattyven"
   }
 }
