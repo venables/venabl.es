@@ -21,18 +21,18 @@ const navigation = [
 export function Footer() {
   return (
     <footer>
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-4 pt-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex items-center justify-center md:order-2 md:items-end">
           {navigation.map((item) => (
             <Button asChild key={item.name} variant="ghost">
               <Link href={item.href} rel="noopener noreferrer" target="_blank">
                 <span className="sr-only">{item.name}</span>
-                <item.icon aria-hidden="true" className="h-6 w-6" />
+                <item.icon aria-hidden="true" className="h-5 w-5" />
               </Link>
             </Button>
           ))}
 
-          <ThemePicker iconClassName="h-6 w-6" />
+          <ThemePicker iconClassName="h-5 w-5" />
         </div>
 
         <div className="mt-8 md:order-1 md:mt-0">
