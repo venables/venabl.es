@@ -34,7 +34,7 @@ export default function SigninPage() {
         </Button>
       </div>
 
-      <div className="relative hidden h-full flex-col bg-muted p-10 text-primary-foreground dark:border-r lg:flex">
+      <div className="relative hidden h-full flex-col bg-muted p-10 text-primary-foreground lg:flex dark:border-r">
         <div className="absolute inset-0 h-full bg-primary" />
 
         <div className="relative z-20 mt-auto">

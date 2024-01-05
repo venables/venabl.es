@@ -23,7 +23,7 @@ const actionTypes = {
 let count = 0
 
 function genId() {
-  count = (count + 1) % Number.MAX_VALUE
+  count = (count + 1) % Number.MAX_SAFE_INTEGER
   return count.toString()
 }
 
@@ -140,10 +140,10 @@ type Toast = Omit<ToasterToast, "id">
 function toast({ ...props }: Toast) {
   const id = genId()
 
-  const update = (toasterProps: ToasterToast) => {
+  const update = (updateProps: ToasterToast) => {
     dispatch({
       type: "UPDATE_TOAST",
-      toast: { ...toasterProps, id }
+      toast: { ...updateProps, id }
     })
   }
   const dismiss = () => {

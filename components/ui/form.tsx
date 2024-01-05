@@ -45,7 +45,7 @@ const useFormField = () => {
 
   const fieldState = getFieldState(fieldContext.name, formState)
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- false positive?
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- false positive
   if (!fieldContext) {
     throw new Error("useFormField should be used within <FormField>")
   }
@@ -110,9 +110,7 @@ const FormControl = React.forwardRef<
   return (
     <Slot
       aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
+        !error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`
       }
       aria-invalid={Boolean(error)}
       id={formItemId}
