@@ -1,6 +1,6 @@
 import { type SVGProps } from "react"
 
-export function GoogleIcon(props: SVGProps<SVGSVGElement>) {
+export function GoogleSocialIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg fill="none" viewBox="0 0 24 24" {...props}>
       <path

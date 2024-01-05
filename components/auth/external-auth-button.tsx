@@ -3,14 +3,14 @@ import { type LucideIcon } from "lucide-react"
 import { signIn } from "next-auth/react"
 import { useCallback, useMemo, useState } from "react"
 
-import { GoogleIcon } from "@/components/icons/social"
+import { GoogleSocialIcon } from "@/components/icons/social"
 import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
 
 const PROVIDERS = {
   google: {
     name: "Google",
-    icon: GoogleIcon as LucideIcon
+    icon: GoogleSocialIcon as LucideIcon
   },
   github: {
     name: "GitHub",
