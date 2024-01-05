@@ -26,6 +26,7 @@ export function Features() {
         title: "Vercel Style Guide",
         href: "https://github.com/vercel/style-guide"
       },
+      { title: "Oxlint", href: "https://oxc-project.github.io" },
       { title: "ESLint + Prettier" },
       { title: "TailwindCSS", href: "https://tailwindcss.com" },
       { title: "Radix UI", href: "https://www.radix-ui.com" },
