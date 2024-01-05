@@ -8,13 +8,13 @@ import { type SignInResponse } from "next-auth/react"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { type HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { type z } from "zod"
 
 import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useToast } from "@/components/ui/use-toast"
 import { cls } from "@/lib/utils"
 import { userAuthSchema } from "@/lib/validations"
 
@@ -25,30 +25,26 @@ type FormData = z.infer<typeof userAuthSchema>
 /**
  * https://github.com/nextauthjs/next-auth/blob/a79774f6e890b492ae30201f24b3f7024d0d7c9d/docs/docs/guides/basics/pages.md?plain=1#L42
  */
-function parseErrorMessage(error?: string | null) {
+function handleError(error?: string | null) {
   switch (error) {
     case "OAuthAccountNotLinked":
-      return {
-        title: "You already have an account",
+      return toast("You already have an account", {
         description:
           "Please sign in with the other service you used to sign up."
-      }
+      })
     case "EmailSignin":
-      return {
-        title: "Unable to send login e-mail",
+      return toast("Unable to send login e-mail", {
         description: "Sending your login e-mail failed. Please try again."
-      }
+      })
     case "CredentialsSignin":
-      return {
-        title: "Invalid username or password",
+      return toast("Invalid username or password", {
         description:
           "The username and password you entered did not match our records. Please double-check and try again."
-      }
+      })
     case "SessionRequired":
-      return {
-        title: "Login required",
+      return toast("Login required", {
         description: "You must be logged in to view this page"
-      }
+      })
     case "OAuthCallback":
     case "OAuthCreateAccount":
     case "OAuthSignin":
@@ -56,10 +52,9 @@ function parseErrorMessage(error?: string | null) {
     case "Callback":
     case "Default":
     default:
-      return {
-        title: "Something went wrong.",
+      return toast("Something went wrong.", {
         description: "Your sign in request failed. Please try again."
-      }
+      })
   }
 }
 
@@ -67,7 +62,6 @@ type Props = HTMLAttributes<HTMLDivElement>
 
 export function UserAuthForm({ className, ...props }: Props) {
   const searchParams = useSearchParams()
-  const { toast } = useToast()
   const form = useForm<z.infer<typeof userAuthSchema>>({
     resolver: zodResolver(userAuthSchema),
     defaultValues: {
@@ -88,12 +82,9 @@ export function UserAuthForm({ className, ...props }: Props) {
    */
   useEffect(() => {
     if (searchParams.get("error")) {
-      toast({
-        ...parseErrorMessage(searchParams.get("error")),
-        variant: "destructive"
-      })
+      handleError(searchParams.get("error"))
     }
-  }, [searchParams, toast])
+  }, [searchParams])
 
   /**
    * Handle the form submission.
@@ -118,18 +109,14 @@ export function UserAuthForm({ className, ...props }: Props) {
       }
 
       if (!signInResult?.ok || signInResult.error) {
-        return toast({
-          ...parseErrorMessage(signInResult?.error),
-          variant: "destructive"
-        })
+        return handleError(signInResult?.error)
       }
 
-      return toast({
-        title: "Check your email",
+      return toast("Check your email", {
         description: "We sent you a login link. Be sure to check your spam too."
       })
     },
-    [isLoading, searchParams, toast]
+    [isLoading, searchParams]
   )
 
   return (

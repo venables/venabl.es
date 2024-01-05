@@ -3,14 +3,12 @@
 import { CheckIcon } from "lucide-react"
 import Link from "next/link"
 import { useMemo } from "react"
+import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
 import { cls } from "@/lib/utils"
 
 export function Features() {
-  const { toast } = useToast()
-
   const FEATURES = useMemo(
     () => [
       { title: "Next 14", href: "https://nextjs.org" },
@@ -41,14 +39,13 @@ export function Features() {
       {
         title: "Toasts",
         onClick: () =>
-          toast({
-            title: "Wait. Toasts, too?",
+          toast("Wait. Toasts, too?", {
             description: "Yep! You can use them anywhere in your app."
           })
       },
       { title: "and much more..." }
     ],
-    [toast]
+    []
   )
 
   return (
