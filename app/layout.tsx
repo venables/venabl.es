@@ -6,7 +6,7 @@ import { type ReactNode } from "react"
 
 import { TailwindIndicator } from "@/components/debug/tailwind-indicator"
 import { Analytics } from "@/components/layout/analytics"
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/sonner"
 import { siteConfig } from "@/config"
 import { cls, fullURL } from "@/lib/utils"
 

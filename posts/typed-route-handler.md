@@ -17,7 +17,7 @@ npm i typed-route-handler
 Here's an example of how it works
 
 ```ts
-import { handler } from 'typed-route-handler'
+import { handler } from "typed-route-handler"
 
 type ResponseData = {
   result: string

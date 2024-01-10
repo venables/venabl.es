@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
+import { handler } from "typed-route-handler"
 
 import { env } from "@/env"
-import { handler } from "@/lib/api-fns"
 
 type ResponseData = {
   pong: string
@@ -14,5 +14,5 @@ const gitSha = env.VERCEL_GIT_COMMIT_SHA ?? "local"
  * and responds with the latest git sha.
  */
 export const GET = handler<ResponseData>(() => {
-  return NextResponse.json({ ok: true, data: { pong: gitSha.substring(0, 7) } })
+  return NextResponse.json({ pong: gitSha.substring(0, 7) })
 })

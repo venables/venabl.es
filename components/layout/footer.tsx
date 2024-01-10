@@ -1,6 +1,7 @@
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon } from "lucide-react"
 import Link from "next/link"
 
+import { XSocialIcon } from "@/components/icons/social"
 import { ThemePicker } from "@/components/theme-picker"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
@@ -12,9 +13,9 @@ const navigation = [
     icon: GithubIcon
   },
   {
-    name: "Twitter",
+    name: "X",
     href: siteConfig.links.twitter,
-    icon: TwitterIcon
+    icon: XSocialIcon
   },
   {
     name: "LinkedIn",
