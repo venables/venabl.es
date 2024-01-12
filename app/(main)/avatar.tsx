@@ -31,7 +31,7 @@ export function Avatar({ className, ...props }: AvatarProps) {
     >
       <Image
         alt="Matt Venables"
-        className="aspect-square rounded-xl"
+        className="m-0 aspect-square rounded-xl"
         fill
         src="/images/avatar.png"
       />

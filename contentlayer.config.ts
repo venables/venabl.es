@@ -8,7 +8,8 @@ export const Post = defineDocumentType(() => ({
     date: { type: "date", required: true },
     edited: { type: "date", required: false },
     icon: { type: "string", required: false },
-    page: { type: "boolean", required: false }
+    page: { type: "boolean", required: false },
+    showDate: { type: "boolean", required: false }
   },
   computedFields: {
     url: {

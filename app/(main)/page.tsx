@@ -1,46 +1,34 @@
-import { compareDesc } from "date-fns"
-import Link from "next/link"
+import { type Metadata } from "next"
+import { notFound } from "next/navigation"
 
 import { allPosts } from "contentlayer/generated"
 
-import { PostCard } from "./post-card"
+import { Avatar } from "./avatar"
+
+export const metadata: Metadata = {
+  title: "Hello"
+}
 
 export default function Home() {
-  const posts = allPosts
-    .filter((p) => !p.page)
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const post = allPosts.find((p) => p._raw.flattenedPath === "home")
+  if (!post) {
+    notFound()
+  }
 
   return (
-    <>
-      <section className="flex flex-col gap-4">
-        <h2 className="font-mono text-xl font-semibold underline-offset-4">
-          TL;DR Me:
-        </h2>
-        <p>
-          I am a product-focused engineer, entrepreneur, and angel investor with
-          a successful history of building products that scale.
-        </p>
-        <p>
-          I recently co-founded{" "}
-          <Link href="https://catena.xyz">Catena Labs</Link> to build tools to
-          help bring AI to every app.
-        </p>
-        <p>I write and speak about software, business, crypto, and AI.</p>
-
-        <p>
-          Keep reading:{" "}
-          <Link className="underline underline-offset-4" href="/about">
-            the longer version
-          </Link>
-          .
-        </p>
-      </section>
-
-      <section className="">
-        {posts.map((post) => (
-          <PostCard key={post.url} {...post} />
-        ))}
-      </section>
-    </>
+    <article className="container mx-auto px-2 pb-8 sm:px-8">
+      <div className="mb-8 font-roboto-condensed">
+        <h1 className="my-1 break-words px-4 text-center text-5xl font-bold uppercase tracking-tighter">
+          {post.title}
+        </h1>
+      </div>
+      <div className="prose mx-auto dark:prose-invert lg:prose-xl">
+        <Avatar className="not-prose float-left mr-4 h-24 w-24" />
+        <div
+          className="prose prose-lg mx-auto dark:prose-invert lg:prose-xl"
+          dangerouslySetInnerHTML={{ __html: post.body.html }}
+        />
+      </div>
+    </article>
   )
 }

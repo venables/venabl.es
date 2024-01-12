@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 0 0% 96.86%; /* #f7f7f7 */
+    --foreground: 0, 0%, 13%; /* #222222 */
 
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -36,8 +36,8 @@
   }
 
   [data-theme="dark"] {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0%, 2.75%; /* 070707 */
+    --foreground: 0, 0%, 94%; /* #F0F0F0 */
 
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -73,4 +73,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+article .prose {
+  @apply font-serif;
+}
+
+article .prose p:first-of-type {
+  @apply prose-2xl leading-[155%];
+}
+
+article .prose p:nth-of-type(2) {
+  @apply first-letter:float-left first-letter:mr-3 first-letter:text-6xl sm:first-letter:text-7xl first-letter:font-bold;
+}
+
+article.prose h2 {
+  @apply text-center font-roboto-condensed;
 }

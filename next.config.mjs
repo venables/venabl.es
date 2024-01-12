@@ -25,6 +25,16 @@ const nextConfig = {
     ]
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/typed-route-handler",
+        destination: "/type-safe-api-routes-in-nextjs",
+        permanent: true
+      }
+    ]
+  },
+
   webpack: (config) => {
     /**
      * Disable noisy webpack logs for contentful.

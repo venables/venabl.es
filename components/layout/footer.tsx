@@ -6,6 +6,8 @@ import { ThemePicker } from "@/components/theme-picker"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
+import { Logo } from "../icons/brand/logo"
+
 const navigation = [
   {
     name: "Github",
@@ -44,7 +46,7 @@ export function Footer() {
         <div className="mt-0 md:order-1">
           <div className="flex flex-col items-center justify-center space-x-2 space-y-4 text-center text-sm leading-5 sm:flex-row sm:space-y-0">
             <div className="flex items-center justify-center space-x-1">
-              <span>&copy; {new Date().getFullYear()}.</span>
+              <span>&copy; {new Date().getFullYear()}</span>
               <span>
                 <Button
                   asChild
@@ -52,10 +54,10 @@ export function Footer() {
                   variant="link"
                 >
                   <Link href={siteConfig.company.link}>
+                    <Logo className="h-6 pr-2" />
                     {siteConfig.company.name}
                   </Link>
                 </Button>
-                .
               </span>
             </div>
           </div>

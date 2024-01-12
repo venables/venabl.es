@@ -79,7 +79,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        mono: ["var(--font-source-code-pro)", ...fontFamily.mono]
+        serif: ["var(--font-aleo)", ...fontFamily.serif],
+        mono: ["var(--font-source-code-pro)", ...fontFamily.mono],
+        "roboto-condensed": ["var(--font-roboto-condensed)", ...fontFamily.sans]
       }
     }
   },
