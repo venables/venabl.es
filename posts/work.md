@@ -1,6 +1,7 @@
 ---
 title: “I just can't stop building things.”
 date: 2021-12-24
+description: "This is a sample of my work, projects, and open source over the course of my career"
 page: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Connect with me
 date: 2021-12-24
+description: I love to meet new people, and try to respond to every tweet/xeet, email, etc.
 page: true
 ---
 

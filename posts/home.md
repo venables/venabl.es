@@ -1,6 +1,7 @@
 ---
 title: Matt Venables
 date: 2021-12-24
+description: I am a product-focused software engineer, entrepreneur, and angel investor with a successful history of building high-quality products that scale.
 page: true
 ---
 

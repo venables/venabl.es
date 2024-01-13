@@ -18,7 +18,8 @@ export function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: post.title
+    title: post.title,
+    description: post.description
   }
 }
 
@@ -29,7 +30,7 @@ function PostPage({ params }: Props) {
   }
 
   return (
-    <article className="container mx-auto px-2 pb-8 sm:px-8">
+    <article className="container mx-auto px-2 pb-8 pt-4 sm:px-8">
       <div className="mb-8 font-roboto-condensed">
         {post.showDate || !post.page ? (
           <div className="text-center text-sm font-bold uppercase">

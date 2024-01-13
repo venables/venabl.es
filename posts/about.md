@@ -1,6 +1,7 @@
 ---
 title: About Me
 date: 2021-12-24
+description: I'm a dad, husband, software engineer, angel investor, and entrepreneur living in Boston, Massachusetts.
 page: true
 ---
 

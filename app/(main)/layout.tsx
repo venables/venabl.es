@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/footer"
 export default function MainLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex min-h-screen flex-col gap-8">
-      <header className="container flex flex-row items-center justify-center px-2 sm:px-8">
+      <header className="container flex flex-row items-center justify-center px-2 pt-2 sm:px-8">
         <div className="relative flex flex-1 flex-row items-center justify-center">
           <div className="absolute inset-0 -z-10 flex items-center">
             <span className="w-full border-t" />

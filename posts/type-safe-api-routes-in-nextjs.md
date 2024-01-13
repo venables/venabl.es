@@ -1,6 +1,7 @@
 ---
 title: Type-safe API routes in Next.js
 date: 2024-01-09
+description: "Introducing 'typed-route-handler', the easiest way to add type-safety to Next.js Route Handlers"
 icon: 💪
 ---
 

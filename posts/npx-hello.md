@@ -1,6 +1,7 @@
 ---
 title: npx hello
 date: 2023-11-20
+description: "Introducing 'npx hello', the easiest way to browse GitHub profiles from the command line."
 icon: 👋
 ---
 
