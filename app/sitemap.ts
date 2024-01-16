@@ -3,6 +3,8 @@ import { type MetadataRoute } from "next"
 import { fullURL } from "@/lib/utils"
 import { allPosts } from "contentlayer/generated"
 
+const staticPages = ["/", "/writing"]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = allPosts.map((post) => ({
     url: fullURL(`/${post._raw.flattenedPath}`).toString(),
@@ -11,13 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8
   }))
 
-  return [
-    {
-      url: fullURL().toString(),
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1
-    },
-    ...posts
-  ]
+  const staticPaths = staticPages.map((path) => ({
+    url: fullURL(path).toString(),
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8
+  }))
+
+  return [...staticPaths, ...posts]
 }
