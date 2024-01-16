@@ -11,6 +11,6 @@ My passion is creating **intuitively obvious** software that makes the world a b
 
 I write and speak about software, business, crypto, and AI.
 
-You can [learn more](/about) about me, [read](/writing) some of what's been on my mind, or [check out](/work) some of the products and companies I've built.
+You can learn more [about me](/about), [read](/writing) some of what's been on my mind, see what I'm doing [now](/now), or [check out](/work) some of the products and companies I've built.
 
 Get in touch by DMing me on [X](https://x.com/mattyven) or [contact me](/connect) another way.
