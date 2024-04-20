@@ -3,7 +3,7 @@ title: What I'm Doing Now
 date: 2024-01-10
 description: "This is my now page."
 page: true
-showDate: true
+hide_date: false
 ---
 
 

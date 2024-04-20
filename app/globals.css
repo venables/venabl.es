@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 96.86%; /* #f7f7f7 */
-    --foreground: 0, 0%, 13%; /* #222222 */
+    --foreground: 0 0% 13%; /* #222222 */
 
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -33,11 +33,14 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+
+    --link: 0 67.92% 41.57%; /* #B22222 */
+    --link-visited: 0 25.14% 64.9%; /* #BC8F8F */
   }
 
   [data-theme="dark"] {
     --background: 0 0%, 2.75%; /* 070707 */
-    --foreground: 0, 0%, 94%; /* #F0F0F0 */
+    --foreground: 0 0% 94%; /* #F0F0F0 */
 
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -88,5 +91,5 @@ article .prose p:nth-of-type(2) {
 }
 
 article.prose h2 {
-  @apply text-center font-roboto-condensed;
+  @apply text-center font-essays;
 }

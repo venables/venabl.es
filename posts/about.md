@@ -1,11 +1,12 @@
 ---
-title: About Me
+pretitle: "Prologue"
+title: "About me"
 date: 2021-12-24
 description: I'm a dad, husband, software engineer, angel investor, and entrepreneur living in Boston, Massachusetts.
-page: true
+hide_date: true
 ---
 
-Hi, my name is Matt Venables. I'm a dad, husband, software engineer, angel investor, and entrepreneur living in Boston, Massachusetts.
+Hi, my name is Matt. I'm a dad, husband, fitness-lover, software engineer, angel investor, and entrepreneur living in Boston.
 
 I have spent my career building companies from the earliest stages, working up and down the tech stack, from writing cryptographic algorithms for IBM Mainframes powering big banks, to running Product/Engineering at a high-growth IPO-bound consumer product company, to successfully fundraising for several of my own startups, investing in many more, and everything in between.
 

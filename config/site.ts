@@ -5,7 +5,7 @@ export const siteConfig = {
     "I am a product-focused software engineer, entrepreneur, and angel investor with a successful history of building high-quality products that scale.",
   company: {
     name: "Matt Venables",
-    link: "https://venabl.es",
+    link: "/",
     email: "matt@venabl.es",
     twitter: "@mattyven"
   },

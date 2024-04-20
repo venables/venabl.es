@@ -6,6 +6,7 @@ import { ThemePicker } from "@/components/theme-picker"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/config"
 
+import { Separator } from "./separator"
 import { Logo } from "../icons/brand/logo"
 
 const navigation = [
@@ -29,6 +30,7 @@ const navigation = [
 export function Footer() {
   return (
     <footer>
+      <Separator />
       <div className="mx-auto max-w-7xl px-6 py-4 md:flex md:items-center md:justify-between">
         <div className="flex items-center justify-center md:order-2 md:items-end">
           {navigation.map((item) => (

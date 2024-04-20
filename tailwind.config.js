@@ -46,6 +46,10 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))"
+        },
+        link: {
+          DEFAULT: "hsl(var(--link))",
+          visited: "hsl(var(--link-visited))"
         }
       },
       borderRadius: {
@@ -81,7 +85,7 @@ module.exports = {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         serif: ["var(--font-aleo)", ...fontFamily.serif],
         mono: ["var(--font-source-code-pro)", ...fontFamily.mono],
-        "roboto-condensed": ["var(--font-roboto-condensed)", ...fontFamily.sans]
+        essays: ["var(--font-essays-1743)", ...fontFamily.serif]
       }
     }
   },

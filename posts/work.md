@@ -1,8 +1,9 @@
 ---
-title: “I just can't stop building things.”
-date: 2021-12-24
+pretitle: "My work"
+title: "“I can't stop building things.”"
+date: 2021-12-25
 description: "This is a sample of my work, projects, and open source over the course of my career"
-page: true
+hide_date: true
 ---
 
 I have an unwavering passion for building and growing software products that help people live happier, healthier lives.

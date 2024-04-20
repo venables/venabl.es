@@ -13,7 +13,7 @@ export default function MainLayout({ children }: PropsWithChildren) {
             <span className="w-full border-t" />
           </div>
 
-          <nav className="mx-auto flex max-w-xl flex-1 items-center justify-between font-roboto-condensed uppercase">
+          <nav className="mx-auto flex max-w-xl flex-1 items-center justify-between font-essays uppercase">
             <div className="flex flex-1 items-center justify-center">
               <Link className="group bg-background px-2" href="/about">
                 <span className="transition-all group-hover:font-bold group-hover:drop-shadow-xl group-active:font-medium">
@@ -22,13 +22,13 @@ export default function MainLayout({ children }: PropsWithChildren) {
               </Link>
             </div>
 
-            <div className="flex flex-1 items-center justify-center">
+            {/* <div className="flex flex-1 items-center justify-center">
               <Link className="group bg-background px-2" href="/writing">
                 <span className="transition-all group-hover:font-bold group-hover:drop-shadow-xl group-active:font-medium">
                   Writing
                 </span>
               </Link>
-            </div>
+            </div> */}
 
             <Link
               className="group flex flex-1 items-center justify-center bg-background px-2"
@@ -37,13 +37,13 @@ export default function MainLayout({ children }: PropsWithChildren) {
               <Logo className="h-12 w-12 transition-all group-hover:scale-110  group-hover:opacity-80 group-hover:drop-shadow-xl group-active:scale-90" />
             </Link>
 
-            <div className="flex flex-1 items-center justify-center">
+            {/* <div className="flex flex-1 items-center justify-center">
               <Link className="group bg-background px-2" href="/work">
                 <span className="transition-all group-hover:font-bold group-hover:drop-shadow-xl group-active:font-medium">
                   Work
                 </span>
               </Link>
-            </div>
+            </div> */}
 
             <div className="flex flex-1 items-center justify-center">
               <Link className="group bg-background px-2" href="/connect">

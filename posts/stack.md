@@ -1,6 +1,6 @@
 ---
 title: This stack
-date: 2023-11-20
+date: 2023-11-19
 description: "How this site is built."
 icon: 🥞
 ---
