@@ -1,0 +1,127 @@
+---
+import "@fontsource/ia-writer-duo/400.css"
+import "@fontsource/ia-writer-duo/700.css"
+import "../styles/globals.css"
+import { SEO, type SEOProps } from "astro-seo"
+import { siteConfig } from "../config/site"
+import Sidebar from "./Sidebar.astro"
+import Header from "./Header.astro"
+import Footer from "./Footer.astro"
+
+export interface Props {
+  title: string
+  description?: string
+  canonical?: SEOProps["canonical"]
+  image?: {
+    // SEOProps["openGraph"]["image"]
+    alt?: string
+    height?: number
+    url?: string
+    width?: number
+  }
+}
+
+const url = new URL(Astro.request.url)
+const host = `${url.protocol}//${url.host}`
+const { title, description, image, canonical } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-MH0RX39N6C"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
+
+      gtag("config", "G-MH0RX39N6C")
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="application-name" content={siteConfig.name} />
+    <SEO
+      title={title}
+      titleTemplate={`%s | ${siteConfig.name}`}
+      description={description ?? siteConfig.description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          url: host,
+          title,
+          type: "website",
+          image: image?.url ? image.url : `${host}/og.png`
+        },
+        optional: {
+          siteName: siteConfig.name,
+          description: description ?? siteConfig.description,
+          locale: "en_US"
+        },
+        image: image
+      }}
+      twitter={{
+        creator: siteConfig.author.twitter,
+        card: "summary_large_image",
+        site: siteConfig.handles.twitter,
+        image: image?.url ? image.url : `${host}/og.png`,
+        title,
+        description: description ?? siteConfig.description
+      }}
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/favicon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/favicon-512x512.png"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title}</title>
+  </head>
+  <body class="font-mono antialiased">
+    <div
+      class="container max-w-5xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto"
+    >
+      <aside class="md:w-[200px] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0">
+        <Sidebar />
+      </aside>
+      <div class="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col">
+        <Header />
+        <main class="flex-auto mb-24">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+    <script>
+      const triggers = document.querySelectorAll("[data-swing-trigger]")
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("mouseenter", () => {
+          const targets = document.querySelectorAll("[data-swing-target]")
+
+          targets.forEach((target) => {
+            target.classList.add("animate-swing")
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

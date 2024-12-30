@@ -1,0 +1,16 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro"
+
+const year = new Date().getFullYear()
+---
+
+<footer
+  class="md:w-9/12 text-sm text-muted-foreground flex justify-between items-center"
+>
+  <p>&copy; <span id="footer-year">{year}</span> Matt Venables.</p>
+  <ThemeToggle />
+</footer>
+
+<script is:inline>
+  document.getElementById("footer-year").innerText = new Date().getFullYear()
+</script>

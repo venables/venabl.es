@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro"
+import DecryptingText from "../components/DecryptingText.astro"
+import { fetchSupply, formatNumber } from "../lib/usdc-supply"
+
+const supply = await fetchSupply()
+
+export const prerender = false
+---
+
+<Layout title="Home">
+  <div class="flex flex-1 items-start space-x-4">
+    <div class="w-full md:w-9/12">
+      <article class="-mt-[5px] prose dark:prose-invert prose-base md:prose-sm">
+        <p>
+          I am a customer-obsessed developer and entrepreneur building the
+          future of decentralized products.
+        </p><p>
+          I co-founded
+          <a href="https://catena.xyz" target="_blank" rel="noreferrer noopener"
+            >Catena Labs</a
+          >. Before that I founded <a
+            href="https://m2.xyz"
+            target="_blank"
+            rel="noreferrer noopener">M2 Labs</a
+          > and
+          <a href="https://vested.co" target="_blank" rel="noreferrer noopener"
+            >Vested</a
+          >, and was early at <a
+            href="https://circle.com"
+            target="_blank"
+            rel="noreferrer noopener">Circle</a
+          > where I helped create the
+          {
+            supply ? (
+              <span>
+                USDC stablecoin, which has a market cap of
+                <a
+                  href="https://usdc.cool"
+                  target="_blank"
+                  class="no-underline"
+                >
+                  <DecryptingText text={"$" + formatNumber(supply) + "."} />
+                </a>
+              </span>
+            ) : (
+              <span>USDC stablecoin.</span>
+            )
+          }
+        </p>
+      </article>
+    </div>
+  </div>
+</Layout>

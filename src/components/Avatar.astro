@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets"
+
+interface Props {
+  image: ImageMetadata
+}
+
+const { image } = Astro.props
+---
+
+<span
+  class="relative block aspect-square shrink-0 origin-top-left overflow-hidden rounded-xl size-16 md:size-24 transition-all"
+  data-swing-target
+  data-swing-trigger
+>
+  <Image alt="Matt Venables" class="aspect-square" src={image} />
+</span>

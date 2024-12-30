@@ -1,0 +1,54 @@
+---
+import { getCollection, getEntry } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import DecryptingText from "../components/DecryptingText.astro"
+
+const allPosts = await getCollection("posts")
+const posts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.date).getTime()
+  const dateB = new Date(b.data.date).getTime()
+  return dateB - dateA
+})
+---
+
+<Layout title="Writing" description="Some things I think I think.">
+  <div class="flex flex-1 items-start space-x-4">
+    <div class="w-full md:w-9/12">
+      <article
+        class="-mt-[5px] prose dark:prose-invert prose-base md:prose-sm prose-ul:ps-0"
+      >
+        <h1>
+          <DecryptingText text="Writing" />
+        </h1>
+        <p>
+          I write about the future of decentralized products, the web3
+          ecosystem, and the intersection of technology and society.
+        </p>
+        <ul class="list-none ps-0">
+          {
+            posts.map((post) => (
+              <li class="">
+                <a
+                  href={`/${post.id}`}
+                  class="flex flex-row items-center gap-2 no-underline group"
+                >
+                  <span class="grow group-hover:underline">
+                    {post.data.icon}
+                    {post.data.title}
+                  </span>
+                  <span class="text-xs mr-2 uppercase text-right text-muted-foreground">
+                    {new Date(post.data.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric"
+                    })}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </div>
+</Layout>
