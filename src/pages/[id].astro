@@ -20,6 +20,8 @@ if (!entry) {
   })
 }
 const { Content } = await render(entry)
+
+export const prerender = true
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>

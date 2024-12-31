@@ -4,8 +4,6 @@ import DecryptingText from "../components/DecryptingText.astro"
 import { fetchSupply, formatNumber } from "../lib/usdc-supply"
 
 const supply = await fetchSupply()
-
-export const prerender = false
 ---
 
 <Layout title="Home">
