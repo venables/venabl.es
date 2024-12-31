@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
 
 interface Props {
   image: ImageMetadata
@@ -9,7 +10,7 @@ const { image } = Astro.props
 ---
 
 <span
-  class="relative block aspect-square shrink-0 origin-top-left overflow-hidden rounded-xl size-16 md:size-24 transition-all"
+  class="relative block aspect-square size-16 shrink-0 origin-top-left overflow-hidden rounded-xl transition-all md:size-24"
   data-swing-target
   data-swing-trigger
 >

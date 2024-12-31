@@ -3,16 +3,16 @@ import "@fontsource/ia-writer-duo/400.css"
 import "@fontsource/ia-writer-duo/700.css"
 import "../styles/fonts.css"
 import "../styles/globals.css"
-import { SEO, type SEOProps } from "astro-seo"
-import { siteConfig } from "../config/site"
-import Sidebar from "./Sidebar.astro"
-import Header from "./Header.astro"
+import { SEO } from "astro-seo"
 import Footer from "./Footer.astro"
+import Header from "./Header.astro"
+import Sidebar from "./Sidebar.astro"
+import { siteConfig } from "../config/site"
 
-export interface Props {
+interface Props {
   title: string
   description?: string
-  canonical?: SEOProps["canonical"]
+  canonical?: string | URL
   image?: {
     // SEOProps["openGraph"]["image"]
     alt?: string
@@ -98,14 +98,14 @@ const { title, description, image, canonical } = Astro.props
   </head>
   <body class="font-mono antialiased">
     <div
-      class="container max-w-5xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto"
+      class="container mx-4 mb-40 mt-8 flex max-w-5xl flex-col md:mt-20 md:flex-row lg:mx-auto lg:mt-32"
     >
-      <aside class="md:w-[200px] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0">
+      <aside class="-mx-4 md:mx-0 md:w-[200px] md:shrink-0 md:px-0">
         <Sidebar />
       </aside>
-      <div class="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col">
+      <div class="mt-6 flex min-w-0 flex-auto flex-col md:mt-0">
         <Header />
-        <main class="flex-auto mb-24">
+        <main class="mb-24 flex-auto">
           <slot />
         </main>
         <Footer />

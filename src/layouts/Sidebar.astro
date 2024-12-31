@@ -11,7 +11,7 @@ const navItems = [
 
 <div class="md:sticky md:top-20">
   <div
-    class="mb-2 px-4 md:px-0 md:mb-20 space-y-10 flex flex-col md:flex-row items-start"
+    class="mb-2 flex flex-col items-start space-y-10 px-4 md:mb-20 md:flex-row md:px-0"
   >
     <a href="/">
       <Avatar image={mattVenablesImage} />
@@ -20,20 +20,20 @@ const navItems = [
 
   <a href="/" data-swing-trigger>
     <span
-      class="mt-[9px] md:hidden mb-20 text-3xl font-medium tracking-widest whitespace-normal font-display"
+      class="mb-20 mt-[9px] whitespace-normal font-display text-3xl font-medium tracking-widest md:hidden"
     >
       Matt Venables
     </span>
   </a>
 
   <nav
-    class="flex flex-row md:flex-col items-start relative md:top-[-7px] overflow-scroll px-4 md:px-0 pb-4 md:pb-0 fade md:overflow-auto scroll-pr-6 md:relative md:left-[-6px]"
+    class="relative flex scroll-pr-6 flex-row items-start overflow-scroll px-4 pb-4 md:relative md:left-[-6px] md:top-[-7px] md:flex-col md:overflow-auto md:px-0 md:pb-0"
   >
-    <ul class="flex flex-row md:flex-col space-x-4 md:space-x-0 pr-10">
+    <ul class="flex flex-row space-x-4 pr-10 md:flex-col md:space-x-0">
       {
         navItems.map(({ label, href }) => (
-          <li class="flex flex-col-reverse md:flex-row text-sm py-1 items-center">
-            <div class="md:relative rounded-full md:mr-2 md:left-[1px] w-[4px] h-[4px] mt-1 md:mt-0 transition-transform scale-0 dark:bg-secondary-500" />
+          <li class="flex flex-col-reverse items-center py-1 text-sm md:flex-row">
+            <div class="mt-1 size-[4px] scale-0 rounded-full transition-transform md:relative md:left-px md:mr-2 md:mt-0" />
             <a
               class="transition-opacity hover:opacity-60 dark:text-gray-400"
               href={href}

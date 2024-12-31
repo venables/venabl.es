@@ -1,17 +1,26 @@
 ---
 import { getEntry, render } from "astro:content"
-import Layout from "../layouts/Layout.astro"
 import DecryptingText from "../components/DecryptingText.astro"
+import Layout from "../layouts/Layout.astro"
 
-const entry = await getEntry("pages", "projects")
-const { Content } = await render(entry)
+async function getContent() {
+  const entry = await getEntry("pages", "projects")
+  if (!entry) {
+    throw new Error(`Entry 'projects' not found`)
+  }
+
+  const { Content } = await render(entry)
+  return { entry, Content }
+}
+
+const { entry, Content } = await getContent()
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
   <div class="flex flex-1 items-start space-x-4">
     <div class="w-full md:w-9/12">
       <article
-        class="-mt-[5px] prose dark:prose-invert prose-base md:prose-sm prose-ul:ps-0"
+        class="prose prose-base mt-[-5px] dark:prose-invert md:prose-sm prose-ul:ps-0"
       >
         <h1 class="font-display font-medium tracking-widest">
           <DecryptingText text={entry.data.title} />

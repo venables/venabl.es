@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url"
 import { includeIgnoreFile } from "@eslint/compat"
 import eslint from "@eslint/js"
 import prettier from "eslint-config-prettier"
-import { createOxcImportResolver } from "eslint-import-resolver-oxc"
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
 import astro from "eslint-plugin-astro"
 import importX from "eslint-plugin-import-x"
 import tailwind from "eslint-plugin-tailwindcss"
@@ -34,11 +34,14 @@ export default tseslint.config(
       }
     },
     settings: {
-      "import-x/resolver-next": [createOxcImportResolver({})]
+      "import-x/resolver-next": [createTypeScriptImportResolver()]
     },
     rules: {
       "import-x/consistent-type-specifier-style": ["warn", "prefer-top-level"],
-      "import-x/no-unresolved": ["error", { ignore: ["\\?url$"] }], // Allow imports with ?url
+      "import-x/no-unresolved": [
+        "error",
+        { ignore: ["\\?url$", "^astro(:\\w+)?$"] }
+      ], // Allow imports with ?url
       "import-x/order": [
         "warn",
         {

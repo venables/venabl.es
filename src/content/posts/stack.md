@@ -10,7 +10,8 @@ I'm always curious about the tech stack for products I use daily. Sometimes the 
 For my personal site (this site), I've changed stacks several times over the years. It started retro with static HTML, then I migrated it to Ruby using Jekyll, then to Javascript with Gatsby, then to TypeScript with Next.js. But once I discovered Astro, I knew it'd be the perfect match for me.
 
 ### Tech used:
-- [Astro](https://astro.build) using Typescript, hosted on [Vercel](https://vercel.com).  You can't beat Astro for content sites. It has it all built-in, and bundles everything into a tiny package.
+
+- [Astro](https://astro.build) using Typescript, hosted on [Vercel](https://vercel.com). You can't beat Astro for content sites. It has it all built-in, and bundles everything into a tiny package.
 - [Tailwind CSS](https://tailwindcss.com) for styling. Nothing compares.
 
 The stack couldn't be simpler, thanks to Astro.
@@ -21,7 +22,6 @@ Bonus details:
 - The layout was inspired by <a href="https://mitchellh.com" rel="nofollow">Mitchell Hashimoto</a>'s site.
 - The site uses the beautiful [iA Writer Duo](https://github.com/iaolo/iA-Fonts) and [Clash Display](https://www.fontshare.com/fonts/clash-display) fonts.
 - The "decrypting text" page header was inspired by <a href="https://stevedylan.dev/" rel="nofollow">Steve Simkins<a>'s site.
-
 
 ---
 
