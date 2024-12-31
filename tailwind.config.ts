@@ -16,6 +16,11 @@ export default {
     },
     extend: {
       fontFamily: {
+        display: [
+          "ClashDisplay-Variable",
+          "iA Writer Duo",
+          ...defaultTheme.fontFamily.mono
+        ],
         mono: ["iA Writer Duo", ...defaultTheme.fontFamily.mono]
       },
       animation: {

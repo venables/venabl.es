@@ -29,7 +29,9 @@ const { Content } = await render(entry)
         <time class="uppercase text-muted-foreground">
           {entry.data.date.toDateString()}
         </time>
-        <h1 class="flex items-start gap-2">
+        <h1
+          class="flex items-start gap-2 font-display font-medium tracking-widest"
+        >
           {entry.data.icon}
           <DecryptingText text={entry.data.title} />
         </h1>
