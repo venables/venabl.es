@@ -12,7 +12,6 @@ For my personal site (this site), I've changed stacks several times over the yea
 ### Tech used:
 - [Astro](https://astro.build) using Typescript, hosted on [Vercel](https://vercel.com).  You can't beat Astro for content sites. It has it all built-in, and bundles everything into a tiny package.
 - [Tailwind CSS](https://tailwindcss.com) for styling. Nothing compares.
-- [Partytown](https://partytown.builder.io/) to offload analytics to a web worker.
 
 The stack couldn't be simpler, thanks to Astro.
 

@@ -16,7 +16,6 @@
     "typecheck": "tsc --noEmit --pretty"
   },
   "dependencies": {
-    "@astrojs/partytown": "^2.1.2",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vercel": "^8.0.1",

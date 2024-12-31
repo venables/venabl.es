@@ -5,8 +5,6 @@ import DecryptingText from "../components/DecryptingText.astro"
 
 const entry = await getEntry("pages", "projects")
 const { Content } = await render(entry)
-
-export const prerender = true
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>

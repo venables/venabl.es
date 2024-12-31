@@ -9,8 +9,6 @@ const posts = allPosts.sort((a, b) => {
   const dateB = new Date(b.data.date).getTime()
   return dateB - dateA
 })
-
-export const prerender = true
 ---
 
 <Layout title="Writing" description="Some things I think I think.">
