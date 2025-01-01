@@ -5,12 +5,8 @@ import { fetchSupply, formatNumber } from "../lib/usdc-supply"
 
 const supply = await fetchSupply()
 
-export const prerender = false
 export const config = {
-  isr: {
-    // Rebuild every 30 minutes
-    expiration: 1800
-  }
+  revalidate: 1800 // 30 minutes
 }
 ---
 
