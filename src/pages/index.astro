@@ -5,6 +5,7 @@ import { fetchSupply, formatNumber } from "../lib/usdc-supply"
 
 const supply = await fetchSupply()
 
+export const prerender = false
 export const config = {
   revalidate: 1800 // 30 minutes
 }
