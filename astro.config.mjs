@@ -7,7 +7,9 @@ import { defineConfig } from "astro/config"
 // https://astro.build/config
 export default defineConfig({
   site: "https://venabl.es",
-  adapter: vercel(),
+  adapter: vercel({
+    isr: true
+  }),
   integrations: [
     tailwind({
       applyBaseStyles: false
