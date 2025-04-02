@@ -113,22 +113,22 @@ const isActive = (path: string, exact = false) => {
           href="/writing"
           class={cn(
             isActive("/writing") ? "text-foreground no-underline" : "link"
-          )}>writing</a
+          )}>Writing</a
         >
         <span class="text-xs text-muted-foreground">/</span>
         <a
           href="/projects"
           class={cn(
             isActive("/projects") ? "text-foreground no-underline" : "link"
-          )}>projects</a
+          )}>Projects</a
         >
-        <span class="flex hidden flex-row items-center gap-2 sm:block">
+        <span class="hidden flex-row items-center gap-2 sm:flex">
           <span class="text-xs text-muted-foreground">/</span>
           <a
             href="/now"
             class={cn(
               isActive("/now") ? "text-foreground no-underline" : "link"
-            )}>now</a
+            )}>Now</a
           >
         </span>
       </nav>
