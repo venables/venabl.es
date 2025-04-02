@@ -1,9 +1,9 @@
 ---
-title: What I'm Doing Now
-description: "This is my now page."
+title: what i'm doing now
+description: 'matt venables'' "now" page.'
 ---
 
-- Probably playing outside with my kids.
-- Spending my days and evenings trying to build something incredible at [Catena Labs](https://catena.xyz).
-- Exercising instead of drinking.
-- Contemplating the mysteries of the universe. Feeling small. And having a perpetual existential crisis.
+- enjoying the changing weather in new england.
+- probably playing outside with my kids.
+- exercising instead of drinking.
+- contemplating the mysteries of the universe. [feeling small](https://www.youtube.com/watch?v=DgqAAE9Aagc). and having a perpetual existential crisis.

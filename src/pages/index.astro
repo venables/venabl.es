@@ -2,64 +2,64 @@
 import Layout from "../layouts/Layout.astro"
 ---
 
-<Layout title="Home">
-  <div class="flex flex-1 items-start space-x-4">
-    <div class="w-full md:w-9/12">
-      <article
-        class="prose prose-base mt-[-5px] md:prose-sm dark:prose-invert prose-a:underline-offset-4"
+<Layout title="matt venables">
+  <article
+    class="prose prose-sm mt-[-5px] dark:prose-invert prose-a:text-link prose-a:underline-offset-4"
+  >
+    <p>i build successful decentralized products.</p>
+
+    <p>
+      i am co-founder and cto of
+      <a href="https://catena.xyz" target="_blank" rel="noreferrer noopener"
+        >catena labs</a
+      >, bringing decentralized identity and finance to ai.
+    </p>
+
+    <p>
+      previously, i founded
+      <a href="https://m2.xyz" target="_blank" rel="noreferrer noopener"
+        >m2 labs</a
+      > and <a
+        href="https://vested.co"
+        target="_blank"
+        rel="noreferrer noopener">vested</a
+      >, and was early at <a
+        href="https://circle.com"
+        target="_blank"
+        rel="noreferrer noopener">circle</a
+      > where i helped create the <span class="font-bold">usdc stablecoin</span
+      >, which has a market cap of
+      <a href="https://usdc.cool" target="_blank"
+        ><span data-usdc-supply></span></a
       >
-        <p>
-          I am a customer-obsessed developer and entrepreneur building the
-          future of decentralized products.
-        </p><p>
-          I co-founded
-          <a href="https://catena.xyz" target="_blank" rel="noreferrer noopener"
-            >Catena Labs</a
-          >. Before that I founded <a
-            href="https://m2.xyz"
-            target="_blank"
-            rel="noreferrer noopener">M2 Labs</a
-          > and
-          <a href="https://vested.co" target="_blank" rel="noreferrer noopener"
-            >Vested</a
-          >, and was early at <a
-            href="https://circle.com"
-            target="_blank"
-            rel="noreferrer noopener">Circle</a
-          > where I helped create the USDC stablecoin, which has a market cap of
-          <a href="https://usdc.cool" target="_blank"
-            ><span data-usdc-supply></span></a
-          >
-        </p>
-      </article>
-    </div>
-  </div>
-</Layout>
+    </p>
+  </article>
 
-<script>
-  import { decrypt } from "../lib/decrypting-text"
+  <script>
+    import { decrypt } from "../lib/decrypting-text"
 
-  async function getSupply() {
-    let supply = "many billion dollars"
+    async function getSupply() {
+      let supply = "many billion dollars"
 
-    try {
-      const response = await fetch("/data.json")
-      const data = (await response.json()) as { supply: string | null }
-      if (data.supply) {
-        supply = data.supply
+      try {
+        const response = await fetch("/data.json")
+        const data = (await response.json()) as { supply: string | null }
+        if (data.supply) {
+          supply = data.supply
+        }
+      } catch (e) {
+        console.warn(
+          "Oops, we couldn't fetch the USDC supply. Can devs do something?"
+        )
       }
-    } catch (e) {
-      console.warn(
-        "Oops, we couldn't fetch the USDC supply. Can devs do something?"
-      )
+
+      return supply
     }
 
-    return supply
-  }
-
-  const supply = await getSupply()
-  document.querySelectorAll("[data-usdc-supply]").forEach((element) => {
-    element.setAttribute("data-text", supply + ".")
-    decrypt(element)
-  })
-</script>
+    const supply = await getSupply()
+    document.querySelectorAll("[data-usdc-supply]").forEach((element) => {
+      element.setAttribute("data-text", supply + ".")
+      decrypt(element)
+    })
+  </script>
+</Layout>

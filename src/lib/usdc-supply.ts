@@ -1,18 +1,14 @@
-import { z } from "zod"
+import { literal, number, object, parse } from "valibot"
 
-const supplySchema = z.object({
-  ok: z.literal(true),
-  data: z.object({
-    supply: z.object({
-      native: z.number()
-    })
-  })
+const supplySchema = object({
+  ok: literal(true),
+  data: object({ supply: object({ native: number() }) })
 })
 
 export async function fetchSupply() {
   try {
     const response = await fetch("https://usdc.cool/api/supply/0")
-    const supply = supplySchema.parse(await response.json())
+    const supply = parse(supplySchema, await response.json())
     return supply.data.supply.native
   } catch (e) {
     console.error(e)

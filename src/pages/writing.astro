@@ -15,26 +15,27 @@ const posts = allPosts.sort((a, b) => {
   <div class="flex flex-1 items-start space-x-4">
     <div class="w-full md:w-9/12">
       <article
-        class="prose prose-base mt-[-5px] md:prose-sm dark:prose-invert prose-a:underline-offset-4 prose-ul:ps-0"
+        class="prose prose-sm mt-[-5px] dark:prose-invert prose-a:underline-offset-4 prose-ul:ps-0"
       >
         <h1 class="font-display font-medium tracking-widest">
           <DecryptingText text="Writing" />
         </h1>
         <p>
-          I write about the future of decentralized products, the web3
-          ecosystem, and the intersection of technology and society.
+          i write about the future of decentralized products, ai, the web3
+          ecosystem, code, finance and the intersection of technology and
+          society.
         </p>
         <ul class="list-none ps-0">
           {
             posts.map((post) => (
-              <li class="">
+              <li>
                 <a
                   href={`/${post.id}`}
-                  class="group flex flex-row items-center gap-2 no-underline"
+                  class="flex flex-row items-center gap-2 no-underline"
                 >
-                  <span class="grow group-hover:underline">
+                  <span class="grow">
                     {post.data.icon}
-                    {post.data.title}
+                    <span class="link">{post.data.title}</span>
                   </span>
                   <span class="mr-2 text-right text-xs text-muted-foreground uppercase">
                     {new Date(post.data.date).toLocaleDateString("en-US", {

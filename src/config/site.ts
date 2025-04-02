@@ -8,14 +8,13 @@ export const siteConfig = {
     link: "https://venabl.es",
 
     // The name of the company/author
-    name: "Matt Venables",
+    name: "matt venables",
     // The Twitter handle of the company/author
     twitter: "@mattyven"
   },
 
   // A description of the project
-  description:
-    "product-focused engineer, entrepreneur, advisor, and angel investor",
+  description: "i build successful decentralized products.",
 
   // Social media handles for the project
   handles: {
@@ -29,15 +28,15 @@ export const siteConfig = {
     github: "https://github.com/venables",
 
     // linkedin
-    linkedin: "https://www.linkedin.com/in/mattvenables/",
+    linkedin: "https://www.linkedin.com/in/mattvenables",
 
     // The Twitter link for the project
     twitter: "https://twitter.com/mattyven"
   },
 
   // The name of the project
-  name: "Matt Venables",
+  name: "matt venables",
 
   // A short name for the project, useful for mobile devices
-  shortName: "Matt Venables"
+  shortName: "matt venables"
 }

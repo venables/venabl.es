@@ -1,12 +1,11 @@
 ---
 import { getEntry, render } from "astro:content"
-import DecryptingText from "../components/DecryptingText.astro"
 import Layout from "../layouts/Layout.astro"
 
 async function getContent() {
-  const entry = await getEntry("pages", "projects")
+  const entry = await getEntry("pages", "now")
   if (!entry) {
-    throw new Error(`Entry 'projects' not found`)
+    throw new Error(`Entry 'now' not found`)
   }
 
   const { Content } = await render(entry)
@@ -22,8 +21,8 @@ const { entry, Content } = await getContent()
       <article
         class="prose prose-sm mt-[-5px] dark:prose-invert prose-a:text-link prose-a:underline-offset-4"
       >
-        <h1 class="font-display font-medium tracking-widest">
-          <DecryptingText text={entry.data.title} />
+        <h1 class="font-medium">
+          {entry.data.title}
         </h1>
         <Content />
       </article>

@@ -1,9 +1,9 @@
 ---
 title: "Projects"
-description: "What I've been working on lately"
+description: "what i've been working on lately"
 ---
 
-Here is a small snapshot of what I've been up to lately:
+here is a small snapshot of what i've been up to lately:
 
 - [usdc.cool](https://usdc.cool): The USDC stablecoin supply tracker
 - [Stablewars](https://stablewars.xyz): Cross-chain stablecoin analytics

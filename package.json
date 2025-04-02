@@ -24,13 +24,13 @@
     "astro-seo": "^0.8.4",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.1.0",
-    "zod": "^3.24.2"
+    "valibot": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1",
     "@eslint/js": "^9",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.0",
+    "@tailwindcss/vite": "^4.1.1",
     "@types/bun": "^1.2.8",
     "@types/eslint-config-prettier": "^6",
     "eslint": "^9",
@@ -42,7 +42,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.0",
+    "tailwindcss": "^4.1.1",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0"

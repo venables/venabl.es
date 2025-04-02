@@ -1,6 +1,5 @@
 ---
 import { getCollection, getEntry, render } from "astro:content"
-import DecryptingText from "../components/DecryptingText.astro"
 import Layout from "../layouts/Layout.astro"
 
 export async function getStaticPaths() {
@@ -26,7 +25,7 @@ const { entry, Content } = await getContent(id)
   <div class="flex flex-1 items-start space-x-4">
     <div class="w-full md:w-9/12">
       <article
-        class="prose prose-base mt-[-5px] md:prose-sm dark:prose-invert prose-a:underline-offset-4"
+        class="prose prose-sm mt-[-5px] dark:prose-invert prose-a:underline-offset-4 prose-code:text-sm"
       >
         <time class="text-muted-foreground uppercase">
           {entry.data.date.toDateString()}
@@ -35,7 +34,7 @@ const { entry, Content } = await getContent(id)
           class="flex items-start gap-2 font-display font-medium tracking-widest"
         >
           {entry.data.icon}
-          <DecryptingText text={entry.data.title} />
+          {entry.data.title}
         </h1>
         <Content />
       </article>

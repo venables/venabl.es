@@ -6,14 +6,16 @@ import { SEO } from "astro-seo"
 import Footer from "./Footer.astro"
 import mattVenablesImage from "../assets/matt-venables.png"
 import Avatar from "../components/Avatar.astro"
+import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro"
+import PostHog from "../components/analytics/PostHog.astro"
 import { siteConfig } from "../config/site"
+import { cn } from "../lib/utils/cn"
 
 interface Props {
   title: string
   description?: string
   canonical?: string | URL
   image?: {
-    // SEOProps["openGraph"]["image"]
     alt?: string
     height?: number
     url?: string
@@ -24,25 +26,19 @@ interface Props {
 const url = new URL(Astro.request.url)
 const host = `${url.protocol}//${url.host}`
 const { title, description, image, canonical } = Astro.props
+
+const isActive = (path: string, exact = false) => {
+  return exact
+    ? Astro.url.pathname === path
+    : Astro.url.pathname.startsWith(path)
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      is:inline
-      src="https://www.googletagmanager.com/gtag/js?id=G-MH0RX39N6C"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag("js", new Date())
-
-      gtag("config", "G-MH0RX39N6C")
-    </script>
+    <PostHog id="phc_3E0P50QSoLWB5ELOsfh19cEXzhu1fu1BhDqxY3fXzd9" />
+    <GoogleAnalytics id="G-MH0RX39N6C" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -95,22 +91,47 @@ const { title, description, image, canonical } = Astro.props
     <title>{title}</title>
   </head>
 
-  <body class="flex min-h-screen flex-col p-2 font-mono antialiased">
+  <body class="flex min-h-screen flex-col gap-8 p-2 font-mono antialiased">
     <header>
-      <div class="flex flex-row items-center gap-2">
+      <nav class="flex flex-row items-center gap-2 text-sm">
         <a
           href="/"
           data-swing-trigger
-          class="font-semibold text-blue-700 underline underline-offset-4"
-          >matt venables</a
+          class={cn(
+            "flex flex-row items-center gap-2",
+            isActive("/", true) ? "text-foreground no-underline" : "link"
+          )}
         >
-        <a href="/">
           <Avatar
             image={mattVenablesImage}
-            class="size-8 rounded-sm md:size-12 md:rounded-md"
+            class="size-6 rounded-sm md:size-8 md:rounded-md"
           />
-        </a>
-      </div>
+          <span>matt venables</span></a
+        >
+        <span class="text-xs text-muted-foreground">/</span>
+        <a
+          href="/writing"
+          class={cn(
+            isActive("/writing") ? "text-foreground no-underline" : "link"
+          )}>writing</a
+        >
+        <span class="text-xs text-muted-foreground">/</span>
+        <a
+          href="/projects"
+          class={cn(
+            isActive("/projects") ? "text-foreground no-underline" : "link"
+          )}>projects</a
+        >
+        <span class="flex hidden flex-row items-center gap-2 sm:block">
+          <span class="text-xs text-muted-foreground">/</span>
+          <a
+            href="/now"
+            class={cn(
+              isActive("/now") ? "text-foreground no-underline" : "link"
+            )}>now</a
+          >
+        </span>
+      </nav>
     </header>
 
     <main class="grow">

@@ -11,13 +11,13 @@ const { class: className } = Astro.props
 <div class={cn("flex items-center gap-2", className)}>
   <button
     id="light-toggle"
-    class="link border-0 bg-transparent p-0 text-foreground no-underline dark:text-link dark:underline dark:underline-offset-4"
+    class="link border-0 bg-transparent p-0 text-foreground no-underline dark:cursor-pointer dark:text-link dark:underline dark:underline-offset-4"
     >light</button
   >
-  <span class="text-foreground">/</span>
+  <span class="text-xs text-muted-foreground">/</span>
   <button
     id="dark-toggle"
-    class="border-0 bg-transparent p-0 text-link underline underline-offset-4 dark:text-foreground dark:no-underline"
+    class="cursor-pointer border-0 bg-transparent p-0 text-link underline underline-offset-4 dark:cursor-default dark:text-foreground dark:no-underline"
     >dark</button
   >
 </div>

@@ -103,7 +103,8 @@
   body {
     @apply bg-background text-foreground;
   }
-  a, .link {
+  a,
+  .link {
     @apply text-link underline underline-offset-4;
   }
 }

@@ -5,10 +5,10 @@ const year = new Date().getFullYear()
 ---
 
 <footer
-  class="flex items-center justify-between text-sm text-muted-foreground md:w-9/12"
+  class="flex max-w-xl flex-col-reverse items-center justify-between gap-2 text-xs text-muted-foreground sm:flex-row"
 >
-  <p>&copy; <span id="footer-year">{year}</span> matt venables.</p>
-  <ThemeToggle />
+  <p class="grow">&copy; <span id="footer-year">{year}</span> matt venables.</p>
+  <ThemeToggle class="text-xs sm:self-end" />
 </footer>
 
 <script is:inline>
