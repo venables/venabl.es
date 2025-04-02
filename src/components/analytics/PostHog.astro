@@ -6,7 +6,9 @@ interface Props {
 const { id } = Astro.props
 ---
 
-<script is:inline>
+<script is:inline define:vars={{ id }}>
+  /** @type {string} */
+  const posthogId = id
   !(function (t, e) {
     var o, n, p, r
     e.__SV ||
@@ -52,7 +54,7 @@ const { id } = Astro.props
       }),
       (e.__SV = 1))
   })(document, window.posthog || [])
-  posthog.init("{id}", {
+  posthog.init(posthogId, {
     api_host: "https://us.i.posthog.com",
     person_profiles: "always"
   })
