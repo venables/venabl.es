@@ -3,19 +3,14 @@
  * @type {import("prettier").Config}
  */
 const config = {
-  plugins: ["prettier-plugin-astro"],
-  overrides: [
-    {
-      files: "*.astro",
-      options: {
-        parser: "astro"
-      }
-    }
-  ],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  overrides: [{ files: "*.astro", options: { parser: "astro" } }],
   trailingComma: "none",
   tabWidth: 2,
   semi: false,
-  singleQuote: false
+  singleQuote: false,
+  tailwindStylesheet: "./src/styles/globals.css",
+  tailwindFunctions: ["clsx", "cva", "cn"]
 }
 
 export default config

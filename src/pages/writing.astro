@@ -15,7 +15,7 @@ const posts = allPosts.sort((a, b) => {
   <div class="flex flex-1 items-start space-x-4">
     <div class="w-full md:w-9/12">
       <article
-        class="prose prose-base mt-[-5px] dark:prose-invert md:prose-sm prose-a:underline-offset-4 prose-ul:ps-0"
+        class="prose prose-base mt-[-5px] md:prose-sm dark:prose-invert prose-a:underline-offset-4 prose-ul:ps-0"
       >
         <h1 class="font-display font-medium tracking-widest">
           <DecryptingText text="Writing" />
@@ -36,7 +36,7 @@ const posts = allPosts.sort((a, b) => {
                     {post.data.icon}
                     {post.data.title}
                   </span>
-                  <span class="mr-2 text-right text-xs uppercase text-muted-foreground">
+                  <span class="mr-2 text-right text-xs text-muted-foreground uppercase">
                     {new Date(post.data.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "short",

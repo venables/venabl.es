@@ -20,7 +20,8 @@
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "iA Writer Duo", ui-monospace, monospace;
-  --font-display: "ClashDisplay-Variable", "iA Writer Duo", ui-monospace, monospace;
+  --font-display:
+    "ClashDisplay-Variable", "iA Writer Duo", ui-monospace, monospace;
 }
 
 @font-face {

@@ -58,7 +58,7 @@ const { title, description, image, canonical } = Astro.props
           url: host,
           title,
           type: "website",
-          image: image?.url ? image.url : `${host}/og.png`
+          image: image?.url ?? `${host}/og.png`
         },
         optional: {
           siteName: siteConfig.name,
@@ -71,7 +71,7 @@ const { title, description, image, canonical } = Astro.props
         creator: siteConfig.author.twitter,
         card: "summary_large_image",
         site: siteConfig.handles.twitter,
-        image: image?.url ? image.url : `${host}/og.png`,
+        image: image?.url ?? `${host}/og.png`,
         title,
         description: description ?? siteConfig.description
       }}
@@ -98,7 +98,7 @@ const { title, description, image, canonical } = Astro.props
   </head>
   <body class="font-mono antialiased">
     <div
-      class="container mx-4 mb-40 mt-8 flex max-w-5xl flex-col md:mt-20 md:flex-row lg:mx-auto lg:mt-32"
+      class="container mx-4 mt-8 mb-40 flex max-w-5xl flex-col md:mt-20 md:flex-row lg:mx-auto lg:mt-32"
     >
       <aside class="-mx-4 md:mx-0 md:w-[200px] md:shrink-0 md:px-0">
         <Sidebar />

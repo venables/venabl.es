@@ -25,8 +25,10 @@ const { entry, Content } = await getContent(id)
 <Layout title={entry.data.title} description={entry.data.description}>
   <div class="flex flex-1 items-start space-x-4">
     <div class="w-full md:w-9/12">
-      <article class="prose prose-base mt-[-5px] dark:prose-invert md:prose-sm prose-a:underline-offset-4">
-        <time class="uppercase text-muted-foreground">
+      <article
+        class="prose prose-base mt-[-5px] md:prose-sm dark:prose-invert prose-a:underline-offset-4"
+      >
+        <time class="text-muted-foreground uppercase">
           {entry.data.date.toDateString()}
         </time>
         <h1

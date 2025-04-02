@@ -8,7 +8,6 @@ import prettier from "eslint-config-prettier"
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
 import astro from "eslint-plugin-astro"
 import importX from "eslint-plugin-import-x"
-import tailwind from "eslint-plugin-tailwindcss"
 import tseslint from "typescript-eslint"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -25,17 +24,11 @@ export default tseslint.config(
   importX.flatConfigs.typescript,
   ...astro.configs.recommended,
   ...astro.configs["jsx-a11y-strict"],
-  ...tailwind.configs["flat/recommended"],
   {
     languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname
-      }
+      parserOptions: { project: true, tsconfigRootDir: import.meta.dirname }
     },
-    settings: {
-      "import-x/resolver-next": [createTypeScriptImportResolver()]
-    },
+    settings: { "import-x/resolver-next": [createTypeScriptImportResolver()] },
     rules: {
       "import-x/consistent-type-specifier-style": ["warn", "prefer-top-level"],
       "import-x/no-unresolved": [
@@ -55,17 +48,10 @@ export default tseslint.config(
             "object",
             "type"
           ],
-          alphabetize: {
-            order: "asc"
-          }
+          alphabetize: { order: "asc" }
         }
       ],
-      "sort-imports": [
-        "warn",
-        {
-          ignoreDeclarationSort: true
-        }
-      ]
+      "sort-imports": ["warn", { ignoreDeclarationSort: true }]
     }
   },
   /**
@@ -83,10 +69,7 @@ export default tseslint.config(
    *
    * Ignore type-checking
    */
-  {
-    files: ["**/*.{js,mjs,cjs}"],
-    ...tseslint.configs.disableTypeChecked
-  },
+  { files: ["**/*.{js,mjs,cjs}"], ...tseslint.configs.disableTypeChecked },
 
   prettier
 )
