@@ -16,6 +16,13 @@
 
 *
 */
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "iA Writer Duo", ui-monospace, monospace;
+  --font-display: "ClashDisplay-Variable", "iA Writer Duo", ui-monospace, monospace;
+}
+
 @font-face {
   font-family: "ClashDisplay-Extralight";
   src:
@@ -26,6 +33,7 @@
   font-display: swap;
   font-style: normal;
 }
+
 @font-face {
   font-family: "ClashDisplay-Light";
   src:
