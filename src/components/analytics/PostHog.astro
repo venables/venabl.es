@@ -53,6 +53,7 @@ const { id } = Astro.props
       (e.__SV = 1))
   })(document, window.posthog || [])
   posthog.init("{id}", {
-    api_host: "https://us.i.posthog.com"
+    api_host: "https://us.i.posthog.com",
+    person_profiles: "always"
   })
 </script>
