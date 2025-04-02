@@ -1,12 +1,11 @@
 ---
-import "@fontsource/ia-writer-duo/400.css"
-import "@fontsource/ia-writer-duo/700.css"
+import "@fontsource-variable/jetbrains-mono"
 import "../styles/fonts.css"
 import "../styles/globals.css"
 import { SEO } from "astro-seo"
 import Footer from "./Footer.astro"
-import Header from "./Header.astro"
-import Sidebar from "./Sidebar.astro"
+import mattVenablesImage from "../assets/matt-venables.png"
+import Avatar from "../components/Avatar.astro"
 import { siteConfig } from "../config/site"
 
 interface Props {
@@ -93,24 +92,33 @@ const { title, description, image, canonical } = Astro.props
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-
     <title>{title}</title>
   </head>
-  <body class="font-mono antialiased">
-    <div
-      class="container mx-4 mt-8 mb-40 flex max-w-5xl flex-col md:mt-20 md:flex-row lg:mx-auto lg:mt-32"
-    >
-      <aside class="-mx-4 md:mx-0 md:w-[200px] md:shrink-0 md:px-0">
-        <Sidebar />
-      </aside>
-      <div class="mt-6 flex min-w-0 flex-auto flex-col md:mt-0">
-        <Header />
-        <main class="mb-24 flex-auto">
-          <slot />
-        </main>
-        <Footer />
+
+  <body class="flex min-h-screen flex-col p-2 font-mono antialiased">
+    <header>
+      <div class="flex flex-row items-center gap-2">
+        <a
+          href="/"
+          data-swing-trigger
+          class="font-semibold text-blue-700 underline underline-offset-4"
+          >matt venables</a
+        >
+        <a href="/">
+          <Avatar
+            image={mattVenablesImage}
+            class="size-8 rounded-sm md:size-12 md:rounded-md"
+          />
+        </a>
       </div>
-    </div>
+    </header>
+
+    <main class="grow">
+      <slot />
+    </main>
+
+    <Footer />
+
     <script>
       const triggers = document.querySelectorAll("[data-swing-trigger]")
 

@@ -16,13 +16,6 @@ For my personal site (this site), I've changed stacks several times over the yea
 
 The stack couldn't be simpler, thanks to Astro.
 
-Bonus details:
-
-- I use [Zed](https://zed.dev) for my editor.
-- The layout was inspired by <a href="https://mitchellh.com" rel="nofollow">Mitchell Hashimoto</a>'s site.
-- The site uses the beautiful [iA Writer Duo](https://github.com/iaolo/iA-Fonts) and [Clash Display](https://www.fontshare.com/fonts/clash-display) fonts.
-- The "decrypting text" page header was inspired by <a href="https://stevedylan.dev/" rel="nofollow">Steve Simkins<a>'s site.
-
 ---
 
 **Previous stack, circa 2023->2024:**

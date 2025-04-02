@@ -1,4 +1,7 @@
 {
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
   // Filetype-specific config
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
