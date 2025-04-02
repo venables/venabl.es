@@ -8,7 +8,7 @@ export const siteConfig = {
     link: "https://venabl.es",
 
     // The name of the company/author
-    name: "matt venables",
+    name: "Matt Venables",
     // The Twitter handle of the company/author
     twitter: "@mattyven"
   },
@@ -35,8 +35,8 @@ export const siteConfig = {
   },
 
   // The name of the project
-  name: "matt venables",
+  name: "Matt Venables",
 
   // A short name for the project, useful for mobile devices
-  shortName: "matt venables"
+  shortName: "Venables"
 }

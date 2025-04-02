@@ -1,6 +1,6 @@
 ---
-title: what i'm doing now
-description: 'matt venables'' "now" page.'
+title: What I'm Doing Now
+description: 'Matt Venables'' "now" page.'
 ---
 
 - enjoying the changing weather in new england.
