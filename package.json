@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
+    "outdated": "bunx npm-check-updates --interactive --format group",
     "preview": "astro preview",
     "typecheck": "tsc --noEmit --pretty"
   },
