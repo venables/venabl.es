@@ -111,6 +111,7 @@ const isActive = (path: string, exact = false) => {
         <span class="text-xs text-muted-foreground">/</span>
         <a
           href="/writing"
+          data-swing-trigger
           class={cn(
             isActive("/writing") ? "text-foreground no-underline" : "link"
           )}>Writing</a
@@ -118,6 +119,7 @@ const isActive = (path: string, exact = false) => {
         <span class="text-xs text-muted-foreground">/</span>
         <a
           href="/projects"
+          data-swing-trigger
           class={cn(
             isActive("/projects") ? "text-foreground no-underline" : "link"
           )}>Projects</a
@@ -126,6 +128,7 @@ const isActive = (path: string, exact = false) => {
           <span class="text-xs text-muted-foreground">/</span>
           <a
             href="/now"
+            data-swing-trigger
             class={cn(
               isActive("/now") ? "text-foreground no-underline" : "link"
             )}>Now</a
