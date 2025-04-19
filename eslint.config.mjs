@@ -26,7 +26,7 @@ export default tseslint.config(
   ...astro.configs["jsx-a11y-strict"],
   {
     languageOptions: {
-      parserOptions: { project: true, tsconfigRootDir: import.meta.dirname }
+      parserOptions: { project: true, tsconfigRootDir: __dirname }
     },
     settings: { "import-x/resolver-next": [createTypeScriptImportResolver()] },
     rules: {

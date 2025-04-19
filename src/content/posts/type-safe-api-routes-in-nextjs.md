@@ -116,7 +116,7 @@ Developing this, I realized this was **the missing API endpoint layer for Next.j
 npm i typed-route-handler
 
 # or better yet:
-bun add typed-route-handler
+pnpm add typed-route-handler
 ```
 
 [Check out the README for more examples](https://github.com/venables/typed-route-handler), and let me know what you think.
