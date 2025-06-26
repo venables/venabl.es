@@ -1,25 +1,43 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 // Component Imports
-import Button from '../components/Button.astro';
+import Button from "../components/Button.astro";
+import Layout from "@/layouts/layout.astro";
+import Header from "@/components/layout/header.astro";
+import Navigation from "@/components/layout/navigation.astro";
+import SocialLinks from "@/components/layout/social-links.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<Layout title="Home">
+  <Header title="Matt Venables" />
+  <Navigation />
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+  <!-- About Section -->
+  <section class="mb-12">
+    <div
+      class="text-muted-foreground text-sm font-mono leading-relaxed space-y-3"
+    >
+      <p>
+        Builder of things on the internet. Currently working on projects that
+        bridge the gap between complex systems and simple interfaces.
+      </p>
+      <p>
+        Interested in distributed systems, developer tools, and the intersection
+        of technology and human behavior. Always learning, always building.
+      </p>
+    </div>
+  </section>
+
+  <!-- Social Links -->
+  <section class="mb-12">
+    <SocialLinks />
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-xs text-muted-foreground font-mono">
+    <p>Last updated: December 2024</p>
+  </footer>
+</Layout>

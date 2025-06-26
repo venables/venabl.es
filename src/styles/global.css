@@ -1,7 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-mono: "iA Writer Quattro", ui-monospace, monospace;
+  --font-serif: "EB Garamond Variable", ui-serif, serif;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

@@ -1,0 +1,24 @@
+---
+const sections = [
+  { name: "writing", href: "/blog/example-post" },
+  { name: "projects", href: "#projects" },
+  { name: "now", href: "#now" },
+];
+---
+
+<nav class="mb-8">
+  <ul class="flex flex-col space-y-1">
+    {
+      sections.map((section) => (
+        <li>
+          <a
+            href={section.href}
+            class="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-mono"
+          >
+            {section.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

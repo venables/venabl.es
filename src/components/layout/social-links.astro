@@ -1,0 +1,45 @@
+---
+import { Github, Linkedin, Twitter, Mail } from "@lucide/astro";
+
+const links = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/venables",
+    icon: Twitter,
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/venables",
+    icon: Github,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/venables",
+    icon: Linkedin,
+  },
+  {
+    name: "Email",
+    url: "mailto:hello@venables.dev",
+    icon: Mail,
+  },
+];
+---
+
+<div class="flex flex-col space-y-1">
+  {
+    links.map((link) => {
+      const Icon = link.icon;
+      return (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-mono"
+        >
+          <Icon class="h-4 w-4" />
+          <span>{link.name.toLowerCase()}</span>
+        </a>
+      );
+    })
+  }
+</div>

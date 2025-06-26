@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const firstChar = title.charAt(0);
+const rest = title.slice(1);
+---
+
+<header class="mb-12">
+  <h1 class="text-4xl md:text-5xl font-serif font-medium text-foreground mb-2">
+    <span class="italic">{firstChar}</span>{rest}
+  </h1>
+</header>

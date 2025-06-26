@@ -1,0 +1,30 @@
+---
+import "@fontsource-variable/eb-garamond";
+import "@fontsource/ia-writer-quattro/400.css";
+import "@fontsource/ia-writer-quattro/700.css";
+import "@/styles/global.css";
+import { siteConfig } from "@/config/site";
+import ThemeToggle from "@/components/layout/theme-toggle.astro";
+
+interface Props {
+  title?: string;
+}
+
+const { title = siteConfig.name } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <ThemeToggle client:load data-confetti />
+    <main class="min-h-screen max-w-2xl mx-auto px-8 py-16">
+      <slot />
+    </main>
+  </body>
+</html>

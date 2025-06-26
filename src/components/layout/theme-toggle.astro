@@ -1,0 +1,80 @@
+---
+import Button from "@/components/astro-ui/button.astro";
+import { cn } from "@/lib/utils";
+import { SunIcon, MoonIcon } from "@lucide/astro";
+import type { ComponentProps } from "astro/types";
+
+type Props = ComponentProps<typeof Button>;
+
+const {
+  variant = "ghost",
+  size = "sm",
+  class: className,
+  ...props
+} = Astro.props;
+---
+
+<Button
+  variant={variant}
+  size={size}
+  id="theme-toggle"
+  class={cn("fixed top-4 right-4 w-9 h-9 p-0", className)}
+  {...props}
+>
+  <MoonIcon class="h-4 w-4 dark:hidden inline-block" />
+  <SunIcon class="h-4 w-4 hidden dark:inline-block" />
+  <span class="sr-only">Toggle theme</span>
+</Button>
+
+<script is:inline>
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+  const theme = (() => {
+    // If we have a theme defined in localStorage, use it
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme") ?? "light";
+    }
+
+    // If the user has a preference for dark mode, use it
+    return systemTheme;
+  })();
+
+  /**
+   * Save the theme to localStorage.
+   * If the theme is the system theme, remove the theme from localStorage.
+   *
+   * @param theme - The theme to save
+   */
+  const saveTheme = (theme) => {
+    if (typeof localStorage == "undefined") {
+      return;
+    }
+
+    // if we're setting the theme to the system theme, remove the theme from localStorage
+    if (theme === systemTheme) {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", theme);
+    }
+  };
+
+  const toggleTheme = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+    saveTheme(element.classList.contains("dark") ? "dark" : "light");
+  };
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+    // document.getElementById("light-toggle")?.classList.add("link");
+  } else {
+    document.documentElement.classList.add("dark");
+    // document.getElementById("dark-toggle")?.classList.add("link");
+  }
+
+  document
+    .getElementById("theme-toggle")
+    ?.addEventListener("click", toggleTheme);
+</script>
