@@ -18,7 +18,10 @@ const {
   variant={variant}
   size={size}
   id="theme-toggle"
-  class={cn("fixed top-4 right-4 w-9 h-9 p-0", className)}
+  class={cn(
+    "fixed top-4 right-4 w-9 h-9 p-0 backdrop-blur cursor-pointer",
+    className
+  )}
   {...props}
 >
   <MoonIcon class="h-4 w-4 dark:hidden inline-block" />

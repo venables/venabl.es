@@ -1,10 +1,13 @@
 ---
 import "@fontsource-variable/eb-garamond";
+import "@fontsource/ia-writer-mono";
 import "@fontsource/ia-writer-quattro/400.css";
 import "@fontsource/ia-writer-quattro/700.css";
 import "@/styles/global.css";
 import { siteConfig } from "@/config/site";
 import ThemeToggle from "@/components/layout/theme-toggle.astro";
+import PostHog from "@/components/analytics/post-hog.astro";
+import GoogleAnalytics from "@/components/analytics/google-analytics.astro";
 
 interface Props {
   title?: string;
@@ -16,13 +19,15 @@ const { title = siteConfig.name } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <PostHog id="phc_3E0P50QSoLWB5ELOsfh19cEXzhu1fu1BhDqxY3fXzd9" />
+    <GoogleAnalytics id="G-MH0RX39N6C" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
-    <ThemeToggle client:load data-confetti />
+  <body class="font-mono antialiased">
+    <ThemeToggle data-confetti />
     <main class="min-h-screen max-w-2xl mx-auto px-8 py-16">
       <slot />
     </main>
