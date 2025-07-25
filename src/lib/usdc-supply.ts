@@ -1,14 +1,14 @@
-import { literal, number, object, parse } from "valibot"
+import * as v from "valibot"
 
-const supplySchema = object({
-  ok: literal(true),
-  data: object({ supply: object({ native: number() }) })
+const supplySchema = v.object({
+  ok: v.literal(true),
+  data: v.object({ supply: v.object({ native: v.number() }) })
 })
 
 export async function fetchSupply() {
   try {
-    const response = await fetch("https://usdc.cool/api/supply/0")
-    const supply = parse(supplySchema, await response.json())
+    const response = await fetch("https://api.stables.cool/tokens/USDC/supply")
+    const supply = v.parse(supplySchema, await response.json())
     return supply.data.supply.native
   } catch (e) {
     console.error(e)

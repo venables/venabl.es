@@ -1,8 +1,7 @@
 ---
-title: npx hello
-date: 2023-11-20
+title: Say hello to `npx hello`
 description: "Introducing 'npx hello', the easiest way to browse GitHub profiles from the command line."
-icon: 👋
+pubDate: 2023-11-20
 ---
 
 If you're anything like me, you spend your entire day in and out of the terminal. And, often you want to learn more about the developers behind some of your favorite code. But that requires the immense effort of opening up a browser and going to GitHub and looking through their profile.

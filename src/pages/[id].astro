@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from "astro:content"
-import Layout from "../layouts/Layout.astro"
+import Article from "@/components/articles/article.astro"
+import Layout from "../layouts/layout.astro"
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts")
@@ -21,23 +22,9 @@ const { id } = Astro.params
 const { entry, Content } = await getContent(id)
 ---
 
-<Layout title={entry.data.title} description={entry.data.description}>
-  <div class="flex flex-1 items-start space-x-4">
-    <div class="w-full md:w-9/12">
-      <article
-        class="prose-md prose mt-[-5px] sm:prose-sm dark:prose-invert prose-a:underline-offset-4 prose-code:text-sm"
-      >
-        <time class="text-muted-foreground uppercase">
-          {entry.data.date.toDateString()}
-        </time>
-        <h1
-          class="flex items-start gap-2 font-display font-medium tracking-widest"
-        >
-          {entry.data.icon}
-          {entry.data.title}
-        </h1>
-        <Content />
-      </article>
-    </div>
-  </div>
+<Layout title={entry.data.title ?? "Untitled"} description={entry.data.description ?? ""}>
+  <Article>
+    {entry.data.pubDate && <time class="text-muted-foreground uppercase">{entry.data.pubDate.toDateString()}</time>}
+    <Content />
+  </Article>
 </Layout>

@@ -6,10 +6,7 @@ interface Props {
 const { id } = Astro.props
 ---
 
-<script
-  async
-  is:inline
-  src={`https://www.googletagmanager.com/gtag/js?id=${id}`}></script>
+<script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${id}`}></script>
 <script is:inline define:vars={{ id }}>
   /** @type {string} */
   const googleAnalyticsId = id

@@ -1,0 +1,18 @@
+---
+import { cn } from "@/lib/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"article"> & {}
+
+const { class: className, ...props } = Astro.props
+---
+
+<article
+  class={cn(
+    "prose prose-sm max-w-none sm:text-[13px] dark:prose-invert prose-a:px-px prose-a:underline prose-a:underline-offset-4 prose-a:hover:bg-accent prose-a:hover:text-foreground prose-a:hover:no-underline prose-a:dark:hover:text-background prose-code:text-sm",
+    className
+  )}
+  {...props}
+>
+  <slot />
+</article>

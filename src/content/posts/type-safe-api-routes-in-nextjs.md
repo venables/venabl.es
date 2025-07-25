@@ -1,8 +1,7 @@
 ---
-title: Type-safe API routes in Next.js
-date: 2024-01-09
+title: Type-safe API Routes in Next.js
 description: "Introducing 'typed-route-handler', the easiest way to add type-safety to Next.js Route Handlers"
-icon: 💪
+pubDate: 2024-01-09
 ---
 
 Since the release of Next.js 14, I have been converting all of my existing (and new) products to use the app directory and Server Components. The journey has been exciting, albeit with it's fair share of bumps in the road. But one of the features I've most enjoyed was the creation of **Route Handlers**. Built on web standards, these incredibly powerful handlers allow us to return _anything_ from a specific route -- a JSON API response, an image, a stream, React Components... _anything_!

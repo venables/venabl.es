@@ -1,5 +1,12 @@
 export const siteConfig = {
-  // Information about the author / company of the site
+  name: "Matt Venables",
+  links: {
+    email: "mailto:m@venabl.es",
+    github: "https://github.com/venables",
+    linkedin: "https://www.linkedin.com/in/mattvenables",
+    x: "https://x.com/mattyven"
+  },
+
   author: {
     // The email of the company/author
     email: "matt@venabl.es",
@@ -20,23 +27,5 @@ export const siteConfig = {
   handles: {
     // The Twitter handle for the project
     twitter: "@mattyven"
-  },
-
-  // Links related to the project
-  links: {
-    // The GitHub link for the project
-    github: "https://github.com/venables",
-
-    // linkedin
-    linkedin: "https://www.linkedin.com/in/mattvenables",
-
-    // The Twitter link for the project
-    twitter: "https://twitter.com/mattyven"
-  },
-
-  // The name of the project
-  name: "Matt Venables",
-
-  // A short name for the project, useful for mobile devices
-  shortName: "Venables"
+  }
 }

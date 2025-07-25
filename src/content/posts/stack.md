@@ -1,8 +1,7 @@
 ---
 title: This stack
-date: 2024-12-29
 description: "How this site is built."
-icon: 🥞
+pubDate: 2023-11-04
 ---
 
 I'm always curious about the tech stack for products I use daily. Sometimes the most wonderful user experiences are backed by the wildest tech choices (but, like I've said before, an ugly backend that ships is better than perfect backend that nobody sees).

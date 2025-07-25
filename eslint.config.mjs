@@ -7,7 +7,7 @@ import eslint from "@eslint/js"
 import prettier from "eslint-config-prettier"
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript"
 import astro from "eslint-plugin-astro"
-import importX from "eslint-plugin-import-x"
+import { importX } from "eslint-plugin-import-x"
 import tseslint from "typescript-eslint"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -31,23 +31,12 @@ export default tseslint.config(
     settings: { "import-x/resolver-next": [createTypeScriptImportResolver()] },
     rules: {
       "import-x/consistent-type-specifier-style": ["warn", "prefer-top-level"],
-      "import-x/no-unresolved": [
-        "error",
-        { ignore: ["\\?url$", "^astro(:\\w+)?$"] }
-      ], // Allow imports with ?url
+      "import-x/no-unresolved": ["error", { ignore: ["\\?url$", "^astro(:\\w+)?$"] }], // Allow imports with ?url
       "import-x/order": [
         "warn",
         {
           "newlines-between": "never",
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            ["sibling", "parent"],
-            "index",
-            "object",
-            "type"
-          ],
+          groups: ["builtin", "external", "internal", ["sibling", "parent"], "index", "object", "type"],
           alphabetize: { order: "asc" }
         }
       ],

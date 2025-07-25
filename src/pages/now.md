@@ -1,6 +1,7 @@
 ---
+layout: ../layouts/markdown-layout.astro
 title: What I'm Doing Now
-description: 'Matt Venables'' "now" page.'
+description: 'My "now" page.'
 ---
 
 - enjoying the changing weather in new england.

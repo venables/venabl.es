@@ -1,35 +1,71 @@
-/**
-* @license
-*
-* Font Family: Clash Display
-* Designed by: Indian Type Foundry
-* URL: https://www.fontshare.com/fonts/clash-display
-* © 2024 Indian Type Foundry
-*
-* Clash Display Extralight
-* Clash Display Light
-* Clash Display Regular
-* Clash Display Medium
-* Clash Display Semibold
-* Clash Display Bold
-* Clash Display Variable (Variable font)
-
-*
-*/
-
-@theme {
-  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
-  --font-display:
-    "ClashDisplay-Variable", "iA Writer Duo", ui-monospace, monospace;
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
 }
 
 @font-face {
-  font-family: "ClashDisplay-Variable";
-  src:
-    url("../fonts/ClashDisplay-Variable.woff2") format("woff2"),
-    url("../fonts/ClashDisplay-Variable.woff") format("woff"),
-    url("../fonts/ClashDisplay-Variable.ttf") format("truetype");
-  font-weight: 200 700;
+  font-family: "Font Display";
+  src: url("/fonts/display/RegularItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/Semibold.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/SemiboldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/Extrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Display";
+  src: url("/fonts/display/BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
 }

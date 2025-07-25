@@ -1,0 +1,33 @@
+---
+import { BubblesIcon } from "@lucide/astro"
+---
+
+<a href="https://usdc.cool" data-usdc-supply class="no-underline [data-text]:underline"
+  ><BubblesIcon class="inline size-4" /></a
+>.
+
+<script>
+  import { decrypt } from "@/lib/decrypting-text"
+
+  async function getSupply() {
+    let supply = "many billion dollars"
+
+    try {
+      const response = await fetch("/data.json")
+      const data = (await response.json()) as { supply: string | null }
+      if (data.supply) {
+        supply = data.supply
+      }
+    } catch (e) {
+      console.warn("Oops, we couldn't fetch the USDC supply. Can devs do something?")
+    }
+
+    return supply
+  }
+
+  const supply = await getSupply()
+  document.querySelectorAll("[data-usdc-supply]").forEach((element) => {
+    element.setAttribute("data-text", supply)
+    decrypt(element)
+  })
+</script>

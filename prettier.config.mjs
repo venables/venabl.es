@@ -9,6 +9,7 @@ const config = {
   tabWidth: 2,
   semi: false,
   singleQuote: false,
+  printWidth: 120,
   tailwindStylesheet: "./src/styles/globals.css",
   tailwindFunctions: ["clsx", "cva", "cn"]
 }
