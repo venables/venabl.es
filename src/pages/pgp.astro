@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/_root.astro"
 
 const title = "PGP public key"
-const fingerprint = siteConfig.sec.pgp
+const fingerprint = siteConfig.keys.pgp
 ---
 
 <RootLayout title={title} description={`PGP public key for ${siteConfig.name}`}>

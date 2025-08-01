@@ -38,12 +38,12 @@ const sha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "e71ec5571df242790b1
       class="link underline decoration-dotted underline-offset-4"
       target="_blank"
       rel="noopener noreferrer"
-      href={`https://github.com/venables/venabl.es/commit/${sha}`}>{sha.slice(0, 7)}</a
+      href={`${siteConfig.repository}/commit/${sha}`}>{sha.slice(0, 7)}</a
     >)
   </span>
   <div class="mt-8 flex items-center justify-between">
     <span class="flex items-center gap-1 text-xs leading-6 text-muted-foreground/70">
-      <a class="link no-underline" href="/.well-known/did.json">did:web:venabl.es</a>
+      <a class="link no-underline" href="/.well-known/did.json">{siteConfig.keys.did}</a>
       |
       <a class="link no-underline" href="/pgp">pgp</a>
     </span>

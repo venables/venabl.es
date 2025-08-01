@@ -1,6 +1,9 @@
 export const siteConfig = {
   name: "Matt Venables",
   description: "I build successful decentralized products.",
+
+  repository: "https://github.com/venables/website",
+
   links: {
     email: "mailto:m@venabl.es",
     github: "https://github.com/venables",
@@ -19,7 +22,7 @@ export const siteConfig = {
     x: "@mattyven"
   },
 
-  sec: {
+  keys: {
     did: "did:web:venabl.es",
     pgp: "819D 7F08 D2FC A190 AA72 DE47 77B0 E608 E3CE 4290"
   }
