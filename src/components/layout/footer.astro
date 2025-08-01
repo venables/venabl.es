@@ -1,4 +1,5 @@
 ---
+import { CopyIcon } from "@lucide/astro"
 import ThemeToggle from "@/components/layout/theme-toggle.astro"
 import { siteConfig } from "@/config/site"
 
@@ -10,29 +11,16 @@ const sha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "e71ec5571df242790b1
   class="relative flex flex-col gap-1 py-4 text-muted-foreground before:absolute before:top-0 before:left-0 before:h-px before:w-1/4 before:bg-foreground"
 >
   <span>
-    <ThemeToggle />
-    <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.email}>Email</a>,
-    <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.linkedin}>LinkedIn</a>,
     <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.github}>GitHub</a>,
     <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.x}>X</a>,
+    <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.email}>Email</a>,
+    <a class="link" target="_blank" rel="noopener noreferrer" href={siteConfig.links.linkedin}>LinkedIn</a>,
     <a class="link" href="/rss.xml">RSS</a>,
     <a class="link" href="/now">Now</a>
   </span>
 
-  <span>
-    DID:
-    <a class="link text-xs leading-6 text-muted-foreground/70 no-underline" href="/.well-known/did.json">
-      did:web:venabl.es
-    </a>
-  </span>
-  <span>
-    PGP:
-    <a class="link text-xs leading-6 text-muted-foreground/70 no-underline" href="/.well-known/pgp-key.asc">
-      819D 7F08 D2FC A190 AA72 DE47 77B0 E608 E3CE 4290
-    </a>
-  </span>
   <span class="text-xs leading-6 text-muted-foreground/70">
-    Updated {
+    Last mod: {
       currentDate.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
@@ -47,12 +35,20 @@ const sha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "e71ec5571df242790b1
         timeZoneName: "short"
       })
     } (<a
-      class="link no-underline"
+      class="link underline decoration-dotted underline-offset-4"
       target="_blank"
       rel="noopener noreferrer"
       href={`https://github.com/venables/venabl.es/commit/${sha}`}>{sha.slice(0, 7)}</a
     >)
   </span>
+  <div class="mt-8 flex items-center justify-between">
+    <span class="flex items-center gap-1 text-xs leading-6 text-muted-foreground/70">
+      <a class="link no-underline" href="/.well-known/did.json">did:web:venabl.es</a>
+      |
+      <a class="link no-underline" href="/pgp">pgp</a>
+    </span>
+    <ThemeToggle />
+  </div>
 </footer>
 
 <script is:inline>

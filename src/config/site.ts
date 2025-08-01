@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Matt Venables",
+  description: "I build successful decentralized products.",
   links: {
     email: "mailto:m@venabl.es",
     github: "https://github.com/venables",
@@ -8,24 +9,18 @@ export const siteConfig = {
   },
 
   author: {
-    // The email of the company/author
     email: "matt@venabl.es",
-
-    // The website of the company/author
     link: "https://venabl.es",
-
-    // The name of the company/author
     name: "Matt Venables",
-    // The Twitter handle of the company/author
     twitter: "@mattyven"
   },
 
-  // A description of the project
-  description: "i build successful decentralized products.",
-
-  // Social media handles for the project
   handles: {
-    // The Twitter handle for the project
-    twitter: "@mattyven"
+    x: "@mattyven"
+  },
+
+  sec: {
+    did: "did:web:venabl.es",
+    pgp: "819D 7F08 D2FC A190 AA72 DE47 77B0 E608 E3CE 4290"
   }
 }

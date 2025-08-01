@@ -8,4 +8,7 @@ export interface RootLayoutProps {
     url?: string
     width?: number
   }
+  article?: {
+    date: string
+  }
 }

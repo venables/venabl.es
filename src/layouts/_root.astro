@@ -1,14 +1,8 @@
 ---
-import "@fontsource-variable/jetbrains-mono"
-import "@fontsource-variable/geist-mono"
-import "@/styles/globals.css"
 import { SEO } from "astro-seo"
 import GoogleAnalytics from "@/components/analytics/google-analytics.astro"
 import PostHog from "@/components/analytics/post-hog.astro"
-import TailwindIndicator from "@/components/layout/tailwind-indictor.astro"
-import TheNet from "@/components/layout/the-net.astro"
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils/cn"
 import type { RootLayoutProps } from "./_root.types"
 import type { HTMLAttributes } from "astro/types"
 
@@ -16,7 +10,7 @@ type Props = HTMLAttributes<"body"> & RootLayoutProps
 
 const url = new URL(Astro.request.url)
 const host = `${url.protocol}//${url.host}`
-const { title, description, image, canonical, class: className, ...props } = Astro.props
+const { title, description, image, canonical, article, ...props } = Astro.props
 ---
 
 <!doctype html>
@@ -35,9 +29,9 @@ const { title, description, image, canonical, class: className, ...props } = Ast
       canonical={canonical}
       openGraph={{
         basic: {
-          url: host,
+          url: Astro.request.url,
           title,
-          type: "website",
+          type: article ? "article" : "website",
           image: image?.url ?? `${host}/og.png`
         },
         optional: {
@@ -45,12 +39,18 @@ const { title, description, image, canonical, class: className, ...props } = Ast
           description: description ?? siteConfig.description,
           locale: "en_US"
         },
+        article: article
+          ? {
+              publishedTime: article.date,
+              authors: [siteConfig.author.name]
+            }
+          : undefined,
         image: image
       }}
       twitter={{
         creator: siteConfig.author.twitter,
         card: "summary_large_image",
-        site: siteConfig.handles.twitter,
+        site: siteConfig.handles.x,
         image: image?.url ?? `${host}/og.png`,
         title,
         description: description ?? siteConfig.description
@@ -66,9 +66,7 @@ const { title, description, image, canonical, class: className, ...props } = Ast
     <title>{title}</title>
   </head>
 
-  <body class={cn("antialiased", className)} {...props}>
+  <body {...props}>
     <slot />
-    {import.meta.env.DEV && <TailwindIndicator />}
-    <TheNet />
   </body>
 </html>

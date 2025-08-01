@@ -1,6 +1,11 @@
 ---
+import "@fontsource-variable/jetbrains-mono"
+import "@fontsource-variable/geist-mono"
+import "@/styles/globals.css"
 import Footer from "@/components/layout/footer.astro"
 import Header from "@/components/layout/header.astro"
+import TailwindIndicator from "@/components/layout/tailwind-indicator.astro"
+import TheNet from "@/components/layout/the-net.astro"
 import RootLayout from "./_root.astro"
 import type { RootLayoutProps } from "./_root.types"
 
@@ -10,7 +15,7 @@ const props = Astro.props
 ---
 
 <RootLayout
-  class="flex max-w-3xl flex-col gap-8 p-4 font-sans text-sm leading-6 sm:px-22 sm:py-8 sm:text-[13px]"
+  class="flex max-w-3xl flex-col gap-8 p-4 font-sans text-sm leading-6 antialiased sm:px-22 sm:py-8 sm:text-[13px]"
   {...props}
 >
   <Header title={props.title} />
@@ -18,4 +23,6 @@ const props = Astro.props
     <slot />
   </main>
   <Footer />
+  {import.meta.env.DEV && <TailwindIndicator />}
+  <TheNet />
 </RootLayout>
