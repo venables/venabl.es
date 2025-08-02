@@ -4,6 +4,17 @@
 
 <div class="relative mt-auto hidden p-1 sm:block">
   <div class="absolute right-0 bottom-0">
-    <a href="/">π</a>
+    <a href="/" id="the-net">π</a>
   </div>
 </div>
+
+<script is:inline>
+  const elements = document.querySelector("a#the-net")
+
+  elements.addEventListener("click", (e) => {
+    // if (e.ctrlKey && e.shiftKey) {
+    e.preventDefault()
+    document.documentElement.classList.toggle("the-net")
+    // }
+  })
+</script>

@@ -15,6 +15,13 @@
   --border: var(--accent); /* oklch(0.92 0.004 286.32); */
   --muted: hsl(240 4.8% 95.9%);
   --muted-foreground: hsl(240 3.8% 46.1%);
+
+  /* the-net */
+  --dark-color: #191f1d;
+  --mid-dark: #555a57;
+  --noise-texture: url(/images/the-net/noise.png);
+  --gif-texture: url(/images/the-net/static.gif);
+  --main-transition: all 0.2s ease-in-out;
 }
 
 .dark {
@@ -28,6 +35,7 @@
 .party-mode.dark {
   --background: oklch(0.9234 0.0674 149.53); /* #C7F3CE */
   --foreground: oklch(0.1559 0.0053 145.31); /* #0b0d0b */
+  --muted-foreground: hsl(240 3.8% 46.1%);
 }
 
 @theme inline {
@@ -54,6 +62,84 @@
 
   .party-mode body {
     @apply transition-colors duration-250;
+  }
+
+  .the-net body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    height: 580px;
+    width: 960px;
+    background-image: linear-gradient(
+      150deg,
+      var(--dark-color) 60.2%,
+      var(--mid-dark) 60.28%,
+      var(--mid-dark) 60.7%,
+      var(--dark-color) 60.78%,
+      var(--dark-color) 61.4%,
+      var(--mid-dark) 61.48%,
+      var(--mid-dark) 62.6%,
+      var(--dark-color) 62.68%,
+      var(--dark-color) 63.4%,
+      var(--mid-dark) 63.48%,
+      var(--mid-dark) 64.6%,
+      var(--dark-color) 64.68%,
+      var(--dark-color) 65.4%,
+      var(--mid-dark) 65.48%,
+      var(--mid-dark) 67.4%,
+      var(--dark-color) 67.48%,
+      var(--dark-color) 68.4%,
+      var(--mid-dark) 68.48%,
+      var(--mid-dark) 71.4%,
+      var(--dark-color) 71.48%,
+      var(--dark-color) 72.4%,
+      var(--mid-dark) 72.48%,
+      var(--mid-dark) 76.4%,
+      var(--dark-color) 76.48%,
+      var(--dark-color) 77.4%,
+      var(--mid-dark) 77.48%,
+      var(--mid-dark) 81.4%,
+      var(--dark-color) 81.48%,
+      var(--dark-color) 82.4%,
+      var(--mid-dark) 82.48%,
+      var(--mid-dark) 87.4%,
+      var(--dark-color) 87.48%
+    );
+    box-sizing: border-box;
+    /*   scale:2; */
+    animation: spawn 2s ease-in-out forwards;
+  }
+
+  .the-net body:before {
+    content: "";
+    display: flex;
+    position: absolute;
+    background-image: var(--noise-texture);
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .the-net body:after {
+    content: "";
+    display: flex;
+    position: absolute;
+    background-image: var(--gif-texture);
+    height: 100%;
+    width: 100%;
+    translate: 0px 0px;
+    background-repeat: no-repeat;
+    background-position-y: -20px;
+    background-size: cover;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 64%;
+    z-index: 3;
+  }
+  .the-net img {
+    @apply invert;
   }
 
   a.link {
