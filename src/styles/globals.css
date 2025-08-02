@@ -5,11 +5,12 @@
 @source "../";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant party-mode (&:is(.party-mode *));
 
 :root {
   --background: oklch(0.9768 0.0045 78.3); /* #F9F7F4 */
   --foreground: oklch(0.1559 0.0053 145.31); /* #0b0d0b */
-  --accent: oklch(0.9485 0.2077 117.5); /* #e4ff34 */ /* oklch(0.6527 0.2038 29.01); /* #f34e3f */
+  --accent: oklch(0.9485 0.2077 117.5); /* #e4ff34 */
   --accent-foreground: oklch(0.9905 0.0162 142.56); /* #f6fff5 */
   --border: var(--accent); /* oklch(0.92 0.004 286.32); */
   --muted: hsl(240 4.8% 95.9%);
@@ -19,11 +20,14 @@
 .dark {
   --background: oklch(0.1559 0.0053 145.31); /* #0b0d0b */
   --foreground: oklch(0.9905 0.0162 142.56); /* #f6fff5 */
-  /* --accent: hsl(240 3.7% 15.9%);
-  --accent-foreground: hsl(0 0% 98%);
-  --border: hsl(240 3.7% 15.9%); */
   --muted: hsl(240 3.7% 15.9%);
   --muted-foreground: hsl(240 5% 64.9%);
+}
+
+.party-mode,
+.party-mode.dark {
+  --background: oklch(0.9234 0.0674 149.53); /* #C7F3CE */
+  --foreground: oklch(0.1559 0.0053 145.31); /* #0b0d0b */
 }
 
 @theme inline {
@@ -37,37 +41,19 @@
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-link: var(--link);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .party-mode body {
+    @apply transition-colors duration-250;
   }
 
   a.link {

@@ -1,5 +1,4 @@
 ---
-import { CopyIcon } from "@lucide/astro"
 import ThemeToggle from "@/components/layout/theme-toggle.astro"
 import { siteConfig } from "@/config/site"
 
@@ -51,6 +50,3 @@ const sha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "e71ec5571df242790b1
   </div>
 </footer>
 
-<script is:inline>
-  document.getElementById("footer-year").innerText = new Date().getFullYear()
-</script>
