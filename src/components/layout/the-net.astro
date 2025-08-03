@@ -1,20 +1,16 @@
 ---
-// ctrl+shift+click
+
 ---
 
-<div class="relative mt-auto hidden p-1 sm:block">
-  <div class="absolute right-0 bottom-0">
-    <a href="/" id="the-net">π</a>
-  </div>
+<div class="fixed right-2 bottom-1">
+  <a href="/" id="the-net">π</a>
 </div>
 
 <script is:inline>
   const elements = document.querySelector("a#the-net")
 
   elements.addEventListener("click", (e) => {
-    // if (e.ctrlKey && e.shiftKey) {
     e.preventDefault()
     document.documentElement.classList.toggle("the-net")
-    // }
   })
 </script>

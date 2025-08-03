@@ -14,15 +14,14 @@ type Props = RootLayoutProps
 const props = Astro.props
 ---
 
-<RootLayout
-  class="flex max-w-3xl flex-col gap-8 p-4 font-sans text-sm leading-6 antialiased sm:px-22 sm:py-8 sm:text-[13px]"
-  {...props}
->
-  <Header title={props.title} />
-  <main class="flex grow flex-col gap-12">
-    <slot />
-  </main>
-  <Footer />
+<RootLayout class="min-h-screen font-sans text-sm leading-6 antialiased sm:text-[13px]" {...props}>
+  <div class="flex min-h-screen max-w-3xl flex-col gap-8 p-4 sm:px-22 sm:py-8">
+    <Header title={props.title} />
+    <main class="flex grow flex-col gap-12">
+      <slot />
+    </main>
+    <Footer />
+  </div>
   {import.meta.env.DEV && <TailwindIndicator />}
   <TheNet />
 </RootLayout>

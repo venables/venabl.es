@@ -1,11 +1,12 @@
 @import "tailwindcss";
-@plugin 'tailwindcss-animate';
+@import "tw-animate-css";
 @plugin '@tailwindcss/typography';
 @import "./fonts.css";
 @source "../";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant party-mode (&:is(.party-mode *));
+@custom-variant the-net (&:is(.the-net *));
 
 :root {
   --background: oklch(0.9768 0.0045 78.3); /* #F9F7F4 */
@@ -38,6 +39,13 @@
   --muted-foreground: hsl(240 3.8% 46.1%);
 }
 
+.the-net,
+.the-net.dark {
+  --background: oklch(0.1559 0.0053 145.31); /* #0b0d0b */
+  --foreground: oklch(0.9905 0.0162 142.56); /* #f6fff5 */
+  --muted-foreground: oklch(0.9485 0.2077 117.5); /* #e4ff34 */
+}
+
 @theme inline {
   --font-sans: "Geist Mono Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
@@ -56,8 +64,13 @@
     @apply border-border;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-full;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground;
   }
 
   .party-mode body {
@@ -68,8 +81,8 @@
     margin: 0;
     padding: 0;
     display: grid;
-    height: 580px;
-    width: 960px;
+    height: 100%;
+    width: 100%;
     background-image: linear-gradient(
       150deg,
       var(--dark-color) 60.2%,
@@ -106,14 +119,13 @@
       var(--dark-color) 87.48%
     );
     box-sizing: border-box;
-    /*   scale:2; */
     animation: spawn 2s ease-in-out forwards;
   }
 
   .the-net body:before {
     content: "";
     display: flex;
-    position: absolute;
+    position: fixed;
     background-image: var(--noise-texture);
     height: 100%;
     width: 100%;
@@ -125,7 +137,7 @@
   .the-net body:after {
     content: "";
     display: flex;
-    position: absolute;
+    position: fixed;
     background-image: var(--gif-texture);
     height: 100%;
     width: 100%;
@@ -138,6 +150,7 @@
     opacity: 64%;
     z-index: 3;
   }
+
   .the-net img {
     @apply invert;
   }

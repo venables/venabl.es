@@ -26,9 +26,15 @@ export default tseslint.config(
   ...astro.configs["jsx-a11y-strict"],
   {
     languageOptions: {
-      parserOptions: { project: true, tsconfigRootDir: __dirname }
+      parserOptions: { project: true, tsconfigRootDir: __dirname, warnOnUnsupportedTypeScriptVersion: false }
     },
-    settings: { "import-x/resolver-next": [createTypeScriptImportResolver()] },
+    settings: {
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          bun: true
+        })
+      ]
+    },
     rules: {
       "import-x/consistent-type-specifier-style": ["warn", "prefer-top-level"],
       "import-x/no-unresolved": ["error", { ignore: ["\\?url$", "^astro(:\\w+)?$"] }], // Allow imports with ?url
